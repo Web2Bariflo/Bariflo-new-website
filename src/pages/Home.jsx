@@ -9,13 +9,16 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import TeamSection from '../components/home/TeamSection'
 import AquacultureAI from '../components/home/AquacultureAI'
 import Navbar from '../components/Navbar'
-
+import ExNav from '../components/ExNav'
+import ExHero from '../components/ExHero'
 
 function Home() {
   return (
     <ParallaxProvider>
-        <Navbar/>
-        <Hero/>
+      <ExNav/>
+      <ExHero/>
+        {/* <Navbar/>
+        <Hero/> */}
         <GridBox/>
         <OurGoal/>
         <ParallaxMultiImageBanner/>
