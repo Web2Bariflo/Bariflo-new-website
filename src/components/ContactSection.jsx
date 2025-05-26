@@ -65,7 +65,7 @@ const Content = styled.div`
   }
 
   p {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 24px;
     font-weight: 400;
     font-family: "Open Sans", sans-serif;

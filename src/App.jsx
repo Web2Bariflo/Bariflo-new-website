@@ -12,7 +12,6 @@ function AppWrapper() {
 
   return (
     <>
-      <Navbar transparent={isHome} />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

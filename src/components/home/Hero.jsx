@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import Navbar from '../Navbar';
 
 const HeroContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  z-index: -1;
 `;
 
 const VideoBackground = styled.video`
@@ -69,7 +71,7 @@ const Hero = () => {
       <Overlay />
       <HeroContent>
         <h1>Industrializing Aqua Culture ...</h1>
-        <p>Develop sustainable technology for aquaculture farming...</p>
+        <p>Developing sustainable technology for aquaculture farming...</p>
       </HeroContent>
     </HeroContainer>
   );

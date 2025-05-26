@@ -14,7 +14,7 @@ const Nav = styled.div.withConfig({
   font-size: 1rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1;
   box-shadow: ${({ isScrolled }) =>
     isScrolled ? "0 2px 8px rgba(0,0,0,0.1)" : "none"};
 `;
@@ -154,7 +154,7 @@ const MobileMenu = styled.ul`
   }
 `;
 
-const Navbar = ({ transparent = false }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
