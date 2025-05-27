@@ -1,31 +1,29 @@
-import React from 'react'
-import Hero from '../components/home/Hero'
-import GridBox from '../components/home/GridBox'
-import OurGoal from '../components/home/OurGoal'
-import ImageSlider from '../components/home/TeamSection'
-import Collaborators from '../components/home/Collaborators'
-import ParallaxMultiImageBanner from '../components/home/ParallaxMultiImageBanner '
-import { ParallaxProvider } from 'react-scroll-parallax';
-import TeamSection from '../components/home/TeamSection'
-import AquacultureAI from '../components/home/AquacultureAI'
-import Navbar from '../components/Navbar'
-import ExNav from '../components/ExNav'
-import ExHero from '../components/ExHero'
+import React from "react";
+import Hero from "../components/home/Hero";
+import GridBox from "../components/home/GridBox";
+import OurGoal from "../components/home/OurGoal";
+import Collaborators from "../components/home/Collaborators";
+import ParallaxMultiImageBanner from "../components/home/ParallaxMultiImageBanner ";
+import { ParallaxProvider } from "react-scroll-parallax";
+import TeamSection from "../components/home/TeamSection";
+import AquacultureAI from "../components/home/AquacultureAI";
+import Navbar from "../components/Navbar";
+import ContactSection from "../components/ContactSection";
 
 function Home() {
   return (
     <ParallaxProvider>
-      <ExNav/>
-      <ExHero/>
-        {/* <Navbar/>
-        <Hero/> */}
-        <GridBox/>
-        <OurGoal/>
-        <ParallaxMultiImageBanner/>
-        <TeamSection/>
-        <Collaborators/>
+      <Navbar />
+      <Hero />
+      <GridBox />
+      {/* <AquacultureAI/> */}
+      <OurGoal/>
+      <ParallaxMultiImageBanner />
+      <TeamSection/>
+      <Collaborators />
+      <ContactSection />
     </ParallaxProvider>
-  )
+  );
 }
 
-export default Home
+export default Home;

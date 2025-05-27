@@ -37,7 +37,6 @@ const Column = styled.div`
   @media (max-width: 768px) {
     flex: 1 1 100%;
     margin-bottom: 30px;
-    text-align: center;
   }
 
   p {

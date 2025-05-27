@@ -1,148 +1,99 @@
-import React from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
+import styled from "styled-components";
 
-const Wrapper = styled.div`
-  font-family: 'Segoe UI', sans-serif;
-  background-color: white;
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const ContentRow = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  max-width: 1100px;
-  width: 100%;
-  gap: 20px;
-  margin-bottom: 40px;
-`;
-
-const LeftText = styled.div`
-  font-size: 18px;
-  line-height: 1.6;
-  color: #007c9e;
-  font-weight: 500;
-`;
-
-const GridWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border: 5px solid #ccc;
-`;
-
-const GridItem = styled.div`
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  padding: 20px;
-  font-size: 14px;
-
-  &:nth-child(2),
-  &:nth-child(4) {
-    border-right: none;
-  }
-
-  &:nth-child(3),
-  &:nth-child(4) {
-    border-bottom: none;
-  }
-
-  h3 {
-    color: #007c9e;
-    font-weight: 600;
-    font-size: 13px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 13px;
-    color: #333;
-    line-height: 1.4;
-  }
-`;
-
-const Divider = styled.div`
-  width: 100%;
-  max-width: 1100px;
-  height: 5px;
-  background-color: #ccc;
-  margin: 40px 0;
-`;
-
-const FooterRow = styled.div`
-  max-width: 1100px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  flex-wrap: wrap;
-`;
-
-const FooterItem = styled.div`
-  flex: 1;
-  min-width: 250px;
-  padding: 10px;
-
-  .label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #444;
-    margin-bottom: 6px;
-  }
-
-  .desc {
-    font-size: 13px;
-    color: #666;
-  }
-`;
-
-const AquacultureAI = () => {
-  return (
-    <Wrapper>
-      <ContentRow>
-        <LeftText>
-          Transforming Aquaculture with AI-Driven Automation and Sustainable Intelligence
-        </LeftText>
-
-        <GridWrapper>
-          <GridItem>
-            <h3># END-TO-END FARM AUTOMATION</h3>
-            <p>Seamlessly manage feeding, aeration, power, and sensor systems — all from a unified platform.</p>
-          </GridItem>
-          <GridItem>
-            <h3># AI-POWERED DECISION MAKING</h3>
-            <p>Leverage real-time data analytics to optimize production and reduce risk with precision.</p>
-          </GridItem>
-          <GridItem>
-            <h3>#SMART WATER & HEALTH MONITORING</h3>
-            <p>Instant insights from real-time water sampling and AI-based disease detection keep your farm healthy.</p>
-          </GridItem>
-          <GridItem>
-            <h3># SUSTAINABLE & LOW-EMISSION OPERATIONS</h3>
-            <p>Built to reduce GHG emissions and resource waste — for a cleaner, more profitable future.</p>
-          </GridItem>
-        </GridWrapper>
-      </ContentRow>
-
-      <Divider />
-
-      <FooterRow>
-        <FooterItem>
-          <div className="label">SEGMENT</div>
-          <div className="desc">CleanTech, AgriTech</div>
-        </FooterItem>
-        <FooterItem>
-          <div className="label">TECHNOLOGY</div>
-          <div className="desc">Software/AI/Blockchain/IoT + Hardware (Robotics, Manufacturing)</div>
-        </FooterItem>
-        <FooterItem>
-          <div className="label">INTELLECTUAL PROPERTY</div>
-          <div className="desc">42 Patents Filed, 28 Are Granted, 9 Published</div>
-        </FooterItem>
-      </FooterRow>
-    </Wrapper>
-  );
+const images = {
+  "Open Aqua culture":
+    "https://cdn.pixabay.com/photo/2020/03/29/06/34/clouds-4979558_960_720.jpg",
+  "Indoor Aqua Culture":
+    "https://cdn.pixabay.com/photo/2015/01/06/08/02/sky-589982_960_720.jpg",
+  "Land based Aqua culture":
+    "https://cdn.pixabay.com/photo/2016/09/11/10/44/sunset-1661088_960_720.jpg",
+  "Aqua Culture Intelligence":
+    "https://cdn.pixabay.com/photo/2023/09/29/10/20/sunset-8283538_1280.jpg",
 };
 
-export default AquacultureAI;
+const categories = Object.keys(images);
+
+// Styled components for layout
+const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+`;
+
+const LeftPane = styled.div`
+  flex: 0.9;
+  height: 100%;
+`;
+
+const RightPane = styled.div`
+  flex: 0.1;
+  // background: rgba(22, 184, 184, 0.85);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  z-index: 10;
+`;
+
+const Tab = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: black;
+  border-bottom: 2px solid black;
+  user-select: none;
+  white-space: nowrap;
+
+  transform: rotate(-90deg);
+  transform-origin: center;
+`;
+
+export default function AquaCultureSlider() {
+  const [selected, setSelected] = useState(categories[0]);
+
+  return (
+    <ParallaxProvider>
+      <Wrapper>
+        <LeftPane>
+          <ParallaxBanner
+            layers={[
+              {
+                image: images[selected],
+                speed: -20,
+              },
+            ]}
+            style={{ height: "100%" }}
+          />
+        </LeftPane>
+
+        <RightPane>
+          <AnimatePresence mode="wait">
+            {categories.map((category) => (
+              <Tab
+                key={category}
+                active={selected === category}
+                onClick={() => setSelected(category)}
+                initial={{ opacity: 0.6, rotate: -90 }}
+                animate={{
+                  opacity: selected === category ? 1 : 0.6,
+                  rotate: -90,
+                }}
+                exit={{ opacity: 0.6, rotate: -90 }}
+                transition={{ duration: 0.3 }}
+              >
+                {category}
+              </Tab>
+            ))}
+          </AnimatePresence>
+        </RightPane>
+      </Wrapper>
+    </ParallaxProvider>
+  );
+}

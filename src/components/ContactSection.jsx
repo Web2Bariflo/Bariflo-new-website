@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Parallax } from "react-scroll-parallax";
 
 const Section = styled.section`
   position: relative;
@@ -105,25 +106,26 @@ const Content = styled.div`
   }
 `;
 
-
 const ContactSection = () => {
   return (
-    <Section>
-      <Wave>
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-          <path d="M0.00,49.98 C150.00,150.00 349.95,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"></path>
-        </svg>
-      </Wave>
+    <Parallax speed={-5}>
+      <Section>
+        <Wave>
+          <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+            <path d="M0.00,49.98 C150.00,150.00 349.95,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"></path>
+          </svg>
+        </Wave>
 
-      <Content>
-        <h2>READY TO LEARN MORE ?</h2>
-        <p>
-          Contact Us Today To Find Out How Our Aquaculture And Prawn Tracking
-          Experts Can Help With Your Next Project
-        </p>
-        <a href="#contact">CONTACT US</a>
-      </Content>
-    </Section>
+        <Content>
+          <h2>READY TO LEARN MORE ?</h2>
+          <p>
+            Contact Us Today To Find Out How Our Aquaculture And Prawn Tracking
+            Experts Can Help With Your Next Project
+          </p>
+          <a href="#contact">CONTACT US</a>
+        </Content>
+      </Section>
+    </Parallax>
   );
 };
 

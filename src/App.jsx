@@ -15,7 +15,6 @@ function AppWrapper() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-      <ContactSection/>
       <Footer />
     </>
   );

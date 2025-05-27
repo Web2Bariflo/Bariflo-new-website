@@ -1,76 +1,101 @@
-import ReactPlayer from "react-player";
-import { FaYoutube } from "react-icons/fa6";
+import styled from "styled-components";
 
 const TeamSection = () => {
   return (
-    <div style={styles.container}>
-      <div style={styles.textContainer}>
-        <p style={styles.description}>
+    <SectionContainer>
+      <TextContainer>
+        <Description>
           Bariflo Cybernetics, an Industry 4.0 startup, specializes in water
-          body management using fluid dynamics <br/>
-          We provide smart aquaculture
-          equipment, robotics, and IoT-based farm automation for efficient,
-          climate-resilient shrimp farming.{" "}
-        </p>
-      </div>
-      <div style={styles.buttonGroup}>
+          body management using fluid dynamics.
+          <br />
+          We provide smart aquaculture equipment, robotics, and IoT-based farm
+          automation for efficient, climate-resilient shrimp farming.
+        </Description>
+      </TextContainer>
+      <ButtonGroup>
         <h2>Get to know us</h2>
-        <button  style={styles.button}>Meet our management Team</button>
-      </div>
-    </div>
+        <StyledButton>Meet our management Team</StyledButton>
+      </ButtonGroup>
+    </SectionContainer>
   );
 };
 
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: "200px", // Adjust padding to suit layout
-    backgroundColor: "#f9f9f9",
-    flexWrap: "wrap",
-    boxShadow: "inset 0 -10px 15px rgba(0, 0, 0, 0.1)", // Inner bottom shadow
-  },
-  textContainer: {
-    flex: 1,
-    maxWidth: "50%",
-    paddingRight: "20px",
-    minWidth: "300px",
-  },
+const SectionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 200px;
+  background-color: #f9f9f9;
+  flex-wrap: wrap;
+  // box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.1);
 
-  description: {
-    fontSize: "20px",
-    margin: "50px 0",
-      lineHeight: "2rem",
-  },
-  link: {
-    fontSize: "24px",
-    marginBottom: "0px",
-    fontWeight: "bold",
-  },
-  buttonGroup: {
-    flex: 1,
-    maxWidth: "50%",
-    paddingLeft: "200px",
-    minWidth: "300px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",  // Vertically center
-    alignItems: "flex-start",  // Align items within column
-  },
-  button: {
-    backgroundColor: "#00b3e6",
-    color: "#fff",
-    padding: "10px 20px",
-    border: "none",
-    borderRadius: "6px",
-    fontSize: "16px",
-    fontWeight: "bold",
-    cursor: "pointer",
-    marginTop: "10px",
-    transition: "background 0.3s ease",
-  },
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 40px;
+  }
+`;
 
-};
+const TextContainer = styled.div`
+  flex: 1;
+  max-width: 50%;
+  padding-right: 20px;
+  min-width: 300px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding-right: 0;
+  }
+`;
+
+const Description = styled.p`
+  font-size: 20px;
+  margin: 50px 0;
+  line-height: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin: 20px 0;
+    line-height: 1.5rem;
+  }
+`;
+
+const ButtonGroup = styled.div`
+  flex: 1;
+  max-width: 50%;
+  padding-left: 200px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+`;
+
+const StyledButton = styled.button`
+  background-color: #00b3e6;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background-color: #009ec9;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+`;
 
 export default TeamSection;

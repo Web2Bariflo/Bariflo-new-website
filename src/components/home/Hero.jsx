@@ -1,28 +1,12 @@
-import styled from 'styled-components';
-import Navbar from '../Navbar';
+import Typewriter from "typewriter-effect";
+import styled from "styled-components";
+import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
 
-const HeroContainer = styled.div`
-  position: relative;
-  width: 100%;
+// Styled Components
+const HeroWrapper = styled.section`
   height: 100vh;
+  position: relative;
   overflow: hidden;
-  z-index: -1;
-`;
-
-const VideoBackground = styled.video`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* dark overlay */
-  top: 0;
-  left: 0;
-  z-index: 1;
 `;
 
 const HeroContent = styled.div`
@@ -34,17 +18,10 @@ const HeroContent = styled.div`
   z-index: 2;
 
   h1 {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 700;
-    margin-bottom: 16px;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  }
-
-  p {
-    font-size: 20px;
-    font-weight: 400;
-    max-width: 500px;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
   }
 
   @media (max-width: 768px) {
@@ -54,27 +31,86 @@ const HeroContent = styled.div`
     h1 {
       font-size: 28px;
     }
-
-    p {
-      font-size: 16px;
-    }
   }
 `;
 
-const Hero = () => {
-  return (
-    <HeroContainer>
-      <VideoBackground autoPlay loop muted>
-        <source src="/web-vdo3.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </VideoBackground>
-      <Overlay />
-      <HeroContent>
-        <h1>Industrializing Aqua Culture ...</h1>
-        <p>Developing sustainable technology for aquaculture farming...</p>
-      </HeroContent>
-    </HeroContainer>
-  );
-};
+const TextLoop = styled.div`
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  gap: 12px;
 
-export default Hero;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+export default function Hero() {
+  return (
+    <ParallaxProvider>
+      <HeroWrapper>
+        <ParallaxBanner
+          layers={[
+            {
+              speed: -20,
+              children: (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                >
+                  <source src="/web-vdo3.mp4" type="video/mp4" />
+                </video>
+              ),
+            },
+            {
+              speed: 0,
+              children: (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    background: "rgba(0, 0, 0, 0.4)",
+                    zIndex: 1,
+                  }}
+                />
+              ),
+            },
+          ]}
+          style={{
+            height: "100vh",
+            position: "relative",
+          }}
+        >
+          <HeroContent>
+            <h1>Industrializing Aqua Culture ...</h1>
+            <TextLoop>
+              Developing{" "}
+              <span>
+                <Typewriter
+                  options={{
+                    strings: [
+                      "sustainable technology for aquaculture",
+                      "Robotics AI in aquaculture",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
+              </span>
+            </TextLoop>
+          </HeroContent>
+        </ParallaxBanner>
+      </HeroWrapper>
+    </ParallaxProvider>
+  );
+}

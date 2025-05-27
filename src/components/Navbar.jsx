@@ -1,22 +1,20 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { MenuRounded } from "@mui/icons-material";
 
-const Nav = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== "isScrolled",
-})`
-  background-color: white;
-  transition: background-color 0.3s ease;
-  height: 100px;
+const Nav = styled.nav`
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  box-shadow: ${({ isScrolled }) =>
-    isScrolled ? "0 2px 8px rgba(0,0,0,0.1)" : "none"};
+  width: 100%;
+  padding: 20px 40px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  background-color: ${({ scrolled }) => (scrolled ? '#fff' : 'transparent')};
+  color: ${({ scrolled }) => (scrolled ? 'black' : 'white')};
 `;
 
 const NavbarContainer = styled.div`
@@ -64,7 +62,7 @@ const NavItems = styled.ul`
 const NavLink = styled.a`
   position: relative;
   font-weight: 500;
-  color: black;
+  color:  ${({ scrolled }) => (scrolled ? 'black' : 'white')};
   cursor: pointer;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -154,49 +152,48 @@ const MobileMenu = styled.ul`
   }
 `;
 
-const Navbar = () => {
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <Nav isScrolled={isScrolled}>
-      <NavbarContainer>
-        <Logo>
-          Bariflo <br />
-          <span>Cybernetics</span>
-        </Logo>
-        <MobileIcon onClick={() => setIsOpen(!isOpen)}>
-          <MenuRounded />
-        </MobileIcon>
-
-        <NavItems>
-          <NavLink href="#About">HOME</NavLink>
-          <NavLink href="#skills">PRODUCTS</NavLink>
-          <NavLink href="#Experience">NEWS</NavLink>
-          <NavLink href="#Education">CASE STUDIES</NavLink>
-          <NavLink href="#Project">CONTACT US</NavLink>
-          <MenuRounded />
-        </NavItems>
-
-        <MobileMenu isOpen={isOpen}>
-          <NavLink href="#About">About</NavLink>
-          <NavLink href="#skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
-          <NavLink href="#Project">Project</NavLink>
-          <NavLink href="#Education">Education</NavLink>
-        </MobileMenu>
-      </NavbarContainer>
+    <Nav scrolled={scrolled}>
+          <NavbarContainer>
+            <Logo>
+              Bariflo <br />
+              <span>Cybernetics</span>
+            </Logo>
+            <MobileIcon onClick={() => setIsOpen(!isOpen)}>
+              <MenuRounded />
+            </MobileIcon>
+    
+            <NavItems scrolled={scrolled}>
+              <NavLink scrolled={scrolled} href="#About">HOME</NavLink>
+              <NavLink  scrolled={scrolled} href="#skills">PRODUCTS</NavLink>
+              <NavLink scrolled={scrolled} href="#Experience">NEWS</NavLink>
+              <NavLink  scrolled={scrolled} href="#Education">CASE STUDIES</NavLink>
+              <NavLink  scrolled={scrolled} href="#Project">CONTACT US</NavLink>
+              <MenuRounded />
+            </NavItems>
+    
+            <MobileMenu isOpen={isOpen}>
+              <NavLink scrolled={scrolled} href="#About">About</NavLink>
+              <NavLink scrolled={scrolled} href="#skills">Skills</NavLink>
+              <NavLink scrolled={scrolled} href="#Experience">Experience</NavLink>
+              <NavLink scrolled={scrolled} href="#Project">Project</NavLink>
+              <NavLink scrolled={scrolled} href="#Education">Education</NavLink>
+            </MobileMenu>
+          </NavbarContainer>
     </Nav>
   );
-};
-
-export default Navbar;
+}
