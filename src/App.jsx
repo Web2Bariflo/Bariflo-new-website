@@ -1,10 +1,17 @@
 import "./index.css";
-import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import ContactSection from "./components/ContactSection";
-
+import FullNav from "./components/FullNav";
+import ContactUs from "./pages/ContactUs";
+import ManagementTeam from "./pages/ManagementTeam";
+import AquaInt from "./pages/AquaIntellegence/AquaInt";
+import IndoorAqua from "./pages/Indoor/IndoorAqua";
+import LandBasedAqua from "./pages/landbased/LandBasedAqua";
+import OutdoorAqua from "./pages/outdoor/OutdoorAqua";
+import CaseStudies from "./pages/CaseStudies";
+import Products from "./pages/Products";
+import News from "./pages/News";
 
 function AppWrapper() {
   const location = useLocation();
@@ -14,17 +21,25 @@ function AppWrapper() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/teamMember" element={<ManagementTeam/>} />
+        <Route path="/aquaIntelligence" element={<AquaInt/>} />
+        <Route path="/indoorAqua" element={<IndoorAqua/>} />
+        <Route path="/landBasedAqua" element={<LandBasedAqua/>} />
+        <Route path="/outdoorAqua" element={<OutdoorAqua/>} />
+        <Route path="/news" element={<News/>} />
+        <Route path="/prodcts" element={<Products/>} />
+        <Route path="/case-studies" element={<CaseStudies/>} />
       </Routes>
-      <Footer />
     </>
   );
 }
 
 function App() {
   return (
-      <BrowserRouter>        
-        <AppWrapper />
-      </BrowserRouter>
+    <BrowserRouter>
+      <AppWrapper />
+    </BrowserRouter>
   );
 }
 

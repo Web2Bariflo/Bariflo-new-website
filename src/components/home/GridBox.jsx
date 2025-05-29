@@ -60,7 +60,7 @@ const TopSection = styled.div`
 const LeftContent = styled.div`
   flex: 1;
   min-width: 250px;
-  color: #00b3e6;
+  color: #00bcd4;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.4;
@@ -121,7 +121,7 @@ const GridItem = styled.div`
 `;
 
 const HighlightTitle = styled.h4`
-  color: #00b3e6;
+  color: #00bcd4;
   font-size: 16px;
   margin-bottom: 10px;
 

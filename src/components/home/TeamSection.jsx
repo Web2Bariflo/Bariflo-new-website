@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const TeamSection = () => {
@@ -14,7 +15,9 @@ const TeamSection = () => {
       </TextContainer>
       <ButtonGroup>
         <h2>Get to know us</h2>
-        <StyledButton>Meet our management Team</StyledButton>
+        <StyledButton>
+          <Link to="/teamMember" style={{ textDecoration: 'none' , color: 'white'}}>Meet our management Team</Link>
+        </StyledButton>
       </ButtonGroup>
     </SectionContainer>
   );
@@ -77,7 +80,7 @@ const ButtonGroup = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #00b3e6;
+  background-color: #00bcd4;
   color: #fff;
   padding: 10px 20px;
   border: none;

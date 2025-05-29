@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Parallax } from "react-scroll-parallax";
 
 const Section = styled.section`
   position: relative;
@@ -108,7 +108,6 @@ const Content = styled.div`
 
 const ContactSection = () => {
   return (
-    <Parallax speed={-5}>
       <Section>
         <Wave>
           <svg viewBox="0 0 500 150" preserveAspectRatio="none">
@@ -122,10 +121,9 @@ const ContactSection = () => {
             Contact Us Today To Find Out How Our Aquaculture And Prawn Tracking
             Experts Can Help With Your Next Project
           </p>
-          <a href="#contact">CONTACT US</a>
+          <Link  to="/contactUs" style={{ textDecoration: 'none' }}>CONTACT US</Link>
         </Content>
       </Section>
-    </Parallax>
   );
 };
 

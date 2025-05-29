@@ -9,19 +9,21 @@ import TeamSection from "../components/home/TeamSection";
 import AquacultureAI from "../components/home/AquacultureAI";
 import Navbar from "../components/Navbar";
 import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
     <ParallaxProvider>
-      <Navbar />
+      <Navbar  textWhite/>
       <Hero />
       <GridBox />
-      {/* <AquacultureAI/> */}
+      <AquacultureAI/>
       <OurGoal/>
       <ParallaxMultiImageBanner />
       <TeamSection/>
       <Collaborators />
       <ContactSection />
+      <Footer/>
     </ParallaxProvider>
   );
 }

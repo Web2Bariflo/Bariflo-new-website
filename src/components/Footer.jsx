@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaLinkedin, FaYoutube, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const FooterContainer = styled.footer`
   background: url("/images/77707896-3e5e-422e-bf3b-ed36d4298ea0 7.png") left top repeat;
@@ -94,7 +95,7 @@ const Logo = styled.div`
   margin-bottom: 20px;
 
   @media (max-width: 768px) {
-    text-align: center;
+    font-size: 20px;
   }
 
   span {
@@ -179,11 +180,11 @@ const Footer = () => {
 
         <Column>
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><Link  to="/" style={{ textDecoration: 'none' }}>Home</Link></li>
             <li><a href="#">Products</a></li>
             <li><a href="#">News</a></li>
             <li><a href="#">Case Studies</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><Link  to="/contactUs" style={{ textDecoration: 'none' }}>Contact Us</Link></li>
           </ul>
         </Column>
       </FooterContent>
