@@ -162,7 +162,7 @@ const Footer = () => {
 
         <Column>
           <p>
-            With over 275 employees worldwide, Bariflo provides full-stack IoT
+            Bariflo provides full-stack IoT
             solutions for aqua farming and aquatic species research – including
             quality equipment, expert consulting services, and innovative platforms
             that deliver unmatched data, information, and insights.
