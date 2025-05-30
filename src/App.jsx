@@ -1,8 +1,6 @@
 import "./index.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
-import Footer from "./components/Footer";
-import FullNav from "./components/FullNav";
 import ContactUs from "./pages/ContactUs";
 import ManagementTeam from "./pages/ManagementTeam";
 import AquaInt from "./pages/AquaIntellegence/AquaInt";

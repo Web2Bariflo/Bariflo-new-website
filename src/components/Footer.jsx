@@ -1,10 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FaLinkedin, FaYoutube, FaXTwitter, FaInstagram } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import {
+  FaLinkedin,
+  FaYoutube,
+  FaXTwitter,
+  FaInstagram,
+} from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const FooterContainer = styled.footer`
-  background: url("/images/77707896-3e5e-422e-bf3b-ed36d4298ea0 7.png") left top repeat;
+  background: url("/images/77707896-3e5e-422e-bf3b-ed36d4298ea0 7.png") left top
+    repeat;
   background-color: #f7f7f7;
   padding: 100px 40px 60px;
   color: #333;
@@ -153,46 +159,75 @@ const Footer = () => {
           </Logo>
           <p>Follow Us On:</p>
           <SocialIcons>
-            <a href="#"><FaLinkedin /></a>
-            <a href="#"><FaXTwitter /></a>
-            <a href="#"><FaYoutube /></a>
-            <a href="#"><FaInstagram /></a>
+            <a href="#">
+              <FaLinkedin />
+            </a>
+            <a href="#">
+              <FaXTwitter />
+            </a>
+            <a href="#">
+              <FaYoutube />
+            </a>
+            <a href="#">
+              <FaInstagram />
+            </a>
           </SocialIcons>
         </Column>
 
         <Column>
           <p>
-            Bariflo provides full-stack IoT
-            solutions for aqua farming and aquatic species research – including
-            quality equipment, expert consulting services, and innovative platforms
-            that deliver unmatched data, information, and insights.
+            Bariflo provides full-stack IoT solutions for aqua farming and
+            aquatic species research including robotics and AI driven data
+            quality equipment, expert consulting services, and innovative
+            platforms that deliver unmatched data, information, and insights.
           </p>
         </Column>
 
         <Column>
           <ul>
-            <li><a href="#">Open Aqua Culture</a></li>
-            <li><a href="#">Indoor Culture</a></li>
-            <li><a href="#">Land Based Aqua Culture</a></li>
-            <li><a href="#">Aqua Culture Intelligence</a></li>
+            <li>
+              <a href="#">Open Aqua Culture</a>
+            </li>
+            <li>
+              <a href="#">Indoor Culture</a>
+            </li>
+            <li>
+              <a href="#">Land Based Aqua Culture</a>
+            </li>
+            <li>
+              <a href="#">Aqua Culture Intelligence</a>
+            </li>
           </ul>
         </Column>
 
         <Column>
           <ul>
-            <li><Link  to="/" style={{ textDecoration: 'none' }}>Home</Link></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Case Studies</a></li>
-            <li><Link  to="/contactUs" style={{ textDecoration: 'none' }}>Contact Us</Link></li>
+            <li>
+              <Link to="/" style={{ textDecoration: "none" }}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <a href="#">Products</a>
+            </li>
+            <li>
+              <a href="#">News</a>
+            </li>
+            <li>
+              <a href="#">Case Studies</a>
+            </li>
+            <li>
+              <Link to="/contactUs" style={{ textDecoration: "none" }}>
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </Column>
       </FooterContent>
 
       <BottomBar>
         Copyright © 2025 Bariflo Cybernetics. All Rights Reserved. |
-        <a href="#">Privacy Policy</a> |
-        <a href="#">Sitemap</a>
+        <a href="#">Privacy Policy</a> |<a href="#">Sitemap</a>
       </BottomBar>
     </FooterContainer>
   );
