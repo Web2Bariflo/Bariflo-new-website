@@ -250,7 +250,7 @@ const GridBox = () => {
       <TopSection>
         <LeftContent>
           Transforming Aquaculture through Robotics, AI, and IoT-Driven
-          Automation for Sustainable Innovation
+          Automation for Sustainable Farming
         </LeftContent>
 
         <Grid>
@@ -340,7 +340,7 @@ const GridBox = () => {
             <img src="/images/website images and icon-20250524T084126Z-1-001/image 66.png" />
           </IconWrapper>
           <InfoLabel>INTELLECTUAL PROPERTY</InfoLabel>
-          <InfoText>42 Patents Filed, 28 Pre-Granted,<br/> 9 Published</InfoText>
+          <InfoText>42 Patents Filed, 28 Granted,<br/> 14 Published</InfoText>
         </InfoBlock>
       </BottomSection>
     </Container>

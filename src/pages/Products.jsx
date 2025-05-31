@@ -27,8 +27,8 @@ const sections = [
     id: 3,
     text: "SMART CHECK TRAY AND PORTABLE FEEDER",
     subText:
-      "The feed distribution mechanism is the main component in an automatic feeder and distinguishes it from a feed dispenser. The feeders are xed in a rack on the tank or on the cage,but may also be included in a buoy.",
-    image: "/images/website images and icon-20250524T084126Z-1-001/ETP.png",
+      "The objective of this device is to monitor the daily, growth & feed conversion ratio. This device also helps in the observation of disease, growth assessment and behavioral observation of the species.",
+    image: "/images/website images and icon-20250524T084126Z-1-001/Automated feeder.png",
   },
   {
     id: 4,
@@ -36,6 +36,20 @@ const sections = [
     subText:
       "It's an Ai based system integrated with a Water Sampling Unit and different parameters Sensors such as DO, Ammonia, Nitrate, Nitrite, ORP, pH,temperature at various places at the water body along the sediment and column area interfaces the practical problems. ",
     image: "/images/website images and icon-20250524T084126Z-1-001/Group 37 (1).png",
+  },
+    {
+    id: 5,
+    text: "POWER AND ENERGY MONITORING",
+    subText:
+      "Integrated energy monitoring & aerators dashboard could enhance the management of energy usage speciﬁc to aeration processes, potentially optimizing energy efﬁciency and reducing costs",
+    image: "/images/website images and icon-20250524T084126Z-1-001/pm.png",
+  },
+    {
+    id: 6,
+    text: "LoRa GATEWAY",
+    subText:
+      "It’s a WiFi technology combines with low-power, long-range capabilities of WAN with the reliable, high-bandwidth connectivity of WiFi Mesh to provide a scalable IoT solution for applications.",
+    image: "/images/website images and icon-20250524T084126Z-1-001/Lora box.jpg.png",
   },
 ];
 

@@ -58,10 +58,17 @@ const RightContent = styled.div`
   }
 
   h2 {
-    font-size: 40px;
-    font-weight: 800;
+    font-size: 36px;
+    font-weight: 500;
     line-height: 1.2;
     color: #0a0a0a;
+    margin-bottom: 20px;
+  }
+    h5 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #333;
     margin-bottom: 20px;
   }
 
@@ -124,7 +131,6 @@ const ScrollSections = ({ sections }) => {
             <MobileImage src={section.image} alt={`Image ${index}`} />
             <MobileText>
               <h2>{section.text}</h2>
-              <h1>hiiiiii</h1>
               <h5>{section.subText}</h5>
               <p>Section #{section.id}</p>
             </MobileText>

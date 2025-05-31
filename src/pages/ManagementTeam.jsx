@@ -122,7 +122,7 @@ const ManagementTeam = () => {
       name: "Michelle Dunlop",
       title: "Chief Operating Officer",
       role: "COO",
-      image: "public/images/michele.jpg",
+      image: "/images/michele.jpg",
     },
     {
       name: "Sunit Rout",
