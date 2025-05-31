@@ -93,21 +93,21 @@ export default function Hero() {
         >
           <HeroContent>
             <h1>Industrializing Aqua Culture ...</h1>
-            <TextLoop>
-              Developing{" "}
-              <span>
-                <Typewriter
-                  options={{
-                    strings: [
-                      "sustainable technology for aquaculture",
-                      "Robotics AI in aquaculture",
-                    ],
-                    autoStart: true,
-                    loop: true,
-                  }}
-                />
-              </span>
-            </TextLoop>
+ <TextLoop>
+  Innovation in{" "}
+  <span>
+    <Typewriter
+      options={{
+        strings: [
+          "AI-driven aquaculture systems",
+          "Robotics and IoT for smart farming"
+        ],
+        autoStart: true,
+        loop: true,
+      }}
+    />
+  </span>
+</TextLoop>
           </HeroContent>
         </ParallaxBanner>
       </HeroWrapper>

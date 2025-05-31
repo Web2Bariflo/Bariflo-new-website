@@ -14,6 +14,7 @@ const Container = styled.div`
   background: url("/images/77707896-3e5e-422e-bf3b-ed36d4298ea0 7.png") repeat;
   animation: scrollBackground 60s linear infinite;
   backdrop-filter: blur(10px);
+  margin: 50px 0px;
 
   &::before {
     content: "";
@@ -46,7 +47,7 @@ const TopSection = styled.div`
   width: 100%;
   justify-content: space-between;
   gap: 40px;
-  padding: 50px;
+  padding: 25px;
   margin-bottom: 60px;
   border-bottom: 3px solid #4c4c4c;
   border-right: 3px solid #4c4c4c;
@@ -136,18 +137,12 @@ const BottomSection = styled.div`
   justify-content: space-around;
   margin-top: 40px;
   width: 60%;
+  gap: 10rem;
 
   @media (max-width: 768px) {
     width: 100%;
+    gap: 2rem;
   }
-`;
-
-const InfoBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 20px;
 `;
 
 const Icon = styled.div`
@@ -170,21 +165,31 @@ const Icon = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  font-size: 28px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
-  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   img {
-    width: 70px;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 
   @media (max-width: 768px) {
-    img {
-      width: 40px;
-    }
+    width: 50px;
+    height: 50px;
   }
 `;
+
 
 const InfoLabel = styled.h5`
   font-weight: bold;
@@ -193,6 +198,10 @@ const InfoLabel = styled.h5`
 
   @media (max-width: 768px) {
     font-size: 14px;
+  }
+
+  &:hover {
+    color: #00bcd4;
   }
 `;
 
@@ -203,106 +212,138 @@ const InfoText = styled.p`
   @media (max-width: 768px) {
     font-size: 13px;
   }
+      &:hover {
+    color: #00bcd4;
+  }
 `;
+
+const InfoBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 160px;
+  flex: 1;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:hover ${IconWrapper} {
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+  }
+
+  &:hover ${InfoLabel},
+  &:hover ${InfoText} {
+    color: #00bcd4;
+  }
+`;
+
 
 const GridBox = () => {
   return (
     // <Parallax speed={-5}>
-      <Container>
-        <TopSection>
-          <LeftContent>
-            Transforming Aquaculture with AI-Driven Automation and Sustainable
-            Intelligence
-          </LeftContent>
+    <Container>
+      <TopSection>
+        <LeftContent>
+          Transforming Aquaculture through Robotics, AI, and IoT-Driven
+          Automation for Sustainable Innovation
+        </LeftContent>
 
-          <Grid>
-            <GridItem>
-              <Icon>
-                <img
-                  src="/images/website images and icon-20250524T084126Z-1-001/image 61.png"
-                  alt="Icon"
-                />
-              </Icon>
-              <HighlightTitle># END-TO-END FARM AUTOMATION</HighlightTitle>
-              Seamlessly manage feeding, aeration, power, and sensor systems all
-              from a unified platform.
-            </GridItem>
+        <Grid>
+          <GridItem>
+            <Icon>
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/image 61.png"
+                alt="Icon"
+              />
+            </Icon>
+            <HighlightTitle>
+              # END-TO-END <br /> PROCESSING <br/>AUTOMATION
+            </HighlightTitle>
+            Hyperspectral imaging–based sorting automation in peeling to
+            packaging.
+          </GridItem>
+          <GridItem>
+            <Icon>
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/image 62.png"
+                alt="Icon"
+              />
+            </Icon>
+            <HighlightTitle>
+              # AI-POWERED <br />
+              DECISION MAKING
+            </HighlightTitle>
+            Leverage real-time data analytics to optimize production and reduce
+            risk with precision.
+          </GridItem>
 
-            <GridItem>
-              <Icon>
-                <img
-                  src="/images/website images and icon-20250524T084126Z-1-001/image 62.png"
-                  alt="Icon"
-                />
-              </Icon>
-              <HighlightTitle>
-                # AI-POWERED <br />
-                DECISION MAKING
-              </HighlightTitle>
-              Leverage real-time data analytics to optimize production and
-              reduce risk with precision.
-            </GridItem>
+          <GridItem>
+            <Icon>
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/image 63.png"
+                alt="Icon"
+              />
+            </Icon>
+            <HighlightTitle>
+              # INTELLIGENCE FROM <br />
+              FARM TO PROCESSING
+            </HighlightTitle>
+            Track vehicles, farm produce logistics, and inventory in real time
+            for seamless farm-to-processing operations.
+          </GridItem>
 
-            <GridItem>
-              <Icon>
-                <img
-                  src="/images/website images and icon-20250524T084126Z-1-001/image 63.png"
-                  alt="Icon"
-                />
-              </Icon>
-              <HighlightTitle>
-                # SMART WATER & <br />
-                HEALTH MONITORING
-              </HighlightTitle>
-              Instant insights from real-time water sampling and AI-based
-              disease detection keep your farm healthy.
-            </GridItem>
+          <GridItem>
+            <Icon>
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/image 64.png"
+                alt="Icon"
+              />
+            </Icon>
+            <HighlightTitle>
+              # CARBON & BLUE
+              <br />
+              CREDIT GENERATION
+            </HighlightTitle>
+            Enable low-emission operations that contribute to carbon and blue
+            credit markets.
+          </GridItem>
+        </Grid>
+      </TopSection>
 
-            <GridItem>
-              <Icon>
-                <img
-                  src="/images/website images and icon-20250524T084126Z-1-001/image 64.png"
-                  alt="Icon"
-                />
-              </Icon>
-              <HighlightTitle>
-                # SUSTAINABLE & <br />
-                LOW-EMISSION <br />
-                OPERATIONS
-              </HighlightTitle>
-              Built to reduce GHG emissions and resource waste—for a cleaner,
-              more profitable future.
-            </GridItem>
-          </Grid>
-        </TopSection>
+      <BottomSection>
+                <InfoBlock>
+          <IconWrapper>
+            <img src="/images/website images and icon-20250524T084126Z-1-001/image.png" />
+          </IconWrapper>
+          <InfoLabel>TECHNOLOGY</InfoLabel>
+          <InfoText>
+            Software/AI/Blockchain/IoT + Hardware <br />
+            (Robotics, Manufacturing)
+          </InfoText>
+        </InfoBlock>
 
-        <BottomSection>
-          <InfoBlock>
-            <IconWrapper>
-              <img src="/images/website images and icon-20250524T084126Z-1-001/image 65.png" />
-            </IconWrapper>
-            <InfoLabel>SEGMENT</InfoLabel>
-            <InfoText>CleanTech, AgriTech</InfoText>
-          </InfoBlock>
-          <InfoBlock>
-            <IconWrapper>
-              <img src="/images/website images and icon-20250524T084126Z-1-001/image.png" />
-            </IconWrapper>
-            <InfoLabel>TECHNOLOGY</InfoLabel>
-            <InfoText>
-              Software/AI/Blockchain/IoT + Hardware <br />
-              (Robotics, Manufacturing)
-            </InfoText>
-          </InfoBlock>
-          <InfoBlock>
-            <IconWrapper>
-              <img src="/images/website images and icon-20250524T084126Z-1-001/image 66.png" />
-            </IconWrapper>
-            <InfoLabel>INTELLECTUAL PROPERTY</InfoLabel>
-            <InfoText>42 Patents Filed, 28 Pre-Granted, 9 Published</InfoText>
-          </InfoBlock>
-        </BottomSection>
-      </Container>
+        <InfoBlock>
+          <IconWrapper>
+            <img src="/images/website images and icon-20250524T084126Z-1-001/image 65.png" />
+          </IconWrapper>
+          <InfoLabel>SEGMENT</InfoLabel>
+          <InfoText>CleanTech, AgriTech</InfoText>
+        </InfoBlock>
+
+        <InfoBlock>
+          <IconWrapper>
+            <img src="/images/website images and icon-20250524T084126Z-1-001/image 66.png" />
+          </IconWrapper>
+          <InfoLabel>INTELLECTUAL PROPERTY</InfoLabel>
+          <InfoText>42 Patents Filed, 28 Pre-Granted,<br/> 9 Published</InfoText>
+        </InfoBlock>
+      </BottomSection>
+    </Container>
     // </Parallax>
   );
 };

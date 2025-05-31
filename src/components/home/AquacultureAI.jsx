@@ -9,7 +9,7 @@ const images = {
   "Open Aqua culture": "/images/openAquaculture.png",
   "Indoor Aqua Culture": "/images/indoor.png",
   "Land based Aqua culture": "/images/bfc.png",
-  "Aqua Culture Intelligence": "public/images/aquaai.png",
+  "Aqua Culture Intelligence": "/images/aquaai.png",
 };
 
 // Text content per category

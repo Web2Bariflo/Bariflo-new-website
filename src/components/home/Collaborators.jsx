@@ -64,6 +64,18 @@ const logos = [
   '/images/website images and icon-20250524T084126Z-1-001/image 37.png',
   '/images/website images and icon-20250524T084126Z-1-001/image 38.png',
   '/images/website images and icon-20250524T084126Z-1-001/image 39.png',
+  '/images/website images and icon-20250524T084126Z-1-001/Institute_of_Minerals_and_Materials_Technology_Logo.png',
+  '/images/website images and icon-20250524T084126Z-1-001/indianoil_logo.jpg',
+  '/images/website images and icon-20250524T084126Z-1-001/nasscom.png',
+  '/images/website images and icon-20250524T084126Z-1-001/cii-cies.jpg',
+  '/images/website images and icon-20250524T084126Z-1-001/pmmsy-logo.png',
+  '/images/website images and icon-20250524T084126Z-1-001/Ministry-of-Agriculture-768x364.jpg',
+  '/images/website images and icon-20250524T084126Z-1-001/telecom.png',
+  '/images/website images and icon-20250524T084126Z-1-001/technology-development-board.png',
+  '/images/website images and icon-20250524T084126Z-1-001/magnum_group_of_companies_logo.jpeg',
+  '/images/website images and icon-20250524T084126Z-1-001/VENN.jpg',
+  '/images/website images and icon-20250524T084126Z-1-001/venturelab.jpg',
+  '/images/website images and icon-20250524T084126Z-1-001/opportunity.jpg',
 ];
 
 const Collaborators = () => {
