@@ -10,11 +10,13 @@ const scroll = keyframes`
 const SliderWrapper = styled.div`
   overflow: hidden;
   width: 100%;
-  padding: 20px 0;
-  h1{
-  text-align: center;
-  padding: 50px;
-     @media (max-width: 768px) {
+  padding: 20px 5vw; /* Padding for partial visibility */
+  
+  h1 {
+    text-align: center;
+    padding: 50px;
+    
+    @media (max-width: 768px) {
       font-size: 20px;
     }
   }
@@ -22,26 +24,26 @@ const SliderWrapper = styled.div`
 
 const SlideTrack = styled.div`
   display: flex;
-  width: calc(200px * 20 * 2); /* 20 logos repeated twice */
+  width: fit-content;
   animation: ${scroll} 40s linear infinite;
 `;
 
 const Slide = styled.div`
-  width: 200px;
+  min-width: 180px;
   height: 100px;
+  margin: 0 20px; /* Space between logos */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
 
   img {
     max-width: 100%;
-    max-height: 80px;
+    max-height: 100%;
     object-fit: contain;
     transition: filter 0.3s ease;
 
     @media (max-width: 768px) {
-      max-height: 60px;
+      max-height: 80px;
     }
   }
 `;
@@ -81,7 +83,7 @@ const logos = [
 const Collaborators = () => {
   return (
     <SliderWrapper>
-      <h1>COLLABORATIONS</h1>
+      <h1>Power Support System</h1>
       <SlideTrack>
         {[...logos, ...logos].map((logo, index) => (
           <Slide key={index}>
