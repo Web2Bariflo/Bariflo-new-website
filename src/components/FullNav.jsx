@@ -157,14 +157,10 @@ const FullNav = () => {
         </SectionHeading>
         {openSection === "intelligence" && (
           <SubLinks>
-            <SubLink href="#intelligence-1">Realfish Pro Platform</SubLink>
             <SubLink href="#intelligence-2">Farm Management Software</SubLink>
-            <SubLink href="#intelligence-3">Environmental Monitoring</SubLink>
             <SubLink href="#intelligence-4">Aeration & Oxygen Control</SubLink>
-            <SubLink href="#intelligence-5">Biomass Estimation</SubLink>
             <SubLink href="#intelligence-6">Camera Systems</SubLink>
             <SubLink href="#intelligence-7">Feed Optimization</SubLink>
-            <SubLink href="#intelligence-8">Case Studies</SubLink>
           </SubLinks>
         )}
       </Section>

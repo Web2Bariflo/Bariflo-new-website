@@ -33,7 +33,7 @@ const LeftBox = styled.div`
   top: 0;
   height: 100vh;
   width: 50%;
-  background-color: #e0f7fa; /* Matching light cyan */
+  background-color: #fff; /* Matching light cyan e0f7fa*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,6 @@ const Image = styled.img`
   max-width: 100%;
   height: auto;
   border-radius: 12px;
-//   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 `;
 
 const Section = styled.div`

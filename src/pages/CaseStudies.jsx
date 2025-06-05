@@ -4,37 +4,90 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 import Cards from "../components/Cards";
+import GridCard from "../components/GridCard";
+import UnderMaintenance from "../components/Maintaince";
 
-const sections = [
+const caseStudies = [
   {
     id: 1,
-    text: "Crush your marketing goals.",
-    image:
-      "https://cdn.pixabay.com/photo/2024/06/02/05/53/architecture-8803583_1280.jpg",
+    name: "Bhubaneswar",
+    sector: "Shrimp Farming",
+    duration: "Jan 2022 - Mar 2022 (3 Months)",
+    socialImpact: ["Growth of carps by 10%", "Increase reduction by 50%"],
+    environmentalImpact: [
+      "Reduction of carbon by 50%",
+      "Energy reduction by 50%",
+    ],
+    photos: [
+      "https://placeimg.com/200/150/nature",
+      "https://placeimg.com/200/150/animals",
+    ],
   },
   {
     id: 2,
-    text: "Build beautiful landing pages fast.",
-    image:
-      "https://cdn.pixabay.com/photo/2024/02/23/19/37/tufted-duck-8592681_1280.jpg",
+    name: "Barbil, Odisha",
+    sector: "Livelihood",
+    duration: "Oct 2022 - Oct 2024 (24 Months)",
+    socialImpact: ["Growth of carps by 20%", "Increase in income by 25%"],
+    environmentalImpact: [
+      "Reduction of carbon by 50%",
+      "Energy reduction by 50%",
+      "Maintains DO of constant 3.5 to 4.5 ppm",
+    ],
+    photos: [
+      "https://placeimg.com/200/150/people",
+      "https://placeimg.com/200/150/tech",
+    ],
   },
   {
     id: 3,
-    text: "Optimize your funnel.",
-    image:
-      "https://cdn.pixabay.com/photo/2023/03/19/19/38/mountain-7863224_1280.jpg",
+    name: "Bhimavaram, Andhra Pradesh",
+    sector: "Shrimp Farming",
+    duration: "Dec 2021 - Mar 2022 (4 Months)",
+    socialImpact: ["Growth of carps by 10%", "Increase in income by 25%"],
+    environmentalImpact: [
+      "Reduction of carbon by 50%",
+      "Energy reduction by 50%",
+      "Maintains DO of constant 3.5 to 4.5 ppm",
+    ],
+    photos: [
+      "https://placeimg.com/200/150/arch",
+      "https://placeimg.com/200/150/animals",
+    ],
   },
-    {
+  {
     id: 4,
-    text: "Optimize your funnel.",
-    image:
-      "https://cdn.pixabay.com/photo/2023/03/19/19/38/mountain-7863224_1280.jpg",
-  },  
+    name: "Ramchandi, Andhra Pradesh",
+    sector: "Shrimp Farming",
+    duration: "Dec 2021 - Mar 2022 (4 Months)",
+    socialImpact: ["Growth of carps by 20%", "Increase in income by 25%"],
+    environmentalImpact: [
+      "Reduction of carbon by 50%",
+      "Energy reduction by 50%",
+      "Maintains DO of constant 3.5 to 4.5 ppm",
+    ],
+    photos: [
+      "/images/ramchandi.jpg",
+      "/images/ramchandi1.jpg",
+      "/images/ramchandi2.jpg"
+    ],
+  },
   {
     id: 5,
-    text: "Optimize your funnel.",
-    image:
-      "https://cdn.pixabay.com/photo/2023/03/19/19/38/mountain-7863224_1280.jpg",
+    name: "Chennai",
+    sector: "Shrimp Farming",
+    duration: "Oct 2019 - Mar 2020 (6 Months)",
+    socialImpact: ["Growth of carps by 10%", "Increase in income by 25%"],
+    environmentalImpact: [
+      "Reduction of carbon by 50%",
+      "Energy reduction by 50%",
+    ],
+    photos: [
+      "https://placeimg.com/200/150/tech",
+      "https://placeimg.com/200/150/arch",
+      "https://placeimg.com/200/150/arch",
+      "https://placeimg.com/200/150/arch",
+    ],
   },
 ];
 
@@ -42,29 +95,30 @@ const cards = [
   {
     title: "Farm Management",
     image:
-      "https://cdn.pixabay.com/photo/2022/01/01/16/29/antelope-6908215_960_720.jpg",
+      "/images/ramchandi.jpg",
     link: "/farm-management",
   },
   {
     title: "Aeration & Oxygen Control",
     image:
-      "https://cdn.pixabay.com/photo/2021/10/31/14/02/egg-6757508_960_720.jpg",
+      "/images/1747894727976.jpg",
     link: "/aeration-control",
   },
   {
     title: "Aeration & Oxygen Control",
     image:
-      "https://cdn.pixabay.com/photo/2021/10/31/14/02/egg-6757508_960_720.jpg",
+      "/images/pond.png",
     link: "/aeration-control",
   },
   {
     title: "Camera System",
     image:
-      "https://cdn.pixabay.com/photo/2021/10/14/12/32/autumn-6708984_960_720.jpg",
+      "/images/20230224_110540.jpg",
     link: "/camera-system",
   },
   // Add more cards as needed
 ];
+
 
 const HeadingContainer = styled.div`
   text-align: center;
@@ -101,24 +155,25 @@ const Subtitle = styled.p`
 
 const CaseStudies = () => {
   return (
-    <>
-      <Navbar />
-      <div style={{ height: "80px" }} />
-      <HeadingContainer>
-        <Title>CaseStudies</Title>
-        <Subtitle>
-          This case study demonstrates the power of sustainable tech solutions
-          in transforming traditional industries like aquaculture. With
-          measurable reductions in emissions and energy use — and a boost in
-          biological growth — Bariflo's approach delivers both environmental and
-          economic value.
-        </Subtitle>
-      </HeadingContainer>
-      <ScrollSections sections={sections} />
-      <Cards cards={cards} />
-      <ContactSection />
-      <Footer />
-    </>
+    // <>
+    //   <Navbar />
+    //   <div style={{ height: "80px" }} />
+    //   <HeadingContainer>
+    //     <Title>CaseStudies</Title>
+    //     <Subtitle>
+    //       This case study demonstrates the power of sustainable tech solutions
+    //       in transforming traditional industries like aquaculture. With
+    //       measurable reductions in emissions and energy use — and a boost in
+    //       biological growth — Bariflo's approach delivers both environmental and
+    //       economic value.
+    //     </Subtitle>
+    //   </HeadingContainer>
+    //   <GridCard caseStudies={caseStudies} />
+    //   <Cards cards={cards} />
+    //   <ContactSection />
+    //   <Footer />
+    // </>
+    <><UnderMaintenance/></>
   );
 };
 

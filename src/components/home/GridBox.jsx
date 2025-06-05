@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Parallax } from "react-scroll-parallax";
+import { Tilt } from "react-tilt";
 
 const Container = styled.div`
   background-color: #f7f7f7;
@@ -165,31 +165,46 @@ const Icon = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  width: 70px;
+  position: relative;
+  width: 100px;
   height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+  overflow: hidden;
 
-  img {
+  .normal,
+  .hovered {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease-in-out;
+    background: #fff;
+    padding: 5px;
   }
 
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  .hovered {
+    opacity: 0;
+  }
+
+  &:hover .hovered {
+    opacity: 1;
+  }
+
+  &:hover .normal {
+    opacity: 0;
   }
 
   @media (max-width: 768px) {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
 `;
-
 
 const InfoLabel = styled.h5`
   font-weight: bold;
@@ -212,7 +227,7 @@ const InfoText = styled.p`
   @media (max-width: 768px) {
     font-size: 13px;
   }
-      &:hover {
+  &:hover {
     color: #00bcd4;
   }
 `;
@@ -233,15 +248,9 @@ const InfoBlock = styled.div`
 
   &:hover ${IconWrapper} {
     transform: scale(1.15);
-    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
-  }
-
-  &:hover ${InfoLabel},
-  &:hover ${InfoText} {
-    color: #00bcd4;
+    // box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
   }
 `;
-
 
 const GridBox = () => {
   return (
@@ -262,7 +271,8 @@ const GridBox = () => {
               />
             </Icon>
             <HighlightTitle>
-              # END-TO-END <br /> PROCESSING <br/>AUTOMATION
+              # END-TO-END <br /> PROCESSING <br />
+              AUTOMATION
             </HighlightTitle>
             Hyperspectral imaging–based sorting automation in peeling to
             packaging.
@@ -316,10 +326,21 @@ const GridBox = () => {
       </TopSection>
 
       <BottomSection>
-                <InfoBlock>
-          <IconWrapper>
-            <img src="/images/website images and icon-20250524T084126Z-1-001/image.png" />
-          </IconWrapper>
+        <InfoBlock>
+          <Tilt>
+            <IconWrapper>
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/image.png"
+                alt="icon"
+                className="normal"
+              />
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/technology (2).png"
+                alt="icon colored"
+                className="hovered"
+              />
+            </IconWrapper>
+          </Tilt>
           <InfoLabel>TECHNOLOGY</InfoLabel>
           <InfoText>
             Software/AI/Blockchain/IoT + Hardware <br />
@@ -328,19 +349,44 @@ const GridBox = () => {
         </InfoBlock>
 
         <InfoBlock>
-          <IconWrapper>
-            <img src="/images/website images and icon-20250524T084126Z-1-001/image 65.png" />
-          </IconWrapper>
+          <Tilt>
+            <IconWrapper>
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/image 65.png"
+                alt="icon"
+                className="normal"
+              />
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/segmentation.png"
+                alt="icon colored"
+                className="hovered"
+              />
+            </IconWrapper>
+          </Tilt>
           <InfoLabel>SEGMENT</InfoLabel>
           <InfoText>CleanTech, AgriTech</InfoText>
         </InfoBlock>
 
         <InfoBlock>
-          <IconWrapper>
-            <img src="/images/website images and icon-20250524T084126Z-1-001/image 66.png" />
-          </IconWrapper>
+          <Tilt>
+            <IconWrapper>
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/image 66.png"
+                alt="icon"
+                className="normal"
+              />
+              <img
+                src="/images/website images and icon-20250524T084126Z-1-001/certificate.png"
+                alt="icon colored"
+                className="hovered"
+              />
+            </IconWrapper>
+          </Tilt>
           <InfoLabel>INTELLECTUAL PROPERTY</InfoLabel>
-          <InfoText>42 Patents Filed, 28 Granted,<br/> 14 Published</InfoText>
+          <InfoText>
+            42 Patents Filed, 28 Granted,
+            <br /> 14 Published
+          </InfoText>
         </InfoBlock>
       </BottomSection>
     </Container>

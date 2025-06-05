@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Tilt } from "react-tilt";
 
 const TeamSection = () => {
   return (
@@ -15,9 +16,16 @@ const TeamSection = () => {
       </TextContainer>
       <ButtonGroup>
         <h2>Get to know us</h2>
-        <StyledButton>
-          <Link to="/teamMember" style={{ textDecoration: 'none' , color: 'white'}}>Meet our management Team</Link>
-        </StyledButton>
+        <Tilt>
+          <StyledButton>
+            <Link
+              to="/teamMember"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              Meet our management Team
+            </Link>
+          </StyledButton>
+        </Tilt>
       </ButtonGroup>
     </SectionContainer>
   );

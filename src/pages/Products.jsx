@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 import Cards from "../components/Cards";
+import UnderMaintenance from "../components/Maintaince";
 
 const sections = [
   {
@@ -57,33 +58,33 @@ const cards = [
   {
     title: "Farm Management",
     image:
-      "https://cdn.pixabay.com/photo/2022/01/01/16/29/antelope-6908215_960_720.jpg",
+      "/images/ramchandi.jpg",
     link: "/farm-management",
   },
   {
     title: "Aeration & Oxygen Control",
     image:
-      "https://cdn.pixabay.com/photo/2021/10/31/14/02/egg-6757508_960_720.jpg",
+      "/images/1747894727976.jpg",
     link: "/aeration-control",
   },
   {
     title: "Aeration & Oxygen Control",
     image:
-      "https://cdn.pixabay.com/photo/2021/10/31/14/02/egg-6757508_960_720.jpg",
+      "/images/pond.png",
     link: "/aeration-control",
   },
   {
     title: "Camera System",
     image:
-      "https://cdn.pixabay.com/photo/2021/10/14/12/32/autumn-6708984_960_720.jpg",
+      "/images/20230224_110540.jpg",
     link: "/camera-system",
   },
   // Add more cards as needed
 ];
 
 const HeadingContainer = styled.div`
-  text-align: center;
-  padding: 50px 20px 20px;
+  // text-align: center;
+  padding: 30px 20px ;
   max-width: 900px;
   margin: 0 auto;
 
@@ -116,21 +117,22 @@ const Subtitle = styled.p`
 
 const Products = () => {
   return (
-    <>
-      <Navbar />
-      <div style={{ height: "80px" }} />
-      <HeadingContainer>
-        <Title>Our Products</Title>
-        <Subtitle>
-          We offer a fully integrated smart device ecosystem for outdoor
-          environments.
-        </Subtitle>
-      </HeadingContainer>
-      <ScrollSections sections={sections} />
-      <Cards cards={cards} />
-      <ContactSection />
-      <Footer />
-    </>
+    // <>
+    //   <Navbar />
+    //   <div style={{ height: "80px" }} />
+    //   <HeadingContainer>
+    //     <Title>Our Products</Title>
+    //     <Subtitle>
+    //       We offer a fully integrated smart device ecosystem for outdoor
+    //       environments.
+    //     </Subtitle>
+    //   </HeadingContainer>
+    //   <ScrollSections sections={sections} />
+    //   <Cards cards={cards} />
+    //   <ContactSection />
+    //   <Footer />
+    // </>
+    <><UnderMaintenance/></>
   );
 };
 
