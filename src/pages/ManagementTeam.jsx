@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import Navbar from "../components/Navbar";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   font-family: sans-serif;
@@ -136,44 +137,56 @@ const ManagementTeam = () => {
     <>
       <Navbar />
       <div style={{ height: "80px" }} />
-      <Container>
-        <Title>Meet The Team</Title>
-        <Subtitle>
-          Proven leadership in innovation, strategy, and aquaculture technology transformation.
-        </Subtitle>
-        <GridWrapper>
-          <Row>
-            {team.slice(0, 3).map((member, index) => (
-              <Card key={index}>
-                <Image src={member.image} alt={member.name} />
-                <CardContent>
-                  <Name>{member.name} ({member.role})</Name>
-                  <Role>{member.title}</Role>
-                  <IconBar>
-                    <FaLinkedin size={20} />
-                    <IoIosArrowDown size={20} />
-                  </IconBar>
-                </CardContent>
-              </Card>
-            ))}
-          </Row>
-          <Row>
-            {team.slice(3).map((member, index) => (
-              <Card key={index + 3}>
-                <Image src={member.image} alt={member.name} />
-                <CardContent>
-                  <Name>{member.name} ({member.role})</Name>
-                  <Role>{member.title}</Role>
-                  <IconBar>
-                    <FaLinkedin size={20} />
-                    <IoIosArrowDown size={20} />
-                  </IconBar>
-                </CardContent>
-              </Card>
-            ))}
-          </Row>
-        </GridWrapper>
-      </Container>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Container>
+          <Title>Meet The Team</Title>
+          <Subtitle>
+            Proven leadership in innovation, strategy, and aquaculture
+            technology transformation.
+          </Subtitle>
+          <GridWrapper>
+            <Row>
+              {team.slice(0, 3).map((member, index) => (
+                <Card key={index}>
+                  <Image src={member.image} alt={member.name} />
+                  <CardContent>
+                    <Name>
+                      {member.name} ({member.role})
+                    </Name>
+                    <Role>{member.title}</Role>
+                    <IconBar>
+                      <FaLinkedin size={20} />
+                      <IoIosArrowDown size={20} />
+                    </IconBar>
+                  </CardContent>
+                </Card>
+              ))}
+            </Row>
+            <Row>
+              {team.slice(3).map((member, index) => (
+                <Card key={index + 3}>
+                  <Image src={member.image} alt={member.name} />
+                  <CardContent>
+                    <Name>
+                      {member.name} ({member.role})
+                    </Name>
+                    <Role>{member.title}</Role>
+                    <IconBar>
+                      <FaLinkedin size={20} />
+                      <IoIosArrowDown size={20} />
+                    </IconBar>
+                  </CardContent>
+                </Card>
+              ))}
+            </Row>
+          </GridWrapper>
+        </Container>
+      </motion.div>
+
       <ContactSection />
       <Footer />
     </>

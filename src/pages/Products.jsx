@@ -5,88 +5,69 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 import Cards from "../components/Cards";
-import UnderMaintenance from "../components/Maintaince";
+import { motion } from "framer-motion";
+import ProductData from "../components/product/ProductData";
 
-const sections = [
-  {
-    id: 1,
-    text: "AERATION SYSTEM",
-    subText:
-      "Our patented sediment aeration device diffuses air at the sediment level where the majority of waste and aquatic species shelter and helps maintaining dissolved oxygen at sediment oxygen boundary layer",
-    image:
-      "/images/website images and icon-20250524T084126Z-1-001/aeration device.png",
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
   },
-  {
-    id: 2,
-    text: "AUTOMATED AMPHIBIOUS FEEDER",
-    subText:
-      "The feed distribution mechanism is the main component in an automatic feeder and distinguishes it from a feed dispenser. The feeders are xed in a rack on the tank or on the cage,but may also be included in a buoy.",
-    image:
-      "/images/website images and icon-20250524T084126Z-1-001/Automated Feeder isometric view.png",
-  },
-  {
-    id: 3,
-    text: "SMART CHECK TRAY AND PORTABLE FEEDER",
-    subText:
-      "The objective of this device is to monitor the daily, growth & feed conversion ratio. This device also helps in the observation of disease, growth assessment and behavioral observation of the species.",
-    image: "/images/website images and icon-20250524T084126Z-1-001/Automated feeder.png",
-  },
-  {
-    id: 4,
-    text: "MONITORING AND WATER SAMPLING SYSTEM",
-    subText:
-      "It's an Ai based system integrated with a Water Sampling Unit and different parameters Sensors such as DO, Ammonia, Nitrate, Nitrite, ORP, pH,temperature at various places at the water body along the sediment and column area interfaces the practical problems. ",
-    image: "/images/website images and icon-20250524T084126Z-1-001/Group 37 (1).png",
-  },
-    {
-    id: 5,
-    text: "POWER AND ENERGY MONITORING",
-    subText:
-      "Integrated energy monitoring & aerators dashboard could enhance the management of energy usage speciﬁc to aeration processes, potentially optimizing energy efﬁciency and reducing costs",
-    image: "/images/website images and icon-20250524T084126Z-1-001/pm.png",
-  },
-    {
-    id: 6,
-    text: "LoRa GATEWAY",
-    subText:
-      "It’s a WiFi technology combines with low-power, long-range capabilities of WAN with the reliable, high-bandwidth connectivity of WiFi Mesh to provide a scalable IoT solution for applications.",
-    image: "/images/website images and icon-20250524T084126Z-1-001/Lora box.jpg.png",
-  },
-];
+};
 
+const childVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const floatUpVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+// ==== Dummy Cards Data ====
 const cards = [
   {
-    title: "Farm Management",
-    image:
-      "/images/ramchandi.jpg",
-    link: "/farm-management",
+    title: "Open Aqua culture",
+    image: "/images/openAquaculture.png",
+    link: "/openAquaculture",
   },
   {
-    title: "Aeration & Oxygen Control",
-    image:
-      "/images/1747894727976.jpg",
-    link: "/aeration-control",
+    title: "Indoor Aqua Culture",
+    image: "/images/indoor.png",
+    link: "/indoor",
   },
   {
-    title: "Aeration & Oxygen Control",
-    image:
-      "/images/pond.png",
-    link: "/aeration-control",
+    title: "Land based Aqua culture",
+    image: "/images/bfc.png",
+    link: "/Land-based-Aqua",
   },
   {
-    title: "Camera System",
-    image:
-      "/images/20230224_110540.jpg",
-    link: "/camera-system",
+    title: "Aqua Culture Intelligence",
+    image: "/images/aquaai.png",
+    link: "aquaai",
   },
-  // Add more cards as needed
 ];
 
+// ==== Styled Components ====
+
+const PageWrapper = styled.div``;
+
 const HeadingContainer = styled.div`
-  // text-align: center;
-  padding: 30px 20px ;
+  text-align: center;
+  padding: 30px 20px;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 100px auto;
 
   @media (max-width: 768px) {
     padding: 30px 15px 10px;
@@ -115,25 +96,144 @@ const Subtitle = styled.p`
   }
 `;
 
+const SubText = styled.p`
+  text-align: center;
+  color: #00bcd4;
+`;
+
+const SectionHeader = styled.div`
+  text-align: center;
+  margin: 60px auto 40px;
+`;
+
+const SectionTitle = styled.h1`
+  font-size: 36px;
+  color: #0a0a0a;
+  margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+`;
+
+const Divider = styled.div`
+  width: 80%;
+  height: 0.2px;
+  background-color: #D3D3D3;
+  margin: 0 auto;
+`;
+
+const ImageWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  display: inline-block;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+const PreviewImage = styled.img`
+  width: 95vw;
+  height: 100vh;
+  object-fit: contain;
+  border-radius: 0.75rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  display: block;
+  user-select: none;
+
+  ${ImageWrapper}:hover & {
+    transform: scale(1.1);
+  }
+`;
+
+// ==== Main Component ====
+
 const Products = () => {
+  const imageSrc = "/productss_page-0001 (3).jpg";
+
   return (
-    // <>
-    //   <Navbar />
-    //   <div style={{ height: "80px" }} />
-    //   <HeadingContainer>
-    //     <Title>Our Products</Title>
-    //     <Subtitle>
-    //       We offer a fully integrated smart device ecosystem for outdoor
-    //       environments.
-    //     </Subtitle>
-    //   </HeadingContainer>
-    //   <ScrollSections sections={sections} />
-    //   <Cards cards={cards} />
-    //   <ContactSection />
-    //   <Footer />
-    // </>
-    <><UnderMaintenance/></>
+    <PageWrapper>
+      <Navbar />
+      <div style={{ height: "80px" }} />
+
+      {/* === Heading Section === */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <HeadingContainer>
+          <motion.div variants={childVariant}>
+            <Title>Our Products</Title>
+          </motion.div>
+          <motion.div variants={childVariant}>
+            <Subtitle>
+              Unlock the future of sustainable aquaculture with our fully
+              integrated, AI-IoT powered ecosystem—from sediment-level aeration
+              to automated feeding and intelligent water monitoring. Boost
+              efficiency, cut energy and operational costs, and gain total
+              control of your farm through one smart, connected platform.
+            </Subtitle>
+          </motion.div>
+          <motion.div variants={childVariant}>
+            <SubText>Better Yield | Lower Cost | Smarter Control</SubText>
+          </motion.div>
+        </HeadingContainer>
+      </motion.div>
+
+      {/* === Image Section === */}
+      <motion.div
+        variants={floatUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <ImageWrapper>
+          <ImageContainer>
+            <PreviewImage
+              src={imageSrc}
+              alt="Annotated Product Overview"
+              draggable="false"
+            />
+          </ImageContainer>
+        </ImageWrapper>
+      </motion.div>
+
+      {/* === Section Header with Divider === */}
+      <motion.div
+        variants={floatUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <SectionHeader>
+          <SectionTitle>Dive Into the Details</SectionTitle>
+          <Divider />
+        </SectionHeader>
+      </motion.div>
+    <ProductData/>
+              <Divider />
+
+      {/* === Cards Section === */}
+      <motion.div
+        variants={floatUpVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Cards cards={cards} />
+      </motion.div>
+
+      <ContactSection />
+      <Footer />
+    </PageWrapper>
   );
 };
+
 
 export default Products;

@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "title": "Bottom Aeration System",
+    "description": "Our patented sediment aeration device diffuses air at the sediment level where the majority of waste and aquatic species shelter and helps maintain dissolved oxygen at the sediment-oxygen boundary layer.",
+    "features": [
+      "Intelligent bottom aeration",
+      "Energy cost saving by 25%",
+      "Operational cost reduction by 25%",
+      "Remote operation by web app",
+      "Energy management",
+      "Warranty of 1 year extendable"
+    ],
+    "image": "/images/RENDERED IMAGES OF PRODUCTS/aerator image 1 (2) 1.png"
+  },
+  {
+    "id": 2,
+    "title": "Power Monitoring",
+    "description": "Studying power measurements allows teams to observe equipment performance, discover electrical problems, assess how an asset is consuming power, and even if assets are on or off.",
+    "features": [
+      "Automated health monitoring of paddle wheel aerator",
+      "Remote operation of starter for paddle wheel operation",
+      "Automated changeover to diesel in power failure situation",
+      "Daily energy consumption reporting",
+      "Alerts via call or message for paddle wheel or power failure",
+      "Covers total cost of ownership",
+      "Optimize and plan for capacity"
+    ],
+    "image": "/images/RENDERED IMAGES OF PRODUCTS/Recovered_BROCHUREEE.png"
+  },
+  {
+    "id": 3,
+    "title": "Monitoring System (Water Sampling and Sensing Unit)",
+    "description": "Our cost-effective AI-IoT based robotic sampling-cum-sensing device provides targeted (depth, location & quantity) water quality data as per the customer's need.",
+    "features": [
+      "Remote operation via cell phone dashboard",
+      "Predicts DO, pH, Nitrite, Phosphate, Vibrio",
+      "Web-based remote operation",
+      "Analytics and data intelligence",
+      "Modular and easily transportable",
+      "Warranty of 1 year extendable"
+    ],
+    "image": "/images/RENDERED IMAGES OF PRODUCTS/water sampling & monitoring  image 1 (1) 1.png"
+  },
+  {
+    "id": 4,
+    "title": "IoT Gateway",
+    "description": "A single LoRaWAN gateway can receive data from 100s of water quality sensors, with a range of over 10 km line-of-sight through a long-range RF link.",
+    "features": [
+      "Connected to internet via WiFi, Ethernet, or 4G",
+      "Only device needing outside connection",
+      "Efficient data transfer",
+      "Cost-effective data transfer"
+    ],
+    "image": "/images/RENDERED IMAGES OF PRODUCTS/Lora_Device_Front_View-removebg-preview.png"
+  },
+  {
+    "id": 5,
+    "title": "Automated Feeder",
+    "description": "The feed distribution mechanism is the main component in an automatic feeder and distinguishes it from a feed dispenser. Feeders can be rack-mounted or buoy-based.",
+    "features": [
+      "Ease of maintenance",
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+      "Mobile app management",
+      "Daily feed reports via web app",
+      "Supervision attentiveness monitoring"
+    ],
+    "image": "/images/RENDERED IMAGES OF PRODUCTS/auto feeder 1.png"
+  },
+  {
+    "id": 6,
+    "title": "Feed Tray",
+    "description": "The main objective of feed monitoring is to align the daily feed ratio closely with actual requirements. Our tray enables better observation and feed adjustments.",
+    "features": [
+      "Growth indication via web app",
+      "Improved water quality",
+      "Early disease diagnosis",
+      "Daily growth prediction",
+      "Automated FCR measurement (weekly/monthly)",
+      "Greater yield",
+      "Remote operation via mobile dashboard",
+      "Warranty of 1 year extendable"
+    ],
+    "image": "/images/RENDERED IMAGES OF PRODUCTS/chectray render image 1 1.png"
+  }
+]
