@@ -11,7 +11,8 @@
       "Energy management",
       "Warranty of 1 year extendable"
     ],
-    "image": "/images/RENDERED IMAGES OF PRODUCTS/aerator image 1 (2) 1.png"
+
+    "image": "/images/product img/aerator img.png"
   },
   {
     "id": 2,
@@ -26,7 +27,7 @@
       "Covers total cost of ownership",
       "Optimize and plan for capacity"
     ],
-    "image": "/images/RENDERED IMAGES OF PRODUCTS/Recovered_BROCHUREEE.png"
+    "image": "/images/product img/Group 47.png"
   },
   {
     "id": 3,
@@ -40,7 +41,7 @@
       "Modular and easily transportable",
       "Warranty of 1 year extendable"
     ],
-    "image": "/images/RENDERED IMAGES OF PRODUCTS/water sampling & monitoring  image 1 (1) 1.png"
+    "image": "/images/product img/water sampling img.png"
   },
   {
     "id": 4,
@@ -67,7 +68,7 @@
       "Daily feed reports via web app",
       "Supervision attentiveness monitoring"
     ],
-    "image": "/images/RENDERED IMAGES OF PRODUCTS/auto feeder 1.png"
+    "image": "/images/product img/automated feeder img.png"
   },
   {
     "id": 6,
@@ -83,6 +84,6 @@
       "Remote operation via mobile dashboard",
       "Warranty of 1 year extendable"
     ],
-    "image": "/images/RENDERED IMAGES OF PRODUCTS/chectray render image 1 1.png"
+    "image": "/images/product img/feed tray.png"
   }
 ]

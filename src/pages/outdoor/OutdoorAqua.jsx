@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import ContactSection from "../../components/ContactSection";
 import Footer from "../../components/Footer";
 import PopImg from "../../components/outdoor/PopImg";
+import ProductDetails from "../../components/outdoor/ProductDetails";
 
 const floatUpVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -18,31 +19,31 @@ const floatUpVariant = {
 const OutdoorAqua = () => {
   const cards = [
     {
-      title: "Open Aqua culture",
-      image: "/images/openAquaculture.png",
-      link: "/openAquaculture",
-    },
-    {
       title: "Indoor Aqua Culture",
       image: "/images/indoor.png",
-      link: "/indoor",
+      link: "/indoorAqua",
     },
     {
-      title: "Land based Aqua culture",
+      title: "Open Aqua culture",
       image: "/images/bfc.png",
-      link: "/Land-based-Aqua",
+      link: "",
     },
     {
       title: "Aqua Culture Intelligence",
       image: "/images/aquaai.png",
-      link: "aquaai",
+      link: "",
     },
   ];
+  
   return (
     <>
       <Navbar />
       <div style={{ height: "80px" }} />
       <PopImg />
+
+      <ProductDetails />
+
+      
       <motion.div
         variants={floatUpVariant}
         initial="hidden"
@@ -50,10 +51,13 @@ const OutdoorAqua = () => {
         viewport={{ once: true }}
       >
 
-       {/* //work   */}
 
-       
-      <Cards cards={cards} />
+
+        
+
+        <Cards cards={cards} />
+
+
       </motion.div>
       <ContactSection />
       <Footer />

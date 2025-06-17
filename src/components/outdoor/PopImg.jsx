@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 70vh;
+  margin-top: 80px;
 `;
 
 // 🔹 Image container
