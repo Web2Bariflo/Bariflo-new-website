@@ -3,36 +3,41 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { FiArrowDownCircle } from "react-icons/fi";
 
 // Background images for each category
 const images = {
-  "Open Aqua culture": "/images/openAquaculture.png",
+  "Land based Aqua culture": "/images/openAquaculture.png",
   "Indoor Aqua Culture": "/images/indoor.png",
-  "Land based Aqua culture": "/images/bfc.png",
+  "Open Aqua culture": "/images/bfc.png",
   "Aqua Culture Intelligence": "/images/aquaai.png",
 };
 
 // Text content per category
 const contentByCategory = {
-  "Open Aqua culture": {
-    heading: "Explore Open Aquaculture Solutions",
+  "Land based Aqua culture": {
+    heading: "Land-Based Sustainable Systems",
     button: "Learn More",
     link: "/outdoorAqua",
+    disabled: false,
   },
   "Indoor Aqua Culture": {
     heading: "Revolutionizing Indoor Aquaculture",
     button: "Learn More",
     link: "/indoorAqua",
+    disabled: false,
   },
-  "Land based Aqua culture": {
-    heading: "Land-Based Sustainable Systems",
+  "Open Aqua culture": {
+    heading: "Explore Open Aquaculture Solutions",
     button: "Learn More",
-    link: "/landBasedAqua",
+    link: "/outdoorAqua",
+    disabled: true,
   },
   "Aqua Culture Intelligence": {
     heading: "Smarter Aquaculture with AI",
     button: "Discover",
     link: "/aquaIntelligence",
+    disabled: true,
   },
 };
 
@@ -166,6 +171,33 @@ const Button = styled.button`
   &:hover {
     background-color: #139c9c;
   }
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+`;
+const SmallButton = styled.button`
+  padding: 4px 10px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: font-size 0.2s ease;
+
+  &:hover {
+    // background-color: #0e7a7a;
+      font-size: 2rem;
+
+  }
+
+
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
 `;
 
 export default function AquaCultureSlider() {
@@ -207,7 +239,16 @@ export default function AquaCultureSlider() {
               <Overlay />
               <Content>
                 <Heading>{contentByCategory[selected].heading}</Heading>
-                <Button onClick={() => navigate(contentByCategory[selected].link)}>{contentByCategory[selected].button}</Button>
+                <Button
+                  onClick={() => {
+                    if (!contentByCategory[selected].disabled) {
+                      navigate(contentByCategory[selected].link);
+                    }
+                  }}
+                  disabled={contentByCategory[selected].disabled}
+                >
+                  {contentByCategory[selected].button}
+                </Button>
               </Content>
             </motion.div>
           </AnimatePresence>
@@ -220,7 +261,18 @@ export default function AquaCultureSlider() {
               active={selected === cat}
               onClick={() => handleTabClick(cat)}
             >
-              {cat}
+              <span>
+                {cat}{" "}
+                <SmallButton
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent tab click
+                    navigate(contentByCategory[cat].link);
+                  }}
+                  disabled={contentByCategory[cat].disabled}
+                >
+                  <FiArrowDownCircle />
+                </SmallButton>
+              </span>
             </Tab>
           ))}
         </RightPane>
