@@ -22,7 +22,7 @@ const childVariant = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 };
 
@@ -38,24 +38,24 @@ const floatUpVariant = {
 // ==== Dummy Cards Data ====
 const cards = [
   {
-    title: "Open Aqua culture",
+    title: "Land based Aqua culture",
     image: "/images/openAquaculture.png",
-    link: "/openAquaculture",
+    link: "/outdoorAqua",
   },
   {
     title: "Indoor Aqua Culture",
     image: "/images/indoor.png",
-    link: "/indoor",
+    link: "/indoorAqua",
   },
   {
-    title: "Land based Aqua culture",
+    title: "Open Aqua culture ",
     image: "/images/bfc.png",
-    link: "/Land-based-Aqua",
+    link: "",
   },
   {
     title: "Aqua Culture Intelligence",
     image: "/images/aquaai.png",
-    link: "aquaai",
+    link: "",
   },
 ];
 
@@ -119,7 +119,7 @@ const SectionTitle = styled.h1`
 const Divider = styled.div`
   width: 80%;
   height: 0.2px;
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   margin: 0 auto;
 `;
 
@@ -161,48 +161,32 @@ const Products = () => {
       <div style={{ height: "80px" }} />
 
       {/* === Heading Section === */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <HeadingContainer>
-          <motion.div variants={childVariant}>
-            <Title>Our Products</Title>
-          </motion.div>
-          <motion.div variants={childVariant}>
-            <Subtitle>
-              Unlock the future of sustainable aquaculture with our fully
-              integrated, AI-IoT powered ecosystem—from sediment-level aeration
-              to automated feeding and intelligent water monitoring. Boost
-              efficiency, cut energy and operational costs, and gain total
-              control of your farm through one smart, connected platform.
-            </Subtitle>
-          </motion.div>
-          <motion.div variants={childVariant}>
-            <SubText>Better Yield | Lower Cost | Smarter Control</SubText>
-          </motion.div>
-        </HeadingContainer>
-      </motion.div>
 
-      {/* === Image Section === */}
-      <motion.div
-        variants={floatUpVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <ImageWrapper>
-          <ImageContainer>
-            <PreviewImage
-              src={imageSrc}
-              alt="Annotated Product Overview"
-              draggable="false"
-            />
-          </ImageContainer>
-        </ImageWrapper>
-      </motion.div>
+      <HeadingContainer>
+        <Title>Our Products</Title>
+
+        <Subtitle>
+          Unlock the future of sustainable aquaculture with our fully
+          integrated, AI-IoT powered ecosystem—from sediment-level aeration to
+          automated feeding and intelligent water monitoring. Boost efficiency,
+          cut energy and operational costs, and gain total control of your farm
+          through one smart, connected platform.
+        </Subtitle>
+
+        <motion.div variants={childVariant}>
+          <SubText>Better Yield | Lower Cost | Smarter Control</SubText>
+        </motion.div>
+      </HeadingContainer>
+
+      <ImageWrapper>
+        <ImageContainer>
+          <PreviewImage
+            src={imageSrc}
+            alt="Annotated Product Overview"
+            draggable="false"
+          />
+        </ImageContainer>
+      </ImageWrapper>
 
       {/* === Section Header with Divider === */}
       <motion.div
@@ -216,8 +200,8 @@ const Products = () => {
           <Divider />
         </SectionHeader>
       </motion.div>
-    <ProductData/>
-              <Divider />
+      <ProductData />
+      <Divider />
 
       {/* === Cards Section === */}
       <motion.div
@@ -234,6 +218,5 @@ const Products = () => {
     </PageWrapper>
   );
 };
-
 
 export default Products;

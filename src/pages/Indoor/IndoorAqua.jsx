@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import ContactSection from "../../components/ContactSection";
 import Footer from "../../components/Footer";
 import styled, { keyframes } from "styled-components";
+import Banner from "../../components/Banner";
+import PopImgIndoor from "../../components/indoor/PopImgIndoor";
+import IndoorData from "../../components/indoor/IndoorData";
 
 const floatUpVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -14,68 +17,34 @@ const floatUpVariant = {
   },
 };
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-`;
-
-// 🔹 Image container
-const ImageContainer = styled.div`
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-`;
-
-// 🔹 Main Image
-const MainImage = styled.img`
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  ${(props) =>
-    props.popped &&
-    `
-    transform: scale(0.95);
-    opacity: 1.0;
-  `}
-  width: 100%;
-  height: auto;
-`;
-
 const IndoorAqua = () => {
   const cards = [
     {
-      title: "Open Aqua culture",
-      image: "/images/openAquaculture.png",
-      link: "/openAquaculture",
-    },
-    {
-      title: "Indoor Aqua Culture",
-      image: "/images/indoor.png",
-      link: "/indoor",
-    },
-    {
       title: "Land based Aqua culture",
+      image: "/images/openAquaculture.png",
+      link: "/outdoorAqua",
+    },
+    {
+      title: "Open Aqua culture",
       image: "/images/bfc.png",
-      link: "/Land-based-Aqua",
+      link: "",
     },
     {
       title: "Aqua Culture Intelligence",
       image: "/images/aquaai.png",
-      link: "aquaai",
+      link: "",
     },
   ];
   return (
     <>
       <Navbar />
       <div style={{ height: "80px" }} />
-      <Wrapper>
-        <ImageContainer>
-          <MainImage
-            src="/images/bioflocdesign.png"
-            alt="Clickable"
-          />
-        </ImageContainer>
-      </Wrapper>
+      <Banner
+        image="/images/biofloc2.png"
+        heading="Integrated Indoor crustacean Farming Management System"
+      />
+      <PopImgIndoor />
+      <IndoorData/>
       <motion.div
         variants={floatUpVariant}
         initial="hidden"
@@ -86,7 +55,6 @@ const IndoorAqua = () => {
       </motion.div>
       <ContactSection />
       <Footer />
-      {/* <UnderMaintenance /> */}
     </>
   );
 };

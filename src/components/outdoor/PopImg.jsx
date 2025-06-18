@@ -21,14 +21,13 @@ const Wrapper = styled.div`
   margin-top: 80px;
 `;
 
-// 🔹 Image container
 const ImageContainer = styled.div`
   position: relative;
   display: inline-block;
   cursor: pointer;
 `;
 
-// 🔹 Main Image
+
 const MainImage = styled.img`
   transition: transform 0.3s ease, opacity 0.3s ease;
   ${(props) =>
@@ -40,9 +39,12 @@ const MainImage = styled.img`
   width: 100%;
   max-width: 800px;
   height: auto;
+
+  @media (max-width: 768px) {
+    max-width: 95vw;
+  }
 `;
 
-// 🔹 Pop-out Container for desktop
 const PopOut = styled.div`
   position: absolute;
   top: 0;
@@ -65,13 +67,13 @@ const PopText = styled.span`
     margin-left: 2rem;
   }
 `;
-// 🔹 Pop-out Image
+
 const PoppedImage = styled.img`
   width: 400px;
   border-radius: 10px;
 `;
 
-// 🔹 Clickable Hotspot
+
 const Hotspot = styled.div`
   position: absolute;
   width: 30px;
@@ -86,9 +88,14 @@ const Hotspot = styled.div`
   &:hover {
     transform: scale(1.2);
   }
+
+  @media (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
-// 🔹 Mobile Drawer
+
 const MobileDrawer = styled.div`
   display: none;
 

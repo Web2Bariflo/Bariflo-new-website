@@ -24,13 +24,13 @@ const Grid = styled.div`
 `;
 
 const Card = styled.div`
-  background: white;
+  background: #F9F6EE;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+  height: 280px;
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
@@ -39,7 +39,7 @@ const Card = styled.div`
 
 const CardImage = styled.img`
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 `;
 

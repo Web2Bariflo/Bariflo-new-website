@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     object-fit: cover !important;
     width: 100% !important;
     height: 100% !important;
-    filter: brightness(50%); /* Darkens the image */
+    filter: brightness(50%);
     transition: filter 0.5s ease;
   }
 `;
