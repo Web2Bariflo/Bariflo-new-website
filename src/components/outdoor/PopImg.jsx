@@ -102,9 +102,15 @@ const PopText = styled.div`
   font-size: 1rem;
   margin-left: 11rem;
   max-width: 400px;
-  h2 {
-  color: #00bcd4;
-  padding:1rem
+    h2 {
+    color: #00bcd4;
+    padding: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 0.5rem;
+    }
   }
 
   ul {
@@ -314,6 +320,7 @@ const PopImg = () => {
               alt={selectedHotspot.id}
             />{" "}
             <PopText>
+              <h2>{selectedHotspot.id}</h2>
               <ul>
                 {selectedHotspot.description?.map((item, idx) => (
                   <li key={idx}>{item}</li>

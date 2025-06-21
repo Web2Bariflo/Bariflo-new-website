@@ -109,23 +109,29 @@ export const hotspots = [
     ],
   },
     {
-    id: "",
+    id: "Power Monitering",
     number: "5",
     top: "6%",
     left: "30%",
-    image: "",
+    image: "/images/product img/Group 49.png",
     description: [
-    
+      "Automated paddle wheel health & control",
+      "Remote operation with power-failure diesel backup",
+      "Daily energy reports & failure alerts (call/SMS)",
+      "Cost optimization with capacity planning insights",
     ],
   },  
   {
-    id: "",
-    number: "6",
+    id:  "Monitering System",
+    number: "3",
     top: "12%",
     left: "60%",
-    image: "",
+    image: "/images/product img/Group 43.png",
     description: [
-    
+      "Predicts DO, pH, Nitrite, Phosphate, Vibrio",
+      "Web-based remote operation",
+      "Analytics and data intelligence",
+      "Modular and easily transportable",
     ],
   },
 ];
