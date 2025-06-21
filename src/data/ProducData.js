@@ -1,0 +1,208 @@
+// dataSets.js
+export const hotspots = [
+  {
+    id: "Bottom Aeration System",
+    number: "1",
+    top: "40%",
+    left: "50%",
+    image: "/images/product img/Group 42.png",
+    description: [
+      "Energy cost saving by 25%",
+      "Operational cost reduction by 25%",
+      "Remote operation by web app",
+    ],
+  },
+    {
+    id: "Bottom Aeration System",
+    number: "1",
+    top: "60%",
+    left: "50%",
+    image: "/images/product img/Group 42.png",
+    description: [
+      "Energy cost saving by 25%",
+      "Operational cost reduction by 25%",
+      "Remote operation by web app",
+    ],
+  },  {
+    id: "Bottom Aeration System",
+    number: "1",
+    top: "80%",
+    left: "50%",
+    image: "/images/product img/Group 42.png",
+    description: [
+      "Energy cost saving by 25%",
+      "Operational cost reduction by 25%",
+      "Remote operation by web app",
+    ],
+  },
+  {
+    id: "Automated feeder",
+    number: "2",
+    top: "50%",
+    left: "70%",
+    image: "/images/product img/Group 40 .png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+      "Daily feed reports via web app",
+    ],
+  },
+  {
+    id: "Monitering System",
+    number: "3",
+    top: "65%",
+    left: "80%",
+    image: "/images/product img/Group 43.png",
+    description: [
+      "Predicts DO, pH, Nitrite, Phosphate, Vibrio",
+      "Web-based remote operation",
+      "Analytics and data intelligence",
+      "Modular and easily transportable",
+    ],
+  },
+  {
+    id: "Feed tray",
+    number: "4",
+    top: "90%",
+    left: "90%",
+    image: "/images/product img/Group 45.png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+    ],
+  },
+  {
+    id: "Feed tray",
+    number: "4",
+    top: "25%",
+    left: "5%",
+    image: "/images/product img/Group 45.png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+    ],
+  },{
+    id: "Feed tray",
+    number: "4",
+    top: "90%",
+    left: "5%",
+    image: "/images/product img/Group 45.png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+    ],
+  },
+  {
+    id: "Feed tray",
+    number: "4",
+    top: "25%",
+    left: "90%",
+    image: "/images/product img/Group 45.png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+    ],
+  },
+    {
+    id: "",
+    number: "5",
+    top: "6%",
+    left: "30%",
+    image: "",
+    description: [
+    
+    ],
+  },  
+  {
+    id: "",
+    number: "6",
+    top: "12%",
+    left: "60%",
+    image: "",
+    description: [
+    
+    ],
+  },
+];
+
+export const hotspot2 = [
+  {
+    id: "Biofloc Mixing System",
+    number: "1",
+    top: "42%",
+    left: "28%",
+    image: "/images/product img/Group 42.png",
+    description: [
+      "Energy cost saving by 25%",
+      "Operational cost reduction by 25%",
+      "Remote operation by web app",
+    ],
+  },
+  {
+    id: "Biofloc Mixing System",
+    number: "1",
+    top: "16%",
+    left: "62%",
+    image: "/images/product img/Group 42.png",
+    description: [
+      "Energy cost saving by 25%",
+      "Operational cost reduction by 25%",
+      "Remote operation by web app",
+    ],
+  },
+  {
+    id: "Automated feeder",
+    number: "2",
+    top: "10%",
+    left: "70%",
+    image: "/images/product img/Group 40 .png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+      "Daily feed reports via web app",
+    ],
+  },
+  {
+    id: "Automated feeder",
+    number: "2",
+    top: "31%",
+    left: "38%",
+    image: "/images/product img/Group 40 .png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+      "Daily feed reports via web app",
+    ],
+  },
+  {
+    id: "Feed tray",
+    number: "3",
+    top: "5%",
+    left: "53%",
+    image: "/images/product img/Group 45.png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+    ],
+  },
+  {
+    id: "Feed tray",
+    number: "3",
+    top: "25%",
+    left: "20%",
+    image: "/images/product img/Group 45.png",
+    description: [
+      "Variable dispersion and projectile of feed",
+      "Integration with water quality, energy monitoring & feed tray",
+      "Daily FCR management",
+    ],
+  },
+];

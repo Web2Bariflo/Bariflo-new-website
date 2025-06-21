@@ -4,12 +4,9 @@
     "title": "Bottom Aeration System",
     "description": "Our patented sediment aeration device diffuses air at the sediment level where the majority of waste and aquatic species shelter and helps maintain dissolved oxygen at the sediment-oxygen boundary layer.",
     "features": [
-      "Intelligent bottom aeration",
       "Energy cost saving by 25%",
       "Operational cost reduction by 25%",
-      "Remote operation by web app",
-      "Energy management",
-      "Warranty of 1 year extendable"
+      "Remote operation by web app"
     ],
 
     "image": "/images/product img/aerator img.png"

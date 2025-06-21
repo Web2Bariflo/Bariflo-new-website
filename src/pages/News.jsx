@@ -1,3 +1,4 @@
+//news page 
 import React from "react";
 import UnderMaintenance from "../components/Maintaince";
 

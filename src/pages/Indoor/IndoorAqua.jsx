@@ -3,10 +3,11 @@ import Cards from "../../components/Cards";
 import { motion } from "framer-motion";
 import ContactSection from "../../components/ContactSection";
 import Footer from "../../components/Footer";
-import styled, { keyframes } from "styled-components";
 import Banner from "../../components/Banner";
 import PopImgIndoor from "../../components/indoor/PopImgIndoor";
 import IndoorData from "../../components/indoor/IndoorData";
+import { ParallaxProvider } from "react-scroll-parallax";
+import IndoorParallax from "../../components/indoor/IndoorPrallex";
 
 const floatUpVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -36,15 +37,17 @@ const IndoorAqua = () => {
     },
   ];
   return (
-    <>
+    <ParallaxProvider>
       <Navbar />
       <div style={{ height: "80px" }} />
       <Banner
         image="/images/biofloc2.png"
-        heading="Integrated Indoor crustacean Farming Management System"
+        heading="Integrated Indoor based Aqua Farming Management "
       />
       <PopImgIndoor />
-      <IndoorData/>
+      {/* <IndoorParallax/> */}
+      {/* <IndoorData/> */}
+      
       <motion.div
         variants={floatUpVariant}
         initial="hidden"
@@ -55,7 +58,7 @@ const IndoorAqua = () => {
       </motion.div>
       <ContactSection />
       <Footer />
-    </>
+    </ParallaxProvider>
   );
 };
 

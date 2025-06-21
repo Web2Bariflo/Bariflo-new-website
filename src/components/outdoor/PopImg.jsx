@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import React, { useState } from "react";
-
+import { hotspots } from "../../data/ProducData";
 
 const popEffect = keyframes`
   0% {
@@ -12,13 +12,46 @@ const popEffect = keyframes`
     opacity: 1;
   }
 `;
+const slideUp = keyframes`
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+`;
+const floatInRight = keyframes`
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 70vh;
   margin-top: 80px;
+  margin-bottom: 10rem;
+  margin-left: 12rem;
+
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    margin-left: 0;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -27,15 +60,20 @@ const ImageContainer = styled.div`
   cursor: pointer;
 `;
 
-
 const MainImage = styled.img`
   transition: transform 0.3s ease, opacity 0.3s ease;
+
   ${(props) =>
     props.popped &&
     `
     transform: scale(0.95);
     opacity: 1.0;
   `}
+
+  // &:hover {
+  //   transform: scale(1.05); /* Zoom effect on hover */
+  // }side image and make all responsive for mobile sc
+
   width: 100%;
   max-width: 800px;
   height: auto;
@@ -57,44 +95,103 @@ const PopOut = styled.div`
     display: none;
   }
 `;
-const PopText = styled.span`
+
+const PopText = styled.div`
   color: #333;
   font-weight: bold;
-  font-size: 1.1rem;
-  text-align: center;
+  font-size: 1rem;
   margin-left: 11rem;
+  max-width: 400px;
+  h2 {
+  color: #00bcd4;
+  padding:1rem
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  li {
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    opacity: 0;
+    animation: ${floatInRight} 0.6s ease-out forwards;
+    animation-delay: calc(0.3s * var(--i));
+  }
+
   @media (max-width: 768px) {
     margin-left: 2rem;
   }
 `;
 
 const PoppedImage = styled.img`
-  width: 400px;
+  width: 600px;
   border-radius: 10px;
 `;
 
-
 const Hotspot = styled.div`
   position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: rgba(22, 184, 184, 0.7);
+  width: 24px;
+  height: 24px;
+  background-color: #e02d2d;
   border-radius: 50%;
-  border: 2px solid white;
   cursor: pointer;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(224, 45, 45, 0.5);
   transition: transform 0.2s;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
 
   &:hover {
     transform: scale(1.2);
   }
 
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(224, 45, 45, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 1.8s infinite ease-out;
+    z-index: -1;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.8;
+    }
+    70% {
+      transform: translate(-50%, -50%) scale(2.5);
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   @media (max-width: 768px) {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+
+    &::after {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
-
 
 const MobileDrawer = styled.div`
   display: none;
@@ -114,7 +211,7 @@ const MobileDrawer = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    animation: ${popEffect} 0.3s ease-out forwards;
+    animation: ${slideUp} 0.3s ease-out forwards;
   }
 `;
 
@@ -134,41 +231,32 @@ const DrawerClose = styled.button`
   margin-bottom: 10px;
 `;
 
-const PopImg = () => {
- const [selectedHotspot, setSelectedHotspot] = useState(null);
+const SideImageContainer = styled.div`
+  margin-right: 100px;
+  margin-top: 30rem;
 
-  const hotspots = [
-    {
-      id: "aeration device",
-      top: "40%",
-      left: "50%",
-      image: "/images/RENDERED IMAGES OF PRODUCTS/aerator image 1 (2) 1.png",
-    },
-    {
-      id: "feeder",
-      top: "50%",
-      left: "70%",
-      image: "/images/RENDERED IMAGES OF PRODUCTS/auto feeder 1.png",
-    },
-    {
-      id: "Water Sampling",
-      top: "65%",
-      left: "80%",
-      image:
-        "/images/RENDERED IMAGES OF PRODUCTS/water sampling & monitoring  image 1 (1) 1.png",
-    },
-    {
-      id: "checktray",
-      top: "90%",
-      left: "90%",
-      image:
-        "/images/RENDERED IMAGES OF PRODUCTS/chectray render image 1 1.png",
-    },
-  ];
+  img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    display: none; // Hide on mobile if needed
+  }
+`;
+
+const PopImg = () => {
+  const [selectedHotspot, setSelectedHotspot] = useState(null);
 
   return (
     <>
       <Wrapper>
+        <SideImageContainer>
+          <img src="/images/Group 50.png" alt="Side View" />
+        </SideImageContainer>
+
         <ImageContainer>
           <MainImage
             src="/images/RENDERED IMAGES OF PRODUCTS/website image1 2.png"
@@ -177,7 +265,7 @@ const PopImg = () => {
           />
 
           {/* 🔹 Render hotspots */}
-          {hotspots.map((spot) => (
+          {hotspots.map((spot, index) => (
             <Hotspot
               key={spot.id}
               style={{ top: spot.top, left: spot.left }}
@@ -186,7 +274,9 @@ const PopImg = () => {
                   selectedHotspot?.id === spot.id ? null : spot
                 )
               }
-            />
+            >
+              {spot.number || index + 1}
+            </Hotspot>
           ))}
 
           {/* 🔹 Desktop pop-out */}
@@ -196,7 +286,16 @@ const PopImg = () => {
                 src={selectedHotspot.image}
                 alt={selectedHotspot.id}
               />
-              <PopText>{selectedHotspot.id}</PopText>
+              <PopText>
+                <h2>{selectedHotspot.id}</h2>
+                <ul>
+                  {selectedHotspot.description?.map((item, idx) => (
+                    <li key={idx} style={{ "--i": idx }}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </PopText>
             </PopOut>
           )}
         </ImageContainer>
@@ -214,7 +313,13 @@ const PopImg = () => {
               src={selectedHotspot.image}
               alt={selectedHotspot.id}
             />{" "}
-            <PopText>{selectedHotspot.id}</PopText>
+            <PopText>
+              <ul>
+                {selectedHotspot.description?.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </PopText>
           </>
         )}
       </MobileDrawer>
@@ -222,5 +327,4 @@ const PopImg = () => {
   );
 };
 
-
-export default PopImg
+export default PopImg;

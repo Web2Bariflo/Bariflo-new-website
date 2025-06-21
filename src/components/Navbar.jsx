@@ -226,7 +226,7 @@ export default function Navbar({ textWhite = false }) {
               <NavLink textColor={currentTextColor}>HOME</NavLink>
             </Link>
 
-            <Link to="/prodcts" style={{ textDecoration: "none" }}>
+            <Link  style={{ textDecoration: "none" }}>
               <NavLink textColor={currentTextColor}>PRODUCTS</NavLink>
             </Link>
 

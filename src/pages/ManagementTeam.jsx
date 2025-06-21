@@ -1,4 +1,5 @@
-import React from "react";
+//team section page
+
 import styled from "styled-components";
 import { FaLinkedin } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";

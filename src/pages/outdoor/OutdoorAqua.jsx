@@ -1,11 +1,10 @@
-import UnderMaintenance from "../../components/Maintaince";
 import Navbar from "../../components/Navbar";
 import Cards from "../../components/Cards";
 import { motion } from "framer-motion";
 import ContactSection from "../../components/ContactSection";
 import Footer from "../../components/Footer";
 import PopImg from "../../components/outdoor/PopImg";
-import ProductDetails from "../../components/outdoor/ProductDetails";
+import Banner from "../../components/Banner";
 
 const floatUpVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -34,30 +33,28 @@ const OutdoorAqua = () => {
       link: "",
     },
   ];
-  
+
   return (
     <>
       <Navbar />
       <div style={{ height: "80px" }} />
+
+      <Banner
+        image="/images/AdobeStock_1384224368_Preview.jpeg"
+        heading="Integrated Landbased Aqua Farming Management System"
+      />
       <PopImg />
+      {/* <OutdoorParallex/>
+      <OutdoorData /> */}
+      {/* <ProductDetails /> */}
 
-      <ProductDetails />
-
-      
       <motion.div
         variants={floatUpVariant}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-
-
-
-        
-
         <Cards cards={cards} />
-
-
       </motion.div>
       <ContactSection />
       <Footer />

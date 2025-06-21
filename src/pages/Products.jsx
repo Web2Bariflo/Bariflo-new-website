@@ -1,6 +1,6 @@
-import React from "react";
+//all prouct showing page but not using at the moment 
+
 import styled from "styled-components";
-import ScrollSections from "../components/ScrollSections";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";

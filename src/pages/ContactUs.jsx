@@ -94,13 +94,6 @@ const TextArea = styled.textarea`
   }
 `;
 
-const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  margin-top: 8px;
-`;
 
 
 const Button = styled.button`
@@ -302,18 +295,7 @@ export default function ContactUs() {
             placeholder="Messages*"
             required
           />
-          <CheckboxContainer>
-            <input
-              type="checkbox"
-              name="news"
-              checked={form.news}
-              onChange={handleChange}
-            />
-            <label>
-              Check The Box To Receive The Latest Investor News Bulletins From
-              Nauticus Robotics.
-            </label>
-          </CheckboxContainer>
+          
           <Button type="submit">Submit</Button>
           {status && <p>{status}</p>}
         </Form>

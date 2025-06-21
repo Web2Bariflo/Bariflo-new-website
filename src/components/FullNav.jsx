@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const CenterMenu = styled.div`
-  background: url("/images/77707896-3e5e-422e-bf3b-ed36d4298ea0 7.png") left top repeat;
-  background-size: cover; /* Optional: Make it cover entire area */
+  background: url("/images/77707896-3e5e-422e-bf3b-ed36d4298ea0 7.png") left top
+    repeat;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  width: 100vw;
-  height: 100vh; /* Full screen height */
+  width: 90vw;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -17,7 +19,6 @@ const CenterMenu = styled.div`
   gap: 30px;
   padding: 40px 20px;
 `;
-
 
 const Section = styled.div`
   text-align: center;
@@ -77,6 +78,7 @@ const SubLink = styled.a`
 
 const FullNav = () => {
   const [openSection, setOpenSection] = useState(null);
+  const navigate = useNavigate();
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
@@ -86,83 +88,85 @@ const FullNav = () => {
     <CenterMenu>
       <Section>
         <SectionHeading
-          href="#open"
           onClick={(e) => {
             e.preventDefault();
-            toggleSection("open");
+            navigate("/outdoorAqua");
           }}
           open={openSection === "open"}
         >
-          Open Aqua Culture
+          Land Based Aqua Culture
         </SectionHeading>
-        {openSection === "open" && (
+        {/* {openSection === "open" && (
           <SubLinks>
             <SubLink href="#open-1">Feeding Systems</SubLink>
             <SubLink href="#open-2">Case Studies</SubLink>
           </SubLinks>
-        )}
+        )} */}
       </Section>
 
       <Section>
         <SectionHeading
-          href="#indoor"
           onClick={(e) => {
             e.preventDefault();
-            toggleSection("indoor");
+            navigate("/indoorAqua");
           }}
           open={openSection === "indoor"}
         >
           Indoor Aquaculture
         </SectionHeading>
-        {openSection === "indoor" && (
+        {/* {openSection === "indoor" && (
           <SubLinks>
             <SubLink href="#indoor-1">Biofloc Design</SubLink>
             <SubLink href="#indoor-2">Equipment Supply</SubLink>
             <SubLink href="#indoor-3">Case Studies</SubLink>
           </SubLinks>
-        )}
+        )} */}
       </Section>
 
       <Section>
         <SectionHeading
-          href="#land"
-          onClick={(e) => {
-            e.preventDefault();
-            toggleSection("land");
-          }}
-          open={openSection === "land"}
+          // href="#land"
+          // onClick={(e) => {
+          //   e.preventDefault();
+          //   toggleSection("land");
+          // }}
+          // open={openSection === "land"}
+          as="span"
+          style={{ opacity: 0.5, cursor: "not-allowed", pointerEvents: "none" }}
         >
-          Land Based Aqua Culture
+          Open Aqua Culture
         </SectionHeading>
-        {openSection === "land" && (
+        {/* {openSection === "land" && (
           <SubLinks>
             <SubLink href="#land-1">RAS Design</SubLink>
             <SubLink href="#land-2">RAS Equipment Supply</SubLink>
             <SubLink href="#land-3">RAS Monitoring and Control</SubLink>
             <SubLink href="#land-4">Case Studies</SubLink>
           </SubLinks>
-        )}
+        )} */}
       </Section>
 
       <Section>
         <SectionHeading
-          href="#intelligence"
-          onClick={(e) => {
-            e.preventDefault();
-            toggleSection("intelligence");
-          }}
-          open={openSection === "intelligence"}
+          // href="#intelligence"
+          // onClick={(e) => {
+          //   e.preventDefault();
+          //   toggleSection("intelligence");
+          // }}
+          // open={openSection === "intelligence"}
+          as="span"
+          style={{ opacity: 0.5, cursor: "not-allowed", pointerEvents: "none" }}
         >
           Aqua Culture Intelligence
         </SectionHeading>
-        {openSection === "intelligence" && (
+        {/* {openSection === "intelligence" && (
           <SubLinks>
             <SubLink href="#intelligence-2">Farm Management Software</SubLink>
             <SubLink href="#intelligence-4">Aeration & Oxygen Control</SubLink>
             <SubLink href="#intelligence-6">Camera Systems</SubLink>
             <SubLink href="#intelligence-7">Feed Optimization</SubLink>
           </SubLinks>
-        )}
+        )} */}
       </Section>
     </CenterMenu>
   );

@@ -10,9 +10,10 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   margin-bottom: 40px;
+  color: #00bcd4;
 `;
 
 const Grid = styled.div`
@@ -47,6 +48,7 @@ const CardTitle = styled.div`
   padding: 16px;
   font-size: 16px;
   font-weight: 600;
+  color: #333;
 `;
 
 

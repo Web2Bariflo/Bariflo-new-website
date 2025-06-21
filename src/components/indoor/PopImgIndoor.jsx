@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import React, { useState } from "react";
+import { hotspot2 } from "../../data/ProducData";
 
 const popEffect = keyframes`
   0% {
@@ -21,16 +22,35 @@ const slideUp = keyframes`
     opacity: 1;
   }
 `;
+const floatInRight = keyframes`
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 70vh;
-  margin: 100px;
+  margin-top: 80px;
+  margin-bottom: 10rem;
+  margin-left: 12rem;
+
   @media (max-width: 768px) {
-    height: 50vh;
-    margin: 0px;
+    height: auto;
+    flex-direction: column;
+    margin-left: 0;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
   }
 `;
 
@@ -42,14 +62,18 @@ const ImageContainer = styled.div`
 
 const MainImage = styled.img`
   transition: transform 0.3s ease, opacity 0.3s ease;
+
   ${(props) =>
     props.popped &&
     `
     transform: scale(0.95);
     opacity: 1.0;
   `}
+
   width: 100%;
+  max-width: 1000px;
   height: auto;
+  animation: ${slideUp} 0.5s ease-out forwards;
 
   @media (max-width: 768px) {
     max-width: 95vw;
@@ -59,7 +83,7 @@ const MainImage = styled.img`
 const PopOut = styled.div`
   position: absolute;
   top: 0;
-  left: 90%;
+  left: 100%;
   margin-left: 20px;
   z-index: 10;
   animation: ${popEffect} 0.3s ease-out forwards;
@@ -68,40 +92,100 @@ const PopOut = styled.div`
     display: none;
   }
 `;
-const PopText = styled.span`
+
+const PopText = styled.div`
   color: #333;
   font-weight: bold;
-  font-size: 1.1rem;
-  text-align: center;
+  font-size: 1rem;
   margin-left: 11rem;
+  max-width: 400px;
+  h2 {
+  color: #00bcd4;
+  padding:1rem
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  li {
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    opacity: 0;
+    animation: ${floatInRight} 0.6s ease-out forwards;
+    animation-delay: calc(0.3s * var(--i));
+  }
+
   @media (max-width: 768px) {
     margin-left: 2rem;
   }
 `;
-
 const PoppedImage = styled.img`
-  width: 400px;
+  width: 600px;
   border-radius: 10px;
 `;
 
 const Hotspot = styled.div`
   position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: rgba(22, 184, 184, 0.7);
+  width: 24px;
+  height: 24px;
+  background-color: #e02d2d;
   border-radius: 50%;
-  border: 2px solid white;
   cursor: pointer;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(224, 45, 45, 0.5);
   transition: transform 0.2s;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
 
   &:hover {
     transform: scale(1.2);
   }
 
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(224, 45, 45, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 1.8s infinite ease-out;
+    z-index: -1;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.8;
+    }
+    70% {
+      transform: translate(-50%, -50%) scale(2.5);
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   @media (max-width: 768px) {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+
+    &::after {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
@@ -143,43 +227,35 @@ const DrawerClose = styled.button`
   margin-bottom: 10px;
 `;
 
+const Heading = styled.h2`
+  font-size: 26px;
+  font-weight: bold;
+  color: #00bcd4;
+  margin-left: 30rem;
+  animation: ${slideUp} 0.5s ease-out forwards;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin-left: 0;
+    font-size: 1.5rem;
+  }
+`;
+
 const PopImgIndoor = () => {
   const [selectedHotspot, setSelectedHotspot] = useState(null);
-
-  const hotspots = [
-    {
-      id: "Biofloc Mixing System",
-      top: "50%",
-      left: "28%",
-      image: "/images/RENDERED IMAGES OF PRODUCTS/aerator image 1 (2) 1.png",
-    },
-    {
-      id: "feeder",
-      top: "72%",
-      left: "64%",
-      image: "/images/RENDERED IMAGES OF PRODUCTS/auto feeder 1.png",
-    },
-    {
-      id: "Water Sampling",
-      top: "38%",
-      left: "66%",
-      image:
-        "/images/RENDERED IMAGES OF PRODUCTS/water sampling & monitoring  image 1 (1) 1.png",
-    },
-
-  ];
 
   return (
     <>
       <Wrapper>
         <ImageContainer>
           <MainImage
-            src="/images/bioflocdesign.png"
+            src="/images/biofloc_products_png-removebg-preview 1.png"
             alt="Clickable"
             popped={!!selectedHotspot}
           />
-
-          {hotspots.map((spot) => (
+          {/* Add this heading */}
+          <Heading>Bio floc Aquafarming</Heading>
+          {hotspot2.map((spot, index) => (
             <Hotspot
               key={spot.id}
               style={{ top: spot.top, left: spot.left }}
@@ -188,7 +264,9 @@ const PopImgIndoor = () => {
                   selectedHotspot?.id === spot.id ? null : spot
                 )
               }
-            />
+            >
+              {spot.number || index + 1}
+            </Hotspot>
           ))}
 
           {selectedHotspot && (
@@ -197,7 +275,16 @@ const PopImgIndoor = () => {
                 src={selectedHotspot.image}
                 alt={selectedHotspot.id}
               />
-              <PopText>{selectedHotspot.id}</PopText>
+              <PopText>
+                <h2>{selectedHotspot.id}</h2>
+                <ul>
+                  {selectedHotspot.description?.map((item, idx) => (
+                    <li key={idx} style={{ "--i": idx }}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </PopText>
             </PopOut>
           )}
         </ImageContainer>
@@ -214,7 +301,13 @@ const PopImgIndoor = () => {
               src={selectedHotspot.image}
               alt={selectedHotspot.id}
             />{" "}
-            <PopText>{selectedHotspot.id}</PopText>
+            <PopText>
+              <ul>
+                {selectedHotspot.description?.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </PopText>{" "}
           </>
         )}
       </MobileDrawer>

@@ -1,4 +1,6 @@
-import React from "react";
+// landing home page 
+
+
 import Hero from "../components/home/Hero";
 import GridBox from "../components/home/GridBox";
 import OurGoal from "../components/home/OurGoal";

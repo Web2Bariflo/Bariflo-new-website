@@ -10,7 +10,18 @@ const floatUpVariant = {
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
-
+const textVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.3,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
 // Sample image (replace with actual paths)
 const data = [
   {
@@ -28,32 +39,18 @@ const data = [
 
 const IndoorData = () => {
   return (
-    <ParallaxProvider>
-      <div>
-        <OverlayContainer>
-          <div>
-            <h1>Integrated Systems for Modern Crustacean Farming</h1>
-            <p>
-              The Integrated Indoor Crustacean Farming Management System brings
-              together advanced aquaculture engineering with biofloc technology
-              to create a closed-loop, sustainable farming environment. This
-              system addresses key industry challenges like water scarcity, land
-              limitations, and disease outbreaks by maintaining controlled
-              indoor conditions, reducing dependency on external factors.
-            </p>
-          </div>
-        </OverlayContainer>
-      </div>
+    <>
 
-      <motion.div
-        variants={floatUpVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <Container>
-          {data.map((section, index) => (
-            <Section key={index} reverse={index % 2 !== 0}>
+      <Container>
+        {data.map((section, index) => (
+          <motion.div
+            key={index}
+            variants={floatUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <Section reverse={index % 2 !== 0}>
               <ImageWrapper>
                 <img src={section.image} alt={section.heading} />
               </ImageWrapper>
@@ -62,103 +59,16 @@ const IndoorData = () => {
                 <p>{section.text}</p>
               </TextWrapper>
             </Section>
-          ))}
-        </Container>
-      </motion.div>
-    </ParallaxProvider>
+          </motion.div>
+        ))}
+      </Container>
+    </>
   );
 };
 
 export default IndoorData;
 
 
-const OverlayContainer = styled.div`
-  position: relative;
-  background-image: url("/images/IMG-20220122-WA0004 1.png");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 30px;
-  text-align: center;
-  overflow: hidden;
-
-  // The blurred overlay effect
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(22, 184, 184, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1;
-  }
-
-  // The content (text) goes above the overlay
-  > div {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      color: #f0f0f0;
-      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
-    }
-  }
-
-  @media (max-width: 1024px) {
-    height: 60vh;
-
-    > div h1 {
-      font-size: 2rem;
-    }
-
-    > div p {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    height: auto;
-    padding: 30px 20px;
-
-    > div h1 {
-      font-size: 1.7rem;
-    }
-
-    > div p {
-      font-size: 1rem;
-    }
-
-    &::before {
-      backdrop-filter: none;
-      background: rgba(22, 184, 184, 0.3); // Slightly stronger for small screens
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 20px 15px;
-
-    > div h1 {
-      font-size: 1.4rem;
-    }
-
-    > div p {
-      font-size: 0.95rem;
-    }
-  }
-`;
 
 const Container = styled.div`
   display: flex;
@@ -179,16 +89,25 @@ const Section = styled.div`
     gap: 24px;
   }
 `;
-
 const ImageWrapper = styled.div`
   flex: 1;
+  overflow: hidden; /* Ensure the zoomed image doesn’t spill out */
+  border-radius: 12px;
+
   img {
     width: 100%;
-    border-radius: 12px;
+    height: 100%;
     object-fit: cover;
     max-height: 400px;
+    border-radius: 12px;
+    transition: transform 0.4s ease; /* Smooth zoom effect */
+  }
+
+  &:hover img {
+    transform: scale(1.08); /* Zoom amount */
   }
 `;
+
 
 const TextWrapper = styled.div`
   flex: 1;
