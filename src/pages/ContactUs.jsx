@@ -324,9 +324,11 @@ export default function ContactUs() {
                 <strong>Bariflo Cybernetics Inc.</strong>
               </h4>
               <p>
-                Venn Innovation735 Main st,
+                Venn Innovation,
                 <br />
-                Moncton NB E1C 1E5,
+                770 St George Blvd, Moncton,
+                <br />
+                NB E1E 2C6, Canada
                 <br />
                 <p>Headquarter Canada: +1 (647)296-9976</p>
                 <p>Email: michelle@Bariflolabs.Com</p>
