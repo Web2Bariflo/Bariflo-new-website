@@ -37,7 +37,7 @@ const Form = styled.form`
   background: #f9f9f9;
   padding: 24px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 `;
 
 const Row = styled.div`
@@ -79,7 +79,6 @@ const Select = styled.select`
   }
 `;
 
-
 const TextArea = styled.textarea`
   padding: 16px;
   font-size: 16px;
@@ -95,8 +94,6 @@ const TextArea = styled.textarea`
     outline: none;
   }
 `;
-
-
 
 const Button = styled.button`
   margin-top: 16px;
@@ -120,7 +117,7 @@ const InfoSection = styled.div`
   background: #fff;
   padding: 40px 24px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 `;
 
 const MapContactWrapper = styled.div`
@@ -135,7 +132,6 @@ const MapContactWrapper = styled.div`
     align-items: center;
   }
 `;
-
 
 const MapFrame = styled.iframe`
   border: none;
@@ -193,29 +189,27 @@ export default function ContactUs() {
       news: form.news ? "Yes" : "No",
     };
 
-    emailjs
-      .send(serviceId, templateId, templateParams, publicKey)
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          setStatus("Message sent successfully!");
-          setForm({
-            firstName: "",
-            lastName: "",
-            email: "",
-            company: "",
-            phone: "",
-            interest: "",
-            region: "",
-            message: "",
-            news: false,
-          });
-        },
-        (err) => {
-          console.error("FAILED...", err);
-          setStatus("Failed to send message. Please try again.");
-        }
-      );
+    emailjs.send(serviceId, templateId, templateParams, publicKey).then(
+      (response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setStatus("Message sent successfully!");
+        setForm({
+          firstName: "",
+          lastName: "",
+          email: "",
+          company: "",
+          phone: "",
+          interest: "",
+          region: "",
+          message: "",
+          news: false,
+        });
+      },
+      (err) => {
+        console.error("FAILED...", err);
+        setStatus("Failed to send message. Please try again.");
+      }
+    );
   };
 
   return (
@@ -225,8 +219,7 @@ export default function ContactUs() {
       <Container>
         <Title>Contact Us</Title>
         <Subtitle>
-          Contact Us Today To See How We Can
-          Help With Your Aquaculture Project.
+          Contact Us Today To See How We Can Help With Your Aquaculture Project.
         </Subtitle>
 
         <Form onSubmit={handleSubmit}>
@@ -297,7 +290,7 @@ export default function ContactUs() {
             placeholder="Messages*"
             required
           />
-          
+
           <Button type="submit">Submit</Button>
           {status && <p>{status}</p>}
         </Form>
@@ -314,36 +307,34 @@ export default function ContactUs() {
             ></MapFrame>
             <ContactBox>
               <h4>
-                <strong>Bariflo Cybernetics - HQ</strong>
+                <strong>Bariflo Cybernetics Pvt. Ltd. – India</strong>
               </h4>
               <p>
                 207 Second Floor Kiit TBI
                 <br />
                 Campus 11,
                 <br />
-                Patia, Bhubaneswar,
-                <br />
-                Odisha
-              </p>
-              <h4>
-                <strong>Odisha - HQ</strong>
-              </h4>
-              <p>
-                207, TBI2, KIIT TBI,
-                <br />
-                Campus 11,
-                <br />
-                Patia Estate,
+                Patia,
                 <br />
                 Bhubaneswar, Odisha - 751024
+                <br />
+                <p>HR Department: +91 9777171033</p>
+                <p>Administrator: +91 9124562924</p>
+                <p>Email: Care@Bariflolabs.Com</p>
               </p>
+              <h4>
+                <strong>Bariflo Cybernetics Pvt. Ltd. – INC</strong>
+              </h4>
               <p>
-                <strong>Get In Touch</strong>
+                Venn Innovation735 Main st,
+                <br />
+                Moncton NB E1C 1E5,
+                <br />
+                <p>Headquarter Canada: +1 (647)296-9976</p>
+                <p>Email: michelle@Bariflolabs.Com</p>
               </p>
-              <p>HR Department: +91 9777171033</p>
-              <p>Administrator: +91 9124562924</p>
-              <p>Headquarter Canada: +1 (647)296-9976</p>
-              <p>Email: Care@Bariflolabs.Com</p>
+        
+
             </ContactBox>
           </MapContactWrapper>
         </InfoSection>
