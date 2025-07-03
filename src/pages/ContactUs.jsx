@@ -312,10 +312,8 @@ export default function ContactUs() {
               <p>
                 207 Second Floor Kiit TBI
                 <br />
-                Campus 11,
-                <br />
-                Patia,
-                <br />
+                Campus 11,Patia,
+                <br />      
                 Bhubaneswar, Odisha - 751024
                 <br />
                 <p>HR Department: +91 9777171033</p>
@@ -323,7 +321,7 @@ export default function ContactUs() {
                 <p>Email: Care@Bariflolabs.Com</p>
               </p>
               <h4>
-                <strong>Bariflo Cybernetics Pvt. Ltd. – INC</strong>
+                <strong>Bariflo Cybernetics Inc.</strong>
               </h4>
               <p>
                 Venn Innovation735 Main st,
