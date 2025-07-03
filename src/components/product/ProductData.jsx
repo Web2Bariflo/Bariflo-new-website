@@ -1,3 +1,5 @@
+//product data showing component  not used 
+
 import styled from 'styled-components';
 import products from '../../data/products.json';
 import { motion } from 'framer-motion';

@@ -1,3 +1,5 @@
+//main imag component used in indoor 
+
 import styled, { keyframes } from "styled-components";
 import React, { useState } from "react";
 import { hotspot2 } from "../../data/ProducData";

@@ -1,3 +1,5 @@
+// image sliding with button in  home page 
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";

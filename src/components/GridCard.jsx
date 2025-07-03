@@ -1,3 +1,5 @@
+//grid card to show data not used 
+
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";

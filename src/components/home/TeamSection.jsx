@@ -1,3 +1,5 @@
+//team button component 
+
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Tilt } from "react-tilt";

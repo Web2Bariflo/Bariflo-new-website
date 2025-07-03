@@ -1,3 +1,5 @@
+//banner to use in subpages 
+
 import styled from "styled-components";
 import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
 

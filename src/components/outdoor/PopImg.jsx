@@ -1,3 +1,5 @@
+//mainimage in outdoor page  
+
 import styled, { keyframes } from "styled-components";
 import React, { useState } from "react";
 import { hotspots } from "../../data/ProducData";

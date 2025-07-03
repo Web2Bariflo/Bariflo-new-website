@@ -1,3 +1,5 @@
+//multiimage sliding component in home page 
+
 import React, { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";

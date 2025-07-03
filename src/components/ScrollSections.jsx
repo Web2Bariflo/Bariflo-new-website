@@ -1,4 +1,4 @@
-// ScrollSections.js
+// ScrollSections.js for image scroll not used yet
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";

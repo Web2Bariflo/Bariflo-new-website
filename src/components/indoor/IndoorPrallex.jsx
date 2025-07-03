@@ -1,3 +1,5 @@
+//parallex component  not used 
+
 import styled from "styled-components";
 import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
 import { motion } from "framer-motion";

@@ -1,3 +1,5 @@
+//head banner in home page 
+
 import Typewriter from "typewriter-effect";
 import styled from "styled-components";
 import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";

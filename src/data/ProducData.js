@@ -1,4 +1,4 @@
-// dataSets.js
+// dataSets.js  dat set for indoor and outdoor image product 
 export const hotspots = [
   {
     id: "Bottom Aeration System",

@@ -1,3 +1,5 @@
+//grid box to show data in home page 
+
 import styled from "styled-components";
 import { Tilt } from "react-tilt";
 

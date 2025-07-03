@@ -1,3 +1,5 @@
+//contact us page
+
 import { useState } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser"; // <-- added
@@ -338,7 +340,9 @@ export default function ContactUs() {
               <p>
                 <strong>Get In Touch</strong>
               </p>
-              <p>Mobile: +91 9777171033</p>
+              <p>HR Department: +91 9777171033</p>
+              <p>Administrator: +91 9124562924</p>
+              <p>Headquarter Canada: +1 (647)296-9976</p>
               <p>Email: Care@Bariflolabs.Com</p>
             </ContactBox>
           </MapContactWrapper>

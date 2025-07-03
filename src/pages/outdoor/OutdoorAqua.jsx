@@ -1,3 +1,5 @@
+//outdoor page
+
 import Navbar from "../../components/Navbar";
 import Cards from "../../components/Cards";
 import { motion } from "framer-motion";
@@ -40,7 +42,7 @@ const OutdoorAqua = () => {
       <div style={{ height: "80px" }} />
 
       <Banner
-        image="/images/AdobeStock_1384224368_Preview.jpeg"
+        image="/images/walpaper.png"
         heading="Integrated Landbased Aqua Farming Management System"
       />
       <PopImg />

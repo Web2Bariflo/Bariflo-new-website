@@ -1,3 +1,5 @@
+//indoor page
+
 import Navbar from "../../components/Navbar";
 import Cards from "../../components/Cards";
 import { motion } from "framer-motion";

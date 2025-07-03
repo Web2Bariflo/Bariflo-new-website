@@ -1,4 +1,5 @@
-import React from "react";
+//our goal component of home page 
+
 import ReactPlayer from "react-player";
 import { FaYoutube } from "react-icons/fa6";
 import styled from "styled-components";

@@ -1,3 +1,5 @@
+//data fo indoor not used 
+
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";

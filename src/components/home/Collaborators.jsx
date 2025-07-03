@@ -1,4 +1,6 @@
-import React from 'react';
+//logos sliding in home page 
+
+
 import styled, { keyframes } from 'styled-components';
 
 // Animation for infinite scroll

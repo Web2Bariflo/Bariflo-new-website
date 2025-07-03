@@ -1,3 +1,5 @@
+//casestudies not applied yet
+
 import styled from "styled-components";
 import ScrollSections from "../components/ScrollSections";
 import Navbar from "../components/Navbar";
