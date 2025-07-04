@@ -313,12 +313,14 @@ export default function ContactUs() {
                 207 Second Floor Kiit TBI
                 <br />
                 Campus 11,Patia,
-                <br />      
+                <br />
                 Bhubaneswar, Odisha - 751024
                 <br />
                 <p>HR Department: +91 9777171033</p>
                 <p>Administrator: +91 9124562924</p>
-                <p>Email: Care@Bariflolabs.Com</p>
+                <strong>Email: </strong>
+                <p><a href="mailto:care@bariflolabs.com">care@bariflolabs.com</a></p>
+                <p><a href="mailto:human@bariflolabs.com">human@bariflolabs.com</a> </p>
               </p>
               <h4>
                 <strong>Bariflo Cybernetics Inc.</strong>
@@ -331,10 +333,8 @@ export default function ContactUs() {
                 NB E1E 2C6, Canada
                 <br />
                 <p>Headquarter Canada: +1 (647)296-9976</p>
-                <p>Email: michelle@Bariflolabs.Com</p>
+                <p>Email: <a href="mailto:michelle@bariflolabs.com">michelle@bariflolabs.com</a></p>
               </p>
-        
-
             </ContactBox>
           </MapContactWrapper>
         </InfoSection>
