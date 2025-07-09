@@ -18,13 +18,13 @@ const images = {
 // Text content per category
 const contentByCategory = {
   "Land based Aqua culture": {
-    heading: "Land-Based Sustainable Systems",
-    button: "Learn More",
+    heading: "Land-Based Sustainable Systems and about it's product",
+    button: "Learn More ",
     link: "/outdoorAqua",
     disabled: false,
   },
   "Indoor Aqua Culture": {
-    heading: "Revolutionizing Indoor Aquaculture",
+    heading: "Indoor Aquaculture and about it's product",
     button: "Learn More",
     link: "/indoorAqua",
     disabled: false,

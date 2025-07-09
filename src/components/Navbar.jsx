@@ -228,9 +228,9 @@ export default function Navbar({ textWhite = false }) {
               <NavLink textColor={currentTextColor}>HOME</NavLink>
             </Link>
 
-            <Link  style={{ textDecoration: "none" }}>
+            {/* <Link  style={{ textDecoration: "none" }}>
               <NavLink textColor={currentTextColor}>PRODUCTS</NavLink>
-            </Link>
+            </Link> */}
 
             <Link to="/news" style={{ textDecoration: "none" }}>
               <NavLink textColor={currentTextColor}>NEWS</NavLink>
@@ -256,10 +256,10 @@ export default function Navbar({ textWhite = false }) {
             <Link to="/" style={{ textDecoration: "none" }}>
               <NavLink textColor={currentTextColor}>HOME</NavLink>
             </Link>
-
+{/* 
             <Link to="/prodcts" style={{ textDecoration: "none" }}>
               <NavLink scrolled={scrolled}>PRODUCTS</NavLink>
-            </Link>
+            </Link> */}
 
             <Link to="/news" style={{ textDecoration: "none" }}>
               <NavLink scrolled={scrolled}>NEWS</NavLink>
@@ -289,9 +289,9 @@ export default function Navbar({ textWhite = false }) {
                 <NavLink>HOME</NavLink>
               </Link>
 
-              <Link to="/prodcts" style={{ textDecoration: "none" }}>
+              {/* <Link to="/prodcts" style={{ textDecoration: "none" }}>
                 <NavLink>PRODUCTS</NavLink>
-              </Link>
+              </Link> */}
 
               <Link to="/news" style={{ textDecoration: "none" }}>
                 <NavLink>NEWS</NavLink>

@@ -1,8 +1,9 @@
-//main imag component used in indoor 
+//main imag component used in indoor
 
 import styled, { keyframes } from "styled-components";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { hotspot2 } from "../../data/ProducData";
+import { FiAlertCircle } from "react-icons/fi";
 
 const popEffect = keyframes`
   0% {
@@ -36,6 +37,62 @@ const floatInRight = keyframes`
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+`;
+const slideInLeft = keyframes`
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+const InfoWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  margin-left: 2rem;
+  margin-top: 5rem;
+`;
+
+const Tooltip = styled.div`
+  position: absolute;
+  top: 40px; /* Push it below the icon */
+  left: 0;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 188, 212, 0.5);
+  z-index: 100;
+  white-space: nowrap;
+  animation: ${slideInLeft} 0.6s ease-out forwards;
+
+  /* Speech bubble pointer */
+  &::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+    filter: drop-shadow(0 -1px 1px rgba(0,0,0,0.1));
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    top: 30px;
+    left: -10px;
+
+    &::after {
+      top: -8px;
+      left: 16px;
+    }
   }
 `;
 
@@ -101,7 +158,7 @@ const PopText = styled.div`
   font-size: 1rem;
   margin-left: 11rem;
   max-width: 400px;
-    h2 {
+  h2 {
     color: #00bcd4;
     padding: 1rem;
 
@@ -251,9 +308,41 @@ const Heading = styled.h2`
 
 const PopImgIndoor = () => {
   const [selectedHotspot, setSelectedHotspot] = useState(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const tooltipRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowTooltip(true); // Show tooltip once when in view
+          observer.disconnect(); // Stop observing after first trigger
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (tooltipRef.current) {
+      observer.observe(tooltipRef.current);
+    }
+
+    return () => {
+      if (tooltipRef.current) {
+        observer.unobserve(tooltipRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
+     <InfoWrapper ref={tooltipRef}>
+            <FiAlertCircle size={30} color="#00bcd4" />
+            {showTooltip && (
+              <Tooltip>
+                Click on the red dots to know more details about the product
+              </Tooltip>
+            )}
+          </InfoWrapper>
       <Wrapper>
         <ImageContainer>
           <MainImage
