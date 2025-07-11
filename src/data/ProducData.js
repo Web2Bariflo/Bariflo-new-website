@@ -43,13 +43,13 @@ export const hotspots = [
     image: "/images/product img/Group 40 .png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
       "Daily feed reports via web app",
     ],
   },
   {
-    id: "Monitering System",
+    id: "Monitoring System",
     number: "3",
     top: "65%",
     left: "80%",
@@ -69,7 +69,7 @@ export const hotspots = [
     image: "/images/product img/Group 45.png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
     ],
   },
@@ -81,7 +81,7 @@ export const hotspots = [
     image: "/images/product img/Group 45.png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
     ],
   },{
@@ -92,7 +92,7 @@ export const hotspots = [
     image: "/images/product img/Group 45.png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
     ],
   },
@@ -104,12 +104,12 @@ export const hotspots = [
     image: "/images/product img/Group 45.png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
     ],
   },
     {
-    id: "Power Monitering",
+    id: "Power Monitoring",
     number: "5",
     top: "6%",
     left: "30%",
@@ -122,7 +122,7 @@ export const hotspots = [
     ],
   },  
   {
-    id:  "Monitering System",
+    id:  "Monitoring System",
     number: "3",
     top: "12%",
     left: "60%",
@@ -169,7 +169,7 @@ export const hotspot2 = [
     image: "/images/product img/Group 40 .png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
       "Daily feed reports via web app",
     ],
@@ -182,7 +182,7 @@ export const hotspot2 = [
     image: "/images/product img/Group 40 .png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
       "Daily feed reports via web app",
     ],
@@ -195,7 +195,7 @@ export const hotspot2 = [
     image: "/images/product img/Group 45.png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
     ],
   },
@@ -207,7 +207,7 @@ export const hotspot2 = [
     image: "/images/product img/Group 45.png",
     description: [
       "Variable dispersion and projectile of feed",
-      "Integration with water quality, energy monitoring & feed tray",
+      "Integration with water quality, energy Monitoring & feed tray",
       "Daily FCR management",
     ],
   },
