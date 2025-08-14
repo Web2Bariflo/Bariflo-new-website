@@ -173,9 +173,9 @@ export default function ContactUs() {
 
     setStatus("Sending...");
 
-    const serviceId = "service_0kam8of";
-    const templateId = "template_viarjag";
-    const publicKey = "ikEUPRWNbLT4V_Mel";
+    const serviceId = "service_5siirgl";
+    const templateId = "template_i5depx4";
+    const publicKey = "NZqcT4JqDqmz-ISZE";
 
     const templateParams = {
       firstName: form.firstName,
