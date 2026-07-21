@@ -24,13 +24,13 @@ function AppRoutes() {
       {/* <Route path="/prodcts" element={<Products />} /> */}
       <Route path="/case-studies" element={<CaseStudies />} />
     </Routes>
-  );                                      
+  );
 }
 
 function App() {
   return (
     <BrowserRouter>
-    <ResetToStart/>
+      <ResetToStart />
       <AppRoutes />
     </BrowserRouter>
   );
