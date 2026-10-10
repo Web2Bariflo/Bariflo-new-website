@@ -901,6 +901,11 @@ p {
   height: 28px;
 }
 
+.nl-logos .nl-logo-indianoil,
+.nl-logos .nl-logo-mc {
+  height: 48px;
+}
+
 .nl-copyright-info {
   display: flex;
   flex-direction: column;

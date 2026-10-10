@@ -32,12 +32,6 @@ const Industries = () => {
       img: '/images/rectangular_ponds.jpg'
     },
     {
-      title: 'MARINE FARMING',
-      heading: 'Sustainable systems',
-      desc: 'Optimized growth tracking.',
-      img: '/aquaculture_card_1782112416629.png'
-    },
-    {
       title: 'WATER TREATMENT',
       heading: 'Eco-friendly processes',
       desc: 'Advanced monitoring.',
@@ -102,7 +96,16 @@ const Industries = () => {
             style={{ '--slide-index': startIndex }}
           >
             {industries.map((ind, idx) => (
-              <div className="nl-ind-card" key={idx}>
+              <div 
+                className="nl-ind-card" 
+                key={idx}
+                onClick={() => {
+                  if (ind.heading === 'Intelligent farms') {
+                    window.open('https://aquaculture.bc-pl.com/', '_blank');
+                  }
+                }}
+                style={{ cursor: ind.heading === 'Intelligent farms' ? 'pointer' : 'default' }}
+              >
                 <img src={ind.img} alt={ind.title} />
                 <div className="nl-ind-overlay">
                   <div className="nl-ind-card-content">
