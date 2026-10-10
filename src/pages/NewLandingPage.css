@@ -145,13 +145,17 @@ p {
   box-shadow: 0 6px 16px rgba(0, 102, 204, 0.3);
 }
 
+.mobile-only {
+  display: none !important;
+}
+
 .nl-hamburger {
   background: none;
   border: 1px solid #E0E0E0;
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
@@ -356,7 +360,7 @@ p {
 
 .nl-feature-card {
   background: var(--white);
-  padding: 16px 40px 16px 20px;
+  padding: 10px 30px 10px 16px;
   border-radius: 50px 10px 10px 50px;
   display: flex;
   align-items: center;
@@ -374,8 +378,8 @@ p {
 }
 
 .nl-feature-icon {
-  width: 64px;
-  height: 64px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: var(--white);
   border: 1px solid #EAEAEA;
@@ -427,6 +431,23 @@ p {
   margin: 0;
   line-height: 1.4;
   white-space: pre-line;
+}
+
+.nl-hand-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: -10px;
+  object-fit: contain;
+  animation: pointHand 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes pointHand {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(6px);
+  }
 }
 
 /* Stats Section */
@@ -999,6 +1020,32 @@ p {
 @media (max-width: 768px) {
   .nl-nav {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .nl-nav.mobile-active {
+    display: flex;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nl-hamburger {
+    display: flex;
   }
 
   .nl-hero {
@@ -1030,5 +1077,29 @@ p {
 
   .nl-ind-slider-track {
     transform: translateX(calc(-1 * var(--slide-index) * (100% + 24px)));
+  }
+
+  .nl-feature-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nl-stats {
+    flex-direction: column;
+    border-radius: 20px;
+    margin: 20px 5%;
+    gap: 20px;
+  }
+
+  .nl-stat-item {
+    border-right: none;
+    border-bottom: 1px solid #EAEAEA;
+    padding-bottom: 20px;
+    width: 100%;
+  }
+
+  .nl-stat-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 }

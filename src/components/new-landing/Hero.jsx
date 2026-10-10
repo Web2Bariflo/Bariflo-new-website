@@ -22,9 +22,9 @@ const Hero = () => {
   }, []);
 
   const cards = [
-    { icon: <img src="/images/icon-sense.png" alt="Sense" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />, title: 'SENSE', desc: 'Continuous data\nfrom every asset' },
-    { icon: <img src="/images/icon-understand.png" alt="Understand, Learn & Predict" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />, title: 'UNDERSTAND, LEARN &\nPREDICT', desc: '' },
-    { icon: <img src="/images/icon-act.png" alt="Act" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />, title: 'ACT', desc: 'Autonomous actions\nin real time' },
+    { icon: <img src="/images/icon-sense.png" alt="Sense" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />, title: 'SENSE', desc: 'Continuous data\nfrom every asset' },
+    { icon: <img src="/images/icon-understand.png" alt="Cognition" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />, title: 'COGNITION', desc: '' },
+    { icon: <img src="/images/icon-act.png" alt="Act" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />, title: 'ACT', desc: 'Autonomous actions\nin real time' },
   ];
 
   return (
@@ -67,24 +67,18 @@ const Hero = () => {
       </div>
 
       <div className="nl-hero-cards">
-        <svg className="nl-hero-arrow" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 90 Q 20 20 90 20" stroke="var(--accent-blue)" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
-          <polygon points="90,15 95,20 90,25" fill="var(--accent-blue)" />
-        </svg>
         {cards.map((card, index) => (
           <div className="nl-feature-card" key={index} onClick={() => { if (card.title === 'SENSE') navigate('/sense-aquaculture'); }}>
+            <img 
+              src="/images/images.png" 
+              alt="Click to redirect" 
+              className="nl-hand-icon"
+            />
             <div className="nl-feature-icon">{card.icon}</div>
             <div className="nl-feature-text">
               <h4>{card.title}</h4>
               {card.desc && <p>{card.desc}</p>}
             </div>
-            {card.title === 'SENSE' && (
-              <img 
-                src="/images/images.png" 
-                alt="Click to redirect" 
-                style={{ width: '28px', height: '28px', marginLeft: 'auto', objectFit: 'contain' }} 
-              />
-            )}
           </div>
         ))}
       </div>
