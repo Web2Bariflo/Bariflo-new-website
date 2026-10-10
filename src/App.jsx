@@ -3,6 +3,7 @@
 import "./index.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
+import NewLandingPage from "./pages/NewLandingPage";
 import ContactUs from "./pages/ContactUs";
 import ManagementTeam from "./pages/ManagementTeam";
 import IndoorAqua from "./pages/Indoor/IndoorAqua";
@@ -11,11 +12,14 @@ import CaseStudies from "./pages/CaseStudies";
 import Products from "./pages/Products";
 import News from "./pages/News";
 import ResetToStart from "./utils/PageTransitionWrapper";
+import SenseAquaculturePage from "./pages/SenseAquaculturePage";
 
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<NewLandingPage />} />
+      <Route path="/sense-aquaculture" element={<SenseAquaculturePage />} />
+      <Route path="/legacy-home" element={<Home />} />
       <Route path="/contactUs" element={<ContactUs />} />
       <Route path="/teamMember" element={<ManagementTeam />} />
       <Route path="/indoorAqua" element={<IndoorAqua />} />
