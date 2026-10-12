@@ -1,4 +1,4 @@
-//all file routing here 
+//all file routing here
 
 import "./index.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
@@ -13,12 +13,16 @@ import Products from "./pages/Products";
 import News from "./pages/News";
 import ResetToStart from "./utils/PageTransitionWrapper";
 import SenseAquaculturePage from "./pages/SenseAquaculturePage";
+import Cognition from "./components/home/cognition";
+import ScrollCursorIndicator from "./components/common/ScrollCursorIndicator";
 
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<NewLandingPage />} />
       <Route path="/sense-aquaculture" element={<SenseAquaculturePage />} />
+      <Route path="/cognition" element={<Cognition />} />
+      <Route path="/cognition-aquaculture" element={<Cognition />} />
       <Route path="/legacy-home" element={<Home />} />
       <Route path="/contactUs" element={<ContactUs />} />
       <Route path="/teamMember" element={<ManagementTeam />} />
@@ -35,6 +39,7 @@ function App() {
   return (
     <BrowserRouter>
       <ResetToStart />
+      <ScrollCursorIndicator />
       <AppRoutes />
     </BrowserRouter>
   );

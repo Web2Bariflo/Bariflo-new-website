@@ -1,0 +1,1192 @@
+/* ==========================================================================
+   INTELLIGENT ETP COMPONENT STYLING
+   Pixel-perfect match to Industrial/Intelligent ETP UI Design
+   ========================================================================== */
+
+:root {
+  --ietp-primary: #0066cc;
+  --ietp-primary-hover: #0052a3;
+  --ietp-primary-light: #ebf4ff;
+  --ietp-navy: #0a2540;
+  --ietp-dark: #0f172a;
+  --ietp-slate: #475569;
+  --ietp-slate-light: #64748b;
+  --ietp-border: #e2e8f0;
+  --ietp-bg-subtle: #f8fafc;
+  --ietp-green: #10b981;
+  --ietp-green-bg: #ecfdf5;
+  --ietp-cyan: #00a3e0;
+}
+
+.ietp-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: var(--ietp-dark);
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  overflow-x: hidden;
+  padding-top: 72px; /* For fixed top header */
+}
+
+/* ==========================================================================
+   1. TOP NAVIGATION NAVBAR
+   ========================================================================== */
+.ietp-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: #ffffff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4.5%;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.ietp-nav-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ietp-nav-logo img {
+  height: 52px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+}
+
+.ietp-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.ietp-nav-link {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.ietp-nav-link:hover {
+  color: var(--ietp-primary);
+}
+
+.ietp-nav-link.active {
+  color: var(--ietp-primary);
+}
+
+.ietp-nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: var(--ietp-primary);
+  border-radius: 2px;
+}
+
+.ietp-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ietp-btn-schedule {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ietp-primary);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 102, 204, 0.25);
+  text-decoration: none;
+}
+
+.ietp-btn-schedule:hover {
+  background: var(--ietp-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
+}
+
+/* Mobile Hamburger Toggle Button */
+.ietp-mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.ietp-mobile-menu-toggle:hover {
+  background: #f8fafc;
+  border-color: var(--ietp-primary);
+  color: var(--ietp-primary);
+}
+
+/* Mobile Navigation Dropdown Drawer */
+.ietp-mobile-drawer {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 2px solid #e2e8f0;
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 5% 24px;
+  gap: 4px;
+  z-index: 999;
+}
+
+.ietp-mobile-nav-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  text-decoration: none;
+  padding: 12px 6px;
+  border-bottom: 1px solid #f1f5f9;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ietp-mobile-nav-link:hover,
+.ietp-mobile-nav-link.active {
+  color: var(--ietp-primary);
+  padding-left: 10px;
+}
+
+.mobile-schedule-btn {
+  margin-top: 12px;
+  width: 100%;
+  justify-content: center;
+  padding: 12px 20px;
+}
+
+/* ==========================================================================
+   2. HERO SECTION
+   ========================================================================== */
+.ietp-hero-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 30px 4.5% 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+}
+
+.ietp-hero-left {
+  flex: 1 1 48%;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.ietp-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ietp-primary);
+  margin-bottom: 14px;
+}
+
+.ietp-hero-tag-line {
+  width: 24px;
+  height: 2px;
+  background-color: var(--ietp-primary);
+  border-radius: 1px;
+}
+
+.ietp-hero-title {
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #0f172a;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.5px;
+}
+
+.ietp-hero-title-accent {
+  display: block;
+  color: var(--ietp-primary);
+}
+
+.ietp-hero-subtitle {
+  font-size: 19px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.2px;
+}
+
+.ietp-hero-desc {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: #475569;
+  margin: 0 0 24px 0;
+  max-width: 540px;
+}
+
+/* CTA Group: Watch Demo & Brochure */
+.ietp-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.ietp-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--ietp-primary);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: 1.5px solid var(--ietp-primary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.22);
+}
+
+.ietp-btn-primary:hover {
+  background: var(--ietp-primary-hover);
+  border-color: var(--ietp-primary-hover);
+  transform: translateY(-1px);
+}
+
+.ietp-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #ffffff;
+  color: var(--ietp-primary);
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: 1.5px solid #cbd5e1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.ietp-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: var(--ietp-primary);
+  transform: translateY(-1px);
+}
+
+/* ETP Toggle Tabs */
+.ietp-tabs-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ietp-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 22px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.ietp-tab-btn.active {
+  background: var(--ietp-primary);
+  color: #ffffff;
+  border: 1.5px solid var(--ietp-primary);
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+}
+
+.ietp-tab-btn.inactive {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.ietp-tab-btn.inactive:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+/* Hero Right Visual */
+.ietp-hero-right {
+  flex: 1 1 52%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.ietp-hero-banner-img {
+  width: 100%;
+  max-width: 660px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 30px rgba(0, 30, 60, 0.08);
+}
+
+/* ==========================================================================
+   3. ARCHITECTURE DIAGRAM SECTION ("Intelligent ETP with Edge AI")
+   ========================================================================== */
+.ietp-diagram-section {
+  width: 100%;
+  padding: 20px 4.5% 40px;
+  background: #ffffff;
+}
+
+.ietp-diagram-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.ietp-diagram-container:hover {
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.08);
+}
+
+.ietp-diagram-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   4. KEY PARAMETERS MONITORED SECTION
+   ========================================================================== */
+.ietp-params-section {
+  width: 100%;
+  padding: 30px 4.5% 35px;
+  background: #ffffff;
+}
+
+.ietp-params-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.ietp-section-tag-heading {
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--ietp-primary);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ietp-params-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 12px;
+}
+
+.ietp-param-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px 8px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+.ietp-param-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ietp-primary);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.12);
+}
+
+.ietp-param-icon-wrap {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ietp-primary);
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.ietp-param-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.25;
+}
+
+/* ==========================================================================
+   5. HOW COGNITION WORKS IN ETP SECTION
+   ========================================================================== */
+.ietp-works-section {
+  width: 100%;
+  padding: 30px 4.5% 45px;
+  background: #ffffff;
+}
+
+.ietp-works-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.ietp-works-grid {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.ietp-work-card-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.ietp-work-card {
+  flex: 1;
+  background: #f4f8fc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 22px 20px 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.ietp-work-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.08);
+}
+
+.ietp-work-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.ietp-step-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.ietp-step-badge.step-blue {
+  background: #0066cc;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
+.ietp-step-badge.step-green {
+  background: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.ietp-step-badge.step-dark {
+  background: #0a2540;
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.3);
+}
+
+.ietp-step-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.ietp-step-title {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #0a2540;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.ietp-step-sub {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ietp-primary);
+  margin-top: 3px;
+}
+
+.ietp-step-sub.green {
+  color: #059669;
+}
+
+.ietp-step-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ietp-step-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #334155;
+  font-weight: 500;
+}
+
+.ietp-bullet-arrow {
+  color: var(--ietp-primary);
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.ietp-work-arrow-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0066cc;
+  font-size: 18px;
+  padding: 0 6px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   6. TWO-COLUMN: MEASURABLE IMPACT & TYPICAL INDUSTRIES
+   ========================================================================== */
+.ietp-impact-industries-section {
+  width: 100%;
+  padding: 30px 4.5% 45px;
+  background: #ffffff;
+}
+
+.ietp-impact-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  gap: 40px;
+}
+
+/* Left: Measurable Impact */
+.ietp-impact-col {
+  flex: 1 1 58%;
+}
+
+.ietp-impact-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: #0a2540;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.3px;
+}
+
+.ietp-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.ietp-stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+.ietp-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.08);
+}
+
+.ietp-stat-icon-val {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.ietp-stat-icon-indicator {
+  font-size: 16px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ietp-stat-icon-indicator.green-down {
+  color: #10b981;
+}
+
+.ietp-stat-icon-indicator.blue-down {
+  color: #0066cc;
+}
+
+.ietp-stat-icon-indicator.green-check {
+  color: #10b981;
+}
+
+.ietp-stat-icon-indicator.blue-chart {
+  color: #0066cc;
+}
+
+.ietp-stat-value {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0a2540;
+  letter-spacing: -0.5px;
+}
+
+.ietp-stat-label {
+  font-size: 12px;
+  line-height: 1.35;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Right: Typical Industries */
+.ietp-industries-col {
+  flex: 1 1 42%;
+}
+
+.ietp-industries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.ietp-industry-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px 8px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.ietp-industry-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ietp-primary);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+}
+
+.ietp-industry-icon {
+  font-size: 24px;
+  color: #475569;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease;
+}
+
+.ietp-industry-card:hover .ietp-industry-icon {
+  color: var(--ietp-primary);
+}
+
+.ietp-industry-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.25;
+}
+
+/* ==========================================================================
+   7. CTA BANNER ("Transform Your ETP with Cognitive Intelligence")
+   ========================================================================== */
+.ietp-cta-section {
+  width: 100%;
+  padding: 20px 4.5% 45px;
+  background: #ffffff;
+}
+
+.ietp-cta-banner {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #0a2540 0%, #0066cc 100%);
+  border-radius: 12px;
+  padding: 32px 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  box-shadow: 0 8px 24px rgba(0, 102, 204, 0.18);
+}
+
+.ietp-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ietp-cta-leaf-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.ietp-cta-text h3 {
+  font-size: 21px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.2px;
+}
+
+.ietp-cta-text p {
+  font-size: 13.5px;
+  color: #e2e8f0;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.ietp-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #0a2540;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ietp-cta-btn:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+/* ==========================================================================
+   8. TRUSTED BY INDUSTRY LEADERS FOOTER
+   ========================================================================== */
+.ietp-trust-footer {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 22px 3.5% 24px;
+  box-sizing: border-box;
+}
+
+.ietp-trust-footer-inner {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ietp-trust-left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.ietp-trust-accent-bar {
+  width: 28px;
+  height: 2.5px;
+  background: #0066cc;
+  border-radius: 2px;
+}
+
+.ietp-trust-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  max-width: 130px;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.ietp-trust-divider {
+  width: 1px;
+  height: 38px;
+  background-color: #cbd5e1;
+  flex-shrink: 0;
+}
+
+.ietp-trust-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 28px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ietp-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+  user-select: none;
+}
+
+.ietp-logo-item:hover {
+  transform: scale(1.08);
+}
+
+.ietp-logo-indianoil {
+  height: 42px;
+  max-height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ietp-logo-hp {
+  height: 40px;
+  max-height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ietp-logo-reliance {
+  height: 42px;
+  max-height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ietp-logo-adani {
+  height: 28px;
+  max-height: 30px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ietp-logo-tata {
+  height: 38px;
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ietp-logo-cipla {
+  height: 25px;
+  max-height: 26px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ietp-logo-bariflo {
+  height: 38px;
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.ietp-trust-motto {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ietp-trust-motto-text {
+  font-family: "Outfit", sans-serif;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  line-height: 1.35;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .ietp-params-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .ietp-works-grid {
+    flex-direction: column;
+  }
+  .ietp-work-arrow-divider {
+    transform: rotate(90deg);
+    padding: 6px 0;
+  }
+  .ietp-impact-grid {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 992px) {
+  .ietp-hero-section {
+    flex-direction: column;
+    text-align: left;
+  }
+  .ietp-hero-left,
+  .ietp-hero-right {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .ietp-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ietp-cta-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .ietp-cta-left {
+    flex-direction: column;
+  }
+  .ietp-nav-menu {
+    display: none;
+  }
+  .ietp-mobile-menu-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 1200px) {
+  .ietp-trust-logos-row {
+    gap: 20px;
+  }
+  .ietp-logo-indianoil {
+    height: 36px;
+  }
+  .ietp-logo-hp {
+    height: 34px;
+  }
+  .ietp-logo-reliance {
+    height: 36px;
+  }
+  .ietp-logo-adani {
+    height: 24px;
+  }
+  .ietp-logo-tata {
+    height: 32px;
+  }
+  .ietp-logo-cipla {
+    height: 20px;
+  }
+  .ietp-logo-bariflo {
+    height: 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  .ietp-trust-footer {
+    padding: 20px 20px 22px;
+  }
+  .ietp-trust-footer-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .ietp-trust-divider {
+    height: 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .ietp-trust-footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+  .ietp-trust-left {
+    align-items: center;
+  }
+  .ietp-trust-label {
+    text-align: center;
+    white-space: normal;
+  }
+  .ietp-trust-divider {
+    display: none;
+  }
+  .ietp-trust-logos-row {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px 24px;
+  }
+  .ietp-trust-motto-text {
+    text-align: center;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .ietp-navbar {
+    padding: 0 4%;
+  }
+  .ietp-hero-section {
+    padding: 24px 4% 32px;
+  }
+  .ietp-hero-title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+  .ietp-hero-subtitle {
+    font-size: 16px;
+  }
+  .ietp-hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ietp-btn-primary,
+  .ietp-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .ietp-tabs-group {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .ietp-tab-btn {
+    flex: 1 1 auto;
+  }
+  .ietp-params-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .ietp-stats-row {
+    grid-template-columns: 1fr;
+  }
+  .ietp-industries-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .ietp-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .ietp-nav-actions .ietp-btn-schedule {
+    display: none;
+  }
+  .ietp-hero-title {
+    font-size: 25px;
+  }
+  .ietp-params-grid {
+    grid-template-columns: 1fr;
+  }
+  .ietp-trust-logos-row {
+    gap: 16px 20px;
+  }
+}

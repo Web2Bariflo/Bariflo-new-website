@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { BiTargetLock, BiBrain, BiCaretLeft } from 'react-icons/bi';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { BiTargetLock, BiBrain, BiCaretLeft } from "react-icons/bi";
 import { TbTargetArrow } from "react-icons/tb";
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
 
 const Hero = () => {
   const [bgIndex, setBgIndex] = useState(0);
@@ -11,20 +11,50 @@ const Hero = () => {
   const heroImages = [
     "/images/industrial_bg.jpg",
     "/images/aquaculture_cages.jpg",
-    "/images/rectangular_ponds.jpg"
+    "/images/rectangular_ponds.jpg",
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBgIndex(prev => (prev === heroImages.length - 1 ? 0 : prev + 1));
+      setBgIndex((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1));
     }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   const cards = [
-    { icon: <img src="/images/icon-sense.png" alt="Sense" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />, title: 'SENSE', desc: 'Continuous data\nfrom every asset' },
-    { icon: <img src="/images/icon-understand.png" alt="Cognition" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />, title: 'COGNITION', desc: '' },
-    { icon: <img src="/images/icon-act.png" alt="Act" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />, title: 'ACT', desc: 'Autonomous actions\nin real time' },
+    {
+      icon: (
+        <img
+          src="/images/icon-sense.png"
+          alt="Sense"
+          style={{ width: "26px", height: "26px", objectFit: "contain" }}
+        />
+      ),
+      title: "SENSE",
+      desc: "Continuous data\nfrom every asset",
+    },
+    {
+      icon: (
+        <img
+          src="/images/icon-understand.png"
+          alt="Cognition"
+          style={{ width: "26px", height: "26px", objectFit: "contain" }}
+        />
+      ),
+      title: "COGNITION",
+      desc: "",
+    },
+    {
+      icon: (
+        <img
+          src="/images/icon-act.png"
+          alt="Act"
+          style={{ width: "26px", height: "26px", objectFit: "contain" }}
+        />
+      ),
+      title: "ACT",
+      desc: "Autonomous actions\nin real time",
+    },
   ];
 
   return (
@@ -34,7 +64,7 @@ const Hero = () => {
           <img
             key={src}
             src={src}
-            className={`nl-hero-main-bg-img ${bgIndex === index ? 'active' : ''}`}
+            className={`nl-hero-main-bg-img ${bgIndex === index ? "active" : ""}`}
             alt="Hero Background"
           />
         ))}
@@ -50,11 +80,17 @@ const Hero = () => {
           }}
           onInit={(typewriter) => {
             typewriter
-              .typeString('<div class="nl-hero-subtitle">COGNITIVE INFRASTRUCTURE FOR WATER</div>')
+              .typeString(
+                '<div class="nl-hero-subtitle">COGNITIVE INFRASTRUCTURE FOR WATER</div>',
+              )
               .pauseFor(400)
-              .typeString('<h1 class="nl-hero-title">BUILDING <br /> <span style="color: #0066CC">COGNIZANCE</span> <br /> FOR WATER</h1>')
+              .typeString(
+                '<h1 class="nl-hero-title">BUILDING <br /> <span style="color: #0066CC">COGNIZANCE</span> <br /> FOR WATER</h1>',
+              )
               .pauseFor(400)
-              .typeString('<p class="nl-hero-desc">We transform industrial water systems into self-learning cyber-physical ecosystems that sense, decide, act and continuously optimize every drop.</p>')
+              .typeString(
+                '<p class="nl-hero-desc">We transform industrial water systems into self-learning cyber-physical ecosystems that sense, decide, act and continuously optimize every drop.</p>',
+              )
               .pauseFor(5000)
               .deleteAll()
               .start();
@@ -68,10 +104,17 @@ const Hero = () => {
 
       <div className="nl-hero-cards">
         {cards.map((card, index) => (
-          <div className="nl-feature-card" key={index} onClick={() => { if (card.title === 'SENSE') navigate('/sense-aquaculture'); }}>
-            <img 
-              src="/images/images.png" 
-              alt="Click to redirect" 
+          <div
+            className="nl-feature-card"
+            key={index}
+            onClick={() => {
+              if (card.title === "SENSE") navigate("/sense-aquaculture");
+              if (card.title === "COGNITION") navigate("/cognition");
+            }}
+          >
+            <img
+              src="/images/images.png"
+              alt="Click to redirect"
               className="nl-hand-icon"
             />
             <div className="nl-feature-icon">{card.icon}</div>
