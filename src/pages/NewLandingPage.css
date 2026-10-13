@@ -906,6 +906,14 @@ p {
   height: 48px;
 }
 
+.nl-logos .nl-logo-bariflo {
+  height: 38px;
+  max-height: 38px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
 .nl-copyright-info {
   display: flex;
   flex-direction: column;

@@ -31,7 +31,7 @@
     Roboto,
     sans-serif;
   overflow-x: hidden;
-  padding-top: 72px; /* For fixed top header */
+  padding-top: 84px; /* For fixed top header */
 }
 
 /* ==========================================================================
@@ -42,13 +42,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 72px;
+  min-height: 72px;
   background: #ffffff;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4.5%;
+  padding: 8px 4.5%;
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
@@ -115,6 +115,13 @@
   gap: 16px;
 }
 
+.ietp-schedule-tab-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
 .ietp-btn-schedule {
   display: inline-flex;
   align-items: center;
@@ -124,7 +131,7 @@
   font-family: inherit;
   font-size: 13.5px;
   font-weight: 700;
-  padding: 10px 20px;
+  padding: 9px 18px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -137,6 +144,69 @@
   background: var(--ietp-primary-hover);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
+}
+
+.ietp-btn-leaf-icon {
+  color: #38bdf8;
+  margin-right: 2px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  flex-shrink: 0;
+}
+
+/* Sub-tabs under Schedule button */
+.ietp-header-tabs-group {
+  display: inline-flex;
+  align-items: center;
+  background: #f1f5f9;
+  padding: 2.5px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  gap: 3px;
+}
+
+.ietp-header-tab {
+  padding: 4px 14px;
+  border-radius: 16px;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #64748b;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.ietp-header-tab:hover {
+  color: #0066cc;
+}
+
+.ietp-header-tab.active {
+  background: #0066cc;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 102, 204, 0.28);
+}
+
+.ietp-mobile-schedule-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.mobile-header-tabs {
+  width: 100%;
+  justify-content: center;
+  padding: 4px;
+}
+
+.mobile-header-tabs .ietp-header-tab {
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 12.5px;
 }
 
 /* Mobile Hamburger Toggle Button */
@@ -1176,10 +1246,13 @@
   }
 }
 
-@media (max-width: 480px) {
-  .ietp-nav-actions .ietp-btn-schedule {
+@media (max-width: 640px) {
+  .ietp-nav-actions .ietp-schedule-tab-col {
     display: none;
   }
+}
+
+@media (max-width: 480px) {
   .ietp-hero-title {
     font-size: 25px;
   }

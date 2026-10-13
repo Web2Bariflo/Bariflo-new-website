@@ -524,15 +524,33 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
         </nav>
 
         <div className="ietp-nav-actions">
-          <button
-            className="ietp-btn-schedule"
-            onClick={() => navigate("/contactUs")}
-          >
-            <span className="ietp-btn-schedule-text">
-              Schedule Strategic Discussion
-            </span>{" "}
-            <FaArrowRight size={11} />
-          </button>
+          <div className="ietp-schedule-tab-col">
+            <button
+              className="ietp-btn-schedule"
+              onClick={() => navigate("/contactUs")}
+            >
+              <FaLeaf className="ietp-btn-leaf-icon" size={13} />
+              <span className="ietp-btn-schedule-text">
+                Schedule Strategic Discussion
+              </span>{" "}
+              <FaArrowRight size={11} />
+            </button>
+
+            <div className="ietp-header-tabs-group">
+              <button
+                className={`ietp-header-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
+                onClick={() => setActiveEtpTab("industrial")}
+              >
+                Aquaculture ETP
+              </button>
+              <button
+                className={`ietp-header-tab ${activeEtpTab === "intelligent" ? "active" : ""}`}
+                onClick={() => setActiveEtpTab("intelligent")}
+              >
+                Intelligent ETP
+              </button>
+            </div>
+          </div>
 
           <button
             className="ietp-mobile-menu-toggle"
@@ -589,15 +607,40 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
             >
               COGNITION
             </a>
-            <button
-              className="ietp-mobile-drawer-btn"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate("/contactUs");
-              }}
-            >
-              Schedule Strategic Discussion <FaArrowRight size={11} />
-            </button>
+
+            <div className="ietp-mobile-schedule-col">
+              <button
+                className="ietp-btn-schedule mobile-schedule-btn"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate("/contactUs");
+                }}
+              >
+                <FaLeaf className="ietp-btn-leaf-icon" size={13} />
+                <span>Schedule Strategic Discussion</span> <FaArrowRight size={11} />
+              </button>
+
+              <div className="ietp-header-tabs-group mobile-header-tabs">
+                <button
+                  className={`ietp-header-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
+                  onClick={() => {
+                    setActiveEtpTab("industrial");
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  Aquaculture ETP
+                </button>
+                <button
+                  className={`ietp-header-tab ${activeEtpTab === "intelligent" ? "active" : ""}`}
+                  onClick={() => {
+                    setActiveEtpTab("intelligent");
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  Intelligent ETP
+                </button>
+              </div>
+            </div>
           </motion.div>
         )}
       </header>
@@ -655,24 +698,6 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
             >
               <HiOutlineDocumentDownload size={18} /> Download Brochure
             </a>
-          </div>
-
-          {/* Toggle Buttons: Industrial ETP & Intelligent ETP */}
-          <div className="ietp-tabs-group">
-            <button
-              className={`ietp-tab-btn ${activeEtpTab === "industrial" ? "active" : "inactive"}`}
-              onClick={() => setActiveEtpTab("industrial")}
-              title="Switch to Industrial ETP View"
-            >
-              Industrial ETP
-            </button>
-            <button
-              className={`ietp-tab-btn ${activeEtpTab === "intelligent" ? "active" : "inactive"}`}
-              onClick={() => setActiveEtpTab("intelligent")}
-              title="Intelligent ETP View Active"
-            >
-              Intelligent ETP
-            </button>
           </div>
         </motion.div>
 

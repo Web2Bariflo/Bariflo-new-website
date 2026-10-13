@@ -110,6 +110,7 @@ const Hero = () => {
             onClick={() => {
               if (card.title === "SENSE") navigate("/sense-aquaculture");
               if (card.title === "COGNITION") navigate("/cognition");
+              if (card.title === "ACT") navigate("/act");
             }}
           >
             <img

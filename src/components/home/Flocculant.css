@@ -1,0 +1,468 @@
+/* ==========================================
+   INTELLIGENT FLOCCULANT PREPARATION
+   Screenshot-matched technical layout
+========================================== */
+
+.floc-page {
+    --floc-blue: #17457f;
+    --floc-blue-light: #1c5d99;
+    --floc-teal: #319c91;
+    --floc-border: #d2dfe8;
+    --floc-text: #33485c;
+    --floc-muted: #71808d;
+    --floc-pale: #f5f7fd;
+
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 22px 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid #dce4eb;
+    background: #fff;
+    color: var(--floc-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.floc-page *,
+.floc-page *::before,
+.floc-page *::after {
+    box-sizing: border-box;
+}
+
+.floc-page h1,
+.floc-page h2,
+.floc-page h3,
+.floc-page p {
+    overflow-wrap: anywhere;
+}
+
+/* Title and tagline */
+
+.floc-title-bar {
+    min-height: 54px;
+    margin: 0 -22px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--floc-blue);
+    color: #fff;
+    text-align: center;
+    font-size: clamp(18px, 2.15vw, 29px);
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+.floc-tagline {
+    min-height: 46px;
+    padding: 11px 6px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #28445e;
+    text-align: center;
+    font-size: clamp(11px, 1.2vw, 17px);
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+.floc-tagline b {
+    color: var(--floc-blue);
+}
+
+/* Main equipment */
+
+.floc-equipment-card {
+    padding: 10px 10px 12px;
+    border: 2px solid var(--floc-border);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.floc-equipment-image {
+    width: 100%;
+    height: clamp(280px, 39vw, 440px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.floc-equipment-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.floc-equipment-parts {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    padding-top: 8px;
+}
+
+.floc-part {
+    min-height: 40px;
+    padding: 8px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--floc-border);
+    border-radius: 10px;
+    background: var(--floc-pale);
+    color: #29445f;
+    text-align: center;
+    font-size: clamp(8px, 0.78vw, 11px);
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+/* Information cards */
+
+.floc-info-grid {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: stretch;
+}
+
+.floc-info-card,
+.floc-section {
+    min-width: 0;
+    overflow: hidden;
+    border: 2px solid var(--floc-border);
+    border-radius: 11px;
+    background: #fff;
+}
+
+.floc-blue-heading {
+    min-height: 34px;
+    margin: 0;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--floc-blue);
+    color: #fff;
+    text-align: center;
+    font-size: clamp(12px, 1.15vw, 16px);
+    line-height: 1.25;
+    font-weight: 500;
+}
+
+/* System at a glance */
+
+.floc-details-list {
+    padding: 12px 15px;
+}
+
+.floc-detail-row {
+    display: grid;
+    grid-template-columns: 31% minmax(0, 1fr);
+    gap: 8px;
+    padding: 7px 0;
+    align-items: start;
+    font-size: clamp(10px, 0.92vw, 12px);
+    line-height: 1.45;
+}
+
+.floc-detail-row strong {
+    color: var(--floc-teal);
+    font-weight: 600;
+}
+
+.floc-detail-row span {
+    color: #465260;
+    overflow-wrap: anywhere;
+}
+
+/* Preparation and dosing profile */
+
+.floc-profile-grid {
+    min-height: 218px;
+    padding: 22px 12px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-content: center;
+    gap: 25px 10px;
+    background: var(--floc-pale);
+}
+
+.floc-profile-item {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    text-align: center;
+}
+
+.floc-profile-item strong {
+    color: var(--floc-teal);
+    font-size: clamp(16px, 1.7vw, 23px);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.floc-profile-item span {
+    max-width: 125px;
+    color: #455469;
+    font-size: clamp(9px, 0.9vw, 12px);
+    line-height: 1.4;
+}
+
+/* Key features */
+
+.floc-section {
+    margin-top: 17px;
+}
+
+.floc-features-grid {
+    padding: 12px 16px 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 14px;
+}
+
+.floc-feature-item {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 18px minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+}
+
+.floc-check {
+    color: var(--floc-teal);
+    font-size: 19px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.floc-feature-item h3 {
+    margin: 0 0 4px;
+    color: #465260;
+    font-size: clamp(10px, 0.95vw, 13px);
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+.floc-feature-item p {
+    margin: 0;
+    color: var(--floc-muted);
+    font-size: clamp(9px, 0.82vw, 11px);
+    line-height: 1.45;
+}
+
+/* Instrumentation, connectivity and applications */
+
+.floc-capabilities-grid {
+    padding: 18px 12px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    background: var(--floc-pale);
+}
+
+.floc-capability {
+    min-width: 0;
+    padding: 3px 8px;
+    text-align: center;
+}
+
+.floc-capability+.floc-capability {
+    border-left: 1px solid #d9e1e9;
+}
+
+.floc-capability h3 {
+    margin: 0 0 12px;
+    color: #29445f;
+    font-size: clamp(10px, 0.9vw, 12px);
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.floc-capability p {
+    margin: 0;
+    color: #687787;
+    font-size: clamp(9px, 0.8vw, 11px);
+    line-height: 1.5;
+}
+
+/* Technical note */
+
+.floc-note {
+    margin: 14px 0 0;
+    padding: 0 8px;
+    color: #87919a;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+    .floc-page {
+        padding: 0 12px 14px;
+    }
+
+    .floc-title-bar {
+        margin: 0 -12px;
+        padding: 13px 10px;
+    }
+
+    .floc-equipment-image {
+        height: clamp(240px, 45vw, 350px);
+    }
+
+    .floc-equipment-parts {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .floc-part {
+        min-height: 38px;
+        font-size: 9px;
+    }
+
+    .floc-info-grid {
+        gap: 10px;
+    }
+
+    .floc-details-list {
+        padding: 10px;
+    }
+
+    .floc-detail-row {
+        grid-template-columns: 1fr;
+        gap: 3px;
+        padding: 6px 0;
+    }
+
+    .floc-profile-grid {
+        min-height: 0;
+        padding: 18px 8px;
+        gap: 22px 6px;
+    }
+
+    .floc-features-grid {
+        padding: 12px;
+        column-gap: 14px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+    .floc-page {
+        padding: 0 8px 12px;
+    }
+
+    .floc-title-bar {
+        margin: 0 -8px;
+        padding: 12px 8px;
+        font-size: 17px;
+    }
+
+    .floc-tagline {
+        gap: 4px;
+        padding: 11px 2px;
+        font-size: 9px;
+    }
+
+    .floc-equipment-card {
+        padding: 6px;
+        border-radius: 9px;
+    }
+
+    .floc-equipment-image {
+        height: 245px;
+    }
+
+    .floc-equipment-parts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .floc-part {
+        min-height: 38px;
+        padding: 6px 3px;
+        font-size: 9px;
+    }
+
+    .floc-info-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .floc-detail-row {
+        grid-template-columns: 34% minmax(0, 1fr);
+        font-size: 11px;
+    }
+
+    .floc-profile-grid {
+        min-height: 190px;
+        gap: 20px 6px;
+    }
+
+    .floc-profile-item strong {
+        font-size: 17px;
+    }
+
+    .floc-profile-item span {
+        font-size: 10px;
+    }
+
+    .floc-section {
+        margin-top: 12px;
+    }
+
+    .floc-features-grid {
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+        padding: 14px 12px;
+    }
+
+    .floc-feature-item h3 {
+        font-size: 12px;
+    }
+
+    .floc-feature-item p {
+        font-size: 10px;
+    }
+
+    .floc-capabilities-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 14px 10px;
+    }
+
+    .floc-capability+.floc-capability {
+        padding-top: 14px;
+        border-top: 1px solid #d9e1e9;
+        border-left: 0;
+    }
+
+    .floc-capability h3 {
+        margin-bottom: 7px;
+        font-size: 11px;
+    }
+
+    .floc-capability p {
+        font-size: 10px;
+    }
+
+    .floc-note {
+        font-size: 9px;
+    }
+}

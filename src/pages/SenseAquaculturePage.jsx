@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
 import { motion } from 'framer-motion';
 import './NewLandingPage.css';
 import './SenseAquaculturePage.css';
+import '../components/home/IntelligentETP.css';
 import Footer from '../components/new-landing/Footer';
 import {
   BiTargetLock,
@@ -15,10 +17,140 @@ import {
   BiBarChartAlt2,
   BiRightArrowAlt
 } from 'react-icons/bi';
+import {
+  FaArrowRight,
+  FaChevronDown,
+  FaBars,
+  FaTimes,
+  FaLeaf,
+} from 'react-icons/fa';
 
 const SenseAquaculturePage = () => {
+  const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="sense-page-wrapper">
+      {/* Top Navbar */}
+      <header className="ietp-navbar">
+        <a
+          href="/"
+          className="ietp-nav-logo"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/");
+          }}
+        >
+          <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
+        </a>
+
+        <nav className="ietp-nav-menu">
+          <a
+            href="#industries"
+            className="ietp-nav-link"
+            onClick={() => navigate("/")}
+          >
+            INDUSTRIES <FaChevronDown size={10} />
+          </a>
+          <a
+            href="#impact"
+            className="ietp-nav-link"
+            onClick={() => navigate("/")}
+          >
+            IMPACT <FaChevronDown size={10} />
+          </a>
+          <a
+            href="#about"
+            className="ietp-nav-link"
+            onClick={() => navigate("/")}
+          >
+            ABOUT US
+          </a>
+          <a href="#sense" className="ietp-nav-link active">
+            SENSE
+          </a>
+        </nav>
+
+        <div className="ietp-nav-actions">
+          <button
+            className="ietp-btn-schedule"
+            onClick={() => navigate("/contactUs")}
+          >
+            <FaLeaf className="ietp-btn-leaf-icon" size={13} />
+            <span className="ietp-btn-schedule-text">
+              Schedule Strategic Discussion
+            </span>{" "}
+            <FaArrowRight size={11} />
+          </button>
+
+          <button
+            className="ietp-mobile-menu-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+          </button>
+        </div>
+
+        {/* Mobile Dropdown Drawer */}
+        {mobileMenuOpen && (
+          <motion.div
+            className="ietp-mobile-drawer"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+          >
+            <a
+              href="#industries"
+              className="ietp-mobile-nav-link"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/");
+              }}
+            >
+              INDUSTRIES
+            </a>
+            <a
+              href="#impact"
+              className="ietp-mobile-nav-link"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/");
+              }}
+            >
+              IMPACT
+            </a>
+            <a
+              href="#about"
+              className="ietp-mobile-nav-link"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/");
+              }}
+            >
+              ABOUT US
+            </a>
+            <a
+              href="#sense"
+              className="ietp-mobile-nav-link active"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              SENSE
+            </a>
+            <button
+              className="ietp-btn-schedule mobile-schedule-btn"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/contactUs");
+              }}
+            >
+              <FaLeaf className="ietp-btn-leaf-icon" size={13} />
+              <span>Schedule Strategic Discussion</span> <FaArrowRight size={11} />
+            </button>
+          </motion.div>
+        )}
+      </header>
+
       {/* Breadcrumb */}
       <div className="sense-breadcrumb-bar">
         <div className="sense-breadcrumb">SENSE &gt; AQUACULTURE MONITORING</div>

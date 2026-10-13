@@ -157,7 +157,18 @@ const Footer = () => {
       <FooterContent>
         <Column>
           <Logo>
-            Bariflo <span>Cybernetics</span>
+            <Link to="/" style={{ display: "inline-block" }}>
+              <img
+                src="/images/bariflo_nav_logo.png"
+                alt="Bariflo Cybernetics"
+                style={{
+                  maxHeight: "42px",
+                  width: "auto",
+                  objectFit: "contain",
+                  display: "block",
+                }}
+              />
+            </Link>
           </Logo>
           <p>Follow Us On:</p>
           <SocialIcons>

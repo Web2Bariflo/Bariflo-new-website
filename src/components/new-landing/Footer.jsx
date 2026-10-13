@@ -56,6 +56,7 @@ const Footer = ({ hideFutureCognitive = false }) => {
             <motion.img variants={fadeUpVariant} src="/images/ciba.png" alt="ICAR-CIBA" />
             <motion.img variants={fadeUpVariant} src="/images/DPIIT Startup India Logo.png" alt="Startup India" className="nl-logo-startup" />
             <motion.img variants={fadeUpVariant} src="/images/mc.png" alt="MC" className="nl-logo-mc" />
+            <motion.img variants={fadeUpVariant} src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" className="nl-logo-bariflo" title="Bariflo Cybernetics" />
           </div>
         </div>
 

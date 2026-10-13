@@ -1,0 +1,805 @@
+/* ==========================================================================
+   INTELLIGENT COAGULATION PREPARATION - EXACT SPEC SHEET UI & RESPONSIVE
+   ========================================================================== */
+
+:root {
+  --coag-navy-primary: #0c3a6d;
+  --coag-navy-dark: #072547;
+  --coag-navy-soft: #124d8f;
+  --coag-teal-accent: #008f82;
+  --coag-teal-light: #e0f2f1;
+  --coag-blue-key: #0284c7;
+  --coag-border-light: #c8d9e8;
+  --coag-border-subtle: #e2eaf2;
+  --coag-bg-soft: #f4f8fc;
+  --coag-text-dark: #1e293b;
+  --coag-text-muted: #475569;
+  --coag-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.coag-page-root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: var(--coag-text-dark);
+  font-family: var(--coag-font-family);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Top Header Navigation (Website Bar)
+   ========================================================================== */
+
+.coag-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.coag-nav-container {
+  max-width: 1280px;
+  min-height: 68px;
+  padding: 8px 24px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.coag-logo {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.coag-logo img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.coag-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.coag-nav-links button {
+  border: none;
+  background: transparent;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.coag-nav-links button:hover,
+.coag-nav-links button.active {
+  color: var(--coag-navy-primary);
+}
+
+.coag-nav-links button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--coag-navy-primary);
+  border-radius: 2px;
+}
+
+.coag-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.coag-contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: linear-gradient(135deg, #0c3a6d 0%, #0284c7 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 10px rgba(12, 58, 109, 0.25);
+}
+
+.coag-contact-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(12, 58, 109, 0.35);
+}
+
+.coag-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--coag-navy-primary);
+  cursor: pointer;
+  padding: 6px;
+}
+
+.coag-mobile-drawer {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.coag-mobile-nav-inner {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.coag-mobile-nav-inner button {
+  border: none;
+  background: transparent;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.coag-mobile-nav-inner button.active {
+  color: var(--coag-navy-primary);
+}
+
+.coag-mobile-btn-cta {
+  margin-top: 8px;
+  background: var(--coag-navy-primary) !important;
+  color: #ffffff !important;
+  padding: 12px 18px !important;
+  border-radius: 8px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   Exact Spec Sheet Poster Canvas
+   ========================================================================== */
+
+.coag-poster-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 32px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Title Bar - Solid Deep Navy Bar */
+.coag-title-bar {
+  background: var(--coag-navy-primary);
+  color: #ffffff;
+  border-radius: 8px 8px 0 0;
+  padding: 16px 24px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(12, 58, 109, 0.15);
+}
+
+.coag-main-title {
+  margin: 0;
+  font-size: clamp(20px, 2.5vw, 29px);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Subtitle Bar - Clean Centered Uppercase */
+.coag-subtitle-bar {
+  background: #ffffff;
+  border-left: 1.5px solid var(--coag-border-light);
+  border-right: 1.5px solid var(--coag-border-light);
+  padding: 14px 20px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: clamp(13px, 1.4vw, 17px);
+  font-weight: 700;
+  color: var(--coag-navy-primary);
+  letter-spacing: 0.8px;
+}
+
+.coag-bullet {
+  color: var(--coag-teal-accent);
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Content Grid Wrapper */
+.coag-content-grid {
+  background: #ffffff;
+  border: 1.5px solid var(--coag-border-light);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 10px 30px rgba(12, 58, 109, 0.06);
+}
+
+/* ==========================================================================
+   1. Machine Showcase Card
+   ========================================================================== */
+
+.coag-machine-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coag-border-light);
+  border-radius: 10px;
+  padding: 18px 20px 22px;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.coag-machine-card:hover {
+  border-color: #93bce0;
+}
+
+.coag-image-frame {
+  width: 100%;
+  height: clamp(260px, 38vw, 420px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.coag-machine-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.coag-machine-card:hover .coag-machine-img {
+  transform: scale(1.02);
+}
+
+/* Process Labels Row */
+.coag-process-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.coag-process-pill {
+  background: #ffffff;
+  border: 1.5px solid #a3c2e0;
+  border-radius: 8px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--coag-navy-primary);
+  font-size: clamp(10px, 0.85vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.coag-pill-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--coag-bg-soft);
+  color: var(--coag-navy-primary);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.coag-process-pill:hover,
+.coag-process-pill.active {
+  background: var(--coag-navy-primary);
+  color: #ffffff;
+  border-color: var(--coag-navy-primary);
+  box-shadow: 0 4px 12px rgba(12, 58, 109, 0.2);
+  transform: translateY(-2px);
+}
+
+.coag-process-pill:hover .coag-pill-num,
+.coag-process-pill.active .coag-pill-num {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.coag-process-tooltip {
+  margin-top: 14px;
+  padding: 10px 16px;
+  background: #f0f7ff;
+  border: 1px solid #bae0fd;
+  border-radius: 6px;
+  color: var(--coag-navy-primary);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ==========================================================================
+   2. Two-Column Grid: System at a Glance & Dosing Profile
+   ========================================================================== */
+
+.coag-two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.coag-panel-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coag-border-light);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.coag-panel-header {
+  background: var(--coag-navy-primary);
+  color: #ffffff;
+  padding: 10px 16px;
+  text-align: center;
+}
+
+.coag-panel-header h2 {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* System at a Glance Details List */
+.coag-glance-table {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.coag-glance-row {
+  display: grid;
+  grid-template-columns: 34% 66%;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--coag-border-subtle);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.coag-glance-row:last-child {
+  border-bottom: none;
+}
+
+.coag-glance-key {
+  color: var(--coag-blue-key);
+  font-weight: 700;
+}
+
+.coag-glance-val {
+  color: var(--coag-text-dark);
+  font-weight: 500;
+}
+
+/* Dosing & Operating Profile Metrics Grid */
+.coag-metrics-grid {
+  background: var(--coag-bg-soft);
+  padding: 18px 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 10px;
+  flex: 1;
+  align-content: center;
+}
+
+.coag-metric-cell {
+  background: #ffffff;
+  border: 1px solid #d9e5f0;
+  border-radius: 8px;
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
+}
+
+.coag-metric-cell:hover {
+  border-color: var(--coag-teal-accent);
+  box-shadow: 0 6px 14px rgba(0, 143, 130, 0.12);
+}
+
+.coag-metric-val {
+  color: var(--coag-teal-accent);
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  margin-bottom: 6px;
+}
+
+.coag-metric-lbl {
+  color: #334155;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+/* ==========================================================================
+   3. Key Features Section
+   ========================================================================== */
+
+.coag-features-container {
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 36px;
+}
+
+.coag-feature-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.coag-feature-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.coag-check-glyph {
+  color: var(--coag-teal-accent);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.2;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.coag-feature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.coag-feature-headline {
+  color: var(--coag-navy-primary);
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.coag-feature-subline {
+  margin: 0;
+  color: var(--coag-text-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   4. Bottom Section: Instrumentation, Connectivity & Applications
+   ========================================================================== */
+
+.coag-bottom-three-col {
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.coag-bottom-col-card {
+  background: var(--coag-bg-soft);
+  border: 1px solid #dce7f2;
+  border-radius: 8px;
+  padding: 16px 18px;
+  transition: all 0.25s ease;
+}
+
+.coag-bottom-col-card:hover {
+  background: #ffffff;
+  border-color: var(--coag-navy-primary);
+  box-shadow: 0 4px 14px rgba(12, 58, 109, 0.08);
+}
+
+.coag-col-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.coag-inst-icon {
+  color: var(--coag-blue-key);
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.coag-col-title-wrap h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--coag-navy-primary);
+  letter-spacing: 0.5px;
+}
+
+.coag-bottom-col-card p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--coag-text-muted);
+  line-height: 1.5;
+}
+
+/* Footnote */
+.coag-disclaimer-note {
+  margin: 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Website CTA & Footer
+   ========================================================================== */
+
+.coag-cta-banner {
+  background: linear-gradient(135deg, #072547 0%, #0c3a6d 100%);
+  color: #ffffff;
+  padding: 40px 24px;
+  margin-top: 40px;
+}
+
+.coag-cta-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.coag-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.coag-cta-icon {
+  font-size: 38px;
+  color: #2dd4bf;
+  flex-shrink: 0;
+}
+
+.coag-cta-left h3 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.coag-cta-left p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.coag-cta-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: var(--coag-navy-primary);
+  border: none;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.coag-cta-action-btn:hover {
+  background: #f0fdf4;
+  color: #0f766e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+}
+
+.coag-site-footer {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 24px 20px;
+}
+
+.coag-footer-row {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.coag-footer-brand strong {
+  color: var(--coag-navy-primary);
+  font-size: 15px;
+  display: block;
+}
+
+.coag-footer-brand p {
+  margin: 2px 0 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.coag-footer-taglines {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--coag-navy-primary);
+  letter-spacing: 0.6px;
+  flex-wrap: wrap;
+}
+
+.coag-footer-sep {
+  color: var(--coag-teal-accent);
+}
+
+.coag-footer-legal {
+  max-width: 1140px;
+  margin: 12px auto 0;
+  text-align: center;
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Tablet & Mobile)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .coag-nav-links {
+    display: none;
+  }
+
+  .coag-mobile-toggle {
+    display: block;
+  }
+
+  .coag-contact-button {
+    display: none;
+  }
+
+  .coag-two-col-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coag-bottom-three-col {
+    grid-template-columns: 1fr;
+  }
+
+  .coag-cta-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .coag-cta-left {
+    flex-direction: column;
+  }
+
+  .coag-footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .coag-poster-container {
+    padding: 0 12px;
+    margin: 16px auto;
+  }
+
+  .coag-title-bar {
+    padding: 12px 14px;
+  }
+
+  .coag-main-title {
+    font-size: 17px;
+  }
+
+  .coag-subtitle-bar {
+    font-size: 12px;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .coag-content-grid {
+    padding: 14px 12px 18px;
+    gap: 16px;
+  }
+
+  .coag-process-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .coag-process-row .coag-process-pill:last-child {
+    grid-column: span 2;
+  }
+
+  .coag-features-container {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .coag-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .coag-glance-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coag-process-row {
+    grid-template-columns: 1fr;
+  }
+
+  .coag-process-row .coag-process-pill:last-child {
+    grid-column: span 1;
+  }
+
+  .coag-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

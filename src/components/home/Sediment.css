@@ -1,0 +1,939 @@
+/* ==========================================================================
+   SEDIMENT AERATION SYSTEM - EXACT POSTER SPEC SHEET MATCH & RESPONSIVE
+   ========================================================================== */
+
+:root {
+  --sed-navy-header: #0b3260;
+  --sed-navy-sub: #12437b;
+  --sed-th-blue: #164e8c;
+  --sed-border: #c6d8e8;
+  --sed-border-soft: #d8e5f2;
+  --sed-bg-alt: #f0f6fc;
+  --sed-bg-card: #ffffff;
+  --sed-text-main: #182a3e;
+  --sed-text-muted: #4a5d73;
+  --sed-green-check: #16a34a;
+  --sed-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.sed-page-root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f7fafc;
+  color: var(--sed-text-main);
+  font-family: var(--sed-font-family);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Website Top Navbar
+   ========================================================================== */
+
+.sed-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.sed-nav-container {
+  max-width: 1280px;
+  min-height: 68px;
+  padding: 8px 24px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sed-logo {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.sed-logo img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.sed-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.sed-nav-links button {
+  border: none;
+  background: transparent;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.sed-nav-links button:hover,
+.sed-nav-links button.active {
+  color: var(--sed-navy-header);
+}
+
+.sed-nav-links button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--sed-navy-header);
+  border-radius: 2px;
+}
+
+.sed-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sed-contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: linear-gradient(135deg, #0b3260 0%, #164e8c 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 10px rgba(11, 50, 96, 0.25);
+}
+
+.sed-contact-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(11, 50, 96, 0.35);
+}
+
+.sed-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--sed-navy-header);
+  cursor: pointer;
+  padding: 6px;
+}
+
+.sed-mobile-drawer {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sed-mobile-nav-inner {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sed-mobile-nav-inner button {
+  border: none;
+  background: transparent;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.sed-mobile-nav-inner button.active {
+  color: var(--sed-navy-header);
+}
+
+.sed-mobile-btn-cta {
+  margin-top: 8px;
+  background: var(--sed-navy-header) !important;
+  color: #ffffff !important;
+  padding: 12px 18px !important;
+  border-radius: 8px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   Master Poster Frame - Matching Image 1
+   ========================================================================== */
+
+.sed-poster-frame {
+  width: 100%;
+  max-width: 1340px;
+  margin: 28px auto;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1.5px solid var(--sed-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 32px rgba(11, 50, 96, 0.07);
+  box-sizing: border-box;
+}
+
+/* Top Header Row */
+.sed-top-header-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e8f0f8;
+  margin-bottom: 18px;
+}
+
+.sed-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sed-system-title {
+  margin: 0;
+  color: var(--sed-navy-header);
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.sed-system-subtitle {
+  margin: 0;
+  color: var(--sed-navy-sub);
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 600;
+}
+
+/* Top Summary Pill Badge */
+.sed-top-summary-badge {
+  max-width: 520px;
+  background: var(--sed-navy-header);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 14px rgba(11, 50, 96, 0.2);
+}
+
+.sed-top-badge-icon {
+  font-size: 26px;
+  color: #67e8f9;
+  flex-shrink: 0;
+}
+
+.sed-top-badge-text {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.42;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+
+/* Master Poster Grid (Left 63% | Right 37%) */
+.sed-poster-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Left & Center Combined Zone */
+.sed-left-center-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Top Row: Diagram + Key Features */
+.sed-diagram-features-row {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Common Navy Header for Cards */
+.sed-card-header-navy {
+  background: var(--sed-navy-header);
+  color: #ffffff;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.sed-card-header-navy h2 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+/* 1. Diagram Card */
+.sed-diagram-card {
+  background: #ffffff;
+  border: 1.5px solid var(--sed-border);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sed-diagram-wrap {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sed-diagram-image {
+  max-width: 90%;
+  max-height: 95%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.1));
+}
+
+/* Desktop Callouts Overlay */
+.sed-callouts-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sed-callout-item {
+  position: absolute;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.sed-callout-item.housing {
+  top: 10px;
+  left: 10px;
+}
+
+.sed-callout-item.aerator {
+  top: 90px;
+  left: 8px;
+}
+
+.sed-callout-item.float {
+  top: 165px;
+  left: 8px;
+}
+
+.sed-callout-item.frame {
+  top: 220px;
+  left: 8px;
+}
+
+.sed-callout-item.airline {
+  bottom: 12px;
+  left: 8px;
+}
+
+.sed-callout-text {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #9dc0e2;
+  border-radius: 4px;
+  padding: 3px 7px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  max-width: 170px;
+}
+
+.sed-callout-title {
+  color: var(--sed-navy-header);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.sed-callout-sub {
+  color: var(--sed-text-muted);
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.sed-callout-item:hover {
+  transform: scale(1.05);
+}
+
+.sed-callout-item:hover .sed-callout-text {
+  background: var(--sed-navy-header);
+  border-color: var(--sed-navy-header);
+}
+
+.sed-callout-item:hover .sed-callout-title {
+  color: #ffffff;
+}
+
+.sed-callout-item:hover .sed-callout-sub {
+  color: #93c5fd;
+}
+
+.sed-callouts-mobile-list {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.sed-callout-mobile-chip {
+  background: #f1f6fb;
+  border: 1px solid var(--sed-border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sed-callout-mobile-chip strong {
+  font-size: 10.5px;
+  color: var(--sed-navy-header);
+}
+
+.sed-callout-mobile-chip small {
+  font-size: 9.5px;
+  color: var(--sed-text-muted);
+}
+
+/* 2. Key Features Card */
+.sed-features-card {
+  background: #ffffff;
+  border: 1.5px solid var(--sed-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sed-features-body {
+  padding: 14px 14px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.sed-features-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.sed-features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--sed-text-main);
+  font-weight: 500;
+}
+
+.sed-check-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  border: 1.5px solid var(--sed-green-check);
+  color: var(--sed-green-check);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ==========================================================================
+   Five Circular Benefit Badges Row
+   ========================================================================== */
+
+.sed-badges-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.sed-badge-card {
+  background: #ffffff;
+  border: 1.5px solid var(--sed-border);
+  border-radius: 8px;
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.sed-badge-card:hover {
+  border-color: #0b3260;
+  box-shadow: 0 4px 12px rgba(11, 50, 96, 0.1);
+}
+
+.sed-badge-circle-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #9dc0e2;
+  background: #f4f8fd;
+  color: var(--sed-navy-header);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.sed-badge-title {
+  margin: 0 0 4px;
+  color: var(--sed-navy-header);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  line-height: 1.25;
+}
+
+.sed-badge-desc {
+  margin: 0;
+  color: var(--sed-text-muted);
+  font-size: 9.5px;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   Bottom Trio Row: Working Principle | Applications | System Summary
+   ========================================================================== */
+
+.sed-bottom-trio-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.sed-trio-card {
+  background: #ffffff;
+  border: 1.5px solid var(--sed-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sed-trio-body {
+  padding: 12px 14px;
+  font-size: 11px;
+  line-height: 1.48;
+  color: var(--sed-text-main);
+  flex: 1;
+}
+
+.sed-trio-body p {
+  margin: 0;
+}
+
+.sed-apps-bullets {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sed-apps-bullets li {
+  color: var(--sed-text-main);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+/* System Summary Mini Table */
+.sed-summary-table-wrap {
+  flex: 1;
+}
+
+.sed-summary-mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+}
+
+.sed-summary-mini-table tr {
+  border-bottom: 1px solid #e5edf5;
+}
+
+.sed-summary-mini-table tr.alt-row {
+  background: var(--sed-bg-alt);
+}
+
+.sed-summary-mini-table td {
+  padding: 6px 10px;
+}
+
+.sed-sum-key {
+  color: var(--sed-navy-header);
+  font-weight: 700;
+  width: 44%;
+}
+
+.sed-sum-val {
+  color: var(--sed-text-main);
+}
+
+/* ==========================================================================
+   Right Column: Technical Specifications Table & Design Notes
+   ========================================================================== */
+
+.sed-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sed-specs-panel {
+  background: #ffffff;
+  border: 1.5px solid var(--sed-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sed-specs-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.sed-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.sed-specs-table thead tr {
+  background: var(--sed-th-blue);
+  color: #ffffff;
+}
+
+.sed-specs-table th {
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.sed-th-param {
+  width: 46%;
+}
+
+.sed-th-spec {
+  width: 54%;
+}
+
+.sed-specs-table tbody tr {
+  border-bottom: 1px solid #e2ecf5;
+  transition: background 0.15s ease;
+}
+
+.sed-specs-table tbody tr:hover {
+  background: #e8f2fc !important;
+}
+
+.sed-tr-alt {
+  background: var(--sed-bg-alt);
+}
+
+.sed-tr-plain {
+  background: #ffffff;
+}
+
+.sed-td-param {
+  padding: 6px 12px;
+  color: var(--sed-navy-header);
+  font-weight: 600;
+}
+
+.sed-td-spec {
+  padding: 6px 12px;
+  color: #273746;
+}
+
+.sed-warranty-footnote {
+  padding: 8px 12px;
+  background: #fbfcfe;
+  border-top: 1px solid #e8f0f8;
+  font-size: 9.5px;
+  font-style: italic;
+  color: var(--sed-text-muted);
+  line-height: 1.4;
+}
+
+/* Design Notes Card */
+.sed-design-notes-card {
+  background: #ffffff;
+  border: 1.5px solid var(--sed-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.sed-notes-heading {
+  margin: 0 0 6px;
+  color: var(--sed-navy-header);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.sed-notes-text {
+  margin: 0;
+  color: var(--sed-text-muted);
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   Poster Footer Bar
+   ========================================================================== */
+
+.sed-poster-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1.5px solid #dce8f4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 11px;
+}
+
+.sed-pf-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  color: var(--sed-navy-header);
+  font-size: 12.5px;
+}
+
+.sed-pf-infinity {
+  font-size: 17px;
+  color: #0284c7;
+}
+
+.sed-pf-center {
+  color: #52657a;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.sed-pf-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--sed-navy-header);
+  letter-spacing: 0.5px;
+}
+
+.sed-pf-sep {
+  color: #0284c7;
+}
+
+/* ==========================================================================
+   Website Consultation Action Bar
+   ========================================================================== */
+
+.sed-web-cta-section {
+  background: linear-gradient(135deg, #072547 0%, #0b3260 100%);
+  color: #ffffff;
+  padding: 38px 24px;
+  margin-top: 36px;
+}
+
+.sed-web-cta-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.sed-web-cta-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sed-web-cta-leaf {
+  font-size: 38px;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.sed-web-cta-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sed-web-cta-info p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.sed-web-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: var(--sed-navy-header);
+  border: none;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.sed-web-cta-btn:hover {
+  background: #f0fdf4;
+  color: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Tablet & Mobile)
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .sed-poster-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sed-top-header-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .sed-nav-links {
+    display: none;
+  }
+
+  .sed-mobile-toggle {
+    display: block;
+  }
+
+  .sed-contact-button {
+    display: none;
+  }
+
+  .sed-diagram-features-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sed-badges-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sed-bottom-trio-row {
+    grid-template-columns: 1fr;
+  }
+
+  .sed-web-cta-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sed-web-cta-info {
+    flex-direction: column;
+  }
+
+  .sed-poster-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .sed-poster-frame {
+    padding: 14px 12px;
+    margin: 14px auto;
+  }
+
+  .sed-system-title {
+    font-size: 18px;
+  }
+
+  .sed-system-subtitle {
+    font-size: 12px;
+  }
+
+  .sed-top-summary-badge {
+    padding: 10px 12px;
+  }
+
+  .sed-callouts-overlay {
+    display: none;
+  }
+
+  .sed-callouts-mobile-list {
+    display: grid;
+  }
+
+  .sed-badges-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sed-badge-card:last-child {
+    grid-column: span 2;
+  }
+}
