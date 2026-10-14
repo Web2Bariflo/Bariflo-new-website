@@ -6,11 +6,14 @@ import "./IntelligentETP.css";
 // React Icons
 import {
   FaPlay,
+  FaArrowLeft,
   FaArrowRight,
   FaChevronDown,
   FaLeaf,
   FaBars,
   FaTimes,
+  FaFish,
+  FaIndustry,
 } from "react-icons/fa";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
 import { BiRightArrowAlt } from "react-icons/bi";
@@ -485,79 +488,96 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
           1. TOP NAVIGATION NAVBAR (Mobile & Desktop)
           ==================================================================== */}
       <header className="ietp-navbar">
-        <a
-          href="/"
-          className="ietp-nav-logo"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate("/");
-          }}
-        >
-          <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
-        </a>
-
-        <nav className="ietp-nav-menu">
-          <a
-            href="#industries"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            INDUSTRIES <FaChevronDown size={10} />
-          </a>
-          <a
-            href="#impact"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            IMPACT <FaChevronDown size={10} />
-          </a>
-          <a
-            href="#about"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            ABOUT US
-          </a>
-          <a href="#cognition" className="ietp-nav-link active">
-            COGNITION
-          </a>
-        </nav>
-
-        <div className="ietp-nav-actions">
-          <div className="ietp-schedule-tab-col">
+        <div className="ietp-nav-row-top">
+          <div className="ietp-nav-left-wrapper">
             <button
-              className="ietp-btn-schedule"
+              type="button"
+              className="bariflo-back-home-btn"
+              onClick={() => navigate("/")}
+              title="Back to Home"
+              aria-label="Back to Home"
+            >
+              <FaArrowLeft size={20} />
+            </button>
+
+            <a
+              href="/"
+              className="ietp-nav-logo"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/");
+              }}
+            >
+              <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
+            </a>
+          </div>
+
+          <div className="ietp-nav-center">
+            <nav className="ietp-nav-menu">
+              <a
+                href="#industries"
+                className="ietp-nav-link"
+                onClick={() => navigate("/")}
+              >
+                INDUSTRIES <FaChevronDown size={10} />
+              </a>
+              <a
+                href="#impact"
+                className="ietp-nav-link"
+                onClick={() => navigate("/")}
+              >
+                IMPACT <FaChevronDown size={10} />
+              </a>
+              <a
+                href="#about"
+                className="ietp-nav-link"
+                onClick={() => navigate("/")}
+              >
+                ABOUT US
+              </a>
+              <a href="#cognition" className="ietp-nav-link active">
+                COGNITION
+              </a>
+            </nav>
+          </div>
+
+          <div className="ietp-nav-actions">
+            <button
+              className="ietp-btn-schedule ietp-btn-schedule-big"
               onClick={() => navigate("/contactUs")}
             >
-              <FaLeaf className="ietp-btn-leaf-icon" size={13} />
+              <FaLeaf className="ietp-btn-leaf-icon" size={15} />
               <span className="ietp-btn-schedule-text">
                 Schedule Strategic Discussion
               </span>{" "}
-              <FaArrowRight size={11} />
+              <FaArrowRight size={13} />
             </button>
 
-            <div className="ietp-header-tabs-group">
-              <button
-                className={`ietp-header-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
-                onClick={() => setActiveEtpTab("industrial")}
-              >
-                Aquaculture ETP
-              </button>
-              <button
-                className={`ietp-header-tab ${activeEtpTab === "intelligent" ? "active" : ""}`}
-                onClick={() => setActiveEtpTab("intelligent")}
-              >
-                Intelligent ETP
-              </button>
-            </div>
+            <button
+              className="ietp-mobile-menu-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+            </button>
           </div>
+        </div>
 
+        {/* 2 Full-width buttons under navbar */}
+        <div className="fullwidth-subnav-tabs-bar">
           <button
-            className="ietp-mobile-menu-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
+            type="button"
+            className={`fullwidth-subnav-tab ${activeEtpTab === "intelligent" ? "active" : ""}`}
+            onClick={() => setActiveEtpTab("intelligent")}
           >
-            {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+            <span>WASTE WATER</span>
+          </button>
+          <button
+            type="button"
+            className={`fullwidth-subnav-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
+            onClick={() => setActiveEtpTab("industrial")}
+          >
+            <span>Aquaculture</span>
           </button>
         </div>
 
@@ -570,6 +590,19 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
           >
+            <a
+              href="/"
+              className="ietp-mobile-nav-link"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigate("/");
+              }}
+              style={{ color: "#0066cc", fontWeight: "800" }}
+            >
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                <FaArrowLeft size={12} /> BACK TO HOME
+              </span>
+            </a>
             <a
               href="#industries"
               className="ietp-mobile-nav-link"
@@ -608,38 +641,39 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
               COGNITION
             </a>
 
+            {/* Aquaculture ETP & Intelligent ETP buttons shown under nav items on mobile */}
+            <div className="ietp-header-tabs-group mobile-header-tabs ietp-header-tabs-big">
+              <button
+                className={`ietp-header-tab ietp-header-tab-big ${activeEtpTab === "industrial" ? "active" : ""}`}
+                onClick={() => {
+                  setActiveEtpTab("industrial");
+                  setMobileMenuOpen(false);
+                }}
+              >
+                Aquaculture
+              </button>
+              <button
+                className={`ietp-header-tab ietp-header-tab-big ${activeEtpTab === "intelligent" ? "active" : ""}`}
+                onClick={() => {
+                  setActiveEtpTab("intelligent");
+                  setMobileMenuOpen(false);
+                }}
+              >
+                WASTE  WATER
+              </button>
+            </div>
+
             <div className="ietp-mobile-schedule-col">
               <button
-                className="ietp-btn-schedule mobile-schedule-btn"
+                className="ietp-btn-schedule ietp-btn-schedule-big mobile-schedule-btn"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   navigate("/contactUs");
                 }}
               >
-                <FaLeaf className="ietp-btn-leaf-icon" size={13} />
-                <span>Schedule Strategic Discussion</span> <FaArrowRight size={11} />
+                <FaLeaf className="ietp-btn-leaf-icon" size={15} />
+                <span>Schedule Strategic Discussion</span> <FaArrowRight size={13} />
               </button>
-
-              <div className="ietp-header-tabs-group mobile-header-tabs">
-                <button
-                  className={`ietp-header-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
-                  onClick={() => {
-                    setActiveEtpTab("industrial");
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  Aquaculture ETP
-                </button>
-                <button
-                  className={`ietp-header-tab ${activeEtpTab === "intelligent" ? "active" : ""}`}
-                  onClick={() => {
-                    setActiveEtpTab("intelligent");
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  Intelligent ETP
-                </button>
-              </div>
             </div>
           </motion.div>
         )}
@@ -972,89 +1006,27 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="ietp-trust-footer-inner">
-          <div className="ietp-trust-left">
-            <div className="ietp-trust-accent-bar"></div>
+          <div className="ietp-trust-left-group">
             <div className="ietp-trust-label">
               TRUSTED BY
               <br />
               INDUSTRY LEADERS
             </div>
-          </div>
-
-          <div className="ietp-trust-divider"></div>
-
-          <div className="ietp-trust-logos-row">
-            {/* IndianOil */}
-            <div className="ietp-logo-item" title="IndianOil">
-              <img
-                src="/images/IndianOil Circular Corporate Logo.png"
-                alt="IndianOil"
-                className="ietp-logo-indianoil"
-              />
-            </div>
-
-            {/* HP (Hindustan Petroleum) */}
-            <div className="ietp-logo-item" title="Hindustan Petroleum (HP)">
-              <img
-                src="/images/Hindustan Petroleum HP Logo Emblem.png"
-                alt="Hindustan Petroleum HP"
-                className="ietp-logo-hp"
-              />
-            </div>
-
-            {/* Reliance Industries Limited */}
-            <div className="ietp-logo-item" title="Reliance Industries Limited">
-              <img
-                src="/images/Reliance Industries Limited Logo.png"
-                alt="Reliance Industries Limited"
-                className="ietp-logo-reliance"
-              />
-            </div>
-
-            {/* Adani */}
-            <div className="ietp-logo-item" title="Adani Group">
-              <img
-                src="/images/Adani Logo in Vibrant Gradient.png"
-                alt="Adani Group"
-                className="ietp-logo-adani"
-              />
-            </div>
-
-            {/* TATA */}
-            <div className="ietp-logo-item" title="Tata Group">
-              <img
-                src="/images/Tata Logo on White Canvas.png"
-                alt="Tata Group"
-                className="ietp-logo-tata"
-              />
-            </div>
-
-            {/* Cipla */}
-            <div className="ietp-logo-item" title="Cipla">
-              <img
-                src="/images/Cipla Blue Wordmark on White.png"
-                alt="Cipla"
-                className="ietp-logo-cipla"
-              />
-            </div>
-
-            {/* Bariflo Cybernetics */}
+            <div className="ietp-trust-divider"></div>
             <div className="ietp-logo-item" title="Bariflo Cybernetics">
               <img
                 src="/images/bariflo_nav_logo.png"
                 alt="Bariflo Cybernetics"
-                className="ietp-logo-bariflo"
+                className="ietp-logo-bariflo-footer"
               />
             </div>
           </div>
 
-          <div className="ietp-trust-divider"></div>
-
           <div className="ietp-trust-motto">
             <div className="ietp-trust-motto-text">
-              CLEANER INDUSTRY,
+              AUTONOMOUS CONTROL.
               <br />
-              BRIGHTER TOMORROW.
+              CLEANER INDUSTRY.
             </div>
           </div>
         </div>

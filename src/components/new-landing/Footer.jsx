@@ -51,12 +51,13 @@ const Footer = ({ hideFutureCognitive = false }) => {
           </motion.div>
           <motion.div variants={fadeUpVariant} className="nl-footer-divider"></motion.div>
           <div className="nl-logos">
-            <motion.img variants={fadeUpVariant} src="/images/indianoil.png" alt="IndianOil" className="nl-logo-indianoil" />
-            <motion.img variants={fadeUpVariant} src="/images/jsw.png" alt="JSW" />
-            <motion.img variants={fadeUpVariant} src="/images/ciba.png" alt="ICAR-CIBA" />
-            <motion.img variants={fadeUpVariant} src="/images/DPIIT Startup India Logo.png" alt="Startup India" className="nl-logo-startup" />
-            <motion.img variants={fadeUpVariant} src="/images/mc.png" alt="MC" className="nl-logo-mc" />
-            <motion.img variants={fadeUpVariant} src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" className="nl-logo-bariflo" title="Bariflo Cybernetics" />
+            <motion.img
+              variants={fadeUpVariant}
+              src="/images/bariflo_nav_logo.png"
+              alt="Bariflo Cybernetics"
+              className="nl-logo-bariflo"
+              title="Bariflo Cybernetics"
+            />
           </div>
         </div>
 

@@ -1,107 +1,140 @@
 /* ==========================================================================
-   INTELLIGENT COAGULATION PREPARATION - EXACT SPEC SHEET UI & RESPONSIVE
+   INTELLIGENT COAGULANT DOSER - SCREENSHOT MATCHED DESIGN
    ========================================================================== */
 
 :root {
-  --coag-navy-primary: #0c3a6d;
-  --coag-navy-dark: #072547;
-  --coag-navy-soft: #124d8f;
-  --coag-teal-accent: #008f82;
-  --coag-teal-light: #e0f2f1;
-  --coag-blue-key: #0284c7;
-  --coag-border-light: #c8d9e8;
-  --coag-border-subtle: #e2eaf2;
-  --coag-bg-soft: #f4f8fc;
-  --coag-text-dark: #1e293b;
-  --coag-text-muted: #475569;
-  --coag-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --coag-primary: #0066cc;
+  --coag-primary-hover: #0052a3;
+  --coag-dark: #0f172a;
+  --coag-gray-50: #f8fafc;
+  --coag-gray-100: #f1f5f9;
+  --coag-gray-200: #e2e8f0;
+  --coag-gray-400: #94a3b8;
+  --coag-gray-500: #64748b;
+  --coag-gray-600: #475569;
+  --coag-gray-700: #334155;
+  --coag-border: #e2e8f0;
+  --coag-green: #0d9488;
 }
 
 .coag-page-root {
-  width: 100%;
   min-height: 100vh;
   background-color: #f8fafc;
-  color: var(--coag-text-dark);
-  font-family: var(--coag-font-family);
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--coag-gray-700);
+  padding-top: 74px;
+  margin: 0;
 }
 
-/* ==========================================================================
-   Top Header Navigation (Website Bar)
-   ========================================================================== */
-
+/* --------------------------------------------------------------------------
+   1. HEADER & TOP NAVBAR
+   -------------------------------------------------------------------------- */
 .coag-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.96);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--coag-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
 .coag-nav-container {
-  max-width: 1280px;
-  min-height: 68px;
-  padding: 8px 24px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 28px 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
+  box-sizing: border-box;
 }
 
-.coag-logo {
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
+.coag-nav-left {
   display: flex;
   align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
-.coag-logo img {
-  height: 42px;
+/* Back arrow placed on the far left without circular border */
+.coag-page-root .bariflo-back-home-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #1e293b !important;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.coag-page-root .bariflo-back-home-btn:hover {
+  color: var(--coag-primary) !important;
+  background: transparent !important;
+  transform: translateX(-2px);
+}
+
+.coag-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.coag-logo-img {
+  height: 52px;
   width: auto;
   object-fit: contain;
 }
 
-.coag-nav-links {
+.coag-nav-menu {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 40px;
 }
 
-.coag-nav-links button {
-  border: none;
-  background: transparent;
-  color: #334155;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  padding: 6px 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.coag-nav-link-wrap {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.coag-nav-links button:hover,
-.coag-nav-links button.active {
-  color: var(--coag-navy-primary);
+.coag-nav-link {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  padding: 6px 0;
+  transition: color 0.2s ease;
 }
 
-.coag-nav-links button.active::after {
-  content: "";
+.coag-nav-link:hover {
+  color: var(--coag-primary);
+}
+
+.coag-nav-link.active {
+  color: var(--coag-primary);
+}
+
+.coag-nav-active-bar {
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--coag-navy-primary);
-  border-radius: 2px;
+  bottom: -11px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--coag-primary);
+  border-radius: 2px 2px 0 0;
 }
 
 .coag-nav-actions {
@@ -110,492 +143,860 @@
   gap: 16px;
 }
 
-.coag-contact-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  background: linear-gradient(135deg, #0c3a6d 0%, #0284c7 100%);
-  color: #ffffff;
+.coag-search-icon-btn {
+  background: none;
   border: none;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
+  color: #475569;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 3px 10px rgba(12, 58, 109, 0.25);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.coag-contact-button:hover {
+.coag-search-icon-btn:hover {
+  background-color: var(--coag-gray-100);
+  color: var(--coag-primary);
+}
+
+.coag-consultation-btn {
+  background-color: var(--coag-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+}
+
+.coag-consultation-btn:hover {
+  background-color: var(--coag-primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(12, 58, 109, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
 }
 
 .coag-mobile-toggle {
   display: none;
-  background: transparent;
+  background: none;
   border: none;
-  color: var(--coag-navy-primary);
+  color: #334155;
   cursor: pointer;
   padding: 6px;
 }
 
 .coag-mobile-drawer {
   background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--coag-border);
+  padding: 16px 24px;
 }
 
-.coag-mobile-nav-inner {
-  padding: 16px 24px;
+.coag-mobile-links {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
-.coag-mobile-nav-inner button {
+.coag-mobile-links button {
+  background: none;
   border: none;
-  background: transparent;
-  color: #334155;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
+  color: #334155;
   text-align: left;
   padding: 8px 0;
   cursor: pointer;
 }
 
-.coag-mobile-nav-inner button.active {
-  color: var(--coag-navy-primary);
+.coag-mobile-links button.active {
+  color: var(--coag-primary);
+  font-weight: 700;
 }
 
-.coag-mobile-btn-cta {
+.coag-mobile-cta {
   margin-top: 8px;
-  background: var(--coag-navy-primary) !important;
+  background: var(--coag-primary) !important;
   color: #ffffff !important;
+  text-align: center !important;
   padding: 12px 18px !important;
   border-radius: 8px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION
+   -------------------------------------------------------------------------- */
+.coag-hero-section {
+  position: relative;
+  background: #092644 url('/images/industrial_bg.jpg') center right / cover no-repeat;
+  min-height: 290px;
+  padding: 38px 0 34px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.coag-hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 24, 48, 0.96) 0%,
+    rgba(8, 36, 68, 0.88) 48%,
+    rgba(8, 36, 68, 0.45) 100%
+  );
+  z-index: 1;
+}
+
+.coag-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-/* ==========================================================================
-   Exact Spec Sheet Poster Canvas
-   ========================================================================== */
-
-.coag-poster-container {
-  width: 100%;
-  max-width: 1140px;
-  margin: 32px auto;
-  padding: 0 20px;
+  gap: 24px;
   box-sizing: border-box;
 }
 
-/* Title Bar - Solid Deep Navy Bar */
-.coag-title-bar {
-  background: var(--coag-navy-primary);
+.coag-hero-content {
+  max-width: 780px;
+}
+
+.coag-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 12px;
+}
+
+.coag-bc-sep {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.coag-bc-current {
   color: #ffffff;
-  border-radius: 8px 8px 0 0;
-  padding: 16px 24px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(12, 58, 109, 0.15);
+  font-weight: 600;
 }
 
-.coag-main-title {
-  margin: 0;
-  font-size: clamp(20px, 2.5vw, 29px);
+.coag-hero-title {
+  font-size: 40px;
   font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
 }
 
-/* Subtitle Bar - Clean Centered Uppercase */
-.coag-subtitle-bar {
-  background: #ffffff;
-  border-left: 1.5px solid var(--coag-border-light);
-  border-right: 1.5px solid var(--coag-border-light);
-  padding: 14px 20px;
-  text-align: center;
+.coag-hero-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
+}
+
+.coag-hero-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 22px;
+  max-width: 650px;
+}
+
+.coag-badges-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   gap: 12px;
-  font-size: clamp(13px, 1.4vw, 17px);
-  font-weight: 700;
-  color: var(--coag-navy-primary);
-  letter-spacing: 0.8px;
 }
 
-.coag-bullet {
-  color: var(--coag-teal-accent);
+.coag-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+  padding: 6px 14px 6px 8px;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.coag-badge-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+/* Hero Right Unit Image + Glass Card */
+.coag-hero-right-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.coag-hero-unit-img {
+  height: 220px;
+  max-width: 320px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.45));
+}
+
+.coag-dosing-glass {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(14, 38, 64, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 14px 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.coag-glass-icon-box {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coag-glass-hex {
+  font-size: 38px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.coag-glass-tint {
+  position: absolute;
   font-size: 16px;
-  line-height: 1;
+  color: #38bdf8;
 }
 
-/* Content Grid Wrapper */
-.coag-content-grid {
-  background: #ffffff;
-  border: 1.5px solid var(--coag-border-light);
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  padding: 24px 24px 28px;
+.coag-glass-text {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  box-shadow: 0 10px 30px rgba(12, 58, 109, 0.06);
 }
 
-/* ==========================================================================
-   1. Machine Showcase Card
-   ========================================================================== */
-
-.coag-machine-card {
-  background: #ffffff;
-  border: 1.5px solid var(--coag-border-light);
-  border-radius: 10px;
-  padding: 18px 20px 22px;
-  position: relative;
-  transition: border-color 0.3s ease;
-}
-
-.coag-machine-card:hover {
-  border-color: #93bce0;
-}
-
-.coag-image-frame {
-  width: 100%;
-  height: clamp(260px, 38vw, 420px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.coag-machine-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.coag-machine-card:hover .coag-machine-img {
-  transform: scale(1.02);
-}
-
-/* Process Labels Row */
-.coag-process-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-}
-
-.coag-process-pill {
-  background: #ffffff;
-  border: 1.5px solid #a3c2e0;
-  border-radius: 8px;
-  padding: 10px 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: var(--coag-navy-primary);
-  font-size: clamp(10px, 0.85vw, 12px);
+.coag-glass-heading {
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.4px;
+  color: #ffffff;
+}
+
+.coag-glass-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. SUBNAV ACTION BAR
+   -------------------------------------------------------------------------- */
+.coag-subnav-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--coag-border);
+  position: sticky;
+  top: 73px;
+  z-index: 99;
+}
+
+.coag-subnav-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.coag-subnav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.coag-subnav-tab {
+  position: relative;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--coag-gray-600);
+  padding: 16px 0;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: color 0.2s ease;
+}
+
+.coag-subnav-tab:hover {
+  color: var(--coag-primary);
+}
+
+.coag-subnav-tab.active {
+  color: var(--coag-primary);
+  font-weight: 700;
+}
+
+.coag-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background-color: var(--coag-primary);
+  border-radius: 2px 2px 0 0;
+}
+
+.coag-quote-btn {
+  background: var(--coag-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.coag-quote-btn:hover {
+  background: var(--coag-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   4. MAIN LAYOUT
+   -------------------------------------------------------------------------- */
+.coag-main-section {
+  padding: 24px 0 48px;
+}
+
+.coag-layout-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  gap: 28px;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.coag-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 16px 14px;
+  align-self: flex-start;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.06);
+}
+
+.coag-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px 14px;
+  border-bottom: 1px solid #dbeafe;
+  margin-bottom: 12px;
+}
+
+.coag-sidebar-compass-icon {
+  font-size: 18px;
+  color: var(--coag-primary);
+  display: flex;
+  align-items: center;
+}
+
+.coag-sidebar-header h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--coag-dark);
+  margin: 0;
+}
+
+.coag-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.coag-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
   user-select: none;
 }
 
-.coag-pill-num {
-  display: inline-flex;
+.coag-sidebar-item:hover {
+  background: #dbeafe;
+}
+
+.coag-sidebar-item.active {
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.32);
+}
+
+.coag-sidebar-item-thumb {
+  width: 42px;
+  height: 38px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--coag-bg-soft);
-  color: var(--coag-navy-primary);
-  font-size: 10px;
-  font-weight: 800;
+  flex-shrink: 0;
 }
 
-.coag-process-pill:hover,
-.coag-process-pill.active {
-  background: var(--coag-navy-primary);
+.coag-sidebar-item-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.coag-sidebar-item-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.coag-sidebar-item-num {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--coag-gray-500);
+  flex-shrink: 0;
+}
+
+.coag-sidebar-item.active .coag-sidebar-item-num {
   color: #ffffff;
-  border-color: var(--coag-navy-primary);
-  box-shadow: 0 4px 12px rgba(12, 58, 109, 0.2);
-  transform: translateY(-2px);
 }
 
-.coag-process-pill:hover .coag-pill-num,
-.coag-process-pill.active .coag-pill-num {
-  background: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-}
-
-.coag-process-tooltip {
-  margin-top: 14px;
-  padding: 10px 16px;
-  background: #f0f7ff;
-  border: 1px solid #bae0fd;
-  border-radius: 6px;
-  color: var(--coag-navy-primary);
-  font-size: 13px;
+.coag-sidebar-item-name {
+  font-size: 12px;
   font-weight: 600;
-  text-align: center;
+  color: var(--coag-gray-700);
+  line-height: 1.35;
 }
 
-/* ==========================================================================
-   2. Two-Column Grid: System at a Glance & Dosing Profile
-   ========================================================================== */
-
-.coag-two-col-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: stretch;
+.coag-sidebar-item.active .coag-sidebar-item-name {
+  color: #ffffff;
 }
 
-.coag-panel-card {
-  background: #ffffff;
-  border: 1.5px solid var(--coag-border-light);
-  border-radius: 8px;
-  overflow: hidden;
+.coag-sidebar-item-arrow {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+
+/* Right Content Column */
+.coag-content-column {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
+  gap: 22px;
 }
 
-.coag-panel-header {
-  background: var(--coag-navy-primary);
-  color: #ffffff;
-  padding: 10px 16px;
-  text-align: center;
+.coag-grid-row {
+  display: grid;
+  gap: 22px;
 }
 
-.coag-panel-header h2 {
+/* Row 1: Diagram + Features */
+.coag-row-diagram-features {
+  grid-template-columns: 1.45fr 1fr;
+}
+
+/* Row 2: Glance + Metrics */
+.coag-row-glance-metrics {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+/* Common Card Styles */
+.coag-card {
+  background: #ffffff;
+  border: 1px solid var(--coag-border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.coag-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.coag-card-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--coag-dark);
   margin: 0;
-  font-size: 14.5px;
+  letter-spacing: -0.2px;
+}
+
+.coag-3d-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(0, 102, 204, 0.06);
+  border: 1.5px solid var(--coag-primary);
+  border-radius: 9999px;
+  color: var(--coag-primary);
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.8px;
+}
+
+/* System Diagram Presentation with Callouts */
+.coag-diagram-wrapper {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.coag-diagram-img {
+  max-height: 310px;
+  max-width: 82%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Callouts Overlay around Coagulant Diagram */
+.coag-callouts-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.coag-callout-box {
+  position: absolute;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.coag-callout-inner {
+  background: #ffffff;
+  border: 1.5px solid var(--coag-primary);
+  border-radius: 6px;
+  padding: 4px 8px;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.12);
+}
+
+.coag-callout-heading {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.2px;
   text-transform: uppercase;
 }
 
-/* System at a Glance Details List */
-.coag-glance-table {
-  padding: 8px 16px;
+.coag-callout-sub {
+  display: block;
+  font-size: 9px;
+  color: var(--coag-gray-500);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Callout Positions matching screenshot */
+.coag-callout-storage {
+  top: 6%;
+  left: 3%;
+}
+
+.coag-callout-agitator {
+  top: 4%;
+  left: 44%;
+}
+
+.coag-callout-panel {
+  top: 10%;
+  right: 4%;
+}
+
+.coag-callout-feeder {
+  bottom: 8%;
+  left: 3%;
+}
+
+.coag-callout-tank {
+  bottom: 2%;
+  left: 38%;
+}
+
+.coag-callout-pump {
+  bottom: 5%;
+  right: 4%;
+}
+
+/* Key Features (Card in Row 1) */
+.coag-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  flex: 1;
-  justify-content: space-around;
-}
-
-.coag-glance-row {
-  display: grid;
-  grid-template-columns: 34% 66%;
   gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--coag-border-subtle);
-  font-size: 12.5px;
-  line-height: 1.45;
 }
 
-.coag-glance-row:last-child {
+.coag-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.coag-check-bubble {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--coag-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.coag-feature-text {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--coag-gray-700);
+  font-weight: 500;
+}
+
+/* Row 2: Table Specifications */
+.coag-table-responsive {
+  overflow-x: auto;
+}
+
+.coag-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.coag-specs-table tr {
+  border-bottom: 1px solid var(--coag-border);
+}
+
+.coag-specs-table tr:last-child {
   border-bottom: none;
 }
 
-.coag-glance-key {
-  color: var(--coag-blue-key);
+.coag-table-label {
+  padding: 9px 12px 9px 0;
+  font-size: 13px;
   font-weight: 700;
+  color: var(--coag-dark);
+  white-space: nowrap;
+  width: 38%;
 }
 
-.coag-glance-val {
-  color: var(--coag-text-dark);
-  font-weight: 500;
+.coag-table-val {
+  padding: 9px 0 9px 12px;
+  font-size: 13px;
+  color: var(--coag-gray-600);
+  line-height: 1.4;
 }
 
-/* Dosing & Operating Profile Metrics Grid */
-.coag-metrics-grid {
-  background: var(--coag-bg-soft);
-  padding: 18px 14px;
+/* Row 2: Dosing & Operating Profile Metric Tiles */
+.coag-operating-metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px 10px;
-  flex: 1;
-  align-content: center;
+  gap: 14px;
 }
 
-.coag-metric-cell {
-  background: #ffffff;
-  border: 1px solid #d9e5f0;
-  border-radius: 8px;
-  padding: 14px 8px;
+.coag-metric-tile {
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-  transition: all 0.25s ease;
+  align-items: center;
+  transition: transform 0.2s ease;
 }
 
-.coag-metric-cell:hover {
-  border-color: var(--coag-teal-accent);
-  box-shadow: 0 6px 14px rgba(0, 143, 130, 0.12);
+.coag-metric-tile:hover {
+  transform: translateY(-2px);
 }
 
 .coag-metric-val {
-  color: var(--coag-teal-accent);
-  font-size: clamp(17px, 1.8vw, 22px);
+  font-size: 20px;
   font-weight: 800;
-  letter-spacing: -0.2px;
-  margin-bottom: 6px;
+  color: var(--coag-green);
+  line-height: 1.2;
 }
 
-.coag-metric-lbl {
-  color: #334155;
+.coag-metric-unit {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--coag-gray-600);
+  margin-top: 4px;
+}
+
+.coag-metric-label {
   font-size: 11px;
-  font-weight: 500;
-  line-height: 1.35;
-  white-space: pre-line;
+  color: var(--coag-gray-500);
 }
 
-/* ==========================================================================
-   3. Key Features Section
-   ========================================================================== */
-
-.coag-features-container {
-  padding: 18px 24px;
+/* Row 3: Detailed Key Features Grid */
+.coag-detailed-features-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px 36px;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 36px;
+  row-gap: 18px;
 }
 
-.coag-feature-column {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.coag-feature-row {
+.coag-detailed-feature-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
 }
 
-.coag-check-glyph {
-  color: var(--coag-teal-accent);
-  font-size: 18px;
-  font-weight: 900;
-  line-height: 1.2;
+.coag-green-check {
+  color: var(--coag-green);
+  margin-top: 3px;
   flex-shrink: 0;
-  margin-top: 1px;
 }
 
-.coag-feature-info {
+.coag-detailed-feature-text {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.coag-feature-headline {
-  color: var(--coag-navy-primary);
+.coag-detailed-feature-title {
   font-size: 13.5px;
   font-weight: 700;
+  color: var(--coag-dark);
 }
 
-.coag-feature-subline {
-  margin: 0;
-  color: var(--coag-text-muted);
-  font-size: 12px;
+.coag-detailed-feature-desc {
+  font-size: 12.5px;
+  color: var(--coag-gray-500);
   line-height: 1.4;
 }
 
-/* ==========================================================================
-   4. Bottom Section: Instrumentation, Connectivity & Applications
-   ========================================================================== */
-
-.coag-bottom-three-col {
-  padding: 16px 20px;
+/* Row 4: Instrumentation, Connectivity & Applications (4 Tiles) */
+.coag-instrumentation-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
 }
 
-.coag-bottom-col-card {
-  background: var(--coag-bg-soft);
-  border: 1px solid #dce7f2;
-  border-radius: 8px;
-  padding: 16px 18px;
-  transition: all 0.25s ease;
-}
-
-.coag-bottom-col-card:hover {
-  background: #ffffff;
-  border-color: var(--coag-navy-primary);
-  box-shadow: 0 4px 14px rgba(12, 58, 109, 0.08);
-}
-
-.coag-col-title-wrap {
+.coag-instrument-box {
+  background: #f0f7ff;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  padding: 18px 12px;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+}
+
+.coag-instrument-icon {
+  color: var(--coag-primary);
   margin-bottom: 8px;
 }
 
-.coag-inst-icon {
-  color: var(--coag-blue-key);
-  font-size: 15px;
-  flex-shrink: 0;
-}
-
-.coag-col-title-wrap h3 {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--coag-navy-primary);
-  letter-spacing: 0.5px;
-}
-
-.coag-bottom-col-card p {
-  margin: 0;
+.coag-instrument-title {
   font-size: 12px;
-  color: var(--coag-text-muted);
-  line-height: 1.5;
+  font-weight: 800;
+  color: var(--coag-dark);
+  margin: 0 0 6px;
+  letter-spacing: 0.3px;
 }
 
-/* Footnote */
-.coag-disclaimer-note {
+.coag-instrument-desc {
+  font-size: 11.5px;
+  color: var(--coag-gray-600);
+  line-height: 1.4;
   margin: 0;
-  text-align: center;
-  color: #64748b;
-  font-size: 11px;
-  font-style: italic;
-  line-height: 1.5;
 }
 
-/* ==========================================================================
-   Website CTA & Footer
-   ========================================================================== */
+/* Footnote Disclaimer */
+.coag-disclaimer {
+  padding: 0 4px;
+}
+
+.coag-disclaimer p {
+  font-size: 11.5px;
+  color: var(--coag-gray-400);
+  font-style: italic;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. CTA FOOTER RIBBON
+   -------------------------------------------------------------------------- */
+.coag-cta-section {
+  padding: 0 28px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 
 .coag-cta-banner {
-  background: linear-gradient(135deg, #072547 0%, #0c3a6d 100%);
-  color: #ffffff;
-  padding: 40px 24px;
-  margin-top: 40px;
-}
-
-.coag-cta-inner {
-  max-width: 1140px;
-  margin: 0 auto;
+  background: linear-gradient(135deg, #062b54 0%, #031b36 100%);
+  border-radius: 14px;
+  padding: 24px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  box-shadow: 0 8px 24px rgba(3, 27, 54, 0.2);
 }
 
 .coag-cta-left {
@@ -604,107 +1005,80 @@
   gap: 20px;
 }
 
-.coag-cta-icon {
-  font-size: 38px;
-  color: #2dd4bf;
+.coag-cta-leaf-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 102, 204, 0.35);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
-.coag-cta-left h3 {
-  margin: 0 0 6px 0;
+.coag-cta-leaf-icon {
+  font-size: 22px;
+  color: #38bdf8;
+}
+
+.coag-cta-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.coag-cta-title {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px;
 }
 
-.coag-cta-left p {
+.coag-cta-subtitle {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.75);
   margin: 0;
-  color: #cbd5e1;
-  font-size: 14px;
 }
 
-.coag-cta-action-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.coag-cta-btn {
   background: #ffffff;
-  color: var(--coag-navy-primary);
+  color: #062b54;
   border: none;
-  padding: 13px 26px;
-  border-radius: 999px;
+  border-radius: 9999px;
+  padding: 12px 24px;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.coag-cta-action-btn:hover {
-  background: #f0fdf4;
-  color: #0f766e;
+.coag-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-.coag-site-footer {
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  padding: 24px 20px;
-}
+/* --------------------------------------------------------------------------
+   RESPONSIVE QUERIES
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .coag-row-diagram-features,
+  .coag-row-glance-metrics {
+    grid-template-columns: 1fr;
+  }
 
-.coag-footer-row {
-  max-width: 1140px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #f1f5f9;
+  .coag-hero-right-card {
+    display: none;
+  }
 }
-
-.coag-footer-brand strong {
-  color: var(--coag-navy-primary);
-  font-size: 15px;
-  display: block;
-}
-
-.coag-footer-brand p {
-  margin: 2px 0 0;
-  color: #64748b;
-  font-size: 12px;
-}
-
-.coag-footer-taglines {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--coag-navy-primary);
-  letter-spacing: 0.6px;
-  flex-wrap: wrap;
-}
-
-.coag-footer-sep {
-  color: var(--coag-teal-accent);
-}
-
-.coag-footer-legal {
-  max-width: 1140px;
-  margin: 12px auto 0;
-  text-align: center;
-  font-size: 11.5px;
-  color: #94a3b8;
-}
-
-/* ==========================================================================
-   Responsive Adaptations (Tablet & Mobile)
-   ========================================================================== */
 
 @media (max-width: 992px) {
-  .coag-nav-links {
+  .coag-nav-menu,
+  .coag-consultation-btn,
+  .coag-search-icon-btn {
     display: none;
   }
 
@@ -712,94 +1086,142 @@
     display: block;
   }
 
-  .coag-contact-button {
-    display: none;
+  .coag-layout-container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 16px;
   }
 
-  .coag-two-col-grid {
+  .coag-content-column {
+    width: 100%;
+    order: 1;
+  }
+
+  .coag-sidebar {
+    width: 100%;
+    order: 2;
+  }
+
+  .coag-detailed-features-grid {
     grid-template-columns: 1fr;
   }
 
-  .coag-bottom-three-col {
-    grid-template-columns: 1fr;
-  }
-
-  .coag-cta-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .coag-cta-left {
-    flex-direction: column;
-  }
-
-  .coag-footer-row {
-    flex-direction: column;
-    text-align: center;
+  .coag-instrumentation-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .coag-poster-container {
-    padding: 0 12px;
-    margin: 16px auto;
+  .coag-header {
+    height: 64px;
   }
 
-  .coag-title-bar {
-    padding: 12px 14px;
+  .coag-page-root {
+    padding-top: 64px;
   }
 
-  .coag-main-title {
-    font-size: 17px;
+  .coag-nav-container {
+    padding: 8px 16px;
+    height: 64px;
   }
 
-  .coag-subtitle-bar {
-    font-size: 12px;
+  .coag-logo-img {
+    height: 40px;
+  }
+
+  .coag-hero-section {
+    padding: 26px 0 24px;
+    min-height: auto;
+  }
+
+  .coag-hero-title {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .coag-hero-subtitle {
+    font-size: 15px;
+  }
+
+  .coag-hero-desc {
+    font-size: 13.5px;
+  }
+
+  .coag-badges-row {
+    flex-wrap: wrap;
     gap: 8px;
-    padding: 10px 12px;
   }
 
-  .coag-content-grid {
-    padding: 14px 12px 18px;
-    gap: 16px;
-  }
-
-  .coag-process-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .coag-process-row .coag-process-pill:last-child {
-    grid-column: span 2;
-  }
-
-  .coag-features-container {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 14px;
-  }
-
-  .coag-metrics-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .coag-subnav-tabs {
     gap: 12px;
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .coag-subnav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .coag-subnav-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 16px;
+    align-items: flex-start;
+  }
+
+  .coag-quote-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .coag-sidebar-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+  }
+
+  .coag-diagram-wrapper {
     padding: 12px;
   }
 
-  .coag-glance-row {
+  .coag-diagram-img {
+    max-height: 280px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .coag-operating-metrics-grid {
     grid-template-columns: 1fr;
-    gap: 3px;
+    gap: 10px;
+  }
+
+  .coag-outcomes-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .coag-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 18px;
+    gap: 18px;
+  }
+
+  .coag-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .coag-callouts-layer {
+    display: none;
   }
 }
 
-@media (max-width: 480px) {
-  .coag-process-row {
-    grid-template-columns: 1fr;
-  }
-
-  .coag-process-row .coag-process-pill:last-child {
-    grid-column: span 1;
-  }
-
-  .coag-metrics-grid {
+@media (max-width: 500px) {
+  .coag-sidebar-list {
     grid-template-columns: 1fr;
   }
 }

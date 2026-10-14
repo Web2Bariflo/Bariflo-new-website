@@ -2,236 +2,390 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  FaArrowLeft,
   FaArrowRight,
   FaCheck,
   FaLeaf,
-  FaSlidersH,
-  FaNetworkWired,
-  FaWater,
+  FaSearch,
   FaBars,
   FaTimes,
-  FaShieldAlt,
-  FaCog,
+  FaWrench,
+  FaTint,
   FaChevronRight,
-  FaMicrochip,
-  FaIndustry,
+  FaSlidersH,
+  FaFlask,
+  FaLink,
 } from "react-icons/fa";
+import {
+  TbCube,
+  TbHexagon,
+  TbCirclesRelation,
+  TbGauge,
+  TbShieldCheck,
+  TbWifi,
+} from "react-icons/tb";
 import "./coagulant.css";
 
-const Coagulant = () => {
+const allSolutions = [
+  {
+    id: "1",
+    title: "DAF / Intelligent Aeration Tank",
+    path: "/daf-tank",
+    image: "/images/ICON 1.png",
+  },
+  {
+    id: "2",
+    title: "Intelligent Coagulant Doser",
+    path: "/coagulant",
+    image: "/images/COAGULATION.png",
+    active: true,
+  },
+  {
+    id: "3",
+    title: "Intelligent Flocculation Preparation System",
+    path: "/flocculant",
+    image: "/images/ICON3.png",
+  },
+  {
+    id: "4",
+    title: "Sediment Aeration System",
+    path: "/sediment",
+    image: "/images/ICON4.png",
+  },
+  {
+    id: "5",
+    title: "Seabin System",
+    path: "/seabin",
+    image: "/images/ICON5.png",
+  },
+  {
+    id: "6",
+    title: "Bariflo Aquasense System",
+    path: "/aquasense",
+    image: "/images/ICON6.png",
+  },
+  {
+    id: "7",
+    title: "Energy Intelligence System",
+    path: "/energy",
+    image: "/images/ICON7.png",
+  },
+  {
+    id: "8",
+    title: "Mobile FSTP (EC–EF System)",
+    path: "/mobile-fstp",
+    image: "/images/ICON8.png",
+  },
+];
+
+const diagramCallouts = [
+  {
+    id: "storage",
+    title: "POWDER STORAGE",
+    sub: "Moisture-proof sealed tank",
+    posClass: "coag-callout-storage",
+  },
+  {
+    id: "agitator",
+    title: "AGITATOR",
+    sub: "Variable-speed mixing",
+    posClass: "coag-callout-agitator",
+  },
+  {
+    id: "panel",
+    title: "CONTROL PANEL",
+    sub: "Automatic control & monitoring",
+    posClass: "coag-callout-panel",
+  },
+  {
+    id: "feeder",
+    title: "SCREW FEEDER",
+    sub: "Accurate powder feeding",
+    posClass: "coag-callout-feeder",
+  },
+  {
+    id: "tank",
+    title: "PREPARATION TANK",
+    sub: "Uniform mixing & dissolution",
+    posClass: "coag-callout-tank",
+  },
+  {
+    id: "pump",
+    title: "DOSING PUMP",
+    sub: "Precise and stable dosing",
+    posClass: "coag-callout-pump",
+  },
+];
+
+const keyFeaturesList = [
+  "Automated powder handling and preparation",
+  "Precise and adjustable dosing with real-time control",
+  "Uniform and consistent mixing for optimal dissolution",
+  "Suitable for various coagulants (Alum, PAC, etc.)",
+  "Low maintenance and energy-efficient design",
+  "Durable and corrosion-resistant construction",
+  "Optional IoT integration for remote monitoring",
+];
+
+const systemGlanceData = [
+  {
+    label: "Application",
+    value: "Coagulant preparation and dosing for water treatment",
+  },
+  {
+    label: "Chemical type",
+    value: "Alum, PAC, or other coagulants",
+  },
+  {
+    label: "Powder storage",
+    value: "Moisture-proof sealed tank with desiccant breather",
+  },
+  {
+    label: "Dispensing",
+    value: "Screw feeder / loss-in-weight dispenser",
+  },
+  {
+    label: "Mixing",
+    value: "Variable-speed agitator for uniform mixing",
+  },
+  {
+    label: "Dosing pump",
+    value: "Diaphragm / peristaltic or metering pump",
+  },
+  {
+    label: "Control mode",
+    value: "Automatic, manual or remote",
+  },
+];
+
+const operatingMetrics = [
+  {
+    value: "±1%",
+    unit: "Dosing accuracy",
+    label: "of set point",
+  },
+  {
+    value: "0.5 – 100",
+    unit: "LPH/ton",
+    label: "capacity",
+  },
+  {
+    value: "UP TO 7 bar",
+    unit: "Operating",
+    label: "pressure",
+  },
+  {
+    value: "230 / 415 V",
+    unit: "Power supply",
+    label: "options",
+  },
+  {
+    value: "5 – 50 °C",
+    unit: "Operating",
+    label: "temperature",
+  },
+  {
+    value: "IP65",
+    unit: "Control panel",
+    label: "enclosure",
+  },
+];
+
+const detailedFeatures = [
+  {
+    title: "Moisture-proof storage",
+    desc: "Maintains coagulant powder quality",
+  },
+  {
+    title: "Precision powder feeding",
+    desc: "Timer or gravimetric dispensing",
+  },
+  {
+    title: "Controlled mixing",
+    desc: "Promotes uniform solution and floc formation",
+  },
+  {
+    title: "Adaptive preparation",
+    desc: "Adjusts to real-time water quality",
+  },
+  {
+    title: "Variable-speed dosing",
+    desc: "Maintains the dosing accuracy",
+  },
+  {
+    title: "Lower chemical use",
+    desc: "Improves stability and operating cost",
+  },
+  {
+    title: "AI-ready control",
+    desc: "Supports optimization and remote mode",
+  },
+  {
+    title: "Alarms and interlocks",
+    desc: "Protects feeder, mixer and dosing pumps",
+  },
+];
+
+const instrumentationCards = [
+  {
+    icon: <FaSlidersH size={20} />,
+    title: "INSTRUMENTATION",
+    desc: "Level, flow, pH, turbidity and dosing flow feedback",
+  },
+  {
+    icon: <TbWifi size={22} />,
+    title: "CONNECTIVITY",
+    desc: "Modbus TCP/RTU, 4 – 20 mA and digital I/O",
+  },
+  {
+    icon: <TbCube size={22} />,
+    title: "APPLICATIONS",
+    desc: "Coagulation preparation for STP, ETP and industrial water systems",
+  },
+  {
+    icon: <FaLink size={20} />,
+    title: "INTEGRATION",
+    desc: "Compatible with existing ETP systems",
+  },
+];
+
+export default function Coagulant() {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeProcess, setActiveProcess] = useState(null);
+  const [activeTab, setActiveTab] = useState("Overview");
 
-  const systemDetails = [
-    { label: "Coagulants", value: "Alum and PAC" },
-    { label: "Powder storage", value: "Moisture-proof sealed tank with desiccant breather" },
-    { label: "Dispensing", value: "Screw feeder / loss-in-weight dispenser" },
-    { label: "Mixer / agitator", value: "Variable-speed, top or side mounted" },
-    { label: "Dosing pump", value: "Diaphragm, peristaltic or metering pump" },
-    { label: "Control mode", value: "Automatic, AI-based, manual or remote" },
-  ];
-
-  const operatingProfile = [
-    { value: "±1%", label: "Dosing accuracy\nof set point" },
-    { value: "0.5 – 100", label: "LPH dosing\ncapacity" },
-    { value: "UP TO 7 bar", label: "Operating\npressure" },
-    { value: "230 / 415 V", label: "Power-supply\noptions" },
-    { value: "5 – 50 ° C", label: "Operating\ntemperature" },
-    { value: "IP65", label: "Control-panel\nenclosure" },
-  ];
-
-  const keyFeatures = [
-    {
-      col: 1,
-      items: [
-        {
-          title: "Moisture-proof storage",
-          desc: "Maintains coagulant powder quality",
-        },
-        {
-          title: "Controlled mixing",
-          desc: "Promotes uniform solution and floc formation",
-        },
-        {
-          title: "Variable-speed dosing",
-          desc: "Maintains ±1% dosing accuracy",
-        },
-        {
-          title: "AI-ready control",
-          desc: "Supports optimization and remote mode",
-        },
-      ],
-    },
-    {
-      col: 2,
-      items: [
-        {
-          title: "Precision powder feeding",
-          desc: "Timed or gravimetric dispensing",
-        },
-        {
-          title: "Adaptive preparation",
-          desc: "Responds to real-time water quality",
-        },
-        {
-          title: "Lower chemical use",
-          desc: "Improves stability and operating cost",
-        },
-        {
-          title: "Alarms and interlocks",
-          desc: "Protects feeder, mixer and dosing pumps",
-        },
-      ],
-    },
-  ];
-
-  const processLabels = [
-    { id: "storage", name: "POWDER STORAGE", hint: "Sealed storage hopper with dry air desiccant" },
-    { id: "feeder", name: "SCREW FEEDER", hint: "Precision gravimetric / volumetric powder feed" },
-    { id: "tank", name: "PREPARATION TANK", hint: "Corrosion-resistant automated dissolution basin" },
-    { id: "agitator", name: "AGITATOR", hint: "High-efficiency variable-speed flash mixing" },
-    { id: "dosing", name: "SMART DOSING & HMI", hint: "Adaptive telemetry & multi-loop chemical delivery" },
-  ];
-
-  const specsColumns = [
-    {
-      title: "INSTRUMENTATION",
-      desc: "Level, flow, pH, turbidity and dosing-flow feedback",
-      icon: <FaSlidersH className="coag-inst-icon" />,
-    },
-    {
-      title: "CONNECTIVITY",
-      desc: "Modbus TCP/RTU, 4 – 20 mA and digital I/O",
-      icon: <FaNetworkWired className="coag-inst-icon" />,
-    },
-    {
-      title: "APPLICATIONS",
-      desc: "Coagulation preparation for STP, ETP and industrial water systems",
-      icon: <FaWater className="coag-inst-icon" />,
-    },
-  ];
-
-  // Motion variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 16 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
-  };
+  const tabs = ["Overview", "Specifications", "Features", "Applications", "Downloads"];
 
   return (
     <div className="coag-page-root">
-      {/* Navigation Header */}
+      {/* 1. TOP NAVBAR */}
       <header className="coag-header">
         <div className="coag-nav-container">
-          <button
-            className="coag-logo"
-            onClick={() => navigate("/")}
-            aria-label="Bariflo Cybernetics"
-          >
-            <img
-              src="/images/bariflo_nav_logo.png"
-              alt="Bariflo Cybernetics"
-            />
-          </button>
-
-          <nav className="coag-nav-links">
-            <button onClick={() => navigate("/")}>HOME</button>
-            <button onClick={() => navigate("/act")} className="active">
-              INDUSTRIES
+          <div className="coag-nav-left">
+            <button
+              type="button"
+              className="bariflo-back-home-btn"
+              onClick={() => navigate("/act")}
+              title="Back to Act"
+              aria-label="Back to Act"
+            >
+              <FaArrowLeft size={20} />
             </button>
-            <button onClick={() => navigate("/cognition")}>COGNITION</button>
-            <button onClick={() => navigate("/case-studies")}>IMPACT</button>
-            <button onClick={() => navigate("/teamMember")}>ABOUT US</button>
+
+            <a
+              href="/"
+              className="coag-logo-link"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/");
+              }}
+            >
+              <img
+                src="/images/bariflo_nav_logo.png"
+                alt="Bariflo Cybernetics"
+                className="coag-logo-img"
+              />
+            </a>
+          </div>
+
+          <nav className="coag-nav-menu">
+            <button type="button" className="coag-nav-link" onClick={() => navigate("/")}>
+              HOME
+            </button>
+            <div className="coag-nav-link-wrap active">
+              <button
+                type="button"
+                className="coag-nav-link active"
+                onClick={() => navigate("/act")}
+              >
+                INDUSTRIES
+              </button>
+              <div className="coag-nav-active-bar" />
+            </div>
+            <button
+              type="button"
+              className="coag-nav-link"
+              onClick={() => navigate("/cognition")}
+            >
+              COGNITION
+            </button>
+            <button
+              type="button"
+              className="coag-nav-link"
+              onClick={() => navigate("/case-studies")}
+            >
+              IMPACT
+            </button>
+            <button
+              type="button"
+              className="coag-nav-link"
+              onClick={() => navigate("/teamMember")}
+            >
+              ABOUT US
+            </button>
           </nav>
 
           <div className="coag-nav-actions">
             <button
-              className="coag-contact-button"
-              onClick={() => navigate("/contactUs")}
+              type="button"
+              className="coag-search-icon-btn"
+              aria-label="Search"
+              onClick={() => navigate("/act")}
             >
-              <span>Schedule a Consultation</span>
-              <FaArrowRight />
+              <FaSearch size={15} />
             </button>
 
             <button
+              type="button"
+              className="coag-consultation-btn"
+              onClick={() => navigate("/contactUs")}
+            >
+              Schedule a Consultation <FaArrowRight size={12} />
+            </button>
+
+            <button
+              type="button"
               className="coag-mobile-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Navigation"
+              aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile menu drawer */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
               className="coag-mobile-drawer"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25 }}
             >
-              <div className="coag-mobile-nav-inner">
-                <button
-                  onClick={() => {
-                    navigate("/");
-                    setMobileMenuOpen(false);
-                  }}
-                >
+              <div className="coag-mobile-links">
+                <button type="button" onClick={() => navigate("/")}>
                   HOME
                 </button>
-                <button
-                  onClick={() => {
-                    navigate("/act");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="active"
-                >
+                <button type="button" className="active" onClick={() => navigate("/act")}>
                   INDUSTRIES
                 </button>
-                <button
-                  onClick={() => {
-                    navigate("/cognition");
-                    setMobileMenuOpen(false);
-                  }}
-                >
+                <button type="button" onClick={() => navigate("/cognition")}>
                   COGNITION
                 </button>
-                <button
-                  onClick={() => {
-                    navigate("/case-studies");
-                    setMobileMenuOpen(false);
-                  }}
-                >
+                <button type="button" onClick={() => navigate("/case-studies")}>
                   IMPACT
                 </button>
-                <button
-                  onClick={() => {
-                    navigate("/teamMember");
-                    setMobileMenuOpen(false);
-                  }}
-                >
+                <button type="button" onClick={() => navigate("/teamMember")}>
                   ABOUT US
                 </button>
-
                 <button
-                  className="coag-mobile-btn-cta"
-                  onClick={() => {
-                    navigate("/contactUs");
-                    setMobileMenuOpen(false);
-                  }}
+                  type="button"
+                  className="coag-mobile-cta"
+                  onClick={() => navigate("/contactUs")}
                 >
-                  Schedule a Consultation <FaArrowRight />
+                  Schedule a Consultation <FaArrowRight size={12} />
                 </button>
               </div>
             </motion.div>
@@ -239,205 +393,366 @@ const Coagulant = () => {
         </AnimatePresence>
       </header>
 
-      {/* Main Poster Layout Container matching exact design */}
-      <main className="coag-poster-container">
-        {/* Top Poster Title Bar */}
-        <motion.div
-          className="coag-title-bar"
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="coag-main-title">3. INTELLIGENT COAGULATION PREPARATION</h1>
-        </motion.div>
-
-        {/* Subtitle / Tagline */}
-        <motion.div
-          className="coag-subtitle-bar"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <span>SMART POWDER HANDLING</span>
-          <span className="coag-bullet">•</span>
-          <span>PRECISE MIXING</span>
-          <span className="coag-bullet">•</span>
-          <span>ADAPTIVE DOSING</span>
-        </motion.div>
-
-        <motion.div
-          className="coag-content-grid"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Machine Showcase Card */}
-          <motion.section className="coag-machine-card" variants={itemVariants}>
-            <div className="coag-image-frame">
-              <img
-                src="/images/COAGULATION.png"
-                alt="Intelligent Coagulation Preparation System Skid"
-                className="coag-machine-img"
-              />
+      {/* 2. HERO SECTION */}
+      <section className="coag-hero-section">
+        <div className="coag-hero-bg-overlay" />
+        <div className="coag-hero-container">
+          <div className="coag-hero-content">
+            <div className="coag-breadcrumbs">
+              <span>Industries</span>
+              <span className="coag-bc-sep">&gt;</span>
+              <span>Industrial Wastewater</span>
+              <span className="coag-bc-sep">&gt;</span>
+              <span className="coag-bc-current">Intelligent Coagulant Doser</span>
             </div>
 
-            {/* 5 Process Labels Row */}
-            <div className="coag-process-row">
-              {processLabels.map((proc, idx) => (
-                <button
-                  key={proc.id}
-                  className={`coag-process-pill ${activeProcess === proc.id ? "active" : ""}`}
-                  onClick={() => setActiveProcess(activeProcess === proc.id ? null : proc.id)}
-                  title={proc.hint}
-                  aria-label={proc.name}
-                >
-                  <span className="coag-pill-num">{idx + 1}</span>
-                  <span className="coag-pill-text">{proc.name}</span>
-                </button>
-              ))}
+            <h1 className="coag-hero-title">Intelligent Coagulant Doser</h1>
+            <h2 className="coag-hero-subtitle">
+              Smart Powder Handling &amp; Precise Mixing System
+            </h2>
+            <p className="coag-hero-desc">
+              Automated preparation and dosing of coagulants with precise control for consistent
+              water treatment performance.
+            </p>
+
+            <div className="coag-badges-row">
+              <div className="coag-badge-pill">
+                <div className="coag-badge-icon">
+                  <FaFlask />
+                </div>
+                <span>Accurate Dosing</span>
+              </div>
+
+              <div className="coag-badge-pill">
+                <div className="coag-badge-icon">
+                  <TbCirclesRelation />
+                </div>
+                <span>Consistent Mixing</span>
+              </div>
+
+              <div className="coag-badge-pill">
+                <div className="coag-badge-icon">
+                  <FaWrench />
+                </div>
+                <span>Low Maintenance</span>
+              </div>
+
+              <div className="coag-badge-pill">
+                <div className="coag-badge-icon">
+                  <TbGauge />
+                </div>
+                <span>Reliable Operation</span>
+              </div>
+
+              <div className="coag-badge-pill">
+                <div className="coag-badge-icon">
+                  <TbShieldCheck />
+                </div>
+                <span>Better Water Quality</span>
+              </div>
             </div>
-            {activeProcess && (
-              <motion.div
-                className="coag-process-tooltip"
-                initial={{ opacity: 0, y: -6 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <span>{processLabels.find((p) => p.id === activeProcess)?.hint}</span>
-              </motion.div>
-            )}
-          </motion.section>
-
-          {/* 2-Column Grid: System at a Glance & Dosing Profile */}
-          <div className="coag-two-col-grid">
-            {/* Left: SYSTEM AT A GLANCE */}
-            <motion.section className="coag-panel-card" variants={itemVariants}>
-              <div className="coag-panel-header">
-                <h2>SYSTEM AT A GLANCE</h2>
-              </div>
-              <div className="coag-glance-table">
-                {systemDetails.map((item, idx) => (
-                  <div className="coag-glance-row" key={idx}>
-                    <div className="coag-glance-key">{item.label}</div>
-                    <div className="coag-glance-val">{item.value}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.section>
-
-            {/* Right: DOSING & OPERATING PROFILE */}
-            <motion.section className="coag-panel-card" variants={itemVariants}>
-              <div className="coag-panel-header">
-                <h2>DOSING & OPERATING PROFILE</h2>
-              </div>
-              <div className="coag-metrics-grid">
-                {operatingProfile.map((metric, idx) => (
-                  <motion.div
-                    className="coag-metric-cell"
-                    key={idx}
-                    whileHover={{ scale: 1.03, y: -2 }}
-                    transition={{ type: "spring", stiffness: 350 }}
-                  >
-                    <div className="coag-metric-val">{metric.value}</div>
-                    <div className="coag-metric-lbl">{metric.label}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.section>
           </div>
 
-          {/* Middle: KEY FEATURES */}
-          <motion.section className="coag-panel-card" variants={itemVariants}>
-            <div className="coag-panel-header">
-              <h2>KEY FEATURES</h2>
+          {/* Right Hero Glass Card */}
+          <div className="coag-hero-right-card">
+            <div className="coag-dosing-glass">
+              <div className="coag-glass-icon-box">
+                <TbHexagon className="coag-glass-hex" />
+                <FaTint className="coag-glass-tint" />
+              </div>
+              <div className="coag-glass-text">
+                <span className="coag-glass-heading">Precise Dosing</span>
+                <span className="coag-glass-sub">for Cleaner Water Tomorrow</span>
+              </div>
             </div>
-            <div className="coag-features-container">
-              {keyFeatures.map((colGroup, colIdx) => (
-                <div className="coag-feature-column" key={colIdx}>
-                  {colGroup.items.map((feat, itemIdx) => (
-                    <div className="coag-feature-row" key={itemIdx}>
-                      <span className="coag-check-glyph">✓</span>
-                      <div className="coag-feature-info">
-                        <strong className="coag-feature-headline">{feat.title}</strong>
-                        <p className="coag-feature-subline">{feat.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </motion.section>
+          </div>
+        </div>
+      </section>
 
-          {/* Bottom: INSTRUMENTATION, CONNECTIVITY & APPLICATIONS */}
-          <motion.section className="coag-panel-card" variants={itemVariants}>
-            <div className="coag-panel-header">
-              <h2>INSTRUMENTATION, CONNECTIVITY & APPLICATIONS</h2>
+      {/* 3. SUBNAV ACTION BAR */}
+      <div className="coag-subnav-bar">
+        <div className="coag-subnav-container">
+          <div className="coag-subnav-tabs">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                className={`coag-subnav-tab ${activeTab === tab ? "active" : ""}`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+                {activeTab === tab && <div className="coag-tab-indicator" />}
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className="coag-quote-btn"
+            onClick={() => navigate("/contactUs")}
+          >
+            Request a Quote <FaArrowRight size={12} />
+          </button>
+        </div>
+      </div>
+
+      {/* 4. MAIN LAYOUT (Sidebar + Content) */}
+      <main className="coag-main-section">
+        <div className="coag-layout-container">
+          {/* LEFT SIDEBAR: ALL SOLUTIONS */}
+          <aside className="coag-sidebar">
+            <div className="coag-sidebar-header">
+              <div className="coag-sidebar-compass-icon">
+                <TbCube />
+              </div>
+              <h3>All Solutions</h3>
             </div>
-            <div className="coag-bottom-three-col">
-              {specsColumns.map((col, idx) => (
+
+            <div className="coag-sidebar-list">
+              {allSolutions.map((sol) => (
                 <motion.div
-                  className="coag-bottom-col-card"
-                  key={idx}
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.2 }}
+                  key={sol.id}
+                  className={`coag-sidebar-item ${sol.active ? "active" : ""}`}
+                  whileHover={{ x: sol.active ? 0 : 5, scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.18 }}
+                  onClick={() => {
+                    if (sol.path && sol.path !== "#" && sol.path !== "/coagulant") {
+                      navigate(sol.path, {
+                        state: {
+                          fromSolutionSidebar: true,
+                          scrollY: window.scrollY,
+                        },
+                      });
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
-                  <div className="coag-col-title-wrap">
-                    {col.icon}
-                    <h3>{col.title}</h3>
+                  <div className="coag-sidebar-item-thumb">
+                    <img src={sol.image} alt={sol.title} />
                   </div>
-                  <p>{col.desc}</p>
+                  <div className="coag-sidebar-item-info">
+                    <span className="coag-sidebar-item-num">{sol.id}</span>
+                    <span className="coag-sidebar-item-name">{sol.title}</span>
+                  </div>
+                  {sol.active && (
+                    <div className="coag-sidebar-item-arrow">
+                      <FaChevronRight size={12} />
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
-          </motion.section>
+          </aside>
 
-          {/* Disclaimer Note */}
-          <motion.p className="coag-disclaimer-note" variants={itemVariants}>
-            Note : Capacities and operating values are indicative and may vary with coagulant type, process duty and customization.
-          </motion.p>
-        </motion.div>
+          {/* RIGHT CONTENT COLUMN (ANIMATED) */}
+          <motion.div
+            className="coag-content-column"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            {/* ROW 1: System Diagram + Key Features */}
+            <div className="coag-grid-row coag-row-diagram-features">
+              {/* System Diagram Card */}
+              <div className="coag-card coag-diagram-card">
+                <div className="coag-card-header">
+                  <h3 className="coag-card-title">System Diagram</h3>
+                  <div className="coag-3d-badge">
+                    <TbCube size={15} />
+                    <span>3D View</span>
+                  </div>
+                </div>
+
+                <div className="coag-diagram-wrapper">
+                  <img
+                    src="/images/COAGULATION.png"
+                    alt="Intelligent Coagulant Doser 3D Diagram"
+                    className="coag-diagram-img"
+                  />
+
+                  {/* Callout Pointers */}
+                  <div className="coag-callouts-layer">
+                    {diagramCallouts.map((c) => (
+                      <div key={c.id} className={`coag-callout-box ${c.posClass}`}>
+                        <div className="coag-callout-inner">
+                          <strong className="coag-callout-heading">{c.title}</strong>
+                          <span className="coag-callout-sub">{c.sub}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Key Features Card */}
+              <div className="coag-card coag-features-card">
+                <div className="coag-card-header">
+                  <h3 className="coag-card-title">Key Features</h3>
+                </div>
+
+                <ul className="coag-features-list">
+                  {keyFeaturesList.map((feat, idx) => (
+                    <li key={idx} className="coag-feature-item">
+                      <div className="coag-check-bubble">
+                        <FaCheck size={11} />
+                      </div>
+                      <span className="coag-feature-text">{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* ROW 2: System at a Glance + Dosing & Operating Profile */}
+            <div className="coag-grid-row coag-row-glance-metrics">
+              {/* System at a Glance */}
+              <div className="coag-card coag-glance-card">
+                <div className="coag-card-header">
+                  <h3 className="coag-card-title">System at a Glance</h3>
+                </div>
+
+                <div className="coag-table-responsive">
+                  <table className="coag-specs-table">
+                    <tbody>
+                      {systemGlanceData.map((row, idx) => (
+                        <tr key={idx}>
+                          <td className="coag-table-label">{row.label}</td>
+                          <td className="coag-table-val">{row.value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* Dosing & Operating Profile */}
+              <div className="coag-card coag-metrics-card">
+                <div className="coag-card-header">
+                  <h3 className="coag-card-title">Dosing &amp; Operating Profile</h3>
+                </div>
+
+                <div className="coag-operating-metrics-grid">
+                  {operatingMetrics.map((m, idx) => (
+                    <div key={idx} className="coag-metric-tile">
+                      <div className="coag-metric-val">{m.value}</div>
+                      <div className="coag-metric-unit">{m.unit}</div>
+                      <div className="coag-metric-label">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ROW 3: Detailed Key Features (Full Width Grid) */}
+            <div className="coag-card coag-detailed-features-card">
+              <div className="coag-card-header">
+                <h3 className="coag-card-title">Key Features</h3>
+              </div>
+
+              <div className="coag-detailed-features-grid">
+                {detailedFeatures.map((item, idx) => (
+                  <div key={idx} className="coag-detailed-feature-item">
+                    <div className="coag-green-check">
+                      <FaCheck size={12} />
+                    </div>
+                    <div className="coag-detailed-feature-text">
+                      <strong className="coag-detailed-feature-title">{item.title}</strong>
+                      <span className="coag-detailed-feature-desc">{item.desc}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ROW 4: Instrumentation, Connectivity & Applications */}
+            <div className="coag-card coag-instrumentation-card">
+              <div className="coag-card-header">
+                <h3 className="coag-card-title">
+                  Instrumentation, Connectivity &amp; Applications
+                </h3>
+              </div>
+
+              <div className="coag-instrumentation-grid">
+                {instrumentationCards.map((item, idx) => (
+                  <div key={idx} className="coag-instrument-box">
+                    <div className="coag-instrument-icon">{item.icon}</div>
+                    <h4 className="coag-instrument-title">{item.title}</h4>
+                    <p className="coag-instrument-desc">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Disclaimer Footnote */}
+            <div className="coag-disclaimer">
+              <p>
+                Note: Capacities and operating values are indicative and may vary with coagulant
+                type, process duty and customization.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </main>
 
-      {/* Website CTA Section */}
-      <section className="coag-cta-banner">
-        <div className="coag-cta-inner">
+      {/* 5. CALL TO ACTION FOOTER RIBBON */}
+      <section className="coag-cta-section">
+        <div className="coag-cta-banner">
           <div className="coag-cta-left">
-            <FaLeaf className="coag-cta-icon" />
-            <div>
-              <h3>Transform Your Chemical Dosing Efficiency</h3>
-              <p>Schedule a customized application assessment with Bariflo engineers.</p>
+            <div className="coag-cta-leaf-circle">
+              <FaLeaf className="coag-cta-leaf-icon" />
+            </div>
+
+            <div className="coag-cta-text-group">
+              <h2 className="coag-cta-title">Cleaner Water. Smarter Industry.</h2>
+              <p className="coag-cta-subtitle">
+                Intelligent solutions for a sustainable tomorrow.
+              </p>
             </div>
           </div>
+
           <button
-            className="coag-cta-action-btn"
+            type="button"
+            className="coag-cta-btn"
             onClick={() => navigate("/contactUs")}
           >
-            <span>Request Technical Proposal</span>
-            <FaArrowRight />
+            Talk to Our Experts <FaArrowRight size={13} />
           </button>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="coag-site-footer">
-        <div className="coag-footer-row">
-          <div className="coag-footer-brand">
-            <strong>Bariflo Cybernetics</strong>
-            <p>Smart Solutions for Cleaner Tomorrow</p>
+      {/* 6. TRUSTED BY INDUSTRY LEADERS & FOOTER (COGNITION STYLE) */}
+      <footer className="ietp-trust-footer">
+        <div className="ietp-trust-footer-inner">
+          <div className="ietp-trust-left-group">
+            <div className="ietp-trust-label">
+              TRUSTED BY
+              <br />
+              INDUSTRY LEADERS
+            </div>
+
+            <div className="ietp-trust-divider"></div>
+
+            <div className="ietp-logo-item" title="Bariflo Cybernetics">
+              <img
+                src="/images/bariflo_nav_logo.png"
+                alt="Bariflo Cybernetics"
+                className="ietp-logo-bariflo-footer"
+              />
+            </div>
           </div>
-          <div className="coag-footer-taglines">
-            <span>RELIABLE PERFORMANCE</span>
-            <span className="coag-footer-sep">•</span>
-            <span>ECO-FRIENDLY SOLUTION</span>
-            <span className="coag-footer-sep">•</span>
-            <span>SUSTAINABLE WATER BODIES</span>
+
+          <div className="ietp-trust-motto">
+            <div className="ietp-trust-divider"></div>
+            <div className="ietp-trust-motto-text">
+              HEALTHY ECOSYSTEMS.
+              <br />
+              PROSPEROUS COMMUNITIES.
+            </div>
           </div>
-        </div>
-        <div className="coag-footer-legal">
-          &copy; {new Date().getFullYear()} Bariflo Cybernetics Pvt. Ltd. All rights reserved.
         </div>
       </footer>
     </div>
   );
-};
-
-export default Coagulant;
+}

@@ -1,0 +1,1159 @@
+/* ==========================================================================
+   SEABIN SYSTEM PRODUCT DETAIL PAGE - EXACT UI SPECIFICATION
+   ========================================================================== */
+
+:root {
+  --seabin-primary: #0066cc;
+  --seabin-primary-hover: #0052a3;
+  --seabin-dark: #0f172a;
+  --seabin-gray-50: #f8fafc;
+  --seabin-gray-100: #f1f5f9;
+  --seabin-gray-200: #e2e8f0;
+  --seabin-gray-400: #94a3b8;
+  --seabin-gray-500: #64748b;
+  --seabin-gray-600: #475569;
+  --seabin-gray-700: #334155;
+  --seabin-border: #e2e8f0;
+}
+
+.seabin-page-root {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--seabin-gray-700);
+  padding-top: 74px;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   1. HEADER & TOP NAVBAR
+   -------------------------------------------------------------------------- */
+.seabin-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--seabin-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.seabin-nav-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 28px 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.seabin-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.seabin-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.seabin-logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.seabin-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.seabin-nav-link-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seabin-nav-link {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.seabin-nav-link:hover {
+  color: var(--seabin-primary);
+}
+
+.seabin-nav-link.active {
+  color: var(--seabin-primary);
+  font-weight: 700;
+}
+
+.seabin-nav-active-bar {
+  position: absolute;
+  bottom: -4px;
+  width: 100%;
+  height: 2.5px;
+  background: var(--seabin-primary);
+  border-radius: 4px;
+}
+
+.seabin-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.seabin-search-icon-btn {
+  background: none;
+  border: none;
+  color: var(--seabin-gray-600);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.seabin-search-icon-btn:hover {
+  color: var(--seabin-primary);
+}
+
+.seabin-consultation-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--seabin-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.seabin-consultation-btn:hover {
+  background: var(--seabin-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.35);
+}
+
+.seabin-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--seabin-gray-700);
+  cursor: pointer;
+  padding: 6px;
+}
+
+.seabin-mobile-drawer {
+  background: #ffffff;
+  border-top: 1px solid var(--seabin-border);
+  overflow: hidden;
+}
+
+.seabin-mobile-links {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.seabin-mobile-links button {
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--seabin-gray-700);
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.seabin-mobile-links button.active {
+  color: var(--seabin-primary);
+  font-weight: 700;
+}
+
+.seabin-mobile-cta {
+  margin-top: 8px;
+  background: var(--seabin-primary) !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  padding: 12px 18px !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION
+   -------------------------------------------------------------------------- */
+.seabin-hero-section {
+  position: relative;
+  background: #092644 url('/images/industrial_bg.jpg') center right / cover no-repeat;
+  min-height: 290px;
+  padding: 38px 0 34px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.seabin-hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 24, 48, 0.96) 0%,
+    rgba(8, 36, 68, 0.88) 45%,
+    rgba(8, 36, 68, 0.52) 100%
+  );
+  z-index: 1;
+}
+
+.seabin-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.seabin-hero-content {
+  max-width: 780px;
+}
+
+.seabin-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 12px;
+}
+
+.seabin-bc-sep {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.seabin-bc-current {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.seabin-hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.seabin-hero-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
+}
+
+.seabin-hero-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 22px;
+  max-width: 650px;
+}
+
+.seabin-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.seabin-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+  padding: 6px 14px 6px 8px;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.seabin-badge-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #ffffff;
+}
+
+/* Glassmorphism Clean Water card on right of hero */
+.seabin-hero-right-card {
+  flex-shrink: 0;
+}
+
+.seabin-cleanwater-glass {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(14, 38, 64, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 14px 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.seabin-glass-icon-box {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seabin-glass-hex {
+  font-size: 38px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.seabin-glass-tint {
+  position: absolute;
+  font-size: 16px;
+  color: #38bdf8;
+}
+
+.seabin-glass-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.seabin-glass-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+}
+
+.seabin-glass-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   3. SUBNAV ACTION BAR
+   -------------------------------------------------------------------------- */
+.seabin-subnav-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--seabin-border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.seabin-subnav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.seabin-subnav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.seabin-subnav-tab {
+  position: relative;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--seabin-gray-600);
+  cursor: pointer;
+  padding: 16px 0;
+  transition: color 0.2s ease;
+}
+
+.seabin-subnav-tab:hover {
+  color: var(--seabin-primary);
+}
+
+.seabin-subnav-tab.active {
+  color: var(--seabin-primary);
+  font-weight: 700;
+}
+
+.seabin-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--seabin-primary);
+  border-radius: 3px 3px 0 0;
+}
+
+.seabin-quote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--seabin-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+  transition: all 0.25s ease;
+}
+
+.seabin-quote-btn:hover {
+  background: var(--seabin-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   4. MAIN TWO-COLUMN LAYOUT
+   -------------------------------------------------------------------------- */
+.seabin-main-section {
+  padding: 24px 0 40px;
+}
+
+.seabin-layout-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  gap: 24px;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+/* Sidebar: All Solutions */
+.seabin-sidebar {
+  width: 270px;
+  flex-shrink: 0;
+  background: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 18px 14px;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.06);
+  box-sizing: border-box;
+}
+
+.seabin-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px 14px;
+  border-bottom: 1px solid #dbeafe;
+  margin-bottom: 12px;
+}
+
+.seabin-sidebar-compass-icon {
+  font-size: 18px;
+  color: var(--seabin-primary);
+  display: flex;
+  align-items: center;
+}
+
+.seabin-sidebar-header h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--seabin-dark);
+  margin: 0;
+}
+
+.seabin-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.seabin-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.seabin-sidebar-item:hover {
+  background: #dbeafe;
+}
+
+.seabin-sidebar-item.active {
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.32);
+}
+
+.seabin-sidebar-item-thumb {
+  width: 42px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.seabin-sidebar-item-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.seabin-sidebar-item-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.seabin-sidebar-item-num {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--seabin-gray-500);
+  flex-shrink: 0;
+}
+
+.seabin-sidebar-item.active .seabin-sidebar-item-num {
+  color: #ffffff;
+}
+
+.seabin-sidebar-item-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--seabin-gray-700);
+  line-height: 1.35;
+}
+
+.seabin-sidebar-item.active .seabin-sidebar-item-name {
+  color: #ffffff;
+}
+
+.seabin-sidebar-item-arrow {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+
+/* Right Content Column */
+.seabin-content-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.seabin-grid-row {
+  display: grid;
+  gap: 22px;
+}
+
+/* Row 1: System Diagram + Key Features */
+.seabin-row-diagram-features {
+  grid-template-columns: 1.45fr 1fr;
+}
+
+/* Row 2: Glance + Highlights */
+.seabin-row-glance-highlights {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+/* Row 3: Operating Data + Right Substack */
+.seabin-row-data-working {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Common Card Styles */
+.seabin-card {
+  background: #ffffff;
+  border: 1px solid var(--seabin-border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.seabin-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.seabin-card-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--seabin-dark);
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.seabin-3d-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(0, 102, 204, 0.06);
+  border: 1.5px solid var(--seabin-primary);
+  border-radius: 9999px;
+  color: var(--seabin-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* System Diagram Presentation */
+.seabin-diagram-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+  width: 100%;
+}
+
+.seabin-diagram-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Key Features Card */
+.seabin-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.seabin-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.seabin-check-bubble {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--seabin-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.seabin-feature-text {
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--seabin-gray-700);
+}
+
+/* Specs Tables */
+.seabin-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.seabin-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.seabin-specs-table tr {
+  border-bottom: 1px solid var(--seabin-border);
+}
+
+.seabin-specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.seabin-table-label {
+  padding: 10px 12px;
+  font-weight: 600;
+  color: var(--seabin-dark);
+  background: #f8fafc;
+  width: 36%;
+  border-right: 1px solid var(--seabin-border);
+  box-sizing: border-box;
+}
+
+.seabin-table-val {
+  padding: 10px 14px;
+  color: var(--seabin-gray-600);
+  background: #ffffff;
+}
+
+/* Performance Highlights Grid */
+.seabin-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.seabin-metric-tile {
+  background: #f8fafc;
+  border: 1px solid var(--seabin-border);
+  border-radius: 8px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Top 2 tiles take 3 columns each (50% each) */
+.seabin-metric-tile-1,
+.seabin-metric-tile-2 {
+  grid-column: span 3;
+}
+
+/* Bottom 3 tiles take 2 columns each (33.3% each) */
+.seabin-metric-tile-3,
+.seabin-metric-tile-4,
+.seabin-metric-tile-5 {
+  grid-column: span 2;
+}
+
+.seabin-metric-icon {
+  font-size: 18px;
+  color: var(--seabin-primary);
+  margin-bottom: 4px;
+}
+
+.seabin-metric-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--seabin-dark);
+  letter-spacing: -0.3px;
+  margin-bottom: 2px;
+}
+
+.seabin-metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--seabin-gray-500);
+  line-height: 1.25;
+}
+
+/* Right Substack */
+.seabin-right-substack {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Working Principle */
+.seabin-principle-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.seabin-principle-circle-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--seabin-primary);
+  background: rgba(0, 102, 204, 0.06);
+  color: var(--seabin-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.seabin-principle-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--seabin-gray-600);
+  margin: 0;
+}
+
+/* Typical Applications */
+.seabin-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.seabin-app-box {
+  background: #f8fafc;
+  border: 1px solid var(--seabin-border);
+  border-radius: 8px;
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.seabin-app-icon {
+  font-size: 20px;
+  color: var(--seabin-primary);
+}
+
+.seabin-app-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--seabin-dark);
+  line-height: 1.25;
+}
+
+.seabin-apps-footnote {
+  font-size: 11.5px;
+  color: var(--seabin-gray-500);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Disclaimer Note */
+.seabin-disclaimer {
+  padding: 4px 6px;
+}
+
+.seabin-disclaimer p {
+  font-size: 11.5px;
+  color: var(--seabin-gray-500);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. CTA FOOTER RIBBON
+   -------------------------------------------------------------------------- */
+.seabin-cta-section {
+  width: 100%;
+  margin: 20px 0 0;
+}
+
+.seabin-cta-banner {
+  background: linear-gradient(135deg, #062342 0%, #004c99 50%, #0066cc 100%);
+  padding: 26px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.seabin-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.seabin-cta-leaf-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.seabin-cta-leaf-icon {
+  color: #38bdf8;
+  font-size: 22px;
+}
+
+.seabin-cta-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.seabin-cta-subtitle {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.seabin-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0052a3;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 26px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.seabin-cta-btn:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .seabin-row-diagram-features,
+  .seabin-row-glance-highlights,
+  .seabin-row-data-working {
+    grid-template-columns: 1fr;
+  }
+
+  .seabin-metrics-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .seabin-metric-tile-1,
+  .seabin-metric-tile-2,
+  .seabin-metric-tile-3,
+  .seabin-metric-tile-4,
+  .seabin-metric-tile-5 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .seabin-nav-menu,
+  .seabin-consultation-btn,
+  .seabin-search-icon-btn {
+    display: none;
+  }
+
+  .seabin-mobile-toggle {
+    display: block;
+  }
+
+  .seabin-layout-container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .seabin-content-column {
+    width: 100%;
+    order: 1;
+  }
+
+  .seabin-sidebar {
+    width: 100%;
+    order: 2;
+  }
+
+  .seabin-hero-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .seabin-hero-right-card {
+    width: 100%;
+  }
+
+  .seabin-grid-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .seabin-header {
+    height: 64px;
+  }
+
+  .seabin-page-root {
+    padding-top: 64px;
+  }
+
+  .seabin-nav-container {
+    padding: 8px 16px;
+    height: 64px;
+  }
+
+  .seabin-logo-img {
+    height: 40px;
+  }
+
+  .seabin-hero-section {
+    padding: 26px 0 24px;
+    min-height: auto;
+  }
+
+  .seabin-hero-title {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .seabin-hero-subtitle {
+    font-size: 15px;
+  }
+
+  .seabin-hero-desc {
+    font-size: 13.5px;
+  }
+
+  .seabin-badges-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .seabin-subnav-tabs {
+    gap: 12px;
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .seabin-subnav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .seabin-subnav-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 16px;
+    align-items: flex-start;
+  }
+
+  .seabin-quote-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .seabin-sidebar-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+  }
+
+  .seabin-diagram-wrapper {
+    padding: 12px;
+  }
+
+  .seabin-diagram-img {
+    max-height: 280px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .seabin-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .seabin-metric-tile-1,
+  .seabin-metric-tile-2,
+  .seabin-metric-tile-3,
+  .seabin-metric-tile-4,
+  .seabin-metric-tile-5 {
+    grid-column: span 1;
+  }
+
+  .seabin-apps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seabin-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 18px;
+    gap: 18px;
+  }
+
+  .seabin-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .seabin-sidebar-list {
+    grid-template-columns: 1fr;
+  }
+}

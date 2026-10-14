@@ -1,106 +1,140 @@
 /* ==========================================================================
-   SEDIMENT AERATION SYSTEM - EXACT POSTER SPEC SHEET MATCH & RESPONSIVE
+   SEDIMENT AERATION SYSTEM - SCREENSHOT MATCHED DESIGN
    ========================================================================== */
 
 :root {
-  --sed-navy-header: #0b3260;
-  --sed-navy-sub: #12437b;
-  --sed-th-blue: #164e8c;
-  --sed-border: #c6d8e8;
-  --sed-border-soft: #d8e5f2;
-  --sed-bg-alt: #f0f6fc;
-  --sed-bg-card: #ffffff;
-  --sed-text-main: #182a3e;
-  --sed-text-muted: #4a5d73;
-  --sed-green-check: #16a34a;
-  --sed-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sed-primary: #0066cc;
+  --sed-primary-hover: #0052a3;
+  --sed-dark: #0f172a;
+  --sed-gray-50: #f8fafc;
+  --sed-gray-100: #f1f5f9;
+  --sed-gray-200: #e2e8f0;
+  --sed-gray-400: #94a3b8;
+  --sed-gray-500: #64748b;
+  --sed-gray-600: #475569;
+  --sed-gray-700: #334155;
+  --sed-border: #e2e8f0;
+  --sed-green: #0d9488;
 }
 
 .sed-page-root {
-  width: 100%;
   min-height: 100vh;
-  background-color: #f7fafc;
-  color: var(--sed-text-main);
-  font-family: var(--sed-font-family);
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
+  background-color: #f8fafc;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--sed-gray-700);
+  padding-top: 74px;
+  margin: 0;
 }
 
-/* ==========================================================================
-   Website Top Navbar
-   ========================================================================== */
-
+/* --------------------------------------------------------------------------
+   1. HEADER & TOP NAVBAR
+   -------------------------------------------------------------------------- */
 .sed-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.96);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--sed-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
 .sed-nav-container {
-  max-width: 1280px;
-  min-height: 68px;
-  padding: 8px 24px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 28px 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
+  box-sizing: border-box;
 }
 
-.sed-logo {
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
+.sed-nav-left {
   display: flex;
   align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
-.sed-logo img {
-  height: 42px;
+/* Back arrow placed on the far left without circular border */
+.sed-page-root .bariflo-back-home-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #1e293b !important;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.sed-page-root .bariflo-back-home-btn:hover {
+  color: var(--sed-primary) !important;
+  background: transparent !important;
+  transform: translateX(-2px);
+}
+
+.sed-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.sed-logo-img {
+  height: 52px;
   width: auto;
   object-fit: contain;
 }
 
-.sed-nav-links {
+.sed-nav-menu {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 40px;
 }
 
-.sed-nav-links button {
-  border: none;
-  background: transparent;
-  color: #334155;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  padding: 6px 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.sed-nav-link-wrap {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sed-nav-links button:hover,
-.sed-nav-links button.active {
-  color: var(--sed-navy-header);
+.sed-nav-link {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  padding: 6px 0;
+  transition: color 0.2s ease;
 }
 
-.sed-nav-links button.active::after {
-  content: "";
+.sed-nav-link:hover {
+  color: var(--sed-primary);
+}
+
+.sed-nav-link.active {
+  color: var(--sed-primary);
+}
+
+.sed-nav-active-bar {
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--sed-navy-header);
-  border-radius: 2px;
+  bottom: -11px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--sed-primary);
+  border-radius: 2px 2px 0 0;
 }
 
 .sed-nav-actions {
@@ -109,762 +143,943 @@
   gap: 16px;
 }
 
-.sed-contact-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  background: linear-gradient(135deg, #0b3260 0%, #164e8c 100%);
-  color: #ffffff;
+.sed-search-icon-btn {
+  background: none;
   border: none;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
+  color: #475569;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 3px 10px rgba(11, 50, 96, 0.25);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-.sed-contact-button:hover {
+.sed-search-icon-btn:hover {
+  background-color: var(--sed-gray-100);
+  color: var(--sed-primary);
+}
+
+.sed-consultation-btn {
+  background-color: var(--sed-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+}
+
+.sed-consultation-btn:hover {
+  background-color: var(--sed-primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(11, 50, 96, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
 }
 
 .sed-mobile-toggle {
   display: none;
-  background: transparent;
+  background: none;
   border: none;
-  color: var(--sed-navy-header);
+  color: #334155;
   cursor: pointer;
   padding: 6px;
 }
 
 .sed-mobile-drawer {
   background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--sed-border);
+  padding: 16px 24px;
 }
 
-.sed-mobile-nav-inner {
-  padding: 16px 24px;
+.sed-mobile-links {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
-.sed-mobile-nav-inner button {
+.sed-mobile-links button {
+  background: none;
   border: none;
-  background: transparent;
-  color: #334155;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
+  color: #334155;
   text-align: left;
   padding: 8px 0;
   cursor: pointer;
 }
 
-.sed-mobile-nav-inner button.active {
-  color: var(--sed-navy-header);
+.sed-mobile-links button.active {
+  color: var(--sed-primary);
+  font-weight: 700;
 }
 
-.sed-mobile-btn-cta {
+.sed-mobile-cta {
   margin-top: 8px;
-  background: var(--sed-navy-header) !important;
+  background: var(--sed-primary) !important;
   color: #ffffff !important;
+  text-align: center !important;
   padding: 12px 18px !important;
   border-radius: 8px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION
+   -------------------------------------------------------------------------- */
+.sed-hero-section {
+  position: relative;
+  background: #092644 url('/images/industrial_bg.jpg') center right / cover no-repeat;
+  min-height: 290px;
+  padding: 38px 0 34px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sed-hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 24, 48, 0.96) 0%,
+    rgba(8, 36, 68, 0.88) 48%,
+    rgba(8, 36, 68, 0.45) 100%
+  );
+  z-index: 1;
+}
+
+.sed-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-/* ==========================================================================
-   Master Poster Frame - Matching Image 1
-   ========================================================================== */
-
-.sed-poster-frame {
-  width: 100%;
-  max-width: 1340px;
-  margin: 28px auto;
-  padding: 20px 24px;
-  background: #ffffff;
-  border: 1.5px solid var(--sed-border);
-  border-radius: 12px;
-  box-shadow: 0 10px 32px rgba(11, 50, 96, 0.07);
+  gap: 24px;
   box-sizing: border-box;
 }
 
-/* Top Header Row */
-.sed-top-header-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 24px;
-  align-items: center;
-  padding-bottom: 16px;
-  border-bottom: 2px solid #e8f0f8;
-  margin-bottom: 18px;
+.sed-hero-content {
+  max-width: 780px;
 }
 
-.sed-title-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sed-system-title {
-  margin: 0;
-  color: var(--sed-navy-header);
-  font-size: clamp(22px, 2.4vw, 32px);
-  font-weight: 900;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-
-.sed-system-subtitle {
-  margin: 0;
-  color: var(--sed-navy-sub);
-  font-size: clamp(13px, 1.2vw, 16px);
-  font-weight: 600;
-}
-
-/* Top Summary Pill Badge */
-.sed-top-summary-badge {
-  max-width: 520px;
-  background: var(--sed-navy-header);
-  color: #ffffff;
-  border-radius: 12px;
-  padding: 10px 18px;
+.sed-breadcrumbs {
   display: flex;
   align-items: center;
-  gap: 14px;
-  box-shadow: 0 4px 14px rgba(11, 50, 96, 0.2);
-}
-
-.sed-top-badge-icon {
-  font-size: 26px;
-  color: #67e8f9;
-  flex-shrink: 0;
-}
-
-.sed-top-badge-text {
-  margin: 0;
-  font-size: 11.5px;
-  line-height: 1.42;
-  font-weight: 500;
-  color: #f1f5f9;
-}
-
-/* Master Poster Grid (Left 63% | Right 37%) */
-.sed-poster-grid {
-  display: grid;
-  grid-template-columns: 1.55fr 1fr;
-  gap: 18px;
-  align-items: start;
-}
-
-/* Left & Center Combined Zone */
-.sed-left-center-zone {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* Top Row: Diagram + Key Features */
-.sed-diagram-features-row {
-  display: grid;
-  grid-template-columns: 1.45fr 1fr;
-  gap: 16px;
-  align-items: stretch;
-}
-
-/* Common Navy Header for Cards */
-.sed-card-header-navy {
-  background: var(--sed-navy-header);
-  color: #ffffff;
-  padding: 8px 14px;
-  text-align: center;
-}
-
-.sed-card-header-navy h2 {
-  margin: 0;
-  font-size: 13.5px;
-  font-weight: 800;
-  letter-spacing: 0.7px;
-  text-transform: uppercase;
-}
-
-/* 1. Diagram Card */
-.sed-diagram-card {
-  background: #ffffff;
-  border: 1.5px solid var(--sed-border);
-  border-radius: 8px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.sed-diagram-wrap {
-  position: relative;
-  width: 100%;
-  height: 310px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sed-diagram-image {
-  max-width: 90%;
-  max-height: 95%;
-  object-fit: contain;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.1));
-}
-
-/* Desktop Callouts Overlay */
-.sed-callouts-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.sed-callout-item {
-  position: absolute;
-  pointer-events: auto;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.sed-callout-item.housing {
-  top: 10px;
-  left: 10px;
-}
-
-.sed-callout-item.aerator {
-  top: 90px;
-  left: 8px;
-}
-
-.sed-callout-item.float {
-  top: 165px;
-  left: 8px;
-}
-
-.sed-callout-item.frame {
-  top: 220px;
-  left: 8px;
-}
-
-.sed-callout-item.airline {
-  bottom: 12px;
-  left: 8px;
-}
-
-.sed-callout-text {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid #9dc0e2;
-  border-radius: 4px;
-  padding: 3px 7px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  max-width: 170px;
-}
-
-.sed-callout-title {
-  color: var(--sed-navy-header);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  line-height: 1.2;
-}
-
-.sed-callout-sub {
-  color: var(--sed-text-muted);
-  font-size: 9px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.sed-callout-item:hover {
-  transform: scale(1.05);
-}
-
-.sed-callout-item:hover .sed-callout-text {
-  background: var(--sed-navy-header);
-  border-color: var(--sed-navy-header);
-}
-
-.sed-callout-item:hover .sed-callout-title {
-  color: #ffffff;
-}
-
-.sed-callout-item:hover .sed-callout-sub {
-  color: #93c5fd;
-}
-
-.sed-callouts-mobile-list {
-  display: none;
-  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  margin-top: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 12px;
 }
 
-.sed-callout-mobile-chip {
-  background: #f1f6fb;
-  border: 1px solid var(--sed-border);
-  border-radius: 6px;
-  padding: 6px 10px;
-  display: flex;
-  flex-direction: column;
+.sed-bc-sep {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.sed-callout-mobile-chip strong {
-  font-size: 10.5px;
-  color: var(--sed-navy-header);
+.sed-bc-current {
+  color: #ffffff;
+  font-weight: 600;
 }
 
-.sed-callout-mobile-chip small {
-  font-size: 9.5px;
-  color: var(--sed-text-muted);
+.sed-hero-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
 }
 
-/* 2. Key Features Card */
-.sed-features-card {
-  background: #ffffff;
-  border: 1.5px solid var(--sed-border);
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+.sed-hero-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
 }
 
-.sed-features-body {
-  padding: 14px 14px;
-  flex: 1;
-  display: flex;
-  align-items: center;
+.sed-hero-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 22px;
+  max-width: 650px;
 }
-
-.sed-features-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  width: 100%;
-}
-
-.sed-features-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 11.5px;
-  line-height: 1.4;
-  color: var(--sed-text-main);
-  font-weight: 500;
-}
-
-.sed-check-circle {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ecfdf5;
-  border: 1.5px solid var(--sed-green-check);
-  color: var(--sed-green-check);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 9px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-/* ==========================================================================
-   Five Circular Benefit Badges Row
-   ========================================================================== */
 
 .sed-badges-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-}
-
-.sed-badge-card {
-  background: #ffffff;
-  border: 1.5px solid var(--sed-border);
-  border-radius: 8px;
-  padding: 12px 6px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  text-align: center;
-  transition: all 0.25s ease;
-}
-
-.sed-badge-card:hover {
-  border-color: #0b3260;
-  box-shadow: 0 4px 12px rgba(11, 50, 96, 0.1);
-}
-
-.sed-badge-circle-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid #9dc0e2;
-  background: #f4f8fd;
-  color: var(--sed-navy-header);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.sed-badge-title {
-  margin: 0 0 4px;
-  color: var(--sed-navy-header);
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  line-height: 1.25;
-}
-
-.sed-badge-desc {
-  margin: 0;
-  color: var(--sed-text-muted);
-  font-size: 9.5px;
-  line-height: 1.35;
-}
-
-/* ==========================================================================
-   Bottom Trio Row: Working Principle | Applications | System Summary
-   ========================================================================== */
-
-.sed-bottom-trio-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
-.sed-trio-card {
-  background: #ffffff;
-  border: 1.5px solid var(--sed-border);
-  border-radius: 8px;
-  overflow: hidden;
+.sed-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+  padding: 6px 14px 6px 8px;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.sed-badge-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.sed-badge-o2 {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Hero Right Floating Sediment Unit + Glass Card */
+.sed-hero-right-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.sed-hero-unit-img {
+  height: 220px;
+  max-width: 340px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.45));
+}
+
+.sed-clean-water-glass {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(14, 38, 64, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 14px 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.sed-glass-icon-box {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sed-glass-wave {
+  font-size: 32px;
+  color: #38bdf8;
+}
+
+.sed-glass-text {
   display: flex;
   flex-direction: column;
 }
 
-.sed-trio-body {
-  padding: 12px 14px;
-  font-size: 11px;
-  line-height: 1.48;
-  color: var(--sed-text-main);
-  flex: 1;
+.sed-glass-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.sed-trio-body p {
+.sed-glass-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. SUBNAV ACTION BAR
+   -------------------------------------------------------------------------- */
+.sed-subnav-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--sed-border);
+  position: sticky;
+  top: 73px;
+  z-index: 99;
+}
+
+.sed-subnav-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.sed-subnav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.sed-subnav-tab {
+  position: relative;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sed-gray-600);
+  padding: 16px 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sed-subnav-tab:hover {
+  color: var(--sed-primary);
+}
+
+.sed-subnav-tab.active {
+  color: var(--sed-primary);
+  font-weight: 700;
+}
+
+.sed-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background-color: var(--sed-primary);
+  border-radius: 2px 2px 0 0;
+}
+
+.sed-quote-btn {
+  background: var(--sed-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.sed-quote-btn:hover {
+  background: var(--sed-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   4. MAIN LAYOUT
+   -------------------------------------------------------------------------- */
+.sed-main-section {
+  padding: 24px 0 48px;
+}
+
+.sed-layout-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  gap: 28px;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.sed-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 16px 14px;
+  align-self: flex-start;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.06);
+}
+
+.sed-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px 14px;
+  border-bottom: 1px solid #dbeafe;
+  margin-bottom: 12px;
+}
+
+.sed-sidebar-chevron-back {
+  font-size: 12px;
+  color: var(--sed-gray-600);
+  display: flex;
+  align-items: center;
+}
+
+.sed-sidebar-header h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--sed-dark);
   margin: 0;
 }
 
-.sed-apps-bullets {
-  margin: 0;
-  padding-left: 16px;
+.sed-sidebar-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.sed-apps-bullets li {
-  color: var(--sed-text-main);
-  font-size: 11px;
+.sed-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.sed-sidebar-item:hover {
+  background: #dbeafe;
+}
+
+.sed-sidebar-item.active {
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.32);
+}
+
+.sed-sidebar-item-thumb {
+  width: 42px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sed-sidebar-item-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.sed-sidebar-item-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.sed-sidebar-item-num {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--sed-gray-500);
+  flex-shrink: 0;
+}
+
+.sed-sidebar-item.active .sed-sidebar-item-num {
+  color: #ffffff;
+}
+
+.sed-sidebar-item-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sed-gray-700);
   line-height: 1.35;
 }
 
-/* System Summary Mini Table */
-.sed-summary-table-wrap {
+.sed-sidebar-item.active .sed-sidebar-item-name {
+  color: #ffffff;
+}
+
+.sed-sidebar-item-arrow {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+
+/* Right Content Column */
+.sed-content-column {
   flex: 1;
-}
-
-.sed-summary-mini-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 10.5px;
-}
-
-.sed-summary-mini-table tr {
-  border-bottom: 1px solid #e5edf5;
-}
-
-.sed-summary-mini-table tr.alt-row {
-  background: var(--sed-bg-alt);
-}
-
-.sed-summary-mini-table td {
-  padding: 6px 10px;
-}
-
-.sed-sum-key {
-  color: var(--sed-navy-header);
-  font-weight: 700;
-  width: 44%;
-}
-
-.sed-sum-val {
-  color: var(--sed-text-main);
-}
-
-/* ==========================================================================
-   Right Column: Technical Specifications Table & Design Notes
-   ========================================================================== */
-
-.sed-right-column {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 22px;
 }
 
-.sed-specs-panel {
+.sed-grid-row {
+  display: grid;
+  gap: 22px;
+}
+
+/* Row 1: Diagram (50%) + Features (26%) + Highlights (24%) */
+.sed-row-1 {
+  grid-template-columns: 1.9fr 1.1fr 1fr;
+}
+
+/* Row 2: Glance (1.2fr) + Core Operating (1.2fr) + Applications (1fr) */
+.sed-row-2 {
+  grid-template-columns: 1.25fr 1.25fr 1fr;
+}
+
+/* Common Card Styles */
+.sed-card {
   background: #ffffff;
-  border: 1.5px solid var(--sed-border);
-  border-radius: 8px;
-  overflow: hidden;
+  border: 1px solid var(--sed-border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
 }
 
-.sed-specs-table-container {
-  width: 100%;
+.sed-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sed-card-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--sed-dark);
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.sed-3d-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(0, 102, 204, 0.06);
+  border: 1.5px solid var(--sed-primary);
+  border-radius: 9999px;
+  color: var(--sed-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* System Diagram Presentation with Callouts */
+.sed-diagram-wrapper {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.sed-diagram-img {
+  max-height: 320px;
+  max-width: 88%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Callouts Overlay around Sediment Diagram */
+.sed-callouts-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sed-callout-box {
+  position: absolute;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.sed-callout-inner {
+  background: #ffffff;
+  border: 1.5px solid var(--sed-primary);
+  border-radius: 6px;
+  padding: 4px 8px;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.12);
+}
+
+.sed-callout-heading {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.sed-callout-sub {
+  display: block;
+  font-size: 9px;
+  color: var(--sed-gray-500);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Callout Positions matching screenshot */
+.sed-callout-housing {
+  top: 10%;
+  left: 3%;
+}
+
+.sed-callout-float {
+  top: 12%;
+  right: 4%;
+}
+
+.sed-callout-frame {
+  top: 48%;
+  right: 4%;
+}
+
+.sed-callout-air {
+  bottom: 8%;
+  right: 4%;
+}
+
+.sed-callout-submersed {
+  bottom: 12%;
+  left: 3%;
+}
+
+/* Key Features (Card in Row 1) */
+.sed-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sed-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.sed-check-bubble {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0d9488;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sed-feature-text {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--sed-gray-700);
+  font-weight: 500;
+}
+
+/* Performance Highlights Card */
+.sed-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.sed-highlight-box {
+  background: #f0f7ff;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sed-highlight-box.full-width {
+  grid-column: span 2;
+  flex-direction: row;
+  gap: 10px;
+  padding: 12px 14px;
+}
+
+.sed-highlight-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sed-primary);
+  color: var(--sed-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.sed-o2-text {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.sed-highlight-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--sed-dark);
+  line-height: 1.3;
+}
+
+/* Row 2: Tables Specifications */
+.sed-table-responsive {
   overflow-x: auto;
 }
 
 .sed-specs-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 11px;
+}
+
+.sed-specs-table tr {
+  border-bottom: 1px solid var(--sed-border);
+}
+
+.sed-specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.sed-table-label {
+  padding: 9px 12px 9px 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--sed-dark);
+  white-space: nowrap;
+  width: 44%;
+}
+
+.sed-table-val {
+  padding: 9px 0 9px 12px;
+  font-size: 12.5px;
+  color: var(--sed-gray-600);
   line-height: 1.35;
 }
 
-.sed-specs-table thead tr {
-  background: var(--sed-th-blue);
-  color: #ffffff;
+/* Row 2: Applications 2x2 Grid */
+.sed-applications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
 
-.sed-specs-table th {
-  padding: 7px 12px;
-  font-size: 11px;
-  font-weight: 700;
-  text-align: left;
-  letter-spacing: 0.5px;
-  border: none;
-}
-
-.sed-th-param {
-  width: 46%;
-}
-
-.sed-th-spec {
-  width: 54%;
-}
-
-.sed-specs-table tbody tr {
-  border-bottom: 1px solid #e2ecf5;
-  transition: background 0.15s ease;
-}
-
-.sed-specs-table tbody tr:hover {
-  background: #e8f2fc !important;
-}
-
-.sed-tr-alt {
-  background: var(--sed-bg-alt);
-}
-
-.sed-tr-plain {
-  background: #ffffff;
-}
-
-.sed-td-param {
-  padding: 6px 12px;
-  color: var(--sed-navy-header);
-  font-weight: 600;
-}
-
-.sed-td-spec {
-  padding: 6px 12px;
-  color: #273746;
-}
-
-.sed-warranty-footnote {
-  padding: 8px 12px;
-  background: #fbfcfe;
-  border-top: 1px solid #e8f0f8;
-  font-size: 9.5px;
-  font-style: italic;
-  color: var(--sed-text-muted);
-  line-height: 1.4;
-}
-
-/* Design Notes Card */
-.sed-design-notes-card {
-  background: #ffffff;
-  border: 1.5px solid var(--sed-border);
-  border-radius: 8px;
-  padding: 12px 14px;
-}
-
-.sed-notes-heading {
-  margin: 0 0 6px;
-  color: var(--sed-navy-header);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-
-.sed-notes-text {
-  margin: 0;
-  color: var(--sed-text-muted);
-  font-size: 10px;
-  line-height: 1.45;
-}
-
-/* ==========================================================================
-   Poster Footer Bar
-   ========================================================================== */
-
-.sed-poster-footer {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1.5px solid #dce8f4;
+.sed-application-box {
+  background: #f0f7ff;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  padding: 18px 12px;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-size: 11px;
-}
-
-.sed-pf-brand {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 800;
-  color: var(--sed-navy-header);
-  font-size: 12.5px;
-}
-
-.sed-pf-infinity {
-  font-size: 17px;
-  color: #0284c7;
-}
-
-.sed-pf-center {
-  color: #52657a;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.sed-pf-right {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 8px;
-  font-weight: 700;
-  color: var(--sed-navy-header);
-  letter-spacing: 0.5px;
 }
 
-.sed-pf-sep {
-  color: #0284c7;
-}
-
-/* ==========================================================================
-   Website Consultation Action Bar
-   ========================================================================== */
-
-.sed-web-cta-section {
-  background: linear-gradient(135deg, #072547 0%, #0b3260 100%);
-  color: #ffffff;
-  padding: 38px 24px;
-  margin-top: 36px;
-}
-
-.sed-web-cta-inner {
-  max-width: 1280px;
-  margin: 0 auto;
+.sed-application-icon {
+  color: var(--sed-primary);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.sed-application-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--sed-dark);
+  line-height: 1.3;
+}
+
+/* Row 3: Technical Specifications Split Grid */
+.sed-techspecs-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 28px;
 }
 
-.sed-web-cta-info {
+.sed-tech-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sed-tech-table thead tr {
+  border-bottom: 2px solid var(--sed-primary);
+}
+
+.sed-tech-table th {
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--sed-primary);
+}
+
+.sed-tech-table tbody tr {
+  border-bottom: 1px solid var(--sed-border);
+}
+
+.sed-tech-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sed-tech-param {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sed-dark);
+  width: 48%;
+}
+
+.sed-tech-val {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--sed-gray-600);
+}
+
+/* --------------------------------------------------------------------------
+   5. CTA FOOTER RIBBON
+   -------------------------------------------------------------------------- */
+.sed-cta-section {
+  padding: 0 28px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.sed-cta-banner {
+  background: linear-gradient(135deg, #062b54 0%, #031b36 100%);
+  border-radius: 14px;
+  padding: 24px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(3, 27, 54, 0.2);
+}
+
+.sed-cta-left {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.sed-web-cta-leaf {
-  font-size: 38px;
-  color: #38bdf8;
+.sed-cta-leaf-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 102, 204, 0.35);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
-.sed-web-cta-info h3 {
-  margin: 0 0 6px 0;
+.sed-cta-leaf-icon {
+  font-size: 22px;
+  color: #38bdf8;
+}
+
+.sed-cta-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.sed-cta-title {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px;
 }
 
-.sed-web-cta-info p {
+.sed-cta-subtitle {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.75);
   margin: 0;
-  color: #cbd5e1;
-  font-size: 14px;
 }
 
-.sed-web-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.sed-cta-btn {
   background: #ffffff;
-  color: var(--sed-navy-header);
+  color: #062b54;
   border: none;
-  padding: 13px 26px;
-  border-radius: 999px;
+  border-radius: 9999px;
+  padding: 12px 24px;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.sed-web-cta-btn:hover {
-  background: #f0fdf4;
-  color: #0369a1;
+.sed-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-/* ==========================================================================
-   Responsive Adaptations (Tablet & Mobile)
-   ========================================================================== */
-
-@media (max-width: 1100px) {
-  .sed-poster-grid {
+/* --------------------------------------------------------------------------
+   RESPONSIVE QUERIES
+   -------------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .sed-row-1 {
     grid-template-columns: 1fr;
   }
 
-  .sed-top-header-row {
+  .sed-row-2 {
     grid-template-columns: 1fr;
+  }
+
+  .sed-techspecs-split-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sed-hero-right-card {
+    display: none;
   }
 }
 
-@media (max-width: 900px) {
-  .sed-nav-links {
+@media (max-width: 992px) {
+  .sed-nav-menu,
+  .sed-consultation-btn,
+  .sed-search-icon-btn {
     display: none;
   }
 
@@ -872,68 +1087,124 @@
     display: block;
   }
 
-  .sed-contact-button {
-    display: none;
-  }
-
-  .sed-diagram-features-row {
-    grid-template-columns: 1fr;
-  }
-
-  .sed-badges-row {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .sed-bottom-trio-row {
-    grid-template-columns: 1fr;
-  }
-
-  .sed-web-cta-inner {
+  .sed-layout-container {
     flex-direction: column;
-    text-align: center;
+    gap: 24px;
+    padding: 0 16px;
   }
 
-  .sed-web-cta-info {
-    flex-direction: column;
+  .sed-content-column {
+    width: 100%;
+    order: 1;
   }
 
-  .sed-poster-footer {
-    flex-direction: column;
-    text-align: center;
+  .sed-sidebar {
+    width: 100%;
+    order: 2;
   }
 }
 
-@media (max-width: 640px) {
-  .sed-poster-frame {
-    padding: 14px 12px;
-    margin: 14px auto;
+@media (max-width: 768px) {
+  .sed-header {
+    height: 64px;
   }
 
-  .sed-system-title {
-    font-size: 18px;
+  .sed-page-root {
+    padding-top: 64px;
   }
 
-  .sed-system-subtitle {
-    font-size: 12px;
+  .sed-nav-container {
+    padding: 8px 16px;
+    height: 64px;
   }
 
-  .sed-top-summary-badge {
-    padding: 10px 12px;
+  .sed-logo-img {
+    height: 40px;
   }
 
-  .sed-callouts-overlay {
-    display: none;
+  .sed-hero-section {
+    padding: 26px 0 24px;
+    min-height: auto;
   }
 
-  .sed-callouts-mobile-list {
-    display: grid;
+  .sed-hero-title {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .sed-hero-subtitle {
+    font-size: 15px;
+  }
+
+  .sed-hero-desc {
+    font-size: 13.5px;
   }
 
   .sed-badges-row {
-    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  .sed-badge-card:last-child {
-    grid-column: span 2;
+  .sed-subnav-tabs {
+    gap: 12px;
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .sed-subnav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sed-subnav-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 16px;
+    align-items: flex-start;
+  }
+
+  .sed-quote-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sed-sidebar-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+  }
+
+  .sed-diagram-wrapper {
+    padding: 12px;
+  }
+
+  .sed-diagram-img {
+    max-height: 280px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .sed-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 18px;
+    gap: 18px;
+  }
+
+  .sed-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sed-callouts-layer {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .sed-sidebar-list {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,0 +1,1188 @@
+/* ==========================================================================
+   ENERGY INTELLIGENCE SYSTEM - SCREENSHOT MATCHED DESIGN
+   ========================================================================== */
+
+:root {
+  --energy-primary: #0066cc;
+  --energy-primary-hover: #0052a3;
+  --energy-dark: #0f172a;
+  --energy-gray-50: #f8fafc;
+  --energy-gray-100: #f1f5f9;
+  --energy-gray-200: #e2e8f0;
+  --energy-gray-400: #94a3b8;
+  --energy-gray-500: #64748b;
+  --energy-gray-600: #475569;
+  --energy-gray-700: #334155;
+  --energy-border: #e2e8f0;
+  --energy-green: #0d9488;
+}
+
+.energy-page-root {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--energy-gray-700);
+  padding-top: 74px;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   1. HEADER & TOP NAVBAR
+   -------------------------------------------------------------------------- */
+.energy-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--energy-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.energy-nav-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 28px 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.energy-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+/* Back arrow placed on the far left without circular border */
+.energy-page-root .bariflo-back-home-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #1e293b !important;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.energy-page-root .bariflo-back-home-btn:hover {
+  color: var(--energy-primary) !important;
+  background: transparent !important;
+  transform: translateX(-2px);
+}
+
+.energy-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.energy-logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.energy-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.energy-nav-link-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.energy-nav-link {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.energy-nav-link:hover {
+  color: var(--energy-primary);
+}
+
+.energy-nav-link.active {
+  color: var(--energy-primary);
+}
+
+.energy-nav-active-bar {
+  position: absolute;
+  bottom: -11px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--energy-primary);
+  border-radius: 2px 2px 0 0;
+}
+
+.energy-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.energy-search-icon-btn {
+  background: none;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.energy-search-icon-btn:hover {
+  background-color: var(--energy-gray-100);
+  color: var(--energy-primary);
+}
+
+.energy-consultation-btn {
+  background-color: var(--energy-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+}
+
+.energy-consultation-btn:hover {
+  background-color: var(--energy-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
+}
+
+.energy-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #334155;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.energy-mobile-drawer {
+  background: #ffffff;
+  border-bottom: 1px solid var(--energy-border);
+  padding: 16px 24px;
+}
+
+.energy-mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.energy-mobile-links button {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+  text-align: left;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.energy-mobile-links button.active {
+  color: var(--energy-primary);
+  font-weight: 700;
+}
+
+.energy-mobile-cta {
+  margin-top: 8px;
+  background: var(--energy-primary) !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  padding: 12px 18px !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO SECTION
+   -------------------------------------------------------------------------- */
+.energy-hero-section {
+  position: relative;
+  background: #092644 url('/images/industrial_bg.jpg') center right / cover no-repeat;
+  min-height: 290px;
+  padding: 38px 0 34px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.energy-hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 24, 48, 0.96) 0%,
+    rgba(8, 36, 68, 0.88) 48%,
+    rgba(8, 36, 68, 0.45) 100%
+  );
+  z-index: 1;
+}
+
+.energy-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.energy-hero-content {
+  max-width: 780px;
+}
+
+.energy-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 12px;
+}
+
+.energy-bc-sep {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.energy-bc-current {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.energy-hero-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.energy-hero-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
+}
+
+.energy-hero-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 22px;
+  max-width: 650px;
+}
+
+.energy-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.energy-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 9999px;
+  padding: 6px 14px 6px 8px;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.energy-badge-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+/* Hero Right Skid Unit + Glass Card */
+.energy-hero-right-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.energy-hero-unit-img {
+  height: 220px;
+  max-width: 330px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.45));
+}
+
+.energy-optimizing-glass {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(14, 38, 64, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 14px 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.energy-glass-icon-box {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 102, 204, 0.35);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.energy-glass-bolt {
+  font-size: 18px;
+  color: #38bdf8;
+}
+
+.energy-glass-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.energy-glass-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.energy-glass-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. SUBNAV ACTION BAR
+   -------------------------------------------------------------------------- */
+.energy-subnav-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--energy-border);
+  position: sticky;
+  top: 73px;
+  z-index: 99;
+}
+
+.energy-subnav-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.energy-subnav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.energy-subnav-tab {
+  position: relative;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--energy-gray-600);
+  padding: 16px 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.energy-subnav-tab:hover {
+  color: var(--energy-primary);
+}
+
+.energy-subnav-tab.active {
+  color: var(--energy-primary);
+  font-weight: 700;
+}
+
+.energy-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background-color: var(--energy-primary);
+  border-radius: 2px 2px 0 0;
+}
+
+.energy-quote-btn {
+  background: var(--energy-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.energy-quote-btn:hover {
+  background: var(--energy-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   4. MAIN LAYOUT
+   -------------------------------------------------------------------------- */
+.energy-main-section {
+  padding: 24px 0 48px;
+}
+
+.energy-layout-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  gap: 28px;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.energy-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 16px 14px;
+  align-self: flex-start;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.06);
+}
+
+.energy-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px 14px;
+  border-bottom: 1px solid #dbeafe;
+  margin-bottom: 12px;
+}
+
+.energy-sidebar-chevron-back {
+  font-size: 12px;
+  color: var(--energy-gray-600);
+  display: flex;
+  align-items: center;
+}
+
+.energy-sidebar-header h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--energy-dark);
+  margin: 0;
+}
+
+.energy-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.energy-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.energy-sidebar-item:hover {
+  background: #dbeafe;
+}
+
+.energy-sidebar-item.active {
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.32);
+}
+
+.energy-sidebar-item-thumb {
+  width: 42px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.energy-sidebar-item-thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.energy-sidebar-item-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.energy-sidebar-item-num {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--energy-gray-500);
+  flex-shrink: 0;
+}
+
+.energy-sidebar-item.active .energy-sidebar-item-num {
+  color: #ffffff;
+}
+
+.energy-sidebar-item-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--energy-gray-700);
+  line-height: 1.35;
+}
+
+.energy-sidebar-item.active .energy-sidebar-item-name {
+  color: #ffffff;
+}
+
+.energy-sidebar-item-arrow {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+
+/* Right Content Column */
+.energy-content-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.energy-grid-row {
+  display: grid;
+  gap: 22px;
+}
+
+/* Row 1: Diagram (1.45fr) + Features (1fr) */
+.energy-row-diagram-features {
+  grid-template-columns: 1.45fr 1fr;
+}
+
+/* Row 3: Profile (1.2fr) + Performance (1fr) */
+.energy-row-profile-performance {
+  grid-template-columns: 1.25fr 1fr;
+}
+
+/* Common Card Styles */
+.energy-card {
+  background: #ffffff;
+  border: 1px solid var(--energy-border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.energy-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.energy-card-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--energy-dark);
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.energy-3d-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(0, 102, 204, 0.06);
+  border: 1.5px solid var(--energy-primary);
+  border-radius: 9999px;
+  color: var(--energy-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* System Diagram Presentation (Diagram has baked-in callouts) */
+.energy-diagram-wrapper {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.energy-diagram-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Key Features (Card in Row 1) */
+.energy-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.energy-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.energy-check-bubble {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--energy-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.energy-feature-text {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--energy-gray-700);
+  font-weight: 500;
+}
+
+/* Row 2: System at a Glance Table */
+.energy-table-responsive {
+  overflow-x: auto;
+}
+
+.energy-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.energy-specs-table tr {
+  border-bottom: 1px solid var(--energy-border);
+}
+
+.energy-specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.energy-table-label {
+  padding: 9px 12px 9px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--energy-dark);
+  white-space: nowrap;
+  width: 28%;
+}
+
+.energy-table-val {
+  padding: 9px 0 9px 12px;
+  font-size: 13px;
+  color: var(--energy-gray-600);
+  line-height: 1.4;
+}
+
+/* Row 3: Electrical & Control Profile 6 Metric Tiles */
+.energy-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.energy-metric-tile {
+  background: #f0f7ff;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  padding: 16px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.energy-metric-tile:hover {
+  transform: translateY(-2px);
+}
+
+.energy-metric-icon {
+  color: var(--energy-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.energy-metric-val {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--energy-primary);
+  line-height: 1.2;
+}
+
+.energy-metric-label {
+  font-size: 11px;
+  color: var(--energy-gray-500);
+  line-height: 1.3;
+}
+
+/* Row 3: Typical Performance 4 Tiles */
+.energy-performance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.energy-perf-tile {
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.energy-perf-tile:hover {
+  transform: translateY(-2px);
+}
+
+.energy-perf-icon {
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.energy-perf-val {
+  font-size: 19px;
+  font-weight: 800;
+  color: #16a34a;
+  line-height: 1.2;
+}
+
+.energy-perf-label {
+  font-size: 11px;
+  color: var(--energy-gray-600);
+  line-height: 1.3;
+}
+
+/* Row 4: Applications Cards */
+.energy-applications-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.energy-app-card {
+  background: #ffffff;
+  border: 1px solid var(--energy-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.energy-app-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+
+.energy-app-thumb {
+  position: relative;
+  height: 110px;
+  width: 100%;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.energy-app-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.energy-app-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.energy-app-info {
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.energy-app-icon-badge {
+  color: var(--energy-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.energy-app-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.energy-app-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--energy-dark);
+  margin: 0 0 2px;
+}
+
+.energy-app-desc {
+  font-size: 11px;
+  color: var(--energy-gray-500);
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   5. CTA FOOTER RIBBON
+   -------------------------------------------------------------------------- */
+.energy-cta-section {
+  padding: 0 28px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.energy-cta-banner {
+  background: linear-gradient(135deg, #062b54 0%, #031b36 100%);
+  border-radius: 14px;
+  padding: 24px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(3, 27, 54, 0.2);
+}
+
+.energy-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.energy-cta-leaf-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 102, 204, 0.35);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.energy-cta-leaf-icon {
+  font-size: 22px;
+  color: #38bdf8;
+}
+
+.energy-cta-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.energy-cta-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.energy-cta-subtitle {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.energy-cta-btn {
+  background: #ffffff;
+  color: #062b54;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.energy-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE QUERIES
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .energy-row-diagram-features,
+  .energy-row-profile-performance {
+    grid-template-columns: 1fr;
+  }
+
+  .energy-applications-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .energy-hero-right-card {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .energy-nav-menu,
+  .energy-consultation-btn,
+  .energy-search-icon-btn {
+    display: none;
+  }
+
+  .energy-mobile-toggle {
+    display: block;
+  }
+
+  .energy-layout-container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .energy-content-column {
+    width: 100%;
+    order: 1;
+  }
+
+  .energy-sidebar {
+    width: 100%;
+    order: 2;
+  }
+
+  .energy-grid-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .energy-header {
+    height: 64px;
+  }
+
+  .energy-page-root {
+    padding-top: 64px;
+  }
+
+  .energy-nav-container {
+    padding: 8px 16px;
+    height: 64px;
+  }
+
+  .energy-logo-img {
+    height: 40px;
+  }
+
+  .energy-hero-section {
+    padding: 26px 0 24px;
+    min-height: auto;
+  }
+
+  .energy-hero-title {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .energy-hero-subtitle {
+    font-size: 15px;
+  }
+
+  .energy-hero-desc {
+    font-size: 13.5px;
+  }
+
+  .energy-badges-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .energy-subnav-tabs {
+    gap: 12px;
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .energy-subnav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .energy-subnav-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 16px;
+    align-items: flex-start;
+  }
+
+  .energy-quote-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .energy-sidebar-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+  }
+
+  .energy-diagram-wrapper {
+    padding: 12px;
+  }
+
+  .energy-diagram-img {
+    max-height: 280px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .energy-profile-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .energy-applications-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .energy-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 18px;
+    gap: 18px;
+  }
+
+  .energy-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .energy-sidebar-list {
+    grid-template-columns: 1fr;
+  }
+}

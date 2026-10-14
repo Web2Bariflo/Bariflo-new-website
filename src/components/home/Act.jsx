@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import "./Act.css";
 
 import {
+    FaArrowLeft,
     FaArrowRight,
     FaChevronDown,
     FaSearch,
@@ -196,6 +197,10 @@ const productRoutes = {
     "02": "/coagulant",
     "03": "/flocculant",
     "04": "/sediment",
+    "05": "/seabin",
+    "06": "/aquasense",
+    "07": "/energy",
+    "08": "/mobile-fstp",
 };
 
 function Act() {
@@ -204,11 +209,18 @@ function Act() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState("All");
+    const [activeWaterTab, setActiveWaterTab] = useState("waste");
     const [activeModalProduct, setActiveModalProduct] = useState(null);
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
 
     const filteredProducts = products.filter((product) => {
+        const matchesWaterTab =
+            !activeWaterTab ||
+            (activeWaterTab === "waste"
+                ? ["01", "02", "03", "04", "05", "06", "07", "08"].includes(product.id)
+                : []);
+
         const matchesFilter =
             selectedFilter === "All" ||
             product.tag === selectedFilter ||
@@ -222,7 +234,7 @@ function Act() {
             product.description.toLowerCase().includes(query) ||
             product.category.toLowerCase().includes(query);
 
-        return matchesFilter && matchesQuery;
+        return matchesWaterTab && matchesFilter && matchesQuery;
     });
 
     const openProduct = (product) => {
@@ -247,34 +259,46 @@ function Act() {
             {/* Navigation */}
             <header className="act-header">
                 <div className="act-nav-container">
-                    <a
-                        href="/"
-                        className="act-logo-link"
-                        onClick={(event) => {
-                            event.preventDefault();
-                            navigate("/");
-                        }}
-                    >
-                        <img
-                            src="/images/bariflo_nav_logo.png"
-                            alt="Bariflo Cybernetics"
-                            className="act-logo-img"
-                        />
-                    </a>
+                    <div className="act-nav-left-wrapper">
+                        <button
+                            type="button"
+                            className="bariflo-back-home-btn"
+                            onClick={() => navigate("/")}
+                            title="Back to Home"
+                            aria-label="Back to Home"
+                        >
+                            <FaArrowLeft size={20} />
+                        </button>
 
-                    <nav className="act-nav-links">
                         <a
                             href="/"
-                            className="act-nav-item"
+                            className="act-logo-link"
                             onClick={(event) => {
                                 event.preventDefault();
                                 navigate("/");
                             }}
                         >
-                            HOME
+                            <img
+                                src="/images/bariflo_nav_logo.png"
+                                alt="Bariflo Cybernetics"
+                                className="act-logo-img"
+                            />
                         </a>
+                    </div>
 
-                        <div className="act-nav-dropdown-item active">
+                    <div className="act-nav-center">
+                        <nav className="act-nav-links">
+                            <a
+                                href="/"
+                                className="act-nav-item"
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    navigate("/");
+                                }}
+                            >
+                                HOME
+                            </a>
+
                             <a
                                 href="#industries"
                                 className="act-nav-item"
@@ -282,42 +306,35 @@ function Act() {
                             >
                                 INDUSTRIES <FaChevronDown size={11} className="act-chevron" />
                             </a>
-                            <div className="act-nav-active-bar" />
-                        </div>
 
-                        <a
-                            href="/cognition"
-                            className="act-nav-item"
-                            onClick={(event) => {
-                                event.preventDefault();
-                                navigate("/cognition");
-                            }}
-                        >
-                            COGNITION
-                        </a>
+                            <div className="act-nav-dropdown-item active">
+                                <a
+                                    href="#act"
+                                    className="act-nav-item"
+                                    onClick={(event) => event.preventDefault()}
+                                >
+                                    ACT
+                                </a>
+                                <div className="act-nav-active-bar" />
+                            </div>
 
-                        <a
-                            href="/case-studies"
-                            className="act-nav-item"
-                            onClick={(event) => {
-                                event.preventDefault();
-                                navigate("/case-studies");
-                            }}
-                        >
-                            IMPACT
-                        </a>
+                            <a
+                                href="#impact"
+                                className="act-nav-item"
+                                onClick={(event) => event.preventDefault()}
+                            >
+                                IMPACT
+                            </a>
 
-                        <a
-                            href="/teamMember"
-                            className="act-nav-item"
-                            onClick={(event) => {
-                                event.preventDefault();
-                                navigate("/teamMember");
-                            }}
-                        >
-                            ABOUT US
-                        </a>
-                    </nav>
+                            <a
+                                href="#about"
+                                className="act-nav-item"
+                                onClick={(event) => event.preventDefault()}
+                            >
+                                ABOUT US
+                            </a>
+                        </nav>
+                    </div>
 
                     <div className="act-nav-actions">
                         <div className="act-search-container">
@@ -357,11 +374,12 @@ function Act() {
 
                         <button
                             type="button"
-                            className="act-btn-consultation"
+                            className="act-btn-consultation act-btn-consultation-big"
                             onClick={() => navigate("/contactUs")}
                         >
+                            <FaLeaf className="act-btn-leaf-icon" size={15} />
                             <span>Schedule a Consultation</span>
-                            <FaArrowRight size={12} className="act-btn-arrow" />
+                            <FaArrowRight size={13} className="act-btn-arrow" />
                         </button>
 
                         <button
@@ -376,6 +394,24 @@ function Act() {
                     </div>
                 </div>
 
+                {/* 2 Full-width buttons under navbar */}
+                <div className="fullwidth-subnav-tabs-bar">
+                    <button
+                        type="button"
+                        className={`fullwidth-subnav-tab ${activeWaterTab === "waste" ? "active" : ""}`}
+                        onClick={() => setActiveWaterTab("waste")}
+                    >
+                        <span>Waste Water</span>
+                    </button>
+                    <button
+                        type="button"
+                        className={`fullwidth-subnav-tab ${activeWaterTab === "clean" ? "active" : ""}`}
+                        onClick={() => setActiveWaterTab("clean")}
+                    >
+                        <span>Clean Water</span>
+                    </button>
+                </div>
+
                 <AnimatePresence>
                     {mobileMenuOpen && (
                         <motion.div
@@ -386,6 +422,30 @@ function Act() {
                             transition={{ duration: 0.3 }}
                         >
                             <div className="act-mobile-nav-inner">
+                                {/* Mobile Waste Water & Clean Water Tabs */}
+                                <div className="act-mobile-tabs-row act-header-tabs-big">
+                                    <button
+                                        type="button"
+                                        className={`act-header-tab act-header-tab-big ${activeWaterTab === "waste" ? "active" : ""}`}
+                                        onClick={() => {
+                                            setActiveWaterTab("waste");
+                                            setMobileMenuOpen(false);
+                                        }}
+                                    >
+                                        Waste Water
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={`act-header-tab act-header-tab-big ${activeWaterTab === "clean" ? "active" : ""}`}
+                                        onClick={() => {
+                                            setActiveWaterTab("clean");
+                                            setMobileMenuOpen(false);
+                                        }}
+                                    >
+                                        Clean Water
+                                    </button>
+                                </div>
+
                                 <a
                                     href="/"
                                     className="act-mobile-link"
@@ -398,8 +458,8 @@ function Act() {
                                 </a>
 
                                 <a
-                                    href="/act"
-                                    className="act-mobile-link active"
+                                    href="#industries"
+                                    className="act-mobile-link"
                                     onClick={(event) => {
                                         event.preventDefault();
                                         setMobileMenuOpen(false);
@@ -409,33 +469,33 @@ function Act() {
                                 </a>
 
                                 <a
-                                    href="/cognition"
-                                    className="act-mobile-link"
+                                    href="#act"
+                                    className="act-mobile-link active"
                                     onClick={(event) => {
                                         event.preventDefault();
-                                        navigateFromMobile("/cognition");
+                                        setMobileMenuOpen(false);
                                     }}
                                 >
-                                    COGNITION
+                                    ACT
                                 </a>
 
                                 <a
-                                    href="/case-studies"
+                                    href="#impact"
                                     className="act-mobile-link"
                                     onClick={(event) => {
                                         event.preventDefault();
-                                        navigateFromMobile("/case-studies");
+                                        setMobileMenuOpen(false);
                                     }}
                                 >
                                     IMPACT
                                 </a>
 
                                 <a
-                                    href="/teamMember"
+                                    href="#about"
                                     className="act-mobile-link"
                                     onClick={(event) => {
                                         event.preventDefault();
-                                        navigateFromMobile("/teamMember");
+                                        setMobileMenuOpen(false);
                                     }}
                                 >
                                     ABOUT US
@@ -677,7 +737,9 @@ function Act() {
 
                     {filteredProducts.length === 0 && (
                         <p className="act-no-results">
-                            No systems found. Try another search or filter.
+                            {activeWaterTab === "clean"
+                                ? "Clean Water systems are currently unavailable. Please explore our Waste Water solutions."
+                                : "No systems found. Try another search or filter."}
                         </p>
                     )}
                 </div>
@@ -812,44 +874,13 @@ function Act() {
             <footer className="act-trusted-footer">
                 <div className="act-container">
                     <div className="act-trusted-row">
-                        <div className="act-trusted-label">
-                            TRUSTED BY
-                            <br />
-                            INDUSTRY LEADERS
-                        </div>
-
-                        <div className="act-trusted-logos">
-                            <div className="act-partner-item">
-                                <img
-                                    src="/images/ciba.png"
-                                    alt="ICAR - CIBA"
-                                    className="act-partner-img ciba"
-                                />
+                        <div className="act-trusted-left-group">
+                            <div className="act-trusted-label">
+                                TRUSTED BY
+                                <br />
+                                INDUSTRY LEADERS
                             </div>
-
-                            <div className="act-partner-item itc-maars">
-                                <img
-                                    src="/images/MAARS ICON.png"
-                                    alt="ITCMAARS"
-                                    className="act-partner-img maars"
-                                />
-                                <span className="act-partner-name">ITCMAARS</span>
-                            </div>
-
-                            <div className="act-partner-item aqua-choupal">
-                                <span className="act-choupal-aqua">aqua</span>
-                                <span className="act-choupal-sub">choupal</span>
-                            </div>
-
-                            <div className="act-partner-item nabard">
-                                <img
-                                    src="/images/NABARD.png"
-                                    alt="NABARD"
-                                    className="act-partner-img nabard-img"
-                                />
-                                <span className="act-partner-name">NABARD</span>
-                            </div>
-
+                            <div className="act-trusted-divider"></div>
                             <div className="act-partner-item bariflo">
                                 <img
                                     src="/images/bariflo_nav_logo.png"

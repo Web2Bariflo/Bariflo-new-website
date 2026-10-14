@@ -19,6 +19,10 @@ import DafTank from "./components/home/DafTank";
 import Sediment from "./components/home/Sediment";
 import Flocculant from "./components/home/Flocculant";
 import Coagulant from "./components/home/coagulant";
+import Seabin from "./components/home/Seabin";
+import Aquasense from "./components/home/Aquasense";
+import Energy from "./components/home/Energy";
+import MobileFSTP from "./components/home/Mobile FSTP";
 
 import ScrollCursorIndicator from "./components/common/ScrollCursorIndicator";
 
@@ -38,8 +42,17 @@ function AppRoutes() {
       <Route path="/act" element={<Act />} />
       <Route path="/daf-tank" element={<DafTank />} />
       <Route path="/coagulant" element={<Coagulant />} />
+      <Route path="/coagulation" element={<Coagulant />} />
       <Route path="/sediment" element={<Sediment />} />
+      <Route path="/sediment-aeration" element={<Sediment />} />
       <Route path="/flocculant" element={<Flocculant />} />
+      <Route path="/seabin" element={<Seabin />} />
+      <Route path="/aquasense" element={<Aquasense />} />
+      <Route path="/aquasense-system" element={<Aquasense />} />
+      <Route path="/energy" element={<Energy />} />
+      <Route path="/energy-system" element={<Energy />} />
+      <Route path="/mobile-fstp" element={<MobileFSTP />} />
+      <Route path="/mobile-fstp-system" element={<MobileFSTP />} />
 
       <Route path="/legacy-home" element={<Home />} />
       <Route path="/contactUs" element={<ContactUs />} />

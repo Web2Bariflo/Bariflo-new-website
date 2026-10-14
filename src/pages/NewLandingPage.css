@@ -91,18 +91,19 @@ p {
 
 .nl-nav {
   display: flex;
-  gap: 32px;
+  gap: 36px;
 }
 
 .nl-nav-item {
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 800;
   color: var(--primary-blue);
   text-decoration: none;
   text-transform: uppercase;
+  letter-spacing: 0.8px;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   position: relative;
 }
 
@@ -907,11 +908,16 @@ p {
 }
 
 .nl-logos .nl-logo-bariflo {
-  height: 38px;
-  max-height: 38px;
+  height: 48px;
+  max-height: 50px;
   width: auto;
   object-fit: contain;
   cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.nl-logos .nl-logo-bariflo:hover {
+  transform: scale(1.05);
 }
 
 .nl-copyright-info {

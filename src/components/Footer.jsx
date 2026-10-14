@@ -162,7 +162,7 @@ const Footer = () => {
                 src="/images/bariflo_nav_logo.png"
                 alt="Bariflo Cybernetics"
                 style={{
-                  maxHeight: "42px",
+                  maxHeight: "52px",
                   width: "auto",
                   objectFit: "contain",
                   display: "block",

@@ -6,6 +6,7 @@ import { MenuRounded, Close } from "@mui/icons-material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FullNav from "./FullNav";
 import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -21,7 +22,7 @@ const Nav = styled.nav`
   justify-content: center;
   font-size: 1rem;
   width: 100%;
-  padding: 20px 40px;
+  padding: 16px 28px 16px 16px;
   z-index: 1000;
   transition: background-color 0.3s ease;
   background-color: ${({ scrolled }) => (scrolled ? "#fff" : "transparent")};
@@ -30,8 +31,8 @@ const Nav = styled.nav`
 
 const NavbarContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
-  padding: 0 24px;
+  max-width: 100%;
+  padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -215,10 +216,20 @@ export default function Navbar({ textWhite = false }) {
       <GlobalStyle menuOpen={menuOpen} />
       <Nav scrolled={scrolled} textColor={currentTextColor}>
         <NavbarContainer>
-          <Logo>
-            Bariflo <br />
-            <span>Cybernetics</span>
-          </Logo>
+          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            <Link
+              to="/"
+              className="bariflo-back-home-btn"
+              title="Back to Home"
+              aria-label="Back to Home"
+            >
+              <FaArrowLeft size={20} />
+            </Link>
+            <Logo>
+              Bariflo <br />
+              <span>Cybernetics</span>
+            </Logo>
+          </div>
           <MobileIcon onClick={() => setIsOpen(!isOpen)}>
             <MoreVertIcon />
           </MobileIcon>

@@ -26,6 +26,7 @@ import {
   FaChevronDown,
   FaBars,
   FaTimes,
+  FaIndustry,
 } from "react-icons/fa";
 import {
   BiWifi,
@@ -127,79 +128,96 @@ const Cognition = () => {
     <div className="cog-page-container">
       {/* Top Navbar */}
       <header className="ietp-navbar">
-        <a
-          href="/"
-          className="ietp-nav-logo"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate("/");
-          }}
-        >
-          <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
-        </a>
-
-        <nav className="ietp-nav-menu">
-          <a
-            href="#industries"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            INDUSTRIES <FaChevronDown size={10} />
-          </a>
-          <a
-            href="#impact"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            IMPACT <FaChevronDown size={10} />
-          </a>
-          <a
-            href="#about"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            ABOUT US
-          </a>
-          <a href="#cognition" className="ietp-nav-link active">
-            COGNITION
-          </a>
-        </nav>
-
-        <div className="ietp-nav-actions">
-          <div className="ietp-schedule-tab-col">
+        <div className="ietp-nav-row-top">
+          <div className="ietp-nav-left-wrapper">
             <button
-              className="ietp-btn-schedule"
+              type="button"
+              className="bariflo-back-home-btn"
+              onClick={() => navigate("/")}
+              title="Back to Home"
+              aria-label="Back to Home"
+            >
+              <FaArrowLeft size={20} />
+            </button>
+
+            <a
+              href="/"
+              className="ietp-nav-logo"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/");
+              }}
+            >
+              <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
+            </a>
+          </div>
+
+          <div className="ietp-nav-center">
+            <nav className="ietp-nav-menu">
+              <a
+                href="#industries"
+                className="ietp-nav-link"
+                onClick={() => navigate("/")}
+              >
+                INDUSTRIES <FaChevronDown size={10} />
+              </a>
+              <a
+                href="#impact"
+                className="ietp-nav-link"
+                onClick={() => navigate("/")}
+              >
+                IMPACT <FaChevronDown size={10} />
+              </a>
+              <a
+                href="#about"
+                className="ietp-nav-link"
+                onClick={() => navigate("/")}
+              >
+                ABOUT US
+              </a>
+              <a href="#cognition" className="ietp-nav-link active">
+                COGNITION
+              </a>
+            </nav>
+          </div>
+
+          <div className="ietp-nav-actions">
+            <button
+              className="ietp-btn-schedule ietp-btn-schedule-big"
               onClick={() => navigate("/contactUs")}
             >
-              <FaLeaf className="ietp-btn-leaf-icon" size={13} />
+              <FaLeaf className="ietp-btn-leaf-icon" size={15} />
               <span className="ietp-btn-schedule-text">
                 Schedule Strategic Discussion
               </span>{" "}
-              <FaArrowRight size={11} />
+              <FaArrowRight size={13} />
             </button>
 
-            <div className="ietp-header-tabs-group">
-              <button
-                className={`ietp-header-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
-                onClick={() => setActiveEtpTab("industrial")}
-              >
-                Aquaculture ETP
-              </button>
-              <button
-                className={`ietp-header-tab ${activeEtpTab === "intelligent" ? "active" : ""}`}
-                onClick={() => setActiveEtpTab("intelligent")}
-              >
-                Intelligent ETP
-              </button>
-            </div>
+            <button
+              className="ietp-mobile-menu-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+            </button>
           </div>
+        </div>
 
+        {/* 2 Full-width buttons under navbar */}
+        <div className="fullwidth-subnav-tabs-bar">
           <button
-            className="ietp-mobile-menu-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
+            type="button"
+            className={`fullwidth-subnav-tab ${activeEtpTab === "intelligent" ? "active" : ""}`}
+            onClick={() => setActiveEtpTab("intelligent")}
           >
-            {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+            <span>WASTE WATER</span>
+          </button>
+          <button
+            type="button"
+            className={`fullwidth-subnav-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
+            onClick={() => setActiveEtpTab("industrial")}
+          >
+            <span>Aquaculture</span>
           </button>
         </div>
 
@@ -249,38 +267,39 @@ const Cognition = () => {
               COGNITION
             </a>
 
+            {/* Aquaculture ETP & Intelligent ETP buttons shown under nav items on mobile */}
+            <div className="ietp-header-tabs-group mobile-header-tabs ietp-header-tabs-big">
+              <button
+                className={`ietp-header-tab ietp-header-tab-big ${activeEtpTab === "industrial" ? "active" : ""}`}
+                onClick={() => {
+                  setActiveEtpTab("industrial");
+                  setMobileMenuOpen(false);
+                }}
+              >
+                Aquaculture
+              </button>
+              <button
+                className={`ietp-header-tab ietp-header-tab-big ${activeEtpTab === "intelligent" ? "active" : ""}`}
+                onClick={() => {
+                  setActiveEtpTab("intelligent");
+                  setMobileMenuOpen(false);
+                }}
+              >
+                Intelligent ETP
+              </button>
+            </div>
+
             <div className="ietp-mobile-schedule-col">
               <button
-                className="ietp-btn-schedule mobile-schedule-btn"
+                className="ietp-btn-schedule ietp-btn-schedule-big mobile-schedule-btn"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   navigate("/contactUs");
                 }}
               >
-                <FaLeaf className="ietp-btn-leaf-icon" size={13} />
-                <span>Schedule Strategic Discussion</span> <FaArrowRight size={11} />
+                <FaLeaf className="ietp-btn-leaf-icon" size={15} />
+                <span>Schedule Strategic Discussion</span> <FaArrowRight size={13} />
               </button>
-
-              <div className="ietp-header-tabs-group mobile-header-tabs">
-                <button
-                  className={`ietp-header-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
-                  onClick={() => {
-                    setActiveEtpTab("industrial");
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  Aquaculture ETP
-                </button>
-                <button
-                  className={`ietp-header-tab ${activeEtpTab === "intelligent" ? "active" : ""}`}
-                  onClick={() => {
-                    setActiveEtpTab("intelligent");
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  Intelligent ETP
-                </button>
-              </div>
             </div>
           </motion.div>
         )}
@@ -843,185 +862,21 @@ const Cognition = () => {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="ietp-trust-footer-inner">
-          <div className="ietp-trust-label">
-            TRUSTED BY
-            <br />
-            INDUSTRY LEADERS
-          </div>
-
-          <div className="ietp-trust-logos-row">
-            {/* 1. CP Group */}
-            <div className="ietp-logo-item" title="CP Group">
-              <svg viewBox="0 0 46 46" width="38" height="38">
-                <circle
-                  cx="23"
-                  cy="23"
-                  r="20"
-                  fill="#FFFFFF"
-                  stroke="#DE2B2B"
-                  strokeWidth="2.5"
-                />
-                <text
-                  x="23"
-                  y="29.5"
-                  textAnchor="middle"
-                  fill="#DE2B2B"
-                  fontSize="20"
-                  fontWeight="900"
-                  fontFamily="system-ui, -apple-system, sans-serif"
-                  letterSpacing="-0.5px"
-                >
-                  CP
-                </text>
-              </svg>
+          <div className="ietp-trust-left-group">
+            <div className="ietp-trust-label">
+              TRUSTED BY
+              <br />
+              INDUSTRY LEADERS
             </div>
 
-            {/* 2. INVE Aquaculture */}
-            <div className="ietp-logo-item" title="INVE Aquaculture">
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "3px",
-                }}
-              >
-                <svg viewBox="0 0 26 26" width="22" height="22">
-                  <circle cx="13" cy="13" r="13" fill="#0F172A" />
-                  <path
-                    d="M8 18 L8 8 L18 18 L18 8"
-                    stroke="#FFFFFF"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  <circle cx="8" cy="8" r="1.5" fill="#38BDF8" />
-                  <circle cx="18" cy="18" r="1.5" fill="#38BDF8" />
-                </svg>
-                <span
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: "900",
-                    color: "#0F172A",
-                    letterSpacing: "0.8px",
-                    fontFamily: "system-ui, -apple-system, sans-serif",
-                  }}
-                >
-                  INVE
-                </span>
-              </div>
-            </div>
+            <div className="ietp-trust-divider"></div>
 
-            {/* 3. Skretting */}
-            <div className="ietp-logo-item" title="Skretting">
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "4px" }}
-              >
-                <span
-                  style={{
-                    fontSize: "17px",
-                    fontWeight: "700",
-                    color: "#374151",
-                    fontFamily: "system-ui, -apple-system, sans-serif",
-                    letterSpacing: "-0.2px",
-                  }}
-                >
-                  Skretting
-                </span>
-                <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
-                  <path
-                    d="M6 26 C18 26 26 18 24 6 C21 16 14 22 6 24"
-                    stroke="#DC2626"
-                    strokeWidth="2.8"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M12 26 C20 25 25 19 24 12"
-                    stroke="#DC2626"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            {/* 4. BLUE AQUA */}
-            <div className="ietp-logo-item" title="Blue Aqua International">
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "1px",
-                }}
-              >
-                <svg viewBox="0 0 54 18" width="48" height="15" fill="none">
-                  <path
-                    d="M2 13 C12 6 22 17 34 9 C42 4 48 9 52 7"
-                    stroke="#0080FF"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M6 16 C14 11 22 18 34 12 C42 8 46 12 50 10"
-                    stroke="#0052CC"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <span
-                  style={{
-                    fontSize: "13px",
-                    fontWeight: "900",
-                    color: "#0052CC",
-                    letterSpacing: "0.6px",
-                    fontFamily: "system-ui, -apple-system, sans-serif",
-                  }}
-                >
-                  BLUE AQUA
-                </span>
-              </div>
-            </div>
-
-            {/* 5. BioMar */}
-            <div className="ietp-logo-item" title="BioMar">
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <svg viewBox="0 0 96 36" width="86" height="32" fill="none">
-                  <path
-                    d="M24 8 C40 1 76 3 88 16"
-                    stroke="#84CC16"
-                    strokeWidth="3.2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M8 22 C20 34 60 36 80 24"
-                    stroke="#0284C7"
-                    strokeWidth="3.2"
-                    strokeLinecap="round"
-                  />
-                  <text
-                    x="48"
-                    y="23"
-                    textAnchor="middle"
-                    fill="#0C3473"
-                    fontSize="19"
-                    fontWeight="900"
-                    fontStyle="italic"
-                    fontFamily="system-ui, -apple-system, sans-serif"
-                  >
-                    BioMar
-                  </text>
-                </svg>
-              </div>
-            </div>
-
-            {/* 6. Bariflo Cybernetics */}
+            {/* Bariflo Cybernetics */}
             <div className="ietp-logo-item" title="Bariflo Cybernetics">
               <img
                 src="/images/bariflo_nav_logo.png"
                 alt="Bariflo Cybernetics"
-                style={{ maxHeight: "38px", width: "auto" }}
+                className="ietp-logo-bariflo-footer"
               />
             </div>
           </div>

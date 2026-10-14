@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import './NewLandingPage.css';
 import './SenseAquaculturePage.css';
 import '../components/home/IntelligentETP.css';
+import '../components/home/cognition.css';
 import Footer from '../components/new-landing/Footer';
 import {
   BiTargetLock,
@@ -18,6 +19,7 @@ import {
   BiRightArrowAlt
 } from 'react-icons/bi';
 import {
+  FaArrowLeft,
   FaArrowRight,
   FaChevronDown,
   FaBars,
@@ -33,16 +35,28 @@ const SenseAquaculturePage = () => {
     <div className="sense-page-wrapper">
       {/* Top Navbar */}
       <header className="ietp-navbar">
-        <a
-          href="/"
-          className="ietp-nav-logo"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate("/");
-          }}
-        >
-          <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
-        </a>
+        <div className="ietp-nav-left-wrapper">
+          <button
+            type="button"
+            className="bariflo-back-home-btn"
+            onClick={() => navigate("/")}
+            title="Back to Home"
+            aria-label="Back to Home"
+          >
+            <FaArrowLeft size={20} />
+          </button>
+
+          <a
+            href="/"
+            className="ietp-nav-logo"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/");
+            }}
+          >
+            <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
+          </a>
+        </div>
 
         <nav className="ietp-nav-menu">
           <a
@@ -73,14 +87,14 @@ const SenseAquaculturePage = () => {
 
         <div className="ietp-nav-actions">
           <button
-            className="ietp-btn-schedule"
+            className="ietp-btn-schedule ietp-btn-schedule-big"
             onClick={() => navigate("/contactUs")}
           >
-            <FaLeaf className="ietp-btn-leaf-icon" size={13} />
+            <FaLeaf className="ietp-btn-leaf-icon" size={15} />
             <span className="ietp-btn-schedule-text">
               Schedule Strategic Discussion
             </span>{" "}
-            <FaArrowRight size={11} />
+            <FaArrowRight size={13} />
           </button>
 
           <button
@@ -138,14 +152,14 @@ const SenseAquaculturePage = () => {
               SENSE
             </a>
             <button
-              className="ietp-btn-schedule mobile-schedule-btn"
+              className="ietp-btn-schedule ietp-btn-schedule-big mobile-schedule-btn"
               onClick={() => {
                 setMobileMenuOpen(false);
                 navigate("/contactUs");
               }}
             >
-              <FaLeaf className="ietp-btn-leaf-icon" size={13} />
-              <span>Schedule Strategic Discussion</span> <FaArrowRight size={11} />
+              <FaLeaf className="ietp-btn-leaf-icon" size={15} />
+              <span>Schedule Strategic Discussion</span> <FaArrowRight size={13} />
             </button>
           </motion.div>
         )}
@@ -441,6 +455,36 @@ const SenseAquaculturePage = () => {
               <a href="#learn-more" className="tech-link">Learn more <BiRightArrowAlt size={18} /></a>
             </div>
           </div>
+        </div>
+      </motion.section>
+
+      {/* CALL TO ACTION BANNER (Before Footer) */}
+      <motion.section
+        className="cog-cta-section"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="cog-cta-banner">
+          <div className="cog-cta-left">
+            <div className="cog-cta-leaf-icon">
+              <FaLeaf />
+            </div>
+            <div className="cog-cta-text">
+              <h3>Partner for Smarter, More Resilient Aquaculture</h3>
+              <p>
+                Let's build a healthier, more productive and sustainable
+                aquaculture future with Bariflo Cybernetics.
+              </p>
+            </div>
+          </div>
+          <button
+            className="cog-cta-btn"
+            onClick={() => navigate("/contactUs")}
+          >
+            Talk to Our Experts <FaArrowRight size={12} />
+          </button>
         </div>
       </motion.section>
 

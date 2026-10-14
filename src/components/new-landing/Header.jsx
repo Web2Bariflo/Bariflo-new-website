@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import { FiChevronDown } from 'react-icons/fi';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header className="nl-header">
-      <div className="nl-logo">
+      <div className="nl-logo" onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
         <img src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png" alt="Bariflo Cybernetics" />
       </div>
       <nav className={`nl-nav ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
@@ -17,12 +19,21 @@ const Header = () => {
         <a href="#impact" className="nl-nav-item" onClick={() => setIsMobileMenuOpen(false)}>IMPACT <FiChevronDown /></a>
         <a href="#about" className="nl-nav-item" onClick={() => setIsMobileMenuOpen(false)}>ABOUT US</a>
         
-        <button className="nl-btn-schedule mobile-only" onClick={() => setIsMobileMenuOpen(false)}>
+        <button
+          className="nl-btn-schedule mobile-only"
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            navigate("/contactUs");
+          }}
+        >
           Schedule Strategic Discussion
         </button>
       </nav>
       <div className="nl-header-actions">
-        <button className="nl-btn-schedule desktop-only">
+        <button
+          className="nl-btn-schedule desktop-only"
+          onClick={() => navigate("/contactUs")}
+        >
           Schedule Strategic Discussion
         </button>
         <button className="nl-hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
