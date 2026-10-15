@@ -31,7 +31,8 @@
     Roboto,
     sans-serif;
   overflow-x: hidden;
-  padding-top: 130px; /* For fixed top header with sub-buttons */
+  padding-top: 130px;
+  /* For fixed top header with sub-buttons */
 }
 
 /* ==========================================================================
@@ -57,13 +58,34 @@
   gap: 16px;
 }
 
-/* Full Width Subnav Tabs Bar Matching Screenshot */
-.fullwidth-subnav-tabs-bar {
-  position: fixed;
-  top: 76px;
-  left: 0;
+/* Multi-row navbar containing Top Nav + Subnav Tabs (Cognition & IntelligentETP) */
+.ietp-navbar:has(.ietp-nav-row-top),
+.ietp-navbar.ietp-navbar-has-subnav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  min-height: auto;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.ietp-nav-row-top {
   width: 100%;
-  z-index: 999;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 28px 12px 16px;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+/* Full Width Subnav Tabs Bar Matching Act */
+.fullwidth-subnav-tabs-bar {
+  width: 100%;
   display: flex;
   align-items: stretch;
   background: #f8fafc;
@@ -73,12 +95,6 @@
   margin: 0;
   padding: 0;
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
-}
-
-@media (max-width: 992px) {
-  .fullwidth-subnav-tabs-bar {
-    top: 68px;
-  }
 }
 
 .fullwidth-subnav-tab {
@@ -96,6 +112,7 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
@@ -117,6 +134,7 @@
   background: linear-gradient(135deg, #0052a3 0%, #0066cc 60%, #0284c7 100%);
   color: #ffffff;
   font-weight: 800;
+  border-radius: 8px;
   box-shadow: inset 0 -3px 0 #38bdf8, 0 4px 16px rgba(0, 102, 204, 0.25);
   text-shadow: 0 1px 2px rgba(0, 30, 80, 0.25);
 }
@@ -314,26 +332,22 @@
   flex-shrink: 0;
 }
 
-/* Mobile Hamburger Toggle Button */
+/* Mobile Hamburger Toggle Button Matching Act Style */
 .ietp-mobile-menu-toggle {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  border: 1.5px solid #cbd5e1;
-  background: #ffffff;
+  background: transparent;
+  border: none;
   color: #1e293b;
   cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0;
+  padding: 6px;
+  font-size: 20px;
+  transition: color 0.2s ease;
   flex-shrink: 0;
 }
 
 .ietp-mobile-menu-toggle:hover {
-  background: #f8fafc;
-  border-color: var(--ietp-primary);
   color: var(--ietp-primary);
 }
 
@@ -1286,13 +1300,16 @@
   .ietp-params-grid {
     grid-template-columns: repeat(5, 1fr);
   }
+
   .ietp-works-grid {
     flex-direction: column;
   }
+
   .ietp-work-arrow-divider {
     transform: rotate(90deg);
     padding: 6px 0;
   }
+
   .ietp-impact-grid {
     flex-direction: column;
   }
@@ -1303,32 +1320,63 @@
     flex-direction: column;
     text-align: left;
   }
+
   .ietp-hero-left,
   .ietp-hero-right {
     max-width: 100%;
     flex: 1 1 100%;
   }
+
   .ietp-stats-row {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .ietp-cta-banner {
     flex-direction: column;
     text-align: center;
   }
+
   .ietp-cta-left {
     flex-direction: column;
   }
+
   .ietp-nav-center {
     display: none;
   }
+
   .ietp-nav-menu {
     display: none;
   }
-  .ietp-mobile-menu-toggle {
-    display: inline-flex;
+
+  .ietp-nav-actions .ietp-btn-schedule,
+  .ietp-nav-actions .ietp-btn-schedule-big,
+  .ietp-nav-actions .ietp-schedule-tab-col {
+    display: none;
   }
+
+  .ietp-mobile-menu-toggle {
+    display: flex;
+  }
+
+  .ietp-nav-row-top {
+    min-height: 60px;
+    padding: 8px 16px;
+  }
+
+  .ietp-nav-logo img {
+    height: 44px;
+    max-width: 140px;
+  }
+
+  .fullwidth-subnav-tab {
+    min-height: 46px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    letter-spacing: 0.3px;
+  }
+
   .ietp-page-wrapper {
-    padding-top: 80px;
+    padding-top: 115px;
   }
 }
 
@@ -1336,24 +1384,31 @@
   .ietp-trust-logos-row {
     gap: 20px;
   }
+
   .ietp-logo-indianoil {
     height: 36px;
   }
+
   .ietp-logo-hp {
     height: 34px;
   }
+
   .ietp-logo-reliance {
     height: 36px;
   }
+
   .ietp-logo-adani {
     height: 24px;
   }
+
   .ietp-logo-tata {
     height: 32px;
   }
+
   .ietp-logo-cipla {
     height: 20px;
   }
+
   .ietp-logo-bariflo {
     height: 32px;
   }
@@ -1363,11 +1418,13 @@
   .ietp-trust-footer {
     padding: 20px 20px 22px;
   }
+
   .ietp-trust-footer-inner {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
   }
+
   .ietp-trust-divider {
     height: 32px;
   }
@@ -1380,22 +1437,27 @@
     text-align: center;
     gap: 18px;
   }
+
   .ietp-trust-left {
     align-items: center;
   }
+
   .ietp-trust-label {
     text-align: center;
     white-space: normal;
   }
+
   .ietp-trust-divider {
     display: none;
   }
+
   .ietp-trust-logos-row {
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
     gap: 18px 24px;
   }
+
   .ietp-trust-motto-text {
     text-align: center;
     white-space: normal;
@@ -1406,56 +1468,70 @@
   .ietp-navbar {
     padding: 0 4%;
   }
+
   .ietp-hero-section {
     padding: 24px 4% 32px;
   }
+
   .ietp-hero-title {
     font-size: 28px;
     line-height: 1.2;
   }
+
   .ietp-hero-subtitle {
     font-size: 16px;
   }
+
   .ietp-hero-buttons {
     flex-direction: column;
     width: 100%;
   }
+
   .ietp-btn-primary,
   .ietp-btn-secondary {
     width: 100%;
     justify-content: center;
   }
+
   .ietp-tabs-group {
     width: 100%;
     flex-wrap: wrap;
   }
+
   .ietp-tab-btn {
     flex: 1 1 auto;
   }
+
   .ietp-params-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
+
   .ietp-stats-row {
     grid-template-columns: 1fr;
   }
+
   .ietp-industries-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
+
   .ietp-cta-btn {
     width: 100%;
     justify-content: center;
   }
+
   .ietp-top-cta-section {
     padding: 10px 4% 12px;
   }
+
   .ietp-top-cta-banner {
     padding: 18px 16px;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
   }
+
   .ietp-top-cta-banner .ietp-cta-left {
     flex-direction: column;
     align-items: flex-start;
@@ -1465,24 +1541,40 @@
 
 @media (max-width: 768px) {
   .ietp-nav-logo img {
-    height: 46px;
-    max-width: 140px;
+    height: 42px;
+    max-width: 135px;
   }
+
   .ietp-logo-bariflo-footer {
     height: 42px;
     max-width: 165px;
   }
+
   .ietp-nav-actions .ietp-btn-schedule,
   .ietp-nav-actions .ietp-btn-schedule-big,
   .ietp-nav-actions .ietp-schedule-tab-col {
     display: none;
   }
+
   .ietp-navbar {
-    padding: 8px 4%;
-    min-height: 66px;
+    padding: 0;
+    min-height: auto;
   }
+
+  .ietp-nav-row-top {
+    min-height: 58px;
+    padding: 6px 14px;
+  }
+
+  .fullwidth-subnav-tab {
+    min-height: 44px;
+    padding: 8px 10px;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+  }
+
   .ietp-page-wrapper {
-    padding-top: 72px;
+    padding-top: 108px;
   }
 }
 
@@ -1490,10 +1582,28 @@
   .ietp-hero-title {
     font-size: 25px;
   }
+
+  .ietp-nav-logo img {
+    height: 38px;
+    max-width: 125px;
+  }
+
+  .fullwidth-subnav-tab {
+    min-height: 42px;
+    padding: 8px 6px;
+    font-size: 12px;
+    letter-spacing: 0.1px;
+  }
+
   .ietp-params-grid {
     grid-template-columns: 1fr;
   }
+
   .ietp-trust-logos-row {
     gap: 16px 20px;
+  }
+
+  .ietp-page-wrapper {
+    padding-top: 104px;
   }
 }

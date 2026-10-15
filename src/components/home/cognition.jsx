@@ -127,7 +127,7 @@ const Cognition = () => {
   return (
     <div className="cog-page-container">
       {/* Top Navbar */}
-      <header className="ietp-navbar">
+      <header className="ietp-navbar ietp-navbar-has-subnav">
         <div className="ietp-nav-row-top">
           <div className="ietp-nav-left-wrapper">
             <button
