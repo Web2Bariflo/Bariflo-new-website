@@ -22,13 +22,9 @@ body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
-  overflow-y: scroll;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
-}
-
-body::-webkit-scrollbar {
-  display: none;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #cbd5e1 #f8fafc;
 }
 
 /* Apply Montserrat to headings */
@@ -50,23 +46,23 @@ nav,
   font-family: "Montserrat", sans-serif;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar on Right Side */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 80px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #fff;
+  background: #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: #cbd5e1;
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #999;
+  background: #0066cc;
 }
 
 /* Global Back to Home Arrow (Clean Arrow, No Circle, Exact Left Corner) */

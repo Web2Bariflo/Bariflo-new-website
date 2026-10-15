@@ -173,54 +173,56 @@
    1. HERO SECTION
    ========================================================== */
 .cog-hero-section {
-  position: relative;
   width: 100%;
-  min-height: 500px;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
   background: #ffffff;
-  overflow: hidden;
-  border-bottom: 1px solid #e2e8f0;
+  padding: 30px 4.5% 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 /* Left Hero Info Column */
 .cog-hero-left {
-  flex: 0 0 38%;
-  padding: 40px 3% 44px 3.5%;
+  flex: 1 1 48%;
+  max-width: 600px;
+  z-index: 2;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 2;
-  background: #ffffff;
+  background: transparent;
   box-sizing: border-box;
 }
 
 .cog-hero-tag {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 11px;
+  gap: 12px;
+  font-size: 11.5px;
   font-weight: 800;
-  letter-spacing: 1.5px;
-  color: #475569;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  color: #0066cc;
+  margin-bottom: 14px;
 }
 
 .cog-hero-tag span.line {
   display: inline-block;
-  width: 28px;
+  width: 24px;
   height: 2px;
   background: #0066cc;
+  border-radius: 1px;
 }
 
 .cog-hero-title {
-  font-family: "Outfit", "Inter", sans-serif;
-  font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+  font-family: Montserrat, "Outfit", sans-serif;
+  font-size: 44px;
   font-weight: 900;
-  line-height: 1.05;
-  color: #0a192f;
+  line-height: 1.12;
+  color: #0f172a;
   margin: 0 0 14px 0;
   letter-spacing: -0.5px;
   text-transform: uppercase;
@@ -232,26 +234,27 @@
 }
 
 .cog-hero-subtitle {
-  font-family: "Outfit", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #0f243e;
-  margin: 0 0 16px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 14px 0;
   letter-spacing: -0.2px;
 }
 
 .cog-hero-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #4b5563;
-  margin: 0 0 26px 0;
-  max-width: 520px;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: #475569;
+  margin: 0 0 24px 0;
+  max-width: 540px;
 }
 
 .cog-hero-cta-group {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-bottom: 22px;
   flex-wrap: wrap;
 }
 
@@ -263,13 +266,13 @@
   background: #0066cc;
   color: #ffffff;
   border: 1.5px solid #0066cc;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 10px 22px;
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25);
+  box-shadow: 0 3px 10px rgba(0, 102, 204, 0.22);
   text-decoration: none;
 }
 
@@ -277,30 +280,29 @@
   background: #0052a3;
   border-color: #0052a3;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(0, 102, 204, 0.35);
 }
 
 .cog-btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 9px;
   background: #ffffff;
   color: #0066cc;
-  border: 1.5px solid #0066cc;
-  border-radius: 8px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
   padding: 10px 22px;
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.25s ease;
   text-decoration: none;
 }
 
 .cog-btn-secondary:hover {
-  background: #f0f7ff;
+  background: #f8fafc;
+  border-color: #0066cc;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
 }
 
 /* Horizontal ETP Tabs */
@@ -354,26 +356,28 @@
 
 /* Right Hero Visual Column */
 .cog-hero-right {
-  flex: 1 1 62%;
-  position: relative;
-  overflow: hidden;
+  flex: 1 1 52%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 16px 24px 16px 0;
-  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 0;
   background: transparent;
   box-sizing: border-box;
-  border-radius: 16px;
 }
 
 .cog-hero-healthy-ponds-img {
   width: 100%;
-  height: 100%;
+  max-width: 660px;
+  height: 380px;
+  aspect-ratio: 16 / 9.2;
+  border-radius: 12px;
   object-fit: cover;
-  object-position: right center;
+  object-position: center;
+  box-shadow: 0 8px 30px rgba(0, 30, 60, 0.08);
   display: block;
-  border-radius: 16px;
 }
 
 /* ==========================================================
@@ -1427,13 +1431,16 @@
   .ietp-nav-menu {
     gap: 18px;
   }
+
   .ietp-nav-link {
     font-size: 13.5px;
   }
+
   .ietp-btn-schedule {
     font-size: 13px;
     padding: 9px 16px;
   }
+
   .cog-hero-left {
     padding: 34px 3% 36px 3%;
   }
@@ -1444,9 +1451,11 @@
   .ietp-nav-menu {
     gap: 14px;
   }
+
   .ietp-nav-link {
     font-size: 12.5px;
   }
+
   .ietp-btn-schedule {
     font-size: 12px;
     padding: 7px 12px;
@@ -1454,24 +1463,31 @@
 
   .cog-hero-section {
     flex-direction: column;
+    text-align: left;
+    padding: 30px 4% 36px;
   }
 
-  .cog-hero-left {
-    flex: 0 0 100%;
+  .cog-hero-left,
+  .cog-hero-right {
+    max-width: 100%;
+    flex: 1 1 100%;
     width: 100%;
-    padding: 34px 4% 32px;
+    min-height: auto;
+    padding: 0;
+  }
+
+  .cog-hero-healthy-ponds-img {
+    width: 100%;
+    max-width: 660px;
+    height: auto;
+    aspect-ratio: 16 / 9.2;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
   }
 
   .cog-hero-tag {
     margin-top: 10px;
-  }
-
-  .cog-hero-right {
-    min-height: 380px;
-    width: 100%;
-    padding: 0 4% 24px;
-    background: transparent;
-    border-radius: 14px;
   }
 
   .cog-arch-diagram-grid {
@@ -1569,7 +1585,7 @@
   }
 
   .cog-hero-left {
-    padding: 28px 4% 28px;
+    padding: 0;
   }
 
   .cog-hero-tag {
@@ -1661,7 +1677,7 @@
   }
 
   .cog-hero-left {
-    padding: 26px 4% 28px;
+    padding: 0;
   }
 
   .cog-hero-tag {
@@ -1670,9 +1686,13 @@
   }
 
   .cog-hero-healthy-ponds-img {
-    height: 100%;
-    object-position: center;
-    border-radius: 14px;
+    width: 100%;
+    max-width: 660px;
+    height: auto;
+    aspect-ratio: 16 / 9.2;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
   }
 }
 
@@ -1700,7 +1720,7 @@
   }
 
   .cog-hero-left {
-    padding: 24px 4% 26px;
+    padding: 0;
   }
 
   .cog-hero-tag {
@@ -1709,16 +1729,11 @@
   }
 
   .cog-hero-title {
-    font-size: 24px;
+    font-size: 25px;
   }
 
   .cog-params-grid {
     grid-template-columns: 1fr;
-  }
-
-  .cog-hero-right {
-    min-height: 260px;
-    padding: 0 4% 20px;
   }
 }
 

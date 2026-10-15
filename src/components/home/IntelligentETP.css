@@ -620,8 +620,9 @@
   max-width: 660px;
   height: auto;
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: contain;
   box-shadow: 0 8px 30px rgba(0, 30, 60, 0.08);
+  display: block;
 }
 
 /* ==========================================================================
@@ -1338,6 +1339,23 @@
   .ietp-hero-right {
     max-width: 100%;
     flex: 1 1 100%;
+  }
+
+  .ietp-hero-right {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ietp-hero-banner-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 12px;
+    object-fit: contain !important;
+    display: block;
   }
 
   .ietp-stats-row {
