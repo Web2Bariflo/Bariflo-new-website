@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./cognition.css";
 import "./IntelligentETP.css";
 
@@ -46,7 +46,7 @@ import IntelligentETP from "./IntelligentETP";
 
 const Cognition = () => {
   const navigate = useNavigate();
-  const [activeEtpTab, setActiveEtpTab] = useState("industrial");
+  const [activeEtpTab, setActiveEtpTab] = useState("intelligent");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Animation variants
@@ -221,88 +221,110 @@ const Cognition = () => {
           </button>
         </div>
 
-        {/* Mobile Dropdown Drawer */}
-        {mobileMenuOpen && (
-          <motion.div
-            className="ietp-mobile-drawer"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-          >
-            <a
-              href="#industries"
-              className="ietp-mobile-nav-link"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate("/");
-              }}
+        {/* Mobile Dropdown Drawer Matching Act Clean UI */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              className="ietp-mobile-drawer"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              INDUSTRIES
-            </a>
-            <a
-              href="#impact"
-              className="ietp-mobile-nav-link"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate("/");
-              }}
-            >
-              IMPACT
-            </a>
-            <a
-              href="#about"
-              className="ietp-mobile-nav-link"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate("/");
-              }}
-            >
-              ABOUT US
-            </a>
-            <a
-              href="#cognition"
-              className="ietp-mobile-nav-link active"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              COGNITION
-            </a>
+              <div className="ietp-mobile-nav-inner">
+                {/* 2 Tabs: Waste Water & Aquaculture */}
+                <div className="act-mobile-tabs-row act-header-tabs-big">
+                  <button
+                    type="button"
+                    className={`act-header-tab act-header-tab-big ${activeEtpTab === "intelligent" ? "active" : ""}`}
+                    onClick={() => {
+                      setActiveEtpTab("intelligent");
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    Waste Water
+                  </button>
+                  <button
+                    type="button"
+                    className={`act-header-tab act-header-tab-big ${activeEtpTab === "industrial" ? "active" : ""}`}
+                    onClick={() => {
+                      setActiveEtpTab("industrial");
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    Aquaculture
+                  </button>
+                </div>
 
-            {/* Aquaculture ETP & Intelligent ETP buttons shown under nav items on mobile */}
-            <div className="ietp-header-tabs-group mobile-header-tabs ietp-header-tabs-big">
-              <button
-                className={`ietp-header-tab ietp-header-tab-big ${activeEtpTab === "industrial" ? "active" : ""}`}
-                onClick={() => {
-                  setActiveEtpTab("industrial");
-                  setMobileMenuOpen(false);
-                }}
-              >
-                Aquaculture
-              </button>
-              <button
-                className={`ietp-header-tab ietp-header-tab-big ${activeEtpTab === "intelligent" ? "active" : ""}`}
-                onClick={() => {
-                  setActiveEtpTab("intelligent");
-                  setMobileMenuOpen(false);
-                }}
-              >
-                Intelligent ETP
-              </button>
-            </div>
+                <a
+                  href="/"
+                  className="act-mobile-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  HOME
+                </a>
+                <a
+                  href="#industries"
+                  className="act-mobile-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  INDUSTRIES
+                </a>
+                <a
+                  href="#cognition"
+                  className="act-mobile-link active"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  COGNITION
+                </a>
+                <a
+                  href="#impact"
+                  className="act-mobile-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  IMPACT
+                </a>
+                <a
+                  href="#about"
+                  className="act-mobile-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  ABOUT US
+                </a>
 
-            <div className="ietp-mobile-schedule-col">
-              <button
-                className="ietp-btn-schedule ietp-btn-schedule-big mobile-schedule-btn"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  navigate("/contactUs");
-                }}
-              >
-                <FaLeaf className="ietp-btn-leaf-icon" size={15} />
-                <span>Schedule Strategic Discussion</span> <FaArrowRight size={13} />
-              </button>
-            </div>
-          </motion.div>
-        )}
+                <button
+                  type="button"
+                  className="act-mobile-btn-cta"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    navigate("/contactUs");
+                  }}
+                >
+                  Schedule Strategic Discussion <FaArrowRight size={12} />
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* 1. HERO SECTION */}
