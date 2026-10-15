@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import "./Act.css";
 import "./IntelligentETP.css";
 
 // React Icons
@@ -487,9 +488,9 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
       {/* ====================================================================
           1. TOP NAVIGATION NAVBAR (Mobile & Desktop)
           ==================================================================== */}
-      <header className="ietp-navbar">
-        <div className="ietp-nav-row-top">
-          <div className="ietp-nav-left-wrapper">
+      <header className="act-header">
+        <div className="act-nav-container">
+          <div className="act-nav-left-wrapper">
             <button
               type="button"
               className="bariflo-back-home-btn"
@@ -502,63 +503,94 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
 
             <a
               href="/"
-              className="ietp-nav-logo"
+              className="act-logo-link"
               onClick={(e) => {
                 e.preventDefault();
                 navigate("/");
               }}
             >
-              <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
+              <img
+                src="/images/bariflo_nav_logo.png"
+                alt="Bariflo Cybernetics"
+                className="act-logo-img"
+              />
             </a>
           </div>
 
-          <div className="ietp-nav-center">
-            <nav className="ietp-nav-menu">
+          <div className="act-nav-center">
+            <nav className="act-nav-links">
               <a
-                href="#industries"
-                className="ietp-nav-link"
-                onClick={() => navigate("/")}
+                href="/"
+                className="act-nav-item"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                }}
               >
-                INDUSTRIES <FaChevronDown size={10} />
+                HOME
               </a>
               <a
-                href="#impact"
-                className="ietp-nav-link"
-                onClick={() => navigate("/")}
+                href="#industries"
+                className="act-nav-item"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                }}
               >
-                IMPACT <FaChevronDown size={10} />
+                INDUSTRIES <FaChevronDown size={11} className="act-chevron" />
+              </a>
+              <div className="act-nav-dropdown-item active">
+                <a
+                  href="#cognition"
+                  className="act-nav-item"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  COGNITION
+                </a>
+                <div className="act-nav-active-bar" />
+              </div>
+              <a
+                href="#impact"
+                className="act-nav-item"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                }}
+              >
+                IMPACT
               </a>
               <a
                 href="#about"
-                className="ietp-nav-link"
-                onClick={() => navigate("/")}
+                className="act-nav-item"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                }}
               >
                 ABOUT US
-              </a>
-              <a href="#cognition" className="ietp-nav-link active">
-                COGNITION
               </a>
             </nav>
           </div>
 
-          <div className="ietp-nav-actions">
+          <div className="act-nav-actions">
             <button
-              className="ietp-btn-schedule ietp-btn-schedule-big"
+              type="button"
+              className="act-btn-consultation act-btn-consultation-big"
               onClick={() => navigate("/contactUs")}
             >
-              <FaLeaf className="ietp-btn-leaf-icon" size={15} />
-              <span className="ietp-btn-schedule-text">
-                Schedule Strategic Discussion
-              </span>{" "}
-              <FaArrowRight size={13} />
+              <FaLeaf className="act-btn-leaf-icon" size={15} />
+              <span>Schedule Strategic Discussion</span>
+              <FaArrowRight size={13} className="act-btn-arrow" />
             </button>
 
             <button
-              className="ietp-mobile-menu-toggle"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle navigation menu"
+              type="button"
+              className="act-mobile-menu-toggle"
+              aria-label="Toggle navigation"
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((open) => !open)}
             >
-              {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+              {mobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
             </button>
           </div>
         </div>
@@ -585,13 +617,13 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              className="ietp-mobile-drawer"
+              className="act-mobile-drawer"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="ietp-mobile-nav-inner">
+              <div className="act-mobile-nav-inner">
                 {/* 2 Tabs: Waste Water & Aquaculture */}
                 <div className="act-mobile-tabs-row act-header-tabs-big">
                   <button

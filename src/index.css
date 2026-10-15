@@ -8,9 +8,14 @@
   scroll-behavior: smooth;
 }
 
+:root {
+  color-scheme: light;
+}
+
 /* Base layout and mobile responsive overflow control */
 html,
 body {
+  color-scheme: light;
   margin: 0px !important;
   padding: 0;
   font-family: "Open Sans", sans-serif;
