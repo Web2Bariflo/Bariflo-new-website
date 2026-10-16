@@ -6,7 +6,7 @@ import { MenuRounded, Close } from "@mui/icons-material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FullNav from "./FullNav";
 import { Link } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
+import { FiChevronLeft } from "react-icons/fi";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -223,7 +223,7 @@ export default function Navbar({ textWhite = false }) {
               title="Back to Home"
               aria-label="Back to Home"
             >
-              <FaArrowLeft size={20} />
+              <FiChevronLeft size={24} />
             </Link>
             <Logo>
               Bariflo <br />

@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import "./Act.css";
 
 import {
-    FaArrowLeft,
     FaArrowRight,
     FaChevronDown,
     FaSearch,
@@ -27,6 +26,7 @@ import {
 } from "react-icons/bi";
 
 import { MdOutlineRecycling } from "react-icons/md";
+import { FiChevronLeft } from "react-icons/fi";
 
 const products = [
     {
@@ -267,7 +267,7 @@ function Act() {
                             title="Back to Home"
                             aria-label="Back to Home"
                         >
-                            <FaArrowLeft size={20} />
+                            <FiChevronLeft size={24} />
                         </button>
 
                         <a

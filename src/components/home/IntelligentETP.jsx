@@ -18,6 +18,7 @@ import {
 } from "react-icons/fa";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
 import { BiRightArrowAlt } from "react-icons/bi";
+import { FiChevronLeft } from "react-icons/fi";
 
 const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
   const navigate = useNavigate();
@@ -498,7 +499,7 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
               title="Back to Home"
               aria-label="Back to Home"
             >
-              <FaArrowLeft size={20} />
+              <FiChevronLeft size={24} />
             </button>
 
             <a
@@ -609,7 +610,7 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
             className={`fullwidth-subnav-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
             onClick={() => setActiveEtpTab("industrial")}
           >
-            <span>Aquaculture</span>
+            <span>AQUACULTURE</span>
           </button>
         </div>
 
@@ -790,6 +791,7 @@ const IntelligentETP = ({ activeEtpTab, setActiveEtpTab }) => {
             }}
             alt="Real-Time Intelligence for Cleaner Industry - Effluent to Opportunity"
             className="ietp-hero-banner-img"
+            style={{ borderRadius: "20px" }}
           />
         </motion.div>
       </section>

@@ -28,6 +28,7 @@ import {
   TbRadar,
   TbUserCheck,
 } from "react-icons/tb";
+import { FiChevronLeft } from "react-icons/fi";
 import "./Aquasense.css";
 
 const allSolutions = [
@@ -268,7 +269,7 @@ export default function Aquasense() {
               title="Back to Act"
               aria-label="Back to Act"
             >
-              <FaArrowLeft size={20} />
+              <FiChevronLeft size={24} />
             </button>
 
             <a

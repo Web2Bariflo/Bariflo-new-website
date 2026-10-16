@@ -21,6 +21,7 @@ import {
   TbWaveSine,
   TbFilter,
 } from "react-icons/tb";
+import { FiChevronLeft } from "react-icons/fi";
 import "./DafTank.css";
 
 const allSolutions = [
@@ -269,7 +270,7 @@ export default function DafTank() {
               title="Back to Act"
               aria-label="Back to Act"
             >
-              <FaArrowLeft size={20} />
+              <FiChevronLeft size={24} />
             </button>
 
             <a

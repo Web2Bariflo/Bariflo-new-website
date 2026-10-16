@@ -297,7 +297,7 @@
 }
 
 .fstp-hero-title {
-  font-size: 38px;
+  font-size: var(--app-hero-heading-size, 42px);
   font-weight: 800;
   color: #ffffff;
   margin: 0 0 6px;
@@ -306,7 +306,7 @@
 }
 
 .fstp-hero-subtitle {
-  font-size: 17px;
+  font-size: var(--app-subheading-size, 18px);
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 10px;
@@ -314,7 +314,7 @@
 }
 
 .fstp-hero-desc {
-  font-size: 14px;
+  font-size: var(--app-content-size, 15px);
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.85);
   margin: 0 0 22px;

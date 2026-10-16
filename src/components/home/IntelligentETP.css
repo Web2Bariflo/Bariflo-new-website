@@ -470,7 +470,8 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--ietp-primary);
-  margin-bottom: 14px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .ietp-hero-tag-line {
@@ -481,9 +482,9 @@
 }
 
 .ietp-hero-title {
-  font-size: 44px;
+  font-size: var(--app-hero-heading-size, 42px);
   font-weight: 900;
-  line-height: 1.12;
+  line-height: 1.15;
   color: #0f172a;
   margin: 0 0 14px 0;
   letter-spacing: -0.5px;
@@ -495,7 +496,7 @@
 }
 
 .ietp-hero-subtitle {
-  font-size: 19px;
+  font-size: var(--app-subheading-size, 18px);
   font-weight: 800;
   color: #1e293b;
   margin: 0 0 14px 0;
@@ -503,7 +504,7 @@
 }
 
 .ietp-hero-desc {
-  font-size: 14.5px;
+  font-size: var(--app-content-size, 15px);
   line-height: 1.62;
   color: #475569;
   margin: 0 0 24px 0;
@@ -611,17 +612,15 @@
   align-items: center;
   justify-content: flex-end;
   position: relative;
-  overflow: hidden;
-  border-radius: 12px;
+  border-radius: 24px;
 }
 
 .ietp-hero-banner-img {
   width: 100%;
   max-width: 660px;
   height: auto;
-  border-radius: 12px;
-  object-fit: contain;
-  box-shadow: 0 8px 30px rgba(0, 30, 60, 0.08);
+  border-radius: 20px;
+  object-fit: cover;
   display: block;
 }
 
@@ -1333,6 +1332,16 @@
   .ietp-hero-section {
     flex-direction: column;
     text-align: left;
+    padding: 24px 4% 14px;
+    gap: 14px;
+  }
+
+  .ietp-diagram-section {
+    padding-top: 14px;
+  }
+
+  .ietp-cta-group {
+    margin-bottom: 12px;
   }
 
   .ietp-hero-left,
@@ -1342,7 +1351,7 @@
   }
 
   .ietp-hero-right {
-    margin-top: 18px;
+    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1353,8 +1362,8 @@
     max-width: 100%;
     height: auto !important;
     max-height: none !important;
-    border-radius: 12px;
-    object-fit: contain !important;
+    border-radius: 20px;
+    object-fit: cover !important;
     display: block;
   }
 
@@ -1501,7 +1510,8 @@
   }
 
   .ietp-hero-section {
-    padding: 24px 4% 32px;
+    padding: 18px 4% 10px;
+    gap: 12px;
   }
 
   .ietp-hero-title {
@@ -1610,6 +1620,11 @@
 }
 
 @media (max-width: 480px) {
+  .ietp-hero-section {
+    padding: 14px 4% 8px;
+    gap: 10px;
+  }
+
   .ietp-hero-title {
     font-size: 25px;
   }

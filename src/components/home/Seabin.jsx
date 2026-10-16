@@ -20,6 +20,7 @@ import {
     FaChevronRight,
 } from "react-icons/fa";
 import { TbCylinder, TbHexagon, TbCube } from "react-icons/tb";
+import { FiChevronLeft } from "react-icons/fi";
 import "./Seabin.css";
 
 const allSolutions = [
@@ -138,7 +139,7 @@ export default function Seabin() {
                             title="Back to Act"
                             aria-label="Back to Act"
                         >
-                            <FaArrowLeft size={20} />
+                            <FiChevronLeft size={24} />
                         </button>
 
                         <a

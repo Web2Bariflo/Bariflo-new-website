@@ -23,6 +23,7 @@ import {
   TbNetwork,
   TbBuildingBridge,
 } from "react-icons/tb";
+import { FiChevronLeft } from "react-icons/fi";
 import "./Sediment.css";
 
 const allSolutions = [
@@ -267,7 +268,7 @@ export default function Sediment() {
               title="Back to Act"
               aria-label="Back to Act"
             >
-              <FaArrowLeft size={20} />
+              <FiChevronLeft size={24} />
             </button>
 
             <a

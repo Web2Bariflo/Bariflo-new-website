@@ -27,14 +27,65 @@ body {
   scrollbar-color: #cbd5e1 #f8fafc;
 }
 
-/* Apply Montserrat to headings */
+/* Global Unified Typography Scale */
+:root {
+  --app-hero-heading-size: 42px;
+  --app-section-heading-size: 30px;
+  --app-subheading-size: 18px;
+  --app-content-size: 15px;
+}
+
 h1,
+.app-hero-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--app-hero-heading-size);
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+}
+
 h2,
+.app-section-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--app-section-heading-size);
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+
 h3,
+.app-subheading {
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--app-subheading-size);
+  line-height: 1.35;
+}
+
 h4,
 h5,
 h6 {
   font-family: "Montserrat", sans-serif;
+}
+
+p,
+.app-content {
+  font-size: var(--app-content-size);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --app-hero-heading-size: 28px;
+    --app-section-heading-size: 24px;
+    --app-subheading-size: 17px;
+    --app-content-size: 14.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --app-hero-heading-size: 25px;
+    --app-section-heading-size: 21px;
+    --app-subheading-size: 16px;
+    --app-content-size: 14px;
+  }
 }
 
 /* Optional: make buttons and nav headings use Montserrat */

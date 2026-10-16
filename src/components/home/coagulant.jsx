@@ -24,6 +24,7 @@ import {
   TbShieldCheck,
   TbWifi,
 } from "react-icons/tb";
+import { FiChevronLeft } from "react-icons/fi";
 import "./coagulant.css";
 
 const allSolutions = [
@@ -269,7 +270,7 @@ export default function Coagulant() {
               title="Back to Act"
               aria-label="Back to Act"
             >
-              <FaArrowLeft size={20} />
+              <FiChevronLeft size={24} />
             </button>
 
             <a

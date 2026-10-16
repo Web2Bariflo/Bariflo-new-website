@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Typewriter from 'typewriter-effect';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './NewLandingPage.css';
 import './SenseAquaculturePage.css';
 import '../components/home/IntelligentETP.css';
 import '../components/home/cognition.css';
+import '../components/home/Act.css';
 import Footer from '../components/new-landing/Footer';
 import {
   BiTargetLock,
@@ -26,6 +27,7 @@ import {
   FaTimes,
   FaLeaf,
 } from 'react-icons/fa';
+import { FiChevronLeft } from 'react-icons/fi';
 
 const SenseAquaculturePage = () => {
   const navigate = useNavigate();
@@ -33,136 +35,195 @@ const SenseAquaculturePage = () => {
 
   return (
     <div className="sense-page-wrapper">
-      {/* Top Navbar */}
-      <header className="ietp-navbar">
-        <div className="ietp-nav-left-wrapper">
-          <button
-            type="button"
-            className="bariflo-back-home-btn"
-            onClick={() => navigate("/")}
-            title="Back to Home"
-            aria-label="Back to Home"
-          >
-            <FaArrowLeft size={20} />
-          </button>
-
-          <a
-            href="/"
-            className="ietp-nav-logo"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/");
-            }}
-          >
-            <img src="/images/bariflo_nav_logo.png" alt="Bariflo Cybernetics" />
-          </a>
-        </div>
-
-        <nav className="ietp-nav-menu">
-          <a
-            href="#industries"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            INDUSTRIES <FaChevronDown size={10} />
-          </a>
-          <a
-            href="#impact"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            IMPACT <FaChevronDown size={10} />
-          </a>
-          <a
-            href="#about"
-            className="ietp-nav-link"
-            onClick={() => navigate("/")}
-          >
-            ABOUT US
-          </a>
-          <a href="#sense" className="ietp-nav-link active">
-            SENSE
-          </a>
-        </nav>
-
-        <div className="ietp-nav-actions">
-          <button
-            className="ietp-btn-schedule ietp-btn-schedule-big"
-            onClick={() => navigate("/contactUs")}
-          >
-            <FaLeaf className="ietp-btn-leaf-icon" size={15} />
-            <span className="ietp-btn-schedule-text">
-              Schedule Strategic Discussion
-            </span>{" "}
-            <FaArrowRight size={13} />
-          </button>
-
-          <button
-            className="ietp-mobile-menu-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
-          </button>
-        </div>
-
-        {/* Mobile Dropdown Drawer */}
-        {mobileMenuOpen && (
-          <motion.div
-            className="ietp-mobile-drawer"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-          >
-            <a
-              href="#industries"
-              className="ietp-mobile-nav-link"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate("/");
-              }}
-            >
-              INDUSTRIES
-            </a>
-            <a
-              href="#impact"
-              className="ietp-mobile-nav-link"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate("/");
-              }}
-            >
-              IMPACT
-            </a>
-            <a
-              href="#about"
-              className="ietp-mobile-nav-link"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate("/");
-              }}
-            >
-              ABOUT US
-            </a>
-            <a
-              href="#sense"
-              className="ietp-mobile-nav-link active"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              SENSE
-            </a>
+      {/* Top Navbar Matching Cognition Page Perfectly */}
+      <header className="act-header">
+        <div className="act-nav-container">
+          <div className="act-nav-left-wrapper">
             <button
-              className="ietp-btn-schedule ietp-btn-schedule-big mobile-schedule-btn"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                navigate("/contactUs");
+              type="button"
+              className="bariflo-back-home-btn"
+              onClick={() => navigate("/")}
+              title="Back to Home"
+              aria-label="Back to Home"
+            >
+              <FiChevronLeft size={24} />
+            </button>
+
+            <a
+              href="/"
+              className="act-logo-link"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/");
               }}
             >
-              <FaLeaf className="ietp-btn-leaf-icon" size={15} />
-              <span>Schedule Strategic Discussion</span> <FaArrowRight size={13} />
+              <img
+                src="/images/bariflo_nav_logo.png"
+                alt="Bariflo Cybernetics"
+                className="act-logo-img"
+              />
+            </a>
+          </div>
+
+          <div className="act-nav-center">
+            <nav className="act-nav-links">
+              <a
+                href="/"
+                className="act-nav-item"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                }}
+              >
+                HOME
+              </a>
+              <a
+                href="#industries"
+                className="act-nav-item"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                }}
+              >
+                INDUSTRIES <FaChevronDown size={11} className="act-chevron" />
+              </a>
+              <div className="act-nav-dropdown-item active">
+                <a
+                  href="#sense"
+                  className="act-nav-item"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  SENSE
+                </a>
+                <div className="act-nav-active-bar" />
+              </div>
+              <a
+                href="#impact"
+                className="act-nav-item"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                }}
+              >
+                IMPACT
+              </a>
+              <a
+                href="#about"
+                className="act-nav-item"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/");
+                }}
+              >
+                ABOUT US
+              </a>
+            </nav>
+          </div>
+
+          <div className="act-nav-actions">
+            <button
+              type="button"
+              className="act-btn-consultation act-btn-consultation-big"
+              onClick={() => navigate("/contactUs")}
+            >
+              <FaLeaf className="act-btn-leaf-icon" size={15} />
+              <span>Schedule Strategic Discussion</span>
+              <FaArrowRight size={13} className="act-btn-arrow" />
             </button>
-          </motion.div>
-        )}
+
+            <button
+              type="button"
+              className="act-mobile-menu-toggle"
+              aria-label="Toggle navigation"
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((open) => !open)}
+            >
+              {mobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Dropdown Drawer Matching Cognition / Act Clean UI */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              className="act-mobile-drawer"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="act-mobile-nav-inner">
+                <a
+                  href="/"
+                  className="act-mobile-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  HOME
+                </a>
+                <a
+                  href="#industries"
+                  className="act-mobile-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  INDUSTRIES
+                </a>
+                <a
+                  href="#sense"
+                  className="act-mobile-link active"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  SENSE
+                </a>
+                <a
+                  href="#impact"
+                  className="act-mobile-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  IMPACT
+                </a>
+                <a
+                  href="#about"
+                  className="act-mobile-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  ABOUT US
+                </a>
+
+                <button
+                  type="button"
+                  className="act-mobile-btn-consultation"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    navigate("/contactUs");
+                  }}
+                >
+                  <FaLeaf size={14} />
+                  <span>Schedule Strategic Discussion</span>
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Breadcrumb */}

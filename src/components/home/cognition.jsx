@@ -42,7 +42,7 @@ import {
 import { TbLayersLinked, TbDna2, TbAtom } from "react-icons/tb";
 import { GiShrimp, GiWaveSurfer, GiSprout } from "react-icons/gi";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
-import { FiRadio, FiCpu, FiMonitor, FiAlertCircle } from "react-icons/fi";
+import { FiRadio, FiCpu, FiMonitor, FiAlertCircle, FiChevronLeft } from "react-icons/fi";
 import IntelligentETP from "./IntelligentETP";
 
 const Cognition = () => {
@@ -138,7 +138,7 @@ const Cognition = () => {
               title="Back to Home"
               aria-label="Back to Home"
             >
-              <FaArrowLeft size={20} />
+              <FiChevronLeft size={24} />
             </button>
 
             <a
@@ -249,7 +249,7 @@ const Cognition = () => {
             className={`fullwidth-subnav-tab ${activeEtpTab === "industrial" ? "active" : ""}`}
             onClick={() => setActiveEtpTab("industrial")}
           >
-            <span>Aquaculture</span>
+            <span>AQUACULTURE</span>
           </button>
         </div>
 
@@ -284,7 +284,7 @@ const Cognition = () => {
                       setMobileMenuOpen(false);
                     }}
                   >
-                    Aquaculture
+                    AQUACULTURE
                   </button>
                 </div>
 
@@ -433,6 +433,7 @@ const Cognition = () => {
             }}
             alt="Healthy Ponds. Prosperous Tomorrow."
             className="cog-hero-healthy-ponds-img"
+            style={{ borderRadius: "20px" }}
           />
         </motion.div>
       </section>

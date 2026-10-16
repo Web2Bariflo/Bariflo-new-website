@@ -5,7 +5,7 @@
   color: #1A1A1A;
   background-color: #FFFFFF;
   overflow-x: hidden;
-  padding-top: 72px;
+  padding-top: 84px;
 }
 
 /* Sub-header Tab Bar */
@@ -89,9 +89,9 @@
 
 .sense-hero-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 3.5rem;
+  font-size: var(--app-hero-heading-size, 42px);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   color: #0A192F;
   margin: 0 0 20px 0;
   letter-spacing: -0.5px;
@@ -102,7 +102,7 @@
 }
 
 .sense-hero-desc {
-  font-size: 1.1rem;
+  font-size: var(--app-content-size, 15px);
   color: #4A5568;
   line-height: 1.6;
   margin: 0 0 40px 0;

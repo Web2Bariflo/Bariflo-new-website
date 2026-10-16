@@ -31,6 +31,7 @@ import {
   TbAtom,
   TbPropeller,
 } from "react-icons/tb";
+import { FiChevronLeft } from "react-icons/fi";
 import "./Energy.css";
 
 const allSolutions = [
@@ -226,7 +227,7 @@ export default function Energy() {
               title="Back to Act"
               aria-label="Back to Act"
             >
-              <FaArrowLeft size={20} />
+              <FiChevronLeft size={24} />
             </button>
 
             <a
