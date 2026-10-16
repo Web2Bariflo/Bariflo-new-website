@@ -39,23 +39,29 @@ const NavbarContainer = styled.div`
 `;
 
 const Logo = styled.div`
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 1.1; /* tighter vertical spacing */
-  display: inline-block;
+  display: flex;
+  align-items: center;
 
-  @media (max-width: 768px) {
-    text-align: center;
-    font-size: 24px;
+  img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    cursor: pointer;
+    transform: scale(1.35);
+    transform-origin: left center;
+    transition: transform 0.2s ease;
   }
 
-  span {
-    color: #00bcd4;
-    font-size: 0.65em;
-    margin-left: 50px;
-    display: block;
-    line-height: 1;
-    font-weight: regular;
+  img:hover {
+    transform: scale(1.42);
+  }
+
+  @media (max-width: 768px) {
+    img {
+      height: 42px;
+      transform: scale(1.2);
+    }
   }
 `;
 
@@ -226,8 +232,12 @@ export default function Navbar({ textWhite = false }) {
               <FiChevronLeft size={24} />
             </Link>
             <Logo>
-              Bariflo <br />
-              <span>Cybernetics</span>
+              <Link to="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+                <img
+                  src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
+                  alt="Bariflo Cybernetics"
+                />
+              </Link>
             </Logo>
           </div>
           <MobileIcon onClick={() => setIsOpen(!isOpen)}>

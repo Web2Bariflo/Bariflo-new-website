@@ -151,7 +151,7 @@ export default function Seabin() {
                             }}
                         >
                             <img
-                                src="/images/bariflo_nav_logo.png"
+                                src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
                                 alt="Bariflo Cybernetics"
                                 className="seabin-logo-img"
                             />
@@ -610,13 +610,13 @@ export default function Seabin() {
 
                         <div className="ietp-trust-divider"></div>
 
-                        <div className="ietp-logo-item" title="Bariflo Cybernetics">
-                            <img
-                                src="/images/bariflo_nav_logo.png"
-                                alt="Bariflo Cybernetics"
-                                className="ietp-logo-bariflo-footer"
-                            />
-                        </div>
+                            <div className="ietp-logo-item" title="Bariflo Cybernetics">
+                                <img
+                                    src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
+                                    alt="Bariflo Cybernetics"
+                                    className="ietp-logo-bariflo-footer"
+                                />
+                            </div>
                     </div>
 
                     <div className="ietp-trust-motto">

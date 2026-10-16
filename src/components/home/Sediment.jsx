@@ -280,7 +280,7 @@ export default function Sediment() {
               }}
             >
               <img
-                src="/images/bariflo_nav_logo.png"
+                src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
                 alt="Bariflo Cybernetics"
                 className="sed-logo-img"
               />
@@ -769,7 +769,7 @@ export default function Sediment() {
 
             <div className="ietp-logo-item" title="Bariflo Cybernetics">
               <img
-                src="/images/bariflo_nav_logo.png"
+                src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
                 alt="Bariflo Cybernetics"
                 className="ietp-logo-bariflo-footer"
               />

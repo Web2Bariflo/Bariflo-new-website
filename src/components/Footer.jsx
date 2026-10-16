@@ -159,13 +159,17 @@ const Footer = () => {
           <Logo>
             <Link to="/" style={{ display: "inline-block" }}>
               <img
-                src="/images/bariflo_nav_logo.png"
+                src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
                 alt="Bariflo Cybernetics"
                 style={{
+                  height: "52px",
                   maxHeight: "52px",
                   width: "auto",
                   objectFit: "contain",
                   display: "block",
+                  transform: "scale(1.35)",
+                  transformOrigin: "left center",
+                  transition: "transform 0.25s ease",
                 }}
               />
             </Link>

@@ -279,7 +279,7 @@ function Act() {
                             }}
                         >
                             <img
-                                src="/images/bariflo_nav_logo.png"
+                                src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
                                 alt="Bariflo Cybernetics"
                                 className="act-logo-img"
                             />
@@ -883,7 +883,7 @@ function Act() {
                             <div className="act-trusted-divider"></div>
                             <div className="act-partner-item bariflo">
                                 <img
-                                    src="/images/bariflo_nav_logo.png"
+                                    src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
                                     alt="Bariflo Cybernetics"
                                     className="act-partner-img bariflo-logo"
                                 />

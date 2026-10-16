@@ -207,12 +207,45 @@ nav,
   max-width: 210px;
   object-fit: contain;
   display: block;
+  transform: scale(1.35);
+  transform-origin: center center;
   transition: transform 0.25s ease;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
 }
 
 .ietp-logo-bariflo-footer:hover {
-  transform: scale(1.05);
+  transform: scale(1.42);
+}
+
+/* Global Uniform Bariflo Navbar Logos Sizing */
+.act-logo-img,
+.daf-logo-img,
+.coag-logo-img,
+.sed-logo-img,
+.floc-logo-img,
+.seabin-logo-img,
+.aqua-logo-img,
+.energy-logo-img,
+.fstp-logo-img {
+  height: 52px !important;
+  width: auto !important;
+  max-height: 52px !important;
+  object-fit: contain !important;
+  transform: scale(1.35) !important;
+  transform-origin: left center !important;
+  transition: transform 0.2s ease !important;
+}
+
+.act-logo-link:hover .act-logo-img,
+.daf-logo-link:hover .daf-logo-img,
+.coag-logo-link:hover .coag-logo-img,
+.sed-logo-link:hover .sed-logo-img,
+.floc-logo-link:hover .floc-logo-img,
+.seabin-logo-link:hover .seabin-logo-img,
+.aqua-logo-link:hover .aqua-logo-img,
+.energy-logo-link:hover .energy-logo-img,
+.fstp-logo-link:hover .fstp-logo-img {
+  transform: scale(1.42) !important;
 }
 
 .ietp-trust-motto {

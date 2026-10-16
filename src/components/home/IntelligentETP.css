@@ -1224,12 +1224,14 @@
   max-width: 210px;
   object-fit: contain;
   display: block;
+  transform: scale(1.35);
+  transform-origin: center center;
   transition: transform 0.25s ease;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
 }
 
 .ietp-logo-bariflo-footer:hover {
-  transform: scale(1.06);
+  transform: scale(1.42);
 }
 
 .ietp-logo-indianoil {

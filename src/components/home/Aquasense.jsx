@@ -281,7 +281,7 @@ export default function Aquasense() {
               }}
             >
               <img
-                src="/images/bariflo_nav_logo.png"
+                src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
                 alt="Bariflo Cybernetics"
                 className="aqua-logo-img"
               />
@@ -724,7 +724,7 @@ export default function Aquasense() {
 
             <div className="ietp-logo-item" title="Bariflo Cybernetics">
               <img
-                src="/images/bariflo_nav_logo.png"
+                src="/LOGO BARIFLO CYBERNETICS 2025-03-03.png"
                 alt="Bariflo Cybernetics"
                 className="ietp-logo-bariflo-footer"
               />
