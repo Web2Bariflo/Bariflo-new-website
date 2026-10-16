@@ -565,22 +565,10 @@ export default function Sediment() {
 
                 <div className="sed-diagram-wrapper">
                   <img
-                    src="/images/SEDIMENT SYSTEM.png"
+                    src="/images/SEDIMENT  AERATION.png"
                     alt="Sediment Aeration System 3D Diagram"
                     className="sed-diagram-img"
                   />
-
-                  {/* Callout Pointers */}
-                  <div className="sed-callouts-layer">
-                    {diagramCallouts.map((c) => (
-                      <div key={c.id} className={`sed-callout-box ${c.posClass}`}>
-                        <div className="sed-callout-inner">
-                          <strong className="sed-callout-heading">{c.title}</strong>
-                          <span className="sed-callout-sub">{c.sub}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
 
