@@ -192,17 +192,6 @@ const filterOptions = [
     "Mobile Treatment",
 ];
 
-const productRoutes = {
-    "01": "/daf-tank",
-    "02": "/coagulant",
-    "03": "/flocculant",
-    "04": "/sediment",
-    "05": "/seabin",
-    "06": "/aquasense",
-    "07": "/energy",
-    "08": "/mobile-fstp",
-};
-
 function Act() {
     const navigate = useNavigate();
 
@@ -238,14 +227,6 @@ function Act() {
     });
 
     const openProduct = (product) => {
-        const route = productRoutes[product.id];
-
-        if (route) {
-            setActiveModalProduct(null);
-            navigate(route);
-            return;
-        }
-
         setActiveModalProduct(product);
     };
 
@@ -398,17 +379,17 @@ function Act() {
                 <div className="fullwidth-subnav-tabs-bar">
                     <button
                         type="button"
-                        className={`fullwidth-subnav-tab ${activeWaterTab === "waste" ? "active" : ""}`}
+                        className="fullwidth-subnav-tab active"
                         onClick={() => setActiveWaterTab("waste")}
                     >
-                        <span>Waste Water</span>
+                        <span>WASTE WATER</span>
                     </button>
                     <button
                         type="button"
-                        className={`fullwidth-subnav-tab ${activeWaterTab === "clean" ? "active" : ""}`}
-                        onClick={() => setActiveWaterTab("clean")}
+                        className="fullwidth-subnav-tab"
+                        onClick={() => navigate("/act-aquaculture")}
                     >
-                        <span>Clean Water</span>
+                        <span>AQUACULTURE</span>
                     </button>
                 </div>
 
@@ -422,27 +403,26 @@ function Act() {
                             transition={{ duration: 0.3 }}
                         >
                             <div className="act-mobile-nav-inner">
-                                {/* Mobile Waste Water & Clean Water Tabs */}
+                                {/* Mobile Waste Water & Aquaculture Tabs */}
                                 <div className="act-mobile-tabs-row act-header-tabs-big">
                                     <button
                                         type="button"
-                                        className={`act-header-tab act-header-tab-big ${activeWaterTab === "waste" ? "active" : ""}`}
+                                        className="act-header-tab act-header-tab-big active"
                                         onClick={() => {
                                             setActiveWaterTab("waste");
                                             setMobileMenuOpen(false);
                                         }}
                                     >
-                                        Waste Water
+                                        WASTE WATER
                                     </button>
                                     <button
                                         type="button"
-                                        className={`act-header-tab act-header-tab-big ${activeWaterTab === "clean" ? "active" : ""}`}
+                                        className="act-header-tab act-header-tab-big"
                                         onClick={() => {
-                                            setActiveWaterTab("clean");
-                                            setMobileMenuOpen(false);
+                                            navigateFromMobile("/act-aquaculture");
                                         }}
                                     >
-                                        Clean Water
+                                        AQUACULTURE
                                     </button>
                                 </div>
 
@@ -712,17 +692,7 @@ function Act() {
                                     <button
                                         type="button"
                                         className="act-card-arrow-btn"
-                                        aria-label={
-                                            product.id === "01"
-                                                ? "Open DAF Intelligent Aeration Tank page"
-                                                : product.id === "02"
-                                                    ? "Open Intelligent Coagulant Doser page"
-                                                    : product.id === "03"
-                                                        ? "Open Intelligent Flocculant Doser page"
-                                                        : product.id === "04"
-                                                            ? "Open Sediment Aeration System page"
-                                                            : `View details of ${product.title}`
-                                        }
+                                        aria-label={`View details of ${product.title}`}
                                         onClick={(event) => {
                                             event.stopPropagation();
                                             openProduct(product);
@@ -837,35 +807,33 @@ function Act() {
 
             {/* Call to action */}
             <section className="act-cta-section">
-                <div className="act-container">
-                    <div className="act-cta-banner">
-                        <div className="act-cta-left">
-                            <div className="act-cta-leaf-circle">
-                                <FaLeaf className="act-cta-leaf-icon" />
-                            </div>
-
-                            <div className="act-cta-text-group">
-                                <h2 className="act-cta-title">
-                                    Cleaner Water. Smarter Industry.
-                                </h2>
-
-                                <p className="act-cta-subtitle">
-                                    Integrated systems. Intelligent control. A sustainable
-                                    tomorrow.
-                                </p>
-                            </div>
+                <div className="act-cta-banner">
+                    <div className="act-cta-left">
+                        <div className="act-cta-leaf-circle">
+                            <FaLeaf className="act-cta-leaf-icon" />
                         </div>
 
-                        <div className="act-cta-right">
-                            <button
-                                type="button"
-                                className="act-cta-btn"
-                                onClick={() => navigate("/contactUs")}
-                            >
-                                <span>Talk to Our Experts</span>
-                                <FaArrowRight size={13} className="act-cta-btn-arrow" />
-                            </button>
+                        <div className="act-cta-text-group">
+                            <h2 className="act-cta-title">
+                                Cleaner Water. Smarter Industry.
+                            </h2>
+
+                            <p className="act-cta-subtitle">
+                                Integrated systems. Intelligent control. A sustainable
+                                tomorrow.
+                            </p>
                         </div>
+                    </div>
+
+                    <div className="act-cta-right">
+                        <button
+                            type="button"
+                            className="act-cta-btn"
+                            onClick={() => navigate("/contactUs")}
+                        >
+                            <span>Talk to Our Experts</span>
+                            <FaArrowRight size={13} className="act-cta-btn-arrow" />
+                        </button>
                     </div>
                 </div>
             </section>

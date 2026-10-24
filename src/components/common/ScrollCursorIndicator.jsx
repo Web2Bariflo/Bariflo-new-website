@@ -1,37 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import "./ScrollCursorIndicator.css";
 
 const ScrollCursorIndicator = () => {
-  // Top scroll progress bar
+  // Top scroll progress bar - bind directly to scrollYProgress for zero-lag instant feedback
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80 && !hasScrolled) {
-        setHasScrolled(true);
-      } else if (window.scrollY <= 80 && hasScrolled) {
-        setHasScrolled(false);
-      }
+      const isPast = window.scrollY > 80;
+      setHasScrolled((prev) => (prev !== isPast ? isPast : prev));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [hasScrolled]);
+  }, []);
 
   return (
     <>
       {/* 1. Sleek Top Scroll Progress Indicator Bar */}
-      <motion.div className="scroll-progress-bar" style={{ scaleX }} />
+      <motion.div className="scroll-progress-bar" style={{ scaleX: scrollYProgress }} />
 
       {/* 2. Floating Scroll-Down Cue (Fades smoothly when user scrolls) */}
       <div

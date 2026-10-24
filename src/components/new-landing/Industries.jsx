@@ -63,7 +63,7 @@ const Industries = () => {
       className="nl-industries"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15 }}
       variants={staggerContainer}
     >
       <motion.div variants={fadeUpVariant} className="nl-industries-header">

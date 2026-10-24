@@ -15,14 +15,12 @@ import SenseAquaculturePage from "./pages/SenseAquaculturePage";
 
 import Cognition from "./components/home/cognition";
 import Act from "./components/home/Act";
-import DafTank from "./components/home/DafTank";
-import Sediment from "./components/home/Sediment";
-import Flocculant from "./components/home/Flocculant";
-import Coagulant from "./components/home/coagulant";
-import Seabin from "./components/home/Seabin";
-import Aquasense from "./components/home/Aquasense";
-import Energy from "./components/home/Energy";
-import MobileFSTP from "./components/home/Mobile FSTP";
+import Actaqua from "./components/home/Actaqua";
+import Actautomated from "./components/home/Actautomated";
+import Bottom from "./components/home/Bottom";
+import Power from "./components/home/Power";
+import Feedtray from "./components/home/Feedtray";
+import Monitoring from "./components/home/Monitoring";
 
 import ScrollCursorIndicator from "./components/common/ScrollCursorIndicator";
 
@@ -40,19 +38,40 @@ function AppRoutes() {
       <Route path="/cognition-aquaculture" element={<Cognition />} />
 
       <Route path="/act" element={<Act />} />
-      <Route path="/daf-tank" element={<DafTank />} />
-      <Route path="/coagulant" element={<Coagulant />} />
-      <Route path="/coagulation" element={<Coagulant />} />
-      <Route path="/sediment" element={<Sediment />} />
-      <Route path="/sediment-aeration" element={<Sediment />} />
-      <Route path="/flocculant" element={<Flocculant />} />
-      <Route path="/seabin" element={<Seabin />} />
-      <Route path="/aquasense" element={<Aquasense />} />
-      <Route path="/aquasense-system" element={<Aquasense />} />
-      <Route path="/energy" element={<Energy />} />
-      <Route path="/energy-system" element={<Energy />} />
-      <Route path="/mobile-fstp" element={<MobileFSTP />} />
-      <Route path="/mobile-fstp-system" element={<MobileFSTP />} />
+      <Route path="/act-aquaculture" element={<Actaqua />} />
+      <Route path="/actaqua" element={<Actaqua />} />
+      <Route path="/act-aqua" element={<Actaqua />} />
+      <Route path="/act-automated-feeder" element={<Actautomated />} />
+      <Route path="/automated-feeder" element={<Actautomated />} />
+      <Route path="/automated-feeder-system" element={<Actautomated />} />
+      <Route path="/act-automated" element={<Actautomated />} />
+      <Route path="/actautomated" element={<Actautomated />} />
+      <Route path="/bottom-aeration-system" element={<Bottom />} />
+      <Route path="/bottom-aeration" element={<Bottom />} />
+      <Route path="/act-bottom-aeration" element={<Bottom />} />
+      <Route path="/bottom" element={<Bottom />} />
+      <Route path="/act-bottom" element={<Bottom />} />
+      <Route path="/power-monitoring-system" element={<Power />} />
+      <Route path="/power-monitoring" element={<Power />} />
+      <Route path="/energy-monitoring-system" element={<Power />} />
+      <Route path="/energy-monitoring" element={<Power />} />
+      <Route path="/power" element={<Power />} />
+      <Route path="/act-power" element={<Power />} />
+      <Route path="/act-energy-monitoring" element={<Power />} />
+      <Route path="/feed-tray-system" element={<Feedtray />} />
+      <Route path="/feed-tray" element={<Feedtray />} />
+      <Route path="/feedtray" element={<Feedtray />} />
+      <Route path="/act-feed-tray" element={<Feedtray />} />
+      <Route path="/smart-checktray" element={<Feedtray />} />
+      <Route path="/checktray" element={<Feedtray />} />
+      <Route path="/monitoring-system" element={<Monitoring />} />
+      <Route path="/monitoring" element={<Monitoring />} />
+      <Route path="/aquaculture-monitoring" element={<Monitoring />} />
+      <Route path="/aquaculture-monitoring-system" element={<Monitoring />} />
+      <Route path="/water-monitoring-system" element={<Monitoring />} />
+      <Route path="/water-monitoring" element={<Monitoring />} />
+      <Route path="/water-quality-monitoring" element={<Monitoring />} />
+      <Route path="/act-monitoring" element={<Monitoring />} />
 
       <Route path="/legacy-home" element={<Home />} />
       <Route path="/contactUs" element={<ContactUs />} />

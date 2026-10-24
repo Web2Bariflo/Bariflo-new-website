@@ -14,10 +14,12 @@ const FooterContainer = styled.footer`
   background: url("/images/77707896-3e5e-422e-bf3b-ed36d4298ea0 7.png") left top
     repeat;
   background-color: #f7f7f7;
-  padding: 100px 40px 60px;
+  padding: 80px 40px 50px;
   color: #333;
   font-size: 14px;
-  margin-left: 20px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
   height: auto;
 
   @media (max-width: 768px) {
@@ -55,8 +57,9 @@ const Column = styled.div`
 
   ul {
     list-style: none;
-    margin-left: 100px;
-    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
 
     @media (max-width: 768px) {
       margin-left: 0;
@@ -189,15 +192,6 @@ const Footer = () => {
               <FaInstagram />
             </a>
           </SocialIcons>
-        </Column>
-
-        <Column>
-          <p>
-            Bariflo provides full-stack IoT solutions for aqua farming and
-            aquatic species research including robotics and AI driven data
-            quality equipment, expert consulting services, and innovative
-            platforms that deliver unmatched data, information, and insights.
-          </p>
         </Column>
 
         <Column>

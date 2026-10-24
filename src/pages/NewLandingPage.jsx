@@ -26,15 +26,15 @@ const NewLandingPage = () => {
         <Hero />
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={fadeUpVariant}>
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={fadeUpVariant}>
         <Stats />
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }} variants={fadeUpVariant}>
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={fadeUpVariant}>
         <Industries />
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.1 }} variants={fadeVariant}>
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={fadeVariant}>
         <Footer />
       </motion.div>
     </div>

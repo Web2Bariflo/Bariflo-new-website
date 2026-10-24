@@ -1,0 +1,1488 @@
+/* ==========================================================================
+   ACT AUTOMATED FEEDER SYSTEM PAGE STYLES (Actautomated.css)
+   Pixel-perfect match to provided design screenshot + full responsiveness
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Montserrat:wght@500;600;700;800&display=swap");
+
+:root {
+  --actauto-primary: #0066cc;
+  --actauto-primary-dark: #004799;
+  --actauto-primary-light: #e0f2fe;
+  --actauto-navy: #071e3d;
+  --actauto-slate: #0f172a;
+  --actauto-text-main: #1e293b;
+  --actauto-text-sub: #64748b;
+  --actauto-border: #e2e8f0;
+  --actauto-bg-card: #ffffff;
+  --actauto-bg-page: #f8fafc;
+}
+
+.actauto-page-root {
+  min-height: 100vh;
+  background-color: var(--actauto-bg-page);
+  color: var(--actauto-text-main);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   1. TOP NAVBAR
+   ========================================================================== */
+.actauto-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.actauto-nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.actauto-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.actauto-back-btn {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.actauto-back-btn:hover {
+  background: #e2e8f0;
+  color: var(--actauto-primary);
+  transform: translateX(-2px);
+}
+
+.actauto-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.actauto-logo-img {
+  height: 52px !important;
+  width: auto !important;
+  max-height: 54px !important;
+  object-fit: contain !important;
+  transform: scale(1.35) !important;
+  transform-origin: left center !important;
+  transition: transform 0.2s ease !important;
+}
+
+.actauto-logo-link:hover .actauto-logo-img {
+  transform: scale(1.42) !important;
+}
+
+.actauto-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  height: 100%;
+}
+
+.actauto-nav-link-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 72px;
+}
+
+.actauto-nav-link {
+  background: none;
+  border: none;
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #1e293b;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.actauto-nav-link:hover,
+.actauto-nav-link.active {
+  color: var(--actauto-primary);
+}
+
+.actauto-nav-active-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--actauto-primary);
+  border-radius: 3px 3px 0 0;
+}
+
+.actauto-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.actauto-search-wrap {
+  position: relative;
+}
+
+.actauto-search-btn {
+  background: none;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.actauto-search-btn:hover {
+  background: #f1f5f9;
+  color: var(--actauto-primary);
+}
+
+.actauto-search-input-box {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+.actauto-search-input-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  width: 140px;
+}
+
+.actauto-search-close {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.actauto-consultation-btn {
+  background: var(--actauto-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+.actauto-consultation-btn:hover {
+  background: var(--actauto-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.3);
+}
+
+.actauto-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #334155;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.actauto-mobile-drawer {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px 24px;
+}
+
+.actauto-mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.actauto-mobile-links button {
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.actauto-mobile-links button.active {
+  color: var(--actauto-primary);
+}
+
+.actauto-mobile-cta {
+  background: var(--actauto-primary) !important;
+  color: #ffffff !important;
+  border-radius: 20px;
+  padding: 10px 16px !important;
+  text-align: center !important;
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   2. HERO SECTION
+   ========================================================================== */
+.actauto-hero-section {
+  position: relative;
+  margin-top: 72px;
+  min-height: 440px;
+  background-image: url("/images/Actaqua back.png");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.actauto-hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(7, 24, 48, 0.94) 0%,
+    rgba(7, 28, 56, 0.9) 45%,
+    rgba(8, 38, 76, 0.45) 70%,
+    rgba(9, 45, 90, 0.15) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.actauto-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 36px;
+  box-sizing: border-box;
+}
+
+.actauto-hero-content {
+  max-width: 680px;
+}
+
+/* Breadcrumbs */
+.actauto-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.actauto-breadcrumbs span {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.actauto-breadcrumbs span:hover {
+  color: #38bdf8;
+}
+
+.actauto-bc-sep {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.actauto-bc-current {
+  color: #ffffff;
+  font-weight: 700;
+  cursor: default !important;
+}
+
+.actauto-hero-title {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(2.1rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.actauto-hero-subtitle {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.2px;
+}
+
+.actauto-hero-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #cbd5e1;
+  margin: 0 0 24px 0;
+}
+
+/* 5 Badges / Pills */
+.actauto-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actauto-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(11, 36, 70, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f8fafc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.actauto-badge-icon {
+  font-size: 15px;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   3. SUBNAV ACTION BAR
+   ========================================================================== */
+.actauto-subnav-bar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 72px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.actauto-subnav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 36px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.actauto-subnav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 100%;
+  overflow-x: auto;
+}
+
+.actauto-subnav-tab {
+  background: none;
+  border: none;
+  position: relative;
+  height: 100%;
+  font-family: "Outfit", sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.actauto-subnav-tab:hover {
+  color: var(--actauto-primary);
+}
+
+.actauto-subnav-tab.active {
+  color: var(--actauto-primary);
+  font-weight: 800;
+}
+
+.actauto-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--actauto-primary);
+  border-radius: 3px 3px 0 0;
+}
+
+.actauto-quote-btn {
+  background: var(--actauto-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 9px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(0, 102, 204, 0.2);
+}
+
+.actauto-quote-btn:hover {
+  background: var(--actauto-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(0, 102, 204, 0.28);
+}
+
+/* ==========================================================================
+   4. MAIN LAYOUT (Sidebar + Content Column)
+   ========================================================================== */
+.actauto-main-section {
+  padding: 28px 0 40px;
+  background: #f8fafc;
+  flex: 1;
+}
+
+.actauto-layout-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 36px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* 4A. LEFT SIDEBAR: ALL SOLUTIONS */
+.actauto-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1px solid var(--actauto-border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+}
+
+.actauto-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 8px;
+}
+
+.actauto-sidebar-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #e0f2fe;
+  color: var(--actauto-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.actauto-sidebar-header h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.actauto-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.actauto-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.actauto-sidebar-item:hover {
+  background: #f1f5f9;
+}
+
+.actauto-sidebar-item.active {
+  background: var(--actauto-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.22);
+}
+
+.actauto-sidebar-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.actauto-sidebar-item.active .actauto-sidebar-thumb {
+  background: #ffffff;
+  border-color: transparent;
+}
+
+.actauto-sidebar-thumb img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+.actauto-sidebar-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  flex: 1;
+  color: #334155;
+  line-height: 1.25;
+}
+
+.actauto-sidebar-item.active .actauto-sidebar-name {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.actauto-sidebar-arrow {
+  font-size: 10px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+}
+
+.actauto-sidebar-item.active .actauto-sidebar-arrow {
+  color: #ffffff;
+}
+
+/* 4B. RIGHT CONTENT COLUMN */
+.actauto-content-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* Universal Card Design */
+.actauto-card {
+  background: #ffffff;
+  border: 1px solid var(--actauto-border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+}
+
+.actauto-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.actauto-card-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+/* Grid Rows */
+.actauto-grid-row {
+  display: grid;
+  gap: 20px;
+}
+
+.actauto-row-top {
+  grid-template-columns: 1.45fr 1fr;
+}
+
+.actauto-row-mid {
+  grid-template-columns: 1.35fr 1fr;
+}
+
+/* ==========================================================================
+   4C. CARD: SYSTEM DIAGRAM
+   ========================================================================== */
+.actauto-diagram-custom-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--actauto-border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+}
+
+.actauto-diagram-full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.actauto-diagram-3d-hotspot {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--actauto-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+
+.actauto-diagram-3d-hotspot:hover {
+  background: #eff6ff;
+  border-color: var(--actauto-primary);
+  transform: translateY(-1px);
+}
+
+.actauto-3d-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  padding: 5px 12px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actauto-3d-btn:hover,
+.actauto-3d-btn.active {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #7dd3fc;
+}
+
+.actauto-diagram-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 380px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px 0;
+  box-sizing: border-box;
+}
+
+.actauto-diagram-img-box {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actauto-diagram-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: 330px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.actauto-diagram-img.is-3d {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   4D. CARD: KEY FEATURES
+   ========================================================================== */
+.actauto-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actauto-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.actauto-check-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--actauto-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.actauto-feature-text {
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   4E. CARD: SYSTEM AT A GLANCE
+   ========================================================================== */
+.actauto-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.actauto-glance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.actauto-glance-table tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.actauto-glance-table tr:last-child {
+  border-bottom: none;
+}
+
+.actauto-glance-label {
+  padding: 10px 14px 10px 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748b;
+  width: 38%;
+  white-space: nowrap;
+}
+
+.actauto-glance-val {
+  padding: 10px 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   4F. CARD: CORE OPERATING DATA
+   ========================================================================== */
+.actauto-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.actauto-metric-tile {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.actauto-metric-tile:hover {
+  background: #ffffff;
+  border-color: #bae6fd;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.08);
+}
+
+.actauto-metric-value {
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--actauto-primary);
+  margin-bottom: 4px;
+  line-height: 1.15;
+}
+
+.actauto-metric-desc {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+/* ==========================================================================
+   4G. CARD: PROCESS OUTCOMES
+   ========================================================================== */
+.actauto-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.actauto-outcome-col {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px;
+}
+
+.actauto-outcome-icon {
+  color: var(--actauto-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actauto-outcome-heading {
+  font-family: "Outfit", sans-serif;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.3px;
+}
+
+.actauto-outcome-sub {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Secondary Tabs Content */
+.actauto-tab-card {
+  min-height: 300px;
+}
+
+.actauto-features-grid-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.actauto-applications-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.actauto-app-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.actauto-app-card h4 {
+  font-family: "Outfit", sans-serif;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.actauto-app-card p {
+  font-size: 12.5px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.actauto-downloads-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.actauto-download-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.actauto-dl-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.actauto-pdf-icon {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.actauto-dl-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+.actauto-dl-info strong {
+  font-size: 13.5px;
+  color: #0f172a;
+}
+
+.actauto-dl-info span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.actauto-dl-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.actauto-dl-btn:hover {
+  background: var(--actauto-primary);
+}
+
+/* ==========================================================================
+   5. CALL TO ACTION BANNER (MATCHING COGNITION PAGE SHAPE & GRADIENT)
+   ========================================================================== */
+.actauto-cta-section {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto 36px;
+  padding: 0 28px;
+  box-sizing: border-box;
+}
+
+.actauto-cta-banner {
+  background: linear-gradient(135deg, #071e3d 0%, #0b3c78 60%, #0e4f9c 100%);
+  border-radius: 16px;
+  padding: 34px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  color: #ffffff;
+  box-shadow: 0 10px 32px rgba(11, 60, 120, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.actauto-cta-banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -15%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.28) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.actauto-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.actauto-cta-leaf-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.actauto-cta-leaf-icon {
+  font-size: 24px;
+  color: #38bdf8;
+}
+
+.actauto-cta-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.actauto-cta-title {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.actauto-cta-subtitle {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14.5px;
+  color: #cbd5e1;
+  font-weight: 450;
+  margin: 0;
+  line-height: 1.5;
+  max-width: 660px;
+}
+
+.actauto-cta-btn {
+  background: #ffffff !important;
+  color: #071e3d !important;
+  border: none;
+  border-radius: 9999px !important;
+  padding: 13px 30px !important;
+  font-family: "Outfit", sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  position: relative;
+  z-index: 1;
+}
+
+.actauto-cta-btn:hover {
+  background: #f0f7ff !important;
+  color: #0052a3 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE MEDIA QUERIES (MOBILE & TABLET FRIENDLY)
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .actauto-layout-container {
+    padding: 0 20px;
+    gap: 18px;
+  }
+  .actauto-sidebar {
+    width: 230px;
+  }
+  .actauto-hero-container {
+    padding: 40px 24px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1220px) {
+  .actauto-diagram-container {
+    min-height: 380px;
+    padding: 12px 0;
+  }
+  .actauto-diagram-img-box {
+    height: 340px;
+    max-width: 500px;
+  }
+  .actauto-diagram-img {
+    max-height: 310px;
+  }
+}
+
+@media (max-width: 992px) {
+  .actauto-nav-menu {
+    display: none;
+  }
+  .actauto-mobile-toggle {
+    display: flex;
+  }
+  .actauto-layout-container {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .actauto-sidebar {
+    width: 100%;
+    order: 2;
+    margin-top: 10px;
+  }
+  .actauto-content-column {
+    order: 1;
+    width: 100%;
+  }
+  .actauto-row-top,
+  .actauto-row-mid {
+    grid-template-columns: 1fr;
+  }
+  .actauto-outcomes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  /* SYSTEM DIAGRAM CLEAN CENTERED LAYOUT */
+  .actauto-diagram-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 280px !important;
+    padding: 16px 0 !important;
+  }
+
+  .actauto-diagram-img-box {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    height: auto !important;
+  }
+
+  .actauto-diagram-img {
+    width: 100% !important;
+    max-width: 450px !important;
+    max-height: 280px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .actauto-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+  .actauto-cta-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .actauto-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .actauto-header {
+    height: 60px;
+  }
+  .actauto-nav-container {
+    height: 60px;
+    padding: 0 16px;
+  }
+  .actauto-hero-section {
+    margin-top: 60px;
+    min-height: 400px;
+    background-position: 80% center;
+  }
+  .actauto-hero-bg-layer {
+    background: linear-gradient(
+      to bottom,
+      rgba(7, 24, 48, 0.96) 0%,
+      rgba(7, 28, 56, 0.92) 50%,
+      rgba(8, 38, 76, 0.75) 100%
+    );
+  }
+  .actauto-subnav-bar {
+    top: 60px;
+  }
+  .actauto-consultation-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .actauto-hero-container {
+    padding: 30px 16px 36px;
+  }
+  .actauto-hero-title {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .actauto-hero-subtitle {
+    font-size: 14.5px;
+    line-height: 1.35;
+  }
+  .actauto-hero-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+  .actauto-hero-content {
+    max-width: 100%;
+  }
+  .actauto-badges-row {
+    gap: 6px;
+  }
+  .actauto-badge-pill {
+    padding: 5px 11px;
+    font-size: 11px;
+  }
+  .actauto-subnav-container {
+    padding: 0 14px;
+    gap: 10px;
+  }
+  .actauto-subnav-tabs {
+    gap: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .actauto-subnav-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .actauto-subnav-tab {
+    font-size: 12.5px;
+  }
+  .actauto-quote-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+  }
+  .actauto-main-section {
+    padding: 18px 0 32px;
+  }
+  .actauto-layout-container {
+    padding: 0 12px;
+    gap: 16px;
+  }
+  .actauto-card {
+    padding: 16px 14px;
+    border-radius: 12px;
+  }
+  .actauto-card-title {
+    font-size: 15px;
+  }
+
+  /* Diagram specifically on mobile phones */
+  .actauto-diagram-container {
+    min-height: 220px !important;
+    padding: 8px 0 !important;
+  }
+  .actauto-diagram-img-box {
+    max-width: 100% !important;
+    min-height: 180px !important;
+  }
+  .actauto-diagram-img {
+    max-height: 220px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .actauto-glance-label {
+    width: 42%;
+    font-size: 11.5px;
+    padding: 8px 10px 8px 0;
+  }
+  .actauto-glance-val {
+    font-size: 11.5px;
+    padding: 8px 0;
+  }
+  .actauto-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .actauto-metric-tile {
+    padding: 12px 6px;
+  }
+  .actauto-metric-value {
+    font-size: 16px;
+  }
+  .actauto-metric-desc {
+    font-size: 10.5px;
+  }
+  .actauto-outcomes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .actauto-outcome-heading {
+    font-size: 12px;
+  }
+  .actauto-outcome-sub {
+    font-size: 11.5px;
+  }
+  .actauto-features-grid-list,
+  .actauto-applications-grid {
+    grid-template-columns: 1fr;
+  }
+  .actauto-download-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .actauto-dl-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .actauto-cta-title {
+    font-size: 18px;
+  }
+}
+
+/* Preparation Card for other solutions */
+.actauto-prep-card {
+  padding: 56px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+
+.actauto-prep-icon {
+  color: var(--actauto-primary);
+  margin-bottom: 16px;
+}
+
+.actauto-prep-card h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+}
+
+.actauto-prep-card p {
+  font-size: 14.5px;
+  color: #64748b;
+  max-width: 520px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+.actauto-prep-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.actauto-prep-btn {
+  background: var(--actauto-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actauto-prep-btn:hover {
+  background: var(--actauto-primary-dark);
+}
+
+.actauto-prep-btn.secondary {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.actauto-prep-btn.secondary:hover {
+  background: #e2e8f0;
+}
+

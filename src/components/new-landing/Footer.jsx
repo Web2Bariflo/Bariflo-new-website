@@ -24,7 +24,7 @@ const Footer = ({ hideFutureCognitive = false }) => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={{
             hidden: { opacity: 0, y: 60 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
@@ -41,7 +41,7 @@ const Footer = ({ hideFutureCognitive = false }) => {
         className="nl-footer-bar"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
         <div className="nl-footer-left">

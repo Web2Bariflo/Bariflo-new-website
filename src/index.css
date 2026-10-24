@@ -5,15 +5,23 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
 }
 
 :root {
   color-scheme: light;
 }
 
-/* Base layout and mobile responsive overflow control */
-html,
+/* Base layout and smooth hardware-accelerated root scrolling */
+html {
+  color-scheme: light;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   color-scheme: light;
   margin: 0px !important;
@@ -22,9 +30,11 @@ body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
-  overflow-y: auto;
+  min-height: 100vh;
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #cbd5e1 #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Global Unified Typography Scale */
@@ -219,6 +229,10 @@ nav,
 
 /* Global Uniform Bariflo Navbar Logos Sizing */
 .act-logo-img,
+.actaqua-logo-img,
+.actauto-logo-img,
+.bottom-logo-img,
+.power-logo-img,
 .daf-logo-img,
 .coag-logo-img,
 .sed-logo-img,
@@ -229,7 +243,7 @@ nav,
 .fstp-logo-img {
   height: 52px !important;
   width: auto !important;
-  max-height: 52px !important;
+  max-height: 54px !important;
   object-fit: contain !important;
   transform: scale(1.35) !important;
   transform-origin: left center !important;
@@ -237,6 +251,10 @@ nav,
 }
 
 .act-logo-link:hover .act-logo-img,
+.actaqua-logo-link:hover .actaqua-logo-img,
+.actauto-logo-link:hover .actauto-logo-img,
+.bottom-logo-link:hover .bottom-logo-img,
+.power-logo-link:hover .power-logo-img,
 .daf-logo-link:hover .daf-logo-img,
 .coag-logo-link:hover .coag-logo-img,
 .sed-logo-link:hover .sed-logo-img,

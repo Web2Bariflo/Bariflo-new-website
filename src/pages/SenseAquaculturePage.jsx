@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Typewriter from 'typewriter-effect';
 import { motion, AnimatePresence } from 'framer-motion';
 import './NewLandingPage.css';
 import './SenseAquaculturePage.css';
@@ -234,24 +233,14 @@ const SenseAquaculturePage = () => {
       {/* Hero Section */}
       <section className="sense-hero-section">
         <div className="sense-hero-left">
-          <div className="sense-hero-text-container" style={{ minHeight: '230px', marginBottom: '20px' }}>
-            <Typewriter
-              options={{
-                autoStart: true,
-                loop: true,
-                delay: 40,
-                deleteSpeed: 20,
-              }}
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString('<h1 class="sense-hero-title">Sensing in Action:<br /><span style="color: #0066CC">Aquaculture</span></h1>')
-                  .pauseFor(400)
-                  .typeString('<p class="sense-hero-desc">Our intelligent sampler collects water from the pond and delivers it to the integrated sensing chamber for real-time, multi-parameter analysis.</p>')
-                  .pauseFor(6000)
-                  .deleteAll()
-                  .start();
-              }}
-            />
+          <div className="sense-hero-text-container">
+            <h1 className="sense-hero-title">
+              Sensing in Action:<br />
+              <span>Aquaculture</span>
+            </h1>
+            <p className="sense-hero-desc">
+              Our intelligent sampler collects water from the pond and delivers it to the integrated sensing chamber for real-time, multi-parameter analysis.
+            </p>
           </div>
 
           <div className="sense-hero-features-grid">

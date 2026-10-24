@@ -1,0 +1,1243 @@
+/* ==========================================================================
+   ACT - AQUACULTURE SOLUTIONS STYLESHEET
+   Matching screenshot design, fully responsive for Desktop, Tablet & Mobile
+   ========================================================================== */
+
+:root {
+  --aqua-primary: #0066cc;
+  --aqua-primary-hover: #0052a3;
+  --aqua-accent: #38bdf8;
+  --aqua-accent-light: #e0f2fe;
+  --aqua-dark: #07192f;
+  --aqua-navy: #0f2942;
+  --aqua-gray-50: #f8fafc;
+  --aqua-gray-100: #f1f5f9;
+  --aqua-gray-200: #e2e8f0;
+  --aqua-gray-300: #cbd5e1;
+  --aqua-gray-500: #64748b;
+  --aqua-gray-700: #334155;
+  --aqua-gray-900: #0f172a;
+}
+
+.actaqua-page-wrapper {
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: var(--aqua-gray-900);
+  padding-top: 130px;
+  margin-top: 0;
+  overflow-x: hidden;
+}
+
+.actaqua-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. Header & Navigation (Fixed Top)
+   ========================================================================== */
+.actaqua-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--aqua-gray-200);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.actaqua-nav-container {
+  width: 100%;
+  padding: 10px 28px 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.actaqua-nav-left-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.actaqua-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.actaqua-logo-img {
+  height: 52px !important;
+  width: auto !important;
+  max-height: 52px !important;
+  object-fit: contain !important;
+  transform: scale(1.35) !important;
+  transform-origin: left center !important;
+  transition: transform 0.2s ease !important;
+}
+
+.actaqua-logo-link:hover .actaqua-logo-img {
+  transform: scale(1.42) !important;
+}
+
+/* Center Menu Links */
+.actaqua-nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 720px;
+}
+
+.actaqua-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.actaqua-nav-item {
+  color: #334155;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.actaqua-nav-item:hover {
+  color: var(--aqua-primary);
+}
+
+.actaqua-nav-item.active {
+  color: var(--aqua-primary);
+}
+
+.actaqua-nav-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--aqua-primary);
+  border-radius: 2px;
+}
+
+/* Nav Actions Right */
+.actaqua-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.actaqua-search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.actaqua-search-btn {
+  background: transparent;
+  border: none;
+  color: #334155;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.actaqua-search-btn:hover {
+  background: #f1f5f9;
+  color: var(--aqua-primary);
+}
+
+.actaqua-search-input-box {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid var(--aqua-primary);
+  border-radius: 9999px;
+  padding: 4px 12px 4px 14px;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.15);
+  z-index: 10;
+  width: 240px;
+}
+
+.actaqua-search-input-box input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  width: 100%;
+  background: transparent;
+}
+
+.actaqua-search-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+}
+
+.actaqua-btn-consultation {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0052a3 0%, #0066cc 100%);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25);
+  white-space: nowrap;
+}
+
+.actaqua-btn-consultation:hover {
+  background: linear-gradient(135deg, #004080 0%, #0052a3 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 102, 204, 0.35);
+}
+
+.actaqua-mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #0f172a;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* ==========================================================================
+   Full Width Subnav Tabs Bar (Matching Screenshot)
+   ========================================================================== */
+.actaqua-subnav-tabs-bar {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #cbd5e1;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+.actaqua-subnav-tab {
+  flex: 1;
+  width: 50%;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: #f8fafc;
+  color: #475569;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  border-right: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.actaqua-subnav-tab:last-child {
+  border-right: none;
+}
+
+.actaqua-subnav-tab:hover:not(.active) {
+  background: #f1f5f9;
+  color: var(--aqua-primary);
+}
+
+.actaqua-subnav-tab.active {
+  background: linear-gradient(135deg, #0052a3 0%, #0066cc 60%, #0284c7 100%);
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow: inset 0 -3px 0 #38bdf8, 0 4px 16px rgba(0, 102, 204, 0.25);
+  text-shadow: 0 1px 2px rgba(0, 30, 80, 0.25);
+}
+
+/* Mobile Drawer */
+.actaqua-mobile-drawer {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.actaqua-mobile-nav-inner {
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.actaqua-mobile-tabs-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.actaqua-mobile-subnav-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #334155;
+  cursor: pointer;
+}
+
+.actaqua-mobile-subnav-btn.active {
+  background: var(--aqua-primary);
+  color: #ffffff;
+  border-color: var(--aqua-primary);
+}
+
+.actaqua-mobile-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.actaqua-mobile-link.active {
+  color: var(--aqua-primary);
+}
+
+.actaqua-mobile-btn-cta {
+  margin-top: 10px;
+  background: var(--aqua-primary);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   2. Hero Section (Aquaculture Lake Floating Cages & Mountain Background)
+   ========================================================================== */
+.actaqua-hero-section {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--aqua-dark);
+}
+
+.actaqua-hero-bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.actaqua-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  opacity: 0.88;
+}
+
+.actaqua-hero-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 20, 39, 0.96) 0%,
+    rgba(6, 23, 48, 0.88) 42%,
+    rgba(6, 26, 56, 0.6) 75%,
+    rgba(6, 26, 56, 0.35) 100%
+  );
+}
+
+.actaqua-hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 72px 28px 32px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: flex-end;
+  gap: 36px;
+  box-sizing: border-box;
+}
+
+.actaqua-hero-left {
+  max-width: 640px;
+  padding-top: 10px;
+}
+
+.actaqua-hero-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #7dd3fc;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.actaqua-hero-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--app-hero-heading-size, 42px);
+  line-height: 1.15;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.actaqua-hero-title-accent {
+  color: #38bdf8;
+  display: inline-block;
+}
+
+.actaqua-hero-description {
+  font-size: var(--app-content-size, 15px);
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0 0 28px 0;
+  max-width: 560px;
+}
+
+/* 5 Circular Value Badges */
+.actaqua-value-badges-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.actaqua-value-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 41, 66, 0.65);
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px 6px 6px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.actaqua-value-badge-item:hover {
+  background: rgba(15, 41, 66, 0.9);
+  border-color: rgba(56, 189, 248, 0.6);
+  transform: translateY(-2px);
+}
+
+.actaqua-value-icon-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7dd3fc;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.actaqua-value-text {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+/* Flowchart Card (Right Hero) */
+.actaqua-hero-right {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  margin-top: 36px;
+  margin-bottom: 4px;
+}
+
+.actaqua-flowchart-card {
+  background: rgba(9, 44, 88, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 18px;
+  padding: 22px 24px 22px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.actaqua-flowchart-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 18px 0;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.actaqua-flowchart-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.actaqua-flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.actaqua-flow-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--aqua-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+  transition: transform 0.2s ease;
+}
+
+.actaqua-flow-step:hover .actaqua-flow-step-icon {
+  transform: scale(1.1);
+  background: #e0f2fe;
+}
+
+.actaqua-flow-step-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #cbd5e1;
+  line-height: 1.25;
+  max-width: 80px;
+  letter-spacing: 0.2px;
+}
+
+.actaqua-flow-arrow {
+  color: #38bdf8;
+  font-size: 14px;
+  margin-bottom: 22px;
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   3. Breadcrumb Bar
+   ========================================================================== */
+.actaqua-breadcrumb-bar {
+  background: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 16px 0;
+}
+
+.actaqua-breadcrumb-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.actaqua-breadcrumb-link {
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.actaqua-breadcrumb-link:hover {
+  color: var(--aqua-primary);
+}
+
+.actaqua-breadcrumb-separator {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.actaqua-breadcrumb-current {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   4. Our Solutions Section (Grid of 5 Products)
+   ========================================================================== */
+.actaqua-solutions-section {
+  padding: 36px 0 60px;
+  background-color: #f8fafc;
+}
+
+.actaqua-solutions-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.actaqua-solutions-title-group {
+  max-width: 780px;
+}
+
+.actaqua-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.actaqua-section-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--app-section-heading-size, 30px);
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.actaqua-heading-dash {
+  width: 42px;
+  height: 4px;
+  background-color: var(--aqua-primary);
+  border-radius: 2px;
+}
+
+.actaqua-solutions-subheading {
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Filter Dropdown */
+.actaqua-filter-dropdown-container {
+  position: relative;
+}
+
+.actaqua-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #0f172a;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.actaqua-filter-btn:hover {
+  border-color: var(--aqua-primary);
+  color: var(--aqua-primary);
+}
+
+.actaqua-filter-caret {
+  transition: transform 0.2s ease;
+}
+
+.actaqua-filter-caret.open {
+  transform: rotate(180deg);
+}
+
+.actaqua-filter-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  width: 220px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.actaqua-filter-menu-item {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.actaqua-filter-menu-item:hover {
+  background: #f1f5f9;
+  color: var(--aqua-primary);
+}
+
+.actaqua-filter-menu-item.active {
+  background: #e0f2fe;
+  color: var(--aqua-primary);
+  font-weight: 700;
+}
+
+/* Products Grid */
+.actaqua-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.actaqua-product-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+}
+
+.actaqua-product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 102, 204, 0.12);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+/* Number Badge */
+.actaqua-card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #f1f5f9;
+  color: var(--aqua-primary);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  z-index: 2;
+}
+
+/* Card Image Box */
+.actaqua-card-image-box {
+  width: 100%;
+  height: 230px;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.actaqua-card-img {
+  max-width: 92%;
+  max-height: 92%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.actaqua-product-card:hover .actaqua-card-img {
+  transform: scale(1.05);
+}
+
+/* Card Bottom Row */
+.actaqua-card-bottom-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.actaqua-card-info {
+  flex: 1;
+}
+
+.actaqua-card-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+.actaqua-card-tagline {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.actaqua-card-arrow-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  color: var(--aqua-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.actaqua-product-card:hover .actaqua-card-arrow-circle {
+  background: var(--aqua-primary);
+  border-color: var(--aqua-primary);
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   5. CTA Pill Banner (Matching Screenshot)
+   ========================================================================== */
+.actaqua-cta-section {
+  width: 100%;
+  padding: 0 0 42px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.actaqua-cta-pill-banner {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: linear-gradient(135deg, #071e3d 0%, #0b3c78 60%, #0e4f9c 100%);
+  border-radius: 0;
+  padding: 32px 5%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 8px 30px rgba(11, 60, 120, 0.25);
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.actaqua-cta-pill-banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle,
+      rgba(0, 102, 204, 0.3) 0%,
+      transparent 70%);
+  pointer-events: none;
+}
+
+.actaqua-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 760px;
+  position: relative;
+  z-index: 1;
+}
+
+.actaqua-cta-leaf-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.actaqua-cta-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.actaqua-cta-title {
+  font-family: "Outfit", "Inter", sans-serif;
+  font-size: clamp(1.25rem, 1.9vw, 1.6rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+  letter-spacing: -0.2px;
+}
+
+.actaqua-cta-subtitle {
+  font-size: 13px;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.actaqua-cta-talk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0a2540;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.actaqua-cta-talk-btn:hover {
+  background: #f0f7ff;
+  color: #0a2540;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   6. Product Detail Modal
+   ========================================================================== */
+.actaqua-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 25, 47, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.actaqua-modal-box {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  padding: 32px 36px;
+  box-sizing: border-box;
+}
+
+.actaqua-modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.actaqua-modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.actaqua-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.actaqua-modal-badge {
+  display: inline-block;
+  background: #e0f2fe;
+  color: var(--aqua-primary);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.actaqua-modal-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.actaqua-modal-category-tag {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.actaqua-modal-img-container {
+  width: 100%;
+  height: 260px;
+  background: #f8fafc;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+.actaqua-modal-img {
+  max-width: 92%;
+  max-height: 92%;
+  object-fit: contain;
+}
+
+.actaqua-modal-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.actaqua-modal-section-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 14px 0;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+
+.actaqua-modal-specs-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.actaqua-spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.actaqua-spec-key {
+  font-weight: 700;
+  color: #334155;
+}
+
+.actaqua-spec-val {
+  color: #64748b;
+  text-align: right;
+}
+
+.actaqua-modal-features-list {
+  padding-left: 20px;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.actaqua-modal-inquire-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--aqua-primary);
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25);
+}
+
+.actaqua-modal-inquire-btn:hover {
+  background: var(--aqua-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   7. Responsive Breakpoints (Tablet & Mobile Friendly)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .actaqua-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .actaqua-hero-content-wrapper {
+    grid-template-columns: 1fr;
+    padding-top: 54px;
+    gap: 28px;
+  }
+  .actaqua-hero-right {
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+  .actaqua-flowchart-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .actaqua-page-wrapper {
+    padding-top: 124px;
+  }
+  .actaqua-nav-links,
+  .actaqua-nav-center {
+    display: none;
+  }
+  .actaqua-mobile-menu-toggle {
+    display: flex;
+  }
+  .actaqua-cta-pill-banner {
+    border-radius: 0;
+    padding: 24px 20px;
+  }
+  .actaqua-cta-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .actaqua-cta-talk-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .actaqua-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .actaqua-page-wrapper {
+    padding-top: 116px;
+  }
+  .actaqua-hero-title {
+    font-size: 28px;
+  }
+  .actaqua-hero-content-wrapper {
+    padding: 36px 16px 24px;
+  }
+  .actaqua-flowchart-steps {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+  .actaqua-flow-arrow {
+    display: none;
+  }
+  .actaqua-products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .actaqua-subnav-tab {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    min-height: 46px;
+  }
+  .actaqua-modal-box {
+    padding: 24px 18px;
+  }
+  .actaqua-btn-consultation {
+    display: none;
+  }
+}

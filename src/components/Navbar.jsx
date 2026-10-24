@@ -10,7 +10,7 @@ import { FiChevronLeft } from "react-icons/fi";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    overflow: ${({ menuOpen }) => (menuOpen ? "hidden" : "auto")};
+    ${({ menuOpen }) => (menuOpen ? "overflow: hidden;" : "")}
   }
 `;
 
@@ -205,10 +205,10 @@ export default function Navbar({ textWhite = false }) {
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
+      setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const toggleMenu = () => {
