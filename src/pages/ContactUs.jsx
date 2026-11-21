@@ -317,7 +317,7 @@ export default function ContactUs() {
                 Bhubaneswar, Odisha - 751024
                 <br />
                 <p>HR Department: +91 9777171033</p>
-                <p>Administrator: +91 9124562924</p>
+
                 <strong>Email: </strong>
                 <p><a href="mailto:care@bariflolabs.com">care@bariflolabs.com</a></p>
                 <p><a href="mailto:human@bariflolabs.com">human@bariflolabs.com</a> </p>
